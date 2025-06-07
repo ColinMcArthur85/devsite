@@ -18,7 +18,7 @@ jobs:
       - name: Build static site
         run: |
           mkdir -p previews/pr-${PR_NUM}
-          cp public/index.php previews/pr-${PR_NUM}/index.html
+          cp public/index.html previews/pr-${PR_NUM}/index.html
           cp -r public/assets previews/pr-${PR_NUM}/
 
       - name: Deploy to GitHub Pages
