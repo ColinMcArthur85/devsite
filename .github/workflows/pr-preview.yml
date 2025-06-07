@@ -29,7 +29,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./previews/pr-${PR_NUM}
-          publish_branch: gh-pages
+          publish_branch: gh-pages-preview
 
       - name: Comment preview URL on PR
         uses: marocchino/sticky-pull-request-comment@v2
