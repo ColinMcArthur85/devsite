@@ -9,11 +9,16 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # <-- Add this!
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      # Optional: If you have a build step (npm run build), it goes here.
+
+      - name: Create .nojekyll
+        run: touch ./public/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
