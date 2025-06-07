@@ -1,0 +1,28 @@
+@layer components {
+  /* Containers */
+  .container-wrapper {
+    @apply container mx-auto px-4;
+  }
+  /* Icon Container */
+  .icon-container {
+    @apply mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10;
+  }
+
+  /* Section Heading Components */
+  .section-title {
+    @apply mb-4 text-center text-3xl font-bold md:text-4xl;
+  }
+  .section-subtitle {
+    @apply mb-16 text-center text-xl text-gray-600 dark:text-gray-400;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white;
+  }
+  .progress-bar-fill {
+    @apply h-full rounded-full bg-gradient-to-r from-primary to-secondary;
+  }
+}
+
+/* Bring over the terminal-content when refactoring */

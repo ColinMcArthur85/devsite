@@ -1,0 +1,25 @@
+/* Base values so the sprite doesn't 'flicker' when the page is loading */
+#brows {
+  @apply -translate-y-20;
+}
+
+#eyes {
+  @apply -translate-y-[150%];
+}
+
+#mouth {
+  @apply translate-y-[240%];
+}
+
+#glasses {
+  @apply -translate-y-[69px];
+}
+
+.avatar-container {
+  image-rendering: pixelated;
+  @apply relative w-full;
+}
+
+.avatar-layer {
+  @apply pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+}

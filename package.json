@@ -1,0 +1,23 @@
+{
+  "name": "devsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css",
+    "watch": "tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailgrids": "^2.3.0",
+    "tailwindcss": "^4.1.5"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.4"
+  }
+}

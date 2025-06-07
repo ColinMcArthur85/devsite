@@ -1,0 +1,26 @@
+@layer components {
+  .card {
+    @apply dark:bg-dark-background overflow-hidden rounded-lg bg-white p-8;
+  }
+
+  .card-icon {
+    @apply mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10;
+  }
+
+  .card-title {
+    @apply mb-4 text-xl font-bold;
+  }
+
+  .card-body {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+
+  /* Effects */
+  .card-shadow {
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  .card-hoverable {
+    @apply transform transition-all duration-300 hover:-translate-y-1;
+  }
+}
