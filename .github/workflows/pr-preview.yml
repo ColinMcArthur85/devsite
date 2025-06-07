@@ -25,7 +25,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./previews
+          publish_dir: ./previews/pr-${PR_NUM}
           publish_branch: gh-pages
 
       - name: Comment preview URL on PR
