@@ -15,7 +15,7 @@ jobs:
       - name: Build site (no real build)
         run: |
           mkdir dist
-          cp public/index.php dist/index.html
+          cp public/index.html dist/index.html
           cp -r public/assets dist/
 
       - name: Deploy to GitHub Pages root
