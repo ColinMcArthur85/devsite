@@ -30,7 +30,7 @@ const images = {
     smile: `${basePath}/Mouth/smile.png`,
   },
   glasses: {
-    default: `${basePath}/Glasses/Glasses.png`,
+    default: `${basePath}/Glasses/glasses.png`,
   },
 };
 
