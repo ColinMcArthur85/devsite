@@ -1,488 +1,519 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0070f3" />
+    <meta name="description" content="Colin McArthur Developer Portfolio Site" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0070f3">
-  <meta name="description" content="Colin McArthur Developer Portfolio Site">
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
+    <title>Colin McArthur Developer Website</title>
+  </head>
 
-  <title>Colin McArthur Developer Website</title>
-</head>
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <!-- Dark mode background gradients -->
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
 
-<body class="font-sans text-gray-900 dark:text-white bg-white dark:bg-dark-background transition-colors duration-300">
-  <!-- Dark mode background gradients -->
-  <div class="fixed inset-0 -z-10 opacity-0 dark:opacity-100 transition-opacity duration-500 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
-  </div>
-
-  <!-- Header -->
-  <header class="fixed w-full top-0 z-50 bg-white/95 dark:bg-dark-background/95 backdrop-blur-sm shadow-sm transition-all duration-300">
-    <div class="container-wrapper">
-      <nav class="flex justify-between items-center py-4">
-        <div flex items-center>
-          <span class="text-xl font-extrabold">Colin McArthur</span>
-          <span class="text-primary text-2xl ml-1">●</span>
-        </div>
-        <ul class="hidden md:flex space-x-8">
-          <li>
-            <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Showcase</a>
-          </li>
-          <li>
-            <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-          </li>
-          <li>
-            <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
-          </li>
-          <li>
-            <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
-          </li>
-          <li>
-            <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-          </li>
-        </ul>
-        <div class="flex items-center space-x-4">
-          <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
-          <button id="menuToggle" class="md:hidden p-2">
-            <div class="w-6 h-5 flex flex-col justify-between">
-              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-            </div>
+    <!-- Header -->
+    <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
+      <div class="container-wrapper">
+        <nav class="flex items-center justify-between py-4">
+          <div flex items-center>
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <ul class="hidden space-x-8 md:flex">
+            <li>
+              <a href="#features" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+            </li>
+            <li>
+              <a href="#about" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
+            </li>
+            <li>
+              <a href="#skills" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+            </li>
+            <li>
+              <a href="#contact" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+            </li>
+          </ul>
+          <div class="flex items-center space-x-4">
+            <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
+            <button id="menuToggle" class="p-2 md:hidden">
+              <div class="flex h-5 w-6 flex-col justify-between">
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+              </div>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="dark:bg-dark-background fixed inset-0 z-50 translate-x-full transform bg-white duration-300 md:hidden">
+      <div class="container-wrapper flex h-full flex-col">
+        <div class="flex items-center justify-between py-4">
+          <div class="flex items-center">
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <button id="closeMenu" class="p-2">
+            <i class="fa-solid fa-square-xmark text-2xl text-gray-600 dark:text-gray-400"></i>
           </button>
         </div>
-      </nav>
-    </div>
-  </header>
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-dark-background z-50 transform translate-x-full  duration-300 md:hidden">
-    <div class="container-wrapper h-full flex flex-col">
-      <div class="flex justify-between items-center py-4">
-        <div class="flex items-center">
-          <span class="text-xl font-extrabold">Colin McArthur</span>
-          <span class="text-primary text-2xl ml-1">●</span>
-        </div>
-        <button id="closeMenu" class="p-2">
-          <i class="fa-solid fa-square-xmark text-gray-600 dark:text-gray-400 text-2xl "></i>
-        </button>
-      </div>
-      <ul class="flex-1 flex flex-col justify-center items-center space-y-8">
-        <li>
-          <a href="#features" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Showcase</a>
-        </li>
-        <li>
-          <a href="#about" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">about</a>
-        </li>
-        <li>
-          <a href="#skills" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
-        </li>
-        <li>
-          <a href="#projects" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
-        </li>
-        <li>
-          <a href="#contact" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden">
-    <div class="container-wrapper">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-          <div class="mb-6">Colin McArthur</div>
-          <div class="text-2xl md:text-4xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Developer | Frontend Expert | IT Specialist</div>
-        </h1>
-        <p class="text-xl md:text-2x text-gray-600 dark:text-gray-400 mb-8">Crafting <strong>front-end solutions, solving complex technical puzzles, while providing customer service</strong> that’s as responsive as the websites I create.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <a href="#projects" class="btn btn-primary">View Projects
-          </a>
-          <a href="#about" class="btn btn-secondary">Learn More</a>
-        </div>
-        <div class="bg-gray-100 dark:bg-dark-background-secondary rounded-lg overflow-hidden shadow-lg max-w-2xl mx-auto" id="terminal-container">
-          <div class="flex items-center space-x-2 p-3 bg-gray-200 dark:bg-dark-background-tertiary">
-            <span class="w-3 h-3 rounded-full bg-red-500"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-            <span class="w-3 h-3 rounded-full bg-green-500"></span>
-          </div>
-          <div class="p-6 font-mono terminal-content">
-            <span class="text-green-500">colinmcarthur@dev ~/portfolio %</span>
-            <span class="command-text text-gray-900 dark:text-white"></span>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">What's in my Toolkit</h2>
-      <p class="section-subtitle">
-        Everything needed to build great products on the web.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Feature Card 1 -->
-        <div class="card card-hoverable card-shadow">
-          <div class="card-icon">
-            <i class="fa-solid fa-paintbrush text-primary text-xl"></i>
-          </div>
-          <h3 class="card-title">Modern UI Design</h3>
-          <p class="card-body">Creating beautiful, responsive interfaces that look great on any device using the latest design trends.</p>
-        </div>
-        <!-- Feature Card 2 -->
-        <div class="card card-hoverable card-shadow">
-          <div class="card-icon">
-            <i class="fa-solid fa-code text-primary text-xl"></i>
-          </div>
-          <h3 class="card-title">Clean code</h3>
-          <p class="card-body">Writing maintainable, efficient code following best practices and modern development standards.</p>
-        </div>
-        <!-- Feature Card 3 -->
-        <div class="card card-hoverable card-shadow">
-          <div class="card-icon">
-            <i class="fa-solid fa-bolt text-primary text-xl"></i>
-          </div>
-          <h3 class="card-title">Performance Optimization</h3>
-          <p class="card-body">Ensuring fast load times and smooth expereinces through efficient code and asset optimiation.</p>
-        </div>
-        <!-- Feature Card 4 -->
-        <div class="card card-hoverable card-shadow">
-          <div class="card-icon">
-            <i class="fa-solid fa-mobile-alt text-primary text-xl"></i>
-          </div>
-          <h3 class="card-title">Responsive Development</h3>
-          <p class="card-body">Building websites that work flawlessly across all screen sizes, from phone to large displays.</p>
-        </div>
+        <ul class="flex flex-1 flex-col items-center justify-center space-y-8">
+          <li>
+            <a href="#features" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+          </li>
+          <li>
+            <a href="#about" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">about</a>
+          </li>
+          <li>
+            <a href="#skills" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+          </li>
+          <li>
+            <a href="#projects" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+          </li>
+          <li>
+            <a href="#contact" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+          </li>
+        </ul>
       </div>
     </div>
 
-  </section>
-
-  <!-- About Section -->
-
-  <section id="about" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="text-xl text-gray-900 dark:text-white mb-6">
-          <h2 class="section-title text-left">About Me</h2>
-          <div class="space-y-8">
-            <div class="space-y-4">
-              <h3 class="font-bold text-gray-900 dark:text-white">Frontend Development</h3>
-              <p>With advanced expertise in HTML and CSS, alongside growing skills in JavaScript, PHP, and MySQL, I craft clean, responsive websites and intuitive interfaces. I leverage modern design frameworks such as Tailwind, SASS, Bootstrap, and Froala to deliver polished frontend solutions.</p>
-            </div>
-            <div class="space-y-4">
-              <h3 class="font-bold text-gray-900 dark:text-white">Technical Support and Infrastructure Management</h3>
-              <p>From domain management and SSL setup to debugging and custom server configurations, I wear multiple hats to keep web operations smooth. I'm skilled in managing email systems, DNS records, CDN integration with bunny.net, and troubleshooting via tools like mail-tester.com, zerobounce, Rollbar, and Jira.</p>
-            </div>
-            <div class="mb-8">
-              <h3 class="font-bold text-gray-900 dark:text-white">Creative Problem-Solving</h3>
-              <p>Whether it's crafting custom scripts to enhance usability or developing webpage templates tailored to user needs, I enjoy diving into challenges headfirst. A notable recent achievement was developing a JavaScript solution that dynamically overlays recommended image dimensions directly onto webpage images, significantly improving user experience.</p>
-            </div>
+    <!-- Hero Section -->
+    <section id="hero" class="relative flex min-h-screen items-center overflow-hidden pb-16 pt-20">
+      <div class="container-wrapper">
+        <div class="mx-auto max-w-4xl text-center">
+          <h1 class="mb-6 text-4xl font-bold md:text-6xl">
+            <div class="mb-6">Colin McArthur</div>
+            <div class="to-accent bg-gradient-to-r from-primary via-secondary bg-clip-text text-2xl text-transparent md:text-4xl">Developer | Frontend Expert | IT Specialist</div>
+          </h1>
+          <p class="md:text-2x mb-8 text-xl text-gray-600 dark:text-gray-400">
+            Crafting
+            <strong>front-end solutions, solving complex technical puzzles, while providing customer service</strong>
+            that’s as responsive as the websites I create.
+          </p>
+          <div class="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
           </div>
-          <div class="flex flex-col sm:flex-row gap-4 mt-8">
-            <a href="#contact" class="btn-primary">Contact Me</a>
-            <a href="#" class="btn-secondary">Download Resume</a>
+          <div class="dark:bg-dark-background-secondary mx-auto max-w-2xl overflow-hidden rounded-lg bg-gray-100 shadow-lg" id="terminal-container">
+            <div class="dark:bg-dark-background-tertiary flex items-center space-x-2 bg-gray-200 p-3">
+              <span class="h-3 w-3 rounded-full bg-red-500"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500"></span>
+            </div>
+            <div class="terminal-content p-6 font-mono">
+              <span class="text-green-500">colinmcarthur@dev ~/portfolio %</span>
+              <span class="command-text text-gray-900 dark:text-white"></span>
+            </div>
           </div>
         </div>
-        <div class="relative flex justify-center">
-          <div class="flex w-3/4 h-3/4 justify-center max-auto animate-morph bg-gradient-to-br from-primary via-secondary to-accent rounded-full relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/50 via-secondary/50 to-accent/50 rounded-full blur-2xl animate-morph"></div>
-            <div class="relative z-10 inline-block pt-11 lg:pt-0">
-              <div class="pt-6 pl-6 pr-6 pb-0">
-                <div class="avatar-container">
-                  <img class="max-w-none" id="head" src="./assets/images/sprites/colin_avatar/Head/head_forward_1.png" alt="Avatar" />
-                  <img class="avatar-layer" id="brows" src="./assets/images/sprites/colin_avatar/Brows/brows_neutral.png" alt="Avatar" />
-                  <img class="avatar-layer" id="eyes" src="./assets/images/sprites/colin_avatar/Eyes/open_forward.png" alt="Avatar" />
-                  <img class="avatar-layer" id="glasses" src="./assets/images/sprites/colin_avatar/Glasses/Glasses.png" alt="Avatar" />
-                  <img class="avatar-layer" id="mouth" src="./assets/images/sprites/colin_avatar/Mouth/smile.png" alt="Avatar" />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">What's in my Toolkit</h2>
+        <p class="section-subtitle">Everything needed to build great products on the web.</p>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Feature Card 1 -->
+          <div class="card card-hoverable card-shadow">
+            <div class="card-icon">
+              <i class="fa-solid fa-paintbrush text-xl text-primary"></i>
+            </div>
+            <h3 class="card-title">Modern UI Design</h3>
+            <p class="card-body">Creating beautiful, responsive interfaces that look great on any device using the latest design trends.</p>
+          </div>
+          <!-- Feature Card 2 -->
+          <div class="card card-hoverable card-shadow">
+            <div class="card-icon">
+              <i class="fa-solid fa-code text-xl text-primary"></i>
+            </div>
+            <h3 class="card-title">Clean code</h3>
+            <p class="card-body">Writing maintainable, efficient code following best practices and modern development standards.</p>
+          </div>
+          <!-- Feature Card 3 -->
+          <div class="card card-hoverable card-shadow">
+            <div class="card-icon">
+              <i class="fa-solid fa-bolt text-xl text-primary"></i>
+            </div>
+            <h3 class="card-title">Performance Optimization</h3>
+            <p class="card-body">Ensuring fast load times and smooth expereinces through efficient code and asset optimiation.</p>
+          </div>
+          <!-- Feature Card 4 -->
+          <div class="card card-hoverable card-shadow">
+            <div class="card-icon">
+              <i class="fa-solid fa-mobile-alt text-xl text-primary"></i>
+            </div>
+            <h3 class="card-title">Responsive Development</h3>
+            <p class="card-body">Building websites that work flawlessly across all screen sizes, from phone to large displays.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="about" class="translate-y-4 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <div class="mb-6 text-xl text-gray-900 dark:text-white">
+            <h2 class="section-title text-left">About Me</h2>
+            <div class="space-y-8">
+              <div class="space-y-4">
+                <h3 class="font-bold text-gray-900 dark:text-white">Frontend Development</h3>
+                <p>
+                  With advanced expertise in HTML and CSS, alongside growing skills in JavaScript, PHP, and MySQL, I craft clean, responsive websites and intuitive interfaces. I leverage modern design
+                  frameworks such as Tailwind, SASS, Bootstrap, and Froala to deliver polished frontend solutions.
+                </p>
+              </div>
+              <div class="space-y-4">
+                <h3 class="font-bold text-gray-900 dark:text-white">Technical Support and Infrastructure Management</h3>
+                <p>
+                  From domain management and SSL setup to debugging and custom server configurations, I wear multiple hats to keep web operations smooth. I'm skilled in managing email systems, DNS
+                  records, CDN integration with bunny.net, and troubleshooting via tools like mail-tester.com, zerobounce, Rollbar, and Jira.
+                </p>
+              </div>
+              <div class="mb-8">
+                <h3 class="font-bold text-gray-900 dark:text-white">Creative Problem-Solving</h3>
+                <p>
+                  Whether it's crafting custom scripts to enhance usability or developing webpage templates tailored to user needs, I enjoy diving into challenges headfirst. A notable recent
+                  achievement was developing a JavaScript solution that dynamically overlays recommended image dimensions directly onto webpage images, significantly improving user experience.
+                </p>
+              </div>
+            </div>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#contact" class="btn-primary">Contact Me</a>
+              <a href="#" class="btn-secondary">Download Resume</a>
+            </div>
+          </div>
+          <div class="relative flex justify-center">
+            <div class="max-auto animate-morph to-accent relative flex h-3/4 w-3/4 justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary via-secondary">
+              <div class="to-accent/50 animate-morph absolute inset-0 rounded-full bg-gradient-to-br from-primary/50 via-secondary/50 blur-2xl"></div>
+              <div class="relative z-10 inline-block pt-11 lg:pt-0">
+                <div class="pb-0 pl-6 pr-6 pt-6">
+                  <div class="avatar-container">
+                    <img class="max-w-none" id="head" src="./assets/images/sprites/colin_avatar/Head/head_forward_1.png" alt="Avatar" />
+                    <img class="avatar-layer" id="brows" src="./assets/images/sprites/colin_avatar/Brows/brows_neutral.png" alt="Avatar" />
+                    <img class="avatar-layer" id="eyes" src="./assets/images/sprites/colin_avatar/Eyes/open_forward.png" alt="Avatar" />
+                    <img class="avatar-layer" id="glasses" src="./assets/images/sprites/colin_avatar/Glasses/Glasses.png" alt="Avatar" />
+                    <img class="avatar-layer" id="mouth" src="./assets/images/sprites/colin_avatar/Mouth/smile.png" alt="Avatar" />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </section>
+    <!-- Skills Section -->
 
-  <!-- Skills Section -->
+    <section id="skills" class="dark:bg-dark-background-secondary duratio-500 translate-y-4 bg-gray-50 py-24 opacity-0 transition-all">
+      <div class="container-wrapper">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">Technologies and tools I use to bring products to life.</p>
 
-  <section id="skills" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duratio-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">My Skills</h2>
-      <p class="section-subtitle">Technologies and tools I use to bring products to life.</p>
-
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Skills Card 1 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-html5 text-red-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">HTML5</h3>
-          <div class="progress-bar">
-            <div class="w-[95%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 2 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-css3 text-blue-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">CSS3</h3>
-          <div class="progress-bar">
-            <div class="w-[90%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 3 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">JavaScript</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 4 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-react text-blue-400 text-3xl"></i>
-          </div>
-          <h3 class="card-title">React</h3>
-          <div class="progress-bar">
-            <div class="w-[95%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 5 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-git-alt text-orange-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">Git</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 6 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-desktop text-purple-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">Responsive Design</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Projects Section -->
-
-  <section id="projects" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">
-        Check out some of my recent work
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card 1 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/about.jpg" alt="Crypto Platform" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">Cyrpto Platform</h3>
-            <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Skills Card 1 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-html5 text-3xl text-red-500"></i>
             </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            <h3 class="card-title">HTML5</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[95%]"></div>
             </div>
           </div>
-        </div>
-        <!-- Project Card 2 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/avatar_all.png" alt="AI Landing Page" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">AI Landing Page</h3>
-            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
+          <!-- Skills Card 2 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-css3 text-3xl text-blue-500"></i>
             </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            <h3 class="card-title">CSS3</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[90%]"></div>
             </div>
           </div>
-        </div>
-        <!-- Project Card 3 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/cartridge.png" alt="AI Image Detector" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">AI Image Detector</h3>
-            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
+          <!-- Skills Card 3 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-js text-3xl text-yellow-500"></i>
             </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            <h3 class="card-title">JavaScript</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
+            </div>
+          </div>
+          <!-- Skills Card 4 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-react text-3xl text-blue-400"></i>
+            </div>
+            <h3 class="card-title">React</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[95%]"></div>
+            </div>
+          </div>
+          <!-- Skills Card 5 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-git-alt text-3xl text-orange-500"></i>
+            </div>
+            <h3 class="card-title">Git</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
+            </div>
+          </div>
+          <!-- Skills Card 6 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-desktop text-3xl text-purple-500"></i>
+            </div>
+            <h3 class="card-title">Responsive Design</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">
-        Interered in working together? Let's connect.
-      </p>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <!-- Contact Info -->
-        <div class="lg:col-span-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-6">
-          <!-- Email -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-envelope text-primary text-xl"></i>
+    <!-- Projects Section -->
+
+    <section id="projects" class="translate-y-4 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Check out some of my recent work</p>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Project Card 1 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/about.jpg" alt="Crypto Platform" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
-            <h3 class="text-xl font-bold mb-2">Email</h3>
-            <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
-          </div>
-          <!-- Location -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-map-location-dot text-primary text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Location</h3>
-            <p class="text-gray-600 dark:text-gray-400">Over Here</p>
-          </div>
-          <!-- Social -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-globe text-primary text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Social</h3>
-            <div class="flex justify-center space-x-4">
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">Cyrpto Platform</h3>
+              <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Contact Form -->
-        <div class="lg:col-span-2">
-          <form id="contactForm" action="" class="flex flex-col gap-6 card card-shadow">
-            <h3 class="text-2xl font-bold">Send me a message</h3>
-            <div class="space-y-6">
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-              <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none">
+          <!-- Project Card 2 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/avatar_all.png" alt="AI Landing Page" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
-            <div class="space-y-6">
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none">
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">AI Landing Page</h3>
+              <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
             </div>
-            <div class="space-y-6">
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-              <textarea type="text" name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none"></textarea>
+          </div>
+          <!-- Project Card 3 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/cartridge.png" alt="AI Image Detector" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
-            <button type="submit" class="w-full btn-primary">Send Message</button>
-          </form>
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">AI Image Detector</h3>
+              <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-gray-50 dark:bg-dark-background py-12">
-    <div class="container-wrapper">
-      <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-        <div class="flex items-center mb-4 md:mb-0">
-          <span class="text-xl font-extrabold">Colin McArthur</span>
-          <span class="text-primary text-2xl ml-1">●</span>
-        </div>
-        <ul class="flex flex-wrap justify-center gap-6 mb-0">
-          <li>
-            <a href="#features" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hoverLtext-primary transition-colors">Showcase</a>
-          </li>
-          <li>
-            <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hoverLtext-primary transition-colors">About</a>
-          </li>
-          <li>
-            <a href="#skills" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hoverLtext-primary transition-colors">Skills</a>
-          </li>
-          <li>
-            <a href="#projects" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hoverLtext-primary transition-colors">Projects</a>
-          </li>
-          <li>
-            <a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hoverLtext-primary transition-colors">Contact</a>
-          </li>
+    </section>
 
-
-        </ul>
-        <div class="flex gap-4">
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
+    <!-- Contact Section -->
+    <section id="contact" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Interered in working together? Let's connect.</p>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <!-- Contact Info -->
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:col-span-1 lg:grid-cols-1">
+            <!-- Email -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-envelope text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Email</h3>
+              <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
+            </div>
+            <!-- Location -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-map-location-dot text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Location</h3>
+              <p class="text-gray-600 dark:text-gray-400">Over Here</p>
+            </div>
+            <!-- Social -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-globe text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Social</h3>
+              <div class="flex justify-center space-x-4">
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="lg:col-span-2">
+            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6">
+              <h3 class="text-2xl font-bold">Send me a message</h3>
+              <div class="space-y-6">
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-700">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="message" class="mb-2 block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                  type="text"
+                  name="message"
+                  id="message"
+                  rows="5"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="text-center text-gray-60 dark:text-gray-400 text-sm">
-        <p>&copy; 2025 Colin McArthur Portfio. All rights reserved</p>
+    </section>
+    <!-- Footer -->
+    <footer class="dark:bg-dark-background bg-gray-50 py-12">
+      <div class="container-wrapper">
+        <div class="mb-8 flex flex-col items-center justify-between md:flex-row">
+          <div class="mb-4 flex items-center md:mb-0">
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <ul class="mb-0 flex flex-wrap justify-center gap-6">
+            <li>
+              <a href="#features" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Showcase</a>
+            </li>
+            <li>
+              <a href="#about" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">About</a>
+            </li>
+            <li>
+              <a href="#skills" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Skills</a>
+            </li>
+            <li>
+              <a href="#projects" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Projects</a>
+            </li>
+            <li>
+              <a href="#contact" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Contact</a>
+            </li>
+          </ul>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        <div class="text-gray-60 text-center text-sm dark:text-gray-400">
+          <p>&copy; 2025 Colin McArthur Portfio. All rights reserved</p>
+        </div>
       </div>
-    </div>
-  </footer>
-  <script src=" ../public/assets/js/expressions.js"></script>
-  <script src=" ../public/assets/js/scripts.js"></script>
-</body>
-
+    </footer>
+    <script src=" ../public/assets/js/expressions.js"></script>
+    <script src=" ../public/assets/js/scripts.js"></script>
+  </body>
 </html>
