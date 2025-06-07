@@ -473,8 +473,8 @@
       </div>
     </div>
   </footer>
-  <script src=" ../public/assets/js/expressions.js"></script>
-  <script src=" ../public/assets/js/scripts.js"></script>
+  <script src="./assets/js/expressions.js"></script>
+  <script src="./assets/js/scripts.js"></script>
 </body>
 
 </html>
