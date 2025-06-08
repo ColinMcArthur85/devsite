@@ -2,8 +2,8 @@ const basePath = "./assets/images/sprites/colin_avatar";
 const parts = ["brows", "eyes", "mouth", "glasses"];
 
 const expressions = {
-  raise_brows: { brows: "-75%", eyes: "0%", mouth: "0%", glasses: "0%" },
-  blink: { brows: "0%", eyes: "-40%", mouth: "0%", glasses: "0%" },
+  raise_brows: { brows: "-80%", eyes: "0%", mouth: "0%", glasses: "0%" },
+  blink: { brows: "0%", eyes: "-45%", mouth: "0%", glasses: "0%" },
   open_forward: { brows: "0%", eyes: "0%", mouth: "0%", glasses: "0%" },
   open_left: { brows: "0%", eyes: "0%", mouth: "0%", glasses: "0%" },
   open_right: { brows: "0%", eyes: "0%", mouth: "0%", glasses: "0%" },
