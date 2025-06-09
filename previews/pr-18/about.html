@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0070f3" />
+    <meta name="description" content="Colin McArthur Developer Portfolio Site" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
+
+    <title>Colin McArthur Developer Website</title>
+  </head>
+
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <!-- Dark mode background gradients -->
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
+      <div class="container-wrapper">
+        <nav class="flex items-center justify-between py-4">
+          <div flex items-center>
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <ul class="hidden space-x-8 md:flex">
+            <li>
+              <a href="index.html#features" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+            </li>
+            <li>
+              <a href="about.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
+            </li>
+            <li>
+              <a href="index.html#skills" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+            </li>
+            <li>
+              <a href="index.html#projects" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+            </li>
+            <li>
+              <a href="index.html#contact" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+            </li>
+          </ul>
+          <div class="flex items-center space-x-4">
+            <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
+            <button id="menuToggle" class="p-2 md:hidden">
+              <div class="flex h-5 w-6 flex-col justify-between">
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
+              </div>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="dark:bg-dark-background fixed inset-0 z-50 translate-x-full transform bg-white duration-300 md:hidden">
+      <div class="container-wrapper flex h-full flex-col">
+        <div class="flex items-center justify-between py-4">
+          <div class="flex items-center">
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <button id="closeMenu" class="p-2">
+            <i class="fa-solid fa-square-xmark text-2xl text-gray-600 dark:text-gray-400"></i>
+          </button>
+        </div>
+        <ul class="flex flex-1 flex-col items-center justify-center space-y-8">
+          <li>
+            <a href="index.html#features" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+          </li>
+          <li>
+            <a href="about.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
+          </li>
+          <li>
+            <a href="index.html#skills" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+          </li>
+          <li>
+            <a href="index.html#projects" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+          </li>
+          <li>
+            <a href="index.html#contact" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="flex min-h-screen items-center pb-16 pt-20">
+      <div class="container-wrapper">
+        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <div class="text-center lg:text-left">
+            <h1 class="mb-6 text-4xl font-bold md:text-6xl">Get to Know Colin</h1>
+            <p class="mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel neque at nisl iaculis interdum.</p>
+            <div class="flex justify-center gap-4 lg:justify-start">
+              <a href="#about" class="btn btn-primary">My Story</a>
+              <a href="index.html" class="btn btn-secondary">Home</a>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <img src="./assets/images/hero/hero-image-01.png" alt="Colin" class="max-w-xs rounded-lg shadow-lg md:max-w-md" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="about" class="py-24">
+      <div class="container-wrapper">
+        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          <div class="space-y-6 text-gray-900 dark:text-white">
+            <h2 class="section-title text-left">My Journey</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel laoreet ipsum.</p>
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ac neque vel lectus laoreet consequat.</p>
+            <p>Curabitur vitae magna id libero lacinia tristique sed non elit.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <img src="./assets/images/about/image-1.jpg" alt="about" class="rounded-lg shadow-md" />
+            <img src="./assets/images/about/image-2.jpg" alt="about" class="rounded-lg shadow-md" />
+            <img src="./assets/images/about/image-3.jpg" alt="about" class="rounded-lg shadow-md sm:col-span-2" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Interered in working together? Let's connect.</p>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <!-- Contact Info -->
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:col-span-1 lg:grid-cols-1">
+            <!-- Email -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-envelope text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Email</h3>
+              <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
+            </div>
+            <!-- Location -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-map-location-dot text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Location</h3>
+              <p class="text-gray-600 dark:text-gray-400">Over Here</p>
+            </div>
+            <!-- Social -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-globe text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Social</h3>
+              <div class="flex justify-center space-x-4">
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Contact Form -->
+          <div class="lg:col-span-2">
+            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6">
+              <h3 class="text-2xl font-bold">Send me a message</h3>
+              <div class="space-y-6">
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-700">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="message" class="mb-2 block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                  type="text"
+                  name="message"
+                  id="message"
+                  rows="5"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="dark:bg-dark-background bg-gray-50 py-12">
+      <div class="container-wrapper">
+        <div class="mb-8 flex flex-col items-center justify-between md:flex-row">
+          <div class="mb-4 flex items-center md:mb-0">
+            <span class="text-xl font-extrabold">Colin McArthur</span>
+            <span class="ml-1 text-2xl text-primary">●</span>
+          </div>
+          <ul class="mb-0 flex flex-wrap justify-center gap-6">
+            <li>
+              <a href="index.html#features" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Showcase</a>
+            </li>
+            <li>
+              <a href="about.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">About</a>
+            </li>
+            <li>
+              <a href="index.html#skills" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Skills</a>
+            </li>
+            <li>
+              <a href="index.html#projects" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Projects</a>
+            </li>
+            <li>
+              <a href="index.html#contact" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Contact</a>
+            </li>
+          </ul>
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        <div class="text-gray-60 text-center text-sm dark:text-gray-400">
+          <p>&copy; 2025 Colin McArthur Portfio. All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/js/expressions.js"></script>
+    <script src="./assets/js/scripts.js"></script>
+  </body>
+</html>
