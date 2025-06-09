@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write 
+      contents: write
       pull-requests: write
 
     steps:
@@ -21,9 +21,9 @@ jobs:
 
       - name: Build static site
         run: |
-          mkdir -p previews/pr-${PR_NUM}
-          cp public/index.html previews/pr-${PR_NUM}/index.html
-          cp -r public/assets previews/pr-${PR_NUM}/
+          mkdir -p previews/pr-${{ env.PR_NUM }}
+          cp public/index.html previews/pr-${{ env.PR_NUM }}/index.html
+          cp -r public/assets previews/pr-${{ env.PR_NUM }}/
 
       - name: Create .nojekyll
         run: touch ./previews/.nojekyll
@@ -32,8 +32,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./previews/pr-${PR_NUM}
-          destination_dir: previews/pr-${PR_NUM}
+          publish_dir: ./previews/pr-${{ env.PR_NUM }}
+          destination_dir: previews/pr-${{ env.PR_NUM }}
           publish_branch: gh-pages
           keep_files: true
 
@@ -43,4 +43,4 @@ jobs:
           header: preview-link
           message: |
             🚀 **Preview your changes here**:
-            https://ColinMcArthur85.github.io/devsite/pr-${{ github.event.pull_request.number }}/
+            https://ColinMcArthur85.github.io/devsite/previews/pr-${{ github.event.pull_request.number }}/
