@@ -95,10 +95,10 @@
       <div class="container-wrapper">
         <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div class="text-center lg:text-left">
-            <h1 class="mb-6 text-4xl font-bold md:text-6xl">Get to Know Colin</h1>
-            <p class="mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel neque at nisl iaculis interdum.</p>
+            <h1 class="mb-6 text-4xl font-bold md:text-6xl">Project Portfolio</h1>
+            <p class="mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">Some examples of my latest projects.</p>
             <div class="flex justify-center gap-4 lg:justify-start">
-              <a href="#about" class="btn btn-primary">My Story</a>
+              <a href="#projects" class="btn btn-primary">View Projects</a>
               <a href="index.html" class="btn btn-secondary">Home</a>
             </div>
           </div>
@@ -109,25 +109,86 @@
       </div>
     </section>
 
-    <!-- About Section -->
 
-    <section id="about" class="py-24">
-      <div class="container-wrapper">
-        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          <div class="space-y-6 text-gray-900 dark:text-white">
-            <h2 class="section-title text-left">My Journey</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel laoreet ipsum.</p>
-            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ac neque vel lectus laoreet consequat.</p>
-            <p>Curabitur vitae magna id libero lacinia tristique sed non elit.</p>
+  <section id="projects" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
+    <div class="container-wrapper">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Check out some of my recent work
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project Card 1 -->
+        <div class="card card-hoverable card-shadow p-0">
+          <div class="h-48 relative">
+            <img src="./assets/images/design_ideas/about.jpg" alt="Crypto Platform" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20"></div>
           </div>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <img src="./assets/images/about/image-1.jpg" alt="about" class="rounded-lg shadow-md" />
-            <img src="./assets/images/about/image-2.jpg" alt="about" class="rounded-lg shadow-md" />
-            <img src="./assets/images/about/image-3.jpg" alt="about" class="rounded-lg shadow-md sm:col-span-2" />
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">Cyrpto Platform</h3>
+            <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
+            <div class="flex flex-wrap gap-2 my-6">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
+
+            </div>
+            <div class="flex gap-4">
+              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
+              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="card card-hoverable card-shadow p-0">
+          <div class="h-48 relative">
+            <img src="./assets/images/design_ideas/avatar_all.png" alt="AI Landing Page" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">AI Landing Page</h3>
+            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
+            <div class="flex flex-wrap gap-2 my-6">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
+
+            </div>
+            <div class="flex gap-4">
+              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
+              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            </div>
+          </div>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="card card-hoverable card-shadow p-0">
+          <div class="h-48 relative">
+            <img src="./assets/images/design_ideas/cartridge.png" alt="AI Image Detector" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">AI Image Detector</h3>
+            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
+            <div class="flex flex-wrap gap-2 my-6">
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
+              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
+
+            </div>
+            <div class="flex gap-4">
+              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
+              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Footer -->
     <footer class="dark:bg-dark-background bg-gray-50 py-12">
