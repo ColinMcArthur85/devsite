@@ -1,0 +1,34 @@
+name: Cleanup PR Preview
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+
+      - name: Get PR number
+        id: pr
+        run: echo "PR_NUM=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+
+      - name: Remove PR preview folder
+        run: |
+          echo "Removing previews/pr-${PR_NUM}/ ..."
+          rm -rf previews/pr-${PR_NUM}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Cleanup preview for PR #${PR_NUM}" || echo "No changes to commit"
+          git push
