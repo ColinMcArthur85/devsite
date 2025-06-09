@@ -95,10 +95,10 @@
       <div class="container-wrapper">
         <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div class="text-center lg:text-left">
-            <h1 class="mb-6 text-4xl font-bold md:text-6xl">Get to Know Colin</h1>
-            <p class="mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel neque at nisl iaculis interdum.</p>
+            <h1 class="mb-6 text-4xl font-bold md:text-6xl">Explore My Toolkit</h1>
+            <p class="mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">Discover the tools and techniques behind my builds.</p>
             <div class="flex justify-center gap-4 lg:justify-start">
-              <a href="#about" class="btn btn-primary">My Story</a>
+              <a href="#features" class="btn btn-primary">See Features</a>
               <a href="index.html" class="btn btn-secondary">Home</a>
             </div>
           </div>
@@ -109,25 +109,50 @@
       </div>
     </section>
 
-    <!-- About Section -->
+<section id="features" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duration-500 opacity-0">
+  <div class="container-wrapper">
+    <h2 class="section-title">What's in my Toolkit</h2>
+    <p class="section-subtitle">
+      Everything needed to build great products on the web.
+    </p>
 
-    <section id="about" class="py-24">
-      <div class="container-wrapper">
-        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-          <div class="space-y-6 text-gray-900 dark:text-white">
-            <h2 class="section-title text-left">My Journey</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel laoreet ipsum.</p>
-            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer ac neque vel lectus laoreet consequat.</p>
-            <p>Curabitur vitae magna id libero lacinia tristique sed non elit.</p>
-          </div>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <img src="./assets/images/about/image-1.jpg" alt="about" class="rounded-lg shadow-md" />
-            <img src="./assets/images/about/image-2.jpg" alt="about" class="rounded-lg shadow-md" />
-            <img src="./assets/images/about/image-3.jpg" alt="about" class="rounded-lg shadow-md sm:col-span-2" />
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Feature Card 1 -->
+      <div class="card card-hoverable card-shadow">
+        <div class="card-icon">
+          <i class="fa-solid fa-paintbrush text-primary text-xl"></i>
         </div>
+        <h3 class="card-title">Modern UI Design</h3>
+        <p class="card-body">Creating beautiful, responsive interfaces that look great on any device using the latest design trends.</p>
       </div>
-    </section>
+      <!-- Feature Card 2 -->
+      <div class="card card-hoverable card-shadow">
+        <div class="card-icon">
+          <i class="fa-solid fa-code text-primary text-xl"></i>
+        </div>
+        <h3 class="card-title">Clean code</h3>
+        <p class="card-body">Writing maintainable, efficient code following best practices and modern development standards.</p>
+      </div>
+      <!-- Feature Card 3 -->
+      <div class="card card-hoverable card-shadow">
+        <div class="card-icon">
+          <i class="fa-solid fa-bolt text-primary text-xl"></i>
+        </div>
+        <h3 class="card-title">Performance Optimization</h3>
+        <p class="card-body">Ensuring fast load times and smooth expereinces through efficient code and asset optimiation.</p>
+      </div>
+      <!-- Feature Card 4 -->
+      <div class="card card-hoverable card-shadow">
+        <div class="card-icon">
+          <i class="fa-solid fa-mobile-alt text-primary text-xl"></i>
+        </div>
+        <h3 class="card-title">Responsive Development</h3>
+        <p class="card-body">Building websites that work flawlessly across all screen sizes, from phone to large displays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="dark:bg-dark-background bg-gray-50 py-12">
