@@ -22,8 +22,7 @@ jobs:
       - name: Build static site
         run: |
           mkdir -p previews/pr-${{ env.PR_NUM }}
-          cp public/index.html previews/pr-${{ env.PR_NUM }}/index.html
-          cp -r public/assets previews/pr-${{ env.PR_NUM }}/
+          cp -a public/. previews/pr-${{ env.PR_NUM }}/
 
       - name: Create .nojekyll
         run: touch ./previews/.nojekyll
