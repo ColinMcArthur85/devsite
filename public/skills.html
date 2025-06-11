@@ -23,43 +23,39 @@
     <!-- Header -->
     <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
       <div class="container-wrapper">
-        <nav class="flex items-center justify-between py-4">
-
-          
-
-          <div flex items-center>
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
-          </div>
-
-          <ul class="hidden space-x-8 md:flex">
-            <li>
-              <a href="showcase.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
-            </li>
-            <li>
-              <a href="about.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
-            </li>
-            <li>
-              <a href="skills.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
-            </li>
-            <li>
-              <a href="projects.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
-            </li>
-            <li>
-              <a href="contact.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
-            </li>
-          </ul>
-          <div class="flex items-center space-x-4">
-            <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
-            <button id="menuToggle" class="p-2 md:hidden">
-              <div class="flex h-5 w-6 flex-col justify-between">
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-              </div>
-            </button>
-          </div>
-        </nav>
+       <nav class="flex justify-between items-center py-4">
+        <a href="index.html" class="flex items-center">
+          <span class="text-xl font-extrabold">Colin McArthur</span>
+          <span class="text-primary text-2xl ml-1">●</span>
+        </a>
+        <ul class="hidden md:flex space-x-8">
+          <li>
+            <a href="showcase.html" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Showcase</a>
+          </li>
+          <li>
+            <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
+          </li>
+          <li>
+            <a href="skills.html" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
+          </li>
+          <li>
+            <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
+          </li>
+          <li>
+            <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
+          </li>
+        </ul>
+        <div class="flex items-center space-x-4">
+          <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
+          <button id="menuToggle" class="md:hidden p-2">
+            <div class="w-6 h-5 flex flex-col justify-between">
+              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+              <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+            </div>
+          </button>
+        </div>
+      </nav>
       </div>
     </header>
     <!-- Mobile Menu -->
