@@ -23,6 +23,68 @@
   .progress-bar-fill {
     @apply h-full rounded-full bg-gradient-to-r from-primary to-secondary;
   }
+
+  /* Navigation Links */
+  .nav-link {
+    @apply text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary;
+  }
+
+  /* Navbar Container */
+  .navbar {
+    @apply flex items-center justify-between py-4;
+  }
+
+  /* Mobile Navigation Links */
+  .mobile-nav-link {
+    @apply text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary;
+  }
+
+  /* Section Wrappers */
+  .section {
+    @apply translate-y-4 py-24 opacity-0 transition-all duration-500;
+  }
+  .section-alt {
+    @apply translate-y-4 py-24 opacity-0 transition-all duration-500 dark:bg-dark-background-secondary bg-gray-50;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    @apply flex min-h-screen items-center pb-16 pt-20;
+  }
+  .hero-grid {
+    @apply grid grid-cols-1 items-center gap-16 lg:grid-cols-2;
+  }
+  .hero-title {
+    @apply mb-6 text-4xl font-bold md:text-6xl;
+  }
+  .hero-subtitle {
+    @apply mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl;
+  }
+  .hero-actions {
+    @apply flex justify-center gap-4 lg:justify-start;
+  }
+  .hero-img {
+    @apply max-w-xs rounded-lg shadow-lg md:max-w-md;
+  }
+
+  /* Form Inputs */
+  .form-input {
+    @apply dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white;
+  }
+
+  /* Badge / Pill */
+  .badge {
+    @apply dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400;
+  }
+
+  /* Social Icon Button */
+  .social-btn {
+    @apply dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary;
+  }
+
+  /* Footer Navigation Link */
+  .footer-link {
+    @apply text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary;
+  }
 }
 
-/* Bring over the terminal-content when refactoring */
