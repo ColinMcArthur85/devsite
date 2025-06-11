@@ -8,6 +8,10 @@
   .btn-secondary {
     @apply dark:bg-dark-background-secondary rounded-lg border border-gray-200 bg-white px-8 py-3 text-gray-900 transition-colors hover:border-gray-900 dark:border-gray-700 dark:text-white dark:hover:border-white;
   }
+
+  .btn-sm-primary {
+    @apply rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600;
+  }
 }
 
 /* .btn-secondary {
