@@ -10,7 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
-
+    <script>
+      // On page load, set dark mode class before CSS loads
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
     <title>Colin McArthur Developer Website</title>
   </head>
 
@@ -24,10 +32,12 @@
     <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
       <div class="container-wrapper">
         <nav class="flex items-center justify-between py-4">
-          <div flex items-center>
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
-          </div>
+          <a href="index.html">
+            <div flex items-center>
+              <span class="text-xl font-extrabold">Colin McArthur</span>
+              <span class="ml-1 text-2xl text-primary">●</span>
+            </div>
+          </a>
           <ul class="hidden space-x-8 md:flex">
             <li>
               <a href="showcase.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
@@ -109,77 +119,75 @@
       </div>
     </section>
 
+    <section id="skills" class="dark:bg-dark-background-secondary duratio-500 translate-y-4 bg-gray-50 py-24 opacity-0 transition-all">
+      <div class="container-wrapper">
+        <h2 class="section-title">My Skills</h2>
+        <p class="section-subtitle">Technologies and tools I use to bring products to life.</p>
 
-  <section id="skills" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duratio-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">My Skills</h2>
-      <p class="section-subtitle">Technologies and tools I use to bring products to life.</p>
-
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Skills Card 1 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-html5 text-red-500 text-3xl"></i>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Skills Card 1 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-html5 text-3xl text-red-500"></i>
+            </div>
+            <h3 class="card-title">HTML5</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[95%]"></div>
+            </div>
           </div>
-          <h3 class="card-title">HTML5</h3>
-          <div class="progress-bar">
-            <div class="w-[95%] progress-bar-fill"></div>
+          <!-- Skills Card 2 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-css3 text-3xl text-blue-500"></i>
+            </div>
+            <h3 class="card-title">CSS3</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[90%]"></div>
+            </div>
           </div>
-        </div>
-        <!-- Skills Card 2 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-css3 text-blue-500 text-3xl"></i>
+          <!-- Skills Card 3 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-js text-3xl text-yellow-500"></i>
+            </div>
+            <h3 class="card-title">JavaScript</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
+            </div>
           </div>
-          <h3 class="card-title">CSS3</h3>
-          <div class="progress-bar">
-            <div class="w-[90%] progress-bar-fill"></div>
+          <!-- Skills Card 4 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-react text-3xl text-blue-400"></i>
+            </div>
+            <h3 class="card-title">React</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[95%]"></div>
+            </div>
           </div>
-        </div>
-        <!-- Skills Card 3 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
+          <!-- Skills Card 5 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-git-alt text-3xl text-orange-500"></i>
+            </div>
+            <h3 class="card-title">Git</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
+            </div>
           </div>
-          <h3 class="card-title">JavaScript</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 4 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-react text-blue-400 text-3xl"></i>
-          </div>
-          <h3 class="card-title">React</h3>
-          <div class="progress-bar">
-            <div class="w-[95%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 5 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-git-alt text-orange-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">Git</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
-          </div>
-        </div>
-        <!-- Skills Card 6 -->
-        <div class="card">
-          <div class="card-icon">
-            <i class="fa-brands fa-desktop text-purple-500 text-3xl"></i>
-          </div>
-          <h3 class="card-title">Responsive Design</h3>
-          <div class="progress-bar">
-            <div class="w-[85%] progress-bar-fill"></div>
+          <!-- Skills Card 6 -->
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-desktop text-3xl text-purple-500"></i>
+            </div>
+            <h3 class="card-title">Responsive Design</h3>
+            <div class="progress-bar">
+              <div class="progress-bar-fill w-[85%]"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Footer -->
     <footer class="dark:bg-dark-background bg-gray-50 py-12">
