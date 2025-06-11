@@ -31,7 +31,7 @@
     <!-- Header -->
     <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
       <div class="container-wrapper">
-        <nav class="flex items-center justify-between py-4">
+        <nav class="navbar">
           <a href="index.html">
             <div flex items-center>
               <span class="text-xl font-extrabold">Colin McArthur</span>
@@ -40,19 +40,19 @@
           </a>
           <ul class="hidden space-x-8 md:flex">
             <li>
-              <a href="showcase.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+              <a href="showcase.html" class="nav-link">Showcase</a>
             </li>
             <li>
-              <a href="about.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
+              <a href="about.html" class="nav-link">About</a>
             </li>
             <li>
-              <a href="skills.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+              <a href="skills.html" class="nav-link">Skills</a>
             </li>
             <li>
-              <a href="projects.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+              <a href="projects.html" class="nav-link">Projects</a>
             </li>
             <li>
-              <a href="contact.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+              <a href="contact.html" class="nav-link">Contact</a>
             </li>
           </ul>
           <div class="flex items-center space-x-4">
@@ -71,7 +71,7 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="dark:bg-dark-background fixed inset-0 z-50 translate-x-full transform bg-white duration-300 md:hidden">
       <div class="container-wrapper flex h-full flex-col">
-        <div class="flex items-center justify-between py-4">
+        <div class="navbar">
           <div class="flex items-center">
             <span class="text-xl font-extrabold">Colin McArthur</span>
             <span class="ml-1 text-2xl text-primary">●</span>
@@ -82,29 +82,29 @@
         </div>
         <ul class="flex flex-1 flex-col items-center justify-center space-y-8">
           <li>
-            <a href="showcase.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
+            <a href="showcase.html" class="mobile-nav-link">Showcase</a>
           </li>
           <li>
-            <a href="about.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">About</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
           </li>
           <li>
-            <a href="skills.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Skills</a>
+            <a href="skills.html" class="mobile-nav-link">Skills</a>
           </li>
           <li>
-            <a href="projects.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Projects</a>
+            <a href="projects.html" class="mobile-nav-link">Projects</a>
           </li>
           <li>
-            <a href="contact.html" class="text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Contact</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
           </li>
         </ul>
       </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative flex min-h-screen items-center overflow-hidden pb-16 pt-20">
+    <section id="hero" class="hero-section relative overflow-hidden">
       <div class="container-wrapper">
         <div class="mx-auto max-w-4xl text-center">
-          <h1 class="mb-6 text-4xl font-bold md:text-6xl">
+          <h1 class="hero-title">
             <div class="mb-6">Colin McArthur</div>
             <div class="to-accent flex justify-center bg-gradient-to-r from-primary via-secondary bg-clip-text text-2xl text-transparent md:text-4xl">
               Developer
@@ -138,7 +138,7 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+    <section id="features" class="section-alt">
       <div class="container-wrapper">
         <h2 class="section-title">What's in my Toolkit</h2>
         <p class="section-subtitle">Everything needed to build great products on the web.</p>
@@ -182,9 +182,9 @@
 
     <!-- About Section -->
 
-    <section id="about" class="translate-y-4 py-24 opacity-0 transition-all duration-500">
+    <section id="about" class="section">
       <div class="container-wrapper">
-        <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+        <div class="hero-grid">
           <div class="mb-6 text-xl text-gray-900 dark:text-white">
             <h2 class="section-title text-left">About Me</h2>
             <div class="space-y-8">
@@ -237,7 +237,7 @@
 
     <!-- Skills Section -->
 
-    <section id="skills" class="dark:bg-dark-background-secondary duratio-500 translate-y-4 bg-gray-50 py-24 opacity-0 transition-all">
+    <section id="skills" class="section-alt">
       <div class="container-wrapper">
         <h2 class="section-title">My Skills</h2>
         <p class="section-subtitle">Technologies and tools I use to bring products to life.</p>
@@ -309,7 +309,7 @@
 
     <!-- Projects Section -->
 
-    <section id="projects" class="translate-y-4 py-24 opacity-0 transition-all duration-500">
+    <section id="projects" class="section">
       <div class="container-wrapper">
         <h2 class="section-title">Featured Projects</h2>
         <p class="section-subtitle">Check out some of my recent work</p>
@@ -324,13 +324,13 @@
               <h3 class="mb-4 text-xl font-bold">Cyrpto Platform</h3>
               <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
               <div class="my-6 flex flex-wrap gap-2">
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">API</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <a href="#" class="btn-sm-primary">YouTube</a>
                 <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
                 <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   <i class="fa-brands fa-github mr-2"></i>
@@ -349,13 +349,13 @@
               <h3 class="mb-4 text-xl font-bold">AI Landing Page</h3>
               <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
               <div class="my-6 flex flex-wrap gap-2">
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">API</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <a href="#" class="btn-sm-primary">YouTube</a>
                 <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
                 <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   <i class="fa-brands fa-github mr-2"></i>
@@ -374,13 +374,13 @@
               <h3 class="mb-4 text-xl font-bold">AI Image Detector</h3>
               <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
               <div class="my-6 flex flex-wrap gap-2">
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
-                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+                <span class="badge">HTML5</span>
+                <span class="badge">CSS3</span>
+                <span class="badge">JavaScript</span>
+                <span class="badge">API</span>
               </div>
               <div class="flex gap-4">
-                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <a href="#" class="btn-sm-primary">YouTube</a>
                 <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
                 <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
                   <i class="fa-brands fa-github mr-2"></i>
@@ -394,7 +394,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+    <section id="contact" class="section-alt">
       <div class="container-wrapper">
         <h2 class="section-title">Get In Touch</h2>
         <p class="section-subtitle">Interered in working together? Let's connect.</p>
@@ -426,19 +426,19 @@
               <div class="flex justify-center space-x-4">
                 <a
                   href="#"
-                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                  class="social-btn"
                 >
                   <i class="fa-brands fa-github"></i>
                 </a>
                 <a
                   href="#"
-                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                  class="social-btn"
                 >
                   <i class="fa-brands fa-linkedin"></i>
                 </a>
                 <a
                   href="#"
-                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                  class="social-btn"
                 >
                   <i class="fa-brands fa-twitter"></i>
                 </a>
@@ -456,7 +456,7 @@
                   name="name"
                   id="name"
                   required
-                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                  class="form-input"
                 />
               </div>
               <div class="space-y-6">
@@ -466,7 +466,7 @@
                   name="email"
                   id="email"
                   required
-                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                  class="form-input"
                 />
               </div>
               <div class="space-y-6">
@@ -477,7 +477,7 @@
                   id="message"
                   rows="5"
                   required
-                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                  class="form-input"
                 ></textarea>
               </div>
               <button type="submit" class="btn-primary w-full">Send Message</button>
@@ -496,19 +496,19 @@
           </div>
           <ul class="mb-0 flex flex-wrap justify-center gap-6">
             <li>
-              <a href="showcase.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Showcase</a>
+              <a href="showcase.html" class="footer-link">Showcase</a>
             </li>
             <li>
-              <a href="about.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">About</a>
+              <a href="about.html" class="footer-link">About</a>
             </li>
             <li>
-              <a href="skills.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Skills</a>
+              <a href="skills.html" class="footer-link">Skills</a>
             </li>
             <li>
-              <a href="projects.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Projects</a>
+              <a href="projects.html" class="footer-link">Projects</a>
             </li>
             <li>
-              <a href="contact.html" class="dark:hoverLtext-primary text-gray-600 transition-colors hover:text-primary dark:text-gray-400">Contact</a>
+              <a href="contact.html" class="footer-link">Contact</a>
             </li>
           </ul>
           <div class="flex gap-4">
