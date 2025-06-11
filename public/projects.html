@@ -10,7 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
-
+    <script>
+      // On page load, set dark mode class before CSS loads
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
     <title>Colin McArthur Developer Website</title>
   </head>
 
@@ -24,10 +32,12 @@
     <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
       <div class="container-wrapper">
         <nav class="flex items-center justify-between py-4">
-          <div flex items-center>
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
-          </div>
+          <a href="index.html">
+            <div flex items-center>
+              <span class="text-xl font-extrabold">Colin McArthur</span>
+              <span class="ml-1 text-2xl text-primary">●</span>
+            </div>
+          </a>
           <ul class="hidden space-x-8 md:flex">
             <li>
               <a href="showcase.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
@@ -109,86 +119,89 @@
       </div>
     </section>
 
-
-  <section id="projects" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">
-        Check out some of my recent work
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project Card 1 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/about.jpg" alt="Crypto Platform" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">Cyrpto Platform</h3>
-            <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
+    <section id="projects" class="translate-y-4 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Check out some of my recent work</p>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Project Card 1 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/about.jpg" alt="Crypto Platform" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
-            </div>
-          </div>
-        </div>
-        <!-- Project Card 2 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/avatar_all.png" alt="AI Landing Page" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">AI Landing Page</h3>
-            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
-            </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">Cyrpto Platform</h3>
+              <p class="text-gray-600 dark:text-gray-400">A modern cryptocurency tranding platform with real-time price tracking and portfolio management.</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <!-- Project Card 3 -->
-        <div class="card card-hoverable card-shadow p-0">
-          <div class="h-48 relative">
-            <img src="./assets/images/design_ideas/cartridge.png" alt="AI Image Detector" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/20"></div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-4">AI Image Detector</h3>
-            <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
-            <div class="flex flex-wrap gap-2 my-6">
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">JavaScript</span>
-              <span class="px-3 py-1 bg-gray-100 dark:bg-dark-background-secondary text-gray-600 dark:text-gray-400 rounded-full text-sm">API</span>
-
+          <!-- Project Card 2 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/avatar_all.png" alt="AI Landing Page" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
             </div>
-            <div class="flex gap-4">
-              <a href="#" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">YouTube</a>
-              <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
-              <a href="#" class="flex items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"><i class="fa-brands fa-github mr-2"></i>Code</a>
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">AI Landing Page</h3>
+              <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit.</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div class="card card-hoverable card-shadow p-0">
+            <div class="relative h-48">
+              <img src="./assets/images/design_ideas/cartridge.png" alt="AI Image Detector" class="h-full w-full object-cover" />
+              <div class="absolute inset-0 bg-black/20"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="mb-4 text-xl font-bold">AI Image Detector</h3>
+              <p class="text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id massa eros. Donec et rutrum elit</p>
+              <div class="my-6 flex flex-wrap gap-2">
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">HTML5</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">CSS3</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">JavaScript</span>
+                <span class="dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400">API</span>
+              </div>
+              <div class="flex gap-4">
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600">YouTube</a>
+                <!-- For my portfolio, 👆 this will link to a 'live preview' of the page -->
+                <a href="#" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
+                  <i class="fa-brands fa-github mr-2"></i>
+                  Code
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- Footer -->
     <footer class="dark:bg-dark-background bg-gray-50 py-12">

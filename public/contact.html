@@ -10,7 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
-
+    <script>
+      // On page load, set dark mode class before CSS loads
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
     <title>Colin McArthur Developer Website</title>
   </head>
 
@@ -24,10 +32,12 @@
     <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
       <div class="container-wrapper">
         <nav class="flex items-center justify-between py-4">
-          <div flex items-center>
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
-          </div>
+          <a href="index.html">
+            <div flex items-center>
+              <span class="text-xl font-extrabold">Colin McArthur</span>
+              <span class="ml-1 text-2xl text-primary">●</span>
+            </div>
+          </a>
           <ul class="hidden space-x-8 md:flex">
             <li>
               <a href="showcase.html" class="text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary">Showcase</a>
@@ -109,73 +119,99 @@
       </div>
     </section>
 
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-gray-50 dark:bg-dark-background-secondary translate-y-4 transition-all duration-500 opacity-0">
-    <div class="container-wrapper">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">
-        Interered in working together? Let's connect.
-      </p>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <!-- Contact Info -->
-        <div class="lg:col-span-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-6">
-          <!-- Email -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-envelope text-primary text-xl"></i>
+    <!-- Contact Section -->
+    <section id="contact" class="dark:bg-dark-background-secondary translate-y-4 bg-gray-50 py-24 opacity-0 transition-all duration-500">
+      <div class="container-wrapper">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Interered in working together? Let's connect.</p>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <!-- Contact Info -->
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:col-span-1 lg:grid-cols-1">
+            <!-- Email -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-envelope text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Email</h3>
+              <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
             </div>
-            <h3 class="text-xl font-bold mb-2">Email</h3>
-            <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
+            <!-- Location -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-map-location-dot text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Location</h3>
+              <p class="text-gray-600 dark:text-gray-400">Over Here</p>
+            </div>
+            <!-- Social -->
+            <div class="card card-shadow text-center">
+              <div class="icon-container">
+                <i class="fa-solid fa-globe text-xl text-primary"></i>
+              </div>
+              <h3 class="mb-2 text-xl font-bold">Social</h3>
+              <div class="flex justify-center space-x-4">
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a
+                  href="#"
+                  class="dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary"
+                >
+                  <i class="fa-brands fa-twitter"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <!-- Location -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-map-location-dot text-primary text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Location</h3>
-            <p class="text-gray-600 dark:text-gray-400">Over Here</p>
+          <!-- Contact Form -->
+          <div class="lg:col-span-2">
+            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6">
+              <h3 class="text-2xl font-bold">Send me a message</h3>
+              <div class="space-y-6">
+                <label for="name" class="mb-2 block text-sm font-medium text-gray-700">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                />
+              </div>
+              <div class="space-y-6">
+                <label for="message" class="mb-2 block text-sm font-medium text-gray-700">Message</label>
+                <textarea
+                  type="text"
+                  name="message"
+                  id="message"
+                  rows="5"
+                  required
+                  class="dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">Send Message</button>
+            </form>
           </div>
-          <!-- Social -->
-          <div class="card card-shadow text-center">
-            <div class="icon-container ">
-              <i class="fa-solid fa-globe text-primary text-xl"></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">Social</h3>
-            <div class="flex justify-center space-x-4">
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-              <a href="#" class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!-- Contact Form -->
-        <div class="lg:col-span-2">
-          <form id="contactForm" action="" class="flex flex-col gap-6 card card-shadow">
-            <h3 class="text-2xl font-bold">Send me a message</h3>
-            <div class="space-y-6">
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-              <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none">
-            </div>
-            <div class="space-y-6">
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-              <input type="email" name="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none">
-            </div>
-            <div class="space-y-6">
-              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-              <textarea type="text" name="message" id="message" rows="5" required class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-dark-background-secondary text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors outline-none"></textarea>
-            </div>
-            <button type="submit" class="w-full btn-primary">Send Message</button>
-          </form>
         </div>
       </div>
-  </section>
+    </section>
 
     <!-- Footer -->
     <footer class="dark:bg-dark-background bg-gray-50 py-12">
