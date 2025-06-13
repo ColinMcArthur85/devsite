@@ -1,5 +1,4 @@
 {
-  "plugins": ["prettier-plugin-tailwindcss"],
   "tailwindStylesheet": "./src/styles/main.css",
   "printWidth": 200,
   "htmlWhitespaceSensitivity": "ignore"
