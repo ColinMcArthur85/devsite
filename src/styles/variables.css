@@ -1,0 +1,79 @@
+/* Custom Colors */
+@theme {
+  --color-primary-yellow: var(--color-yellow-300);
+  --color-primary-red: var(--color-rose-500);
+  --color-primary-blue: var(--color-blue-950);
+  --color-primary: #3b82f6;
+  --color-secondary: #7928ca;
+  --color-accent: #79ffe1;
+
+  --color-dark-primary: #60a5fa;
+  --color-dark-secondary: #7928ca;
+  --color-dark-accent: #79ffe1;
+  --color-dark-text: #fff;
+  --color-dark-text-secondary: #888;
+  --color-dark-background: #000;
+  --color-dark-background-secondary: #111;
+  --color-dark-background-tertiary: #171717;
+  --color-dark-border: #333;
+
+  /* --color-primary-pink: #fa2f62;
+  --color-primary-yellow: #e3e14d;
+  --color-primary-dark-blue: #002639;
+
+
+  --color-primary: var(--color-primary-pink);
+  --color-secondary: var(--color-primary-yellow);
+  --color-accent: var(--color-primary-pink);
+
+
+  --color-dark-primary: #fa2f62; 
+  --color-dark-secondary: #e3e14d; 
+  --color-dark-accent: #fa2f62; 
+  --color-dark-text: #ffffff;
+  --color-dark-text-secondary: #cbd5e1; 
+  --color-dark-background: #002639; 
+  --color-dark-background-secondary: #03344c; 
+  --color-dark-background-tertiary: #04445e; 
+  --color-dark-border: #334155; 
+
+
+  --color-light-text: #002639;
+  --color-light-background: #ffffff;
+  --color-light-background-secondary: #f8fafc;  */
+
+  /* FONTS */
+  --font-sans: Inter, sans-serif;
+  --font-primary: "Camingo Code", monospace;
+
+  /* SHADOWS */
+  --shadow-custom: 0 4px 14px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 4px 14px rgba(0, 0, 0, 0.25);
+
+  /* ANIMATIONS */
+  --animate-morph: morph 8s ease-in-out infinite;
+  --animate-pulse-slow: pulse 10s infinite;
+
+  /* KEYFRAMES */
+  @keyframes morph {
+    0% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50% {
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+}
