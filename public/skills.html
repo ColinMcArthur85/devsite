@@ -28,80 +28,8 @@
       <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
     </div>
 
-    <!-- Header -->
-    <header class="dark:bg-dark-background/95 fixed top-0 z-50 w-full bg-white/95 shadow-sm backdrop-blur-sm transition-all duration-300">
-      <div class="container-wrapper">
-        <nav class="navbar">
-          <a href="index.html">
-            <div flex items-center>
-              <span class="text-xl font-extrabold">Colin McArthur</span>
-              <span class="ml-1 text-2xl text-primary">●</span>
-            </div>
-          </a>
-          <ul class="hidden space-x-8 md:flex">
-            <li>
-              <a href="showcase.html" class="nav-link">Showcase</a>
-            </li>
-            <li>
-              <a href="about.html" class="nav-link">About</a>
-            </li>
-            <li>
-              <a href="skills.html" class="nav-link">Skills</a>
-            </li>
-            <li>
-              <a href="projects.html" class="nav-link">Projects</a>
-            </li>
-            <li>
-              <a href="contact.html" class="nav-link">Contact</a>
-            </li>
-          </ul>
-          <div class="flex items-center space-x-4">
-            <button id="themeToggle" class=""><i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i></button>
-            <button id="menuToggle" class="p-2 md:hidden">
-              <div class="flex h-5 w-6 flex-col justify-between">
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-                <span class="h-0.5 w-full bg-gray-600 transition-all dark:bg-gray-400"></span>
-              </div>
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="dark:bg-dark-background fixed inset-0 z-50 translate-x-full transform bg-white duration-300 md:hidden">
-      <div class="container-wrapper flex h-full flex-col">
-        <div class="navbar">
-          <div class="flex items-center">
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
-          </div>
-          <button id="closeMenu" class="p-2">
-            <i class="fa-solid fa-square-xmark text-2xl text-gray-600 dark:text-gray-400"></i>
-          </button>
-        </div>
-        <ul class="flex flex-1 flex-col items-center justify-center space-y-8">
-          <li>
-            <a href="index.html" class="mobile-nav-link">Home</a>
-          </li>
-          <li>
-            <a href="showcase.html" class="mobile-nav-link">Showcase</a>
-          </li>
-          <li>
-            <a href="about.html" class="mobile-nav-link">About</a>
-          </li>
-          <li>
-            <a href="skills.html" class="mobile-nav-link">Skills</a>
-          </li>
-          <li>
-            <a href="projects.html" class="mobile-nav-link">Projects</a>
-          </li>
-          <li>
-            <a href="contact.html" class="mobile-nav-link">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <!-- Header loaded via JS -->
+    <div id="menu-container"></div>
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
@@ -234,6 +162,7 @@
         </div>
       </div>
     </footer>
+    <script src="./assets/js/components/header.js"></script>
     <script src="./assets/js/expressions.js"></script>
     <script src="./assets/js/scripts.js"></script>
   </body>
