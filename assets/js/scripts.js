@@ -1,76 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   // === Cache DOM elements ===
-  const themeToggle = document.getElementById("themeToggle");
-  const html = document.documentElement;
-  const icon = themeToggle?.querySelector("i");
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
   const contactForm = document.getElementById("contactForm");
-  const header = document.querySelector("header");
   const sections = document.querySelectorAll("section");
 
   const terminalContainer = document.getElementById("terminal-container");
   const terminalContent = document.querySelector(".terminal-content");
   const commandSpan = document.querySelector(".command-text");
-
-  // === Theme Toggle ===
-  const setTheme = (isDark) => {
-    html.classList.toggle("dark", isDark);
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-    themeMeta?.setAttribute("content", isDark ? "#000000" : "#0070f3");
-    icon?.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
-    themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-  };
-
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-    setTheme(true);
-  }
-
-  themeToggle?.addEventListener("click", () => {
-    const isDark = !html.classList.contains("dark");
-    setTheme(isDark);
-  });
-
-  // Mobile navigation toggle
-  const menuToggle = document.getElementById("menuToggle");
-  const closeMenu = document.getElementById("closeMenu");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  if (menuToggle && closeMenu && mobileMenu) {
-    menuToggle.addEventListener("click", function () {
-      mobileMenu.classList.remove("translate-x-full");
-      document.body.classList.add("overflow-hidden");
-    });
-
-    closeMenu.addEventListener("click", function () {
-      mobileMenu.classList.add("translate-x-full");
-      document.body.classList.remove("overflow-hidden");
-    });
-
-    // === Smooth Scrolling for Anchor Links ===
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetElement = document.querySelector(this.getAttribute("href"));
-        if (targetElement) {
-          const headerHeight = header?.offsetHeight || 0;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-
-          window.scrollTo({ top: targetPosition, behavior: "smooth" });
-        }
-      });
-    });
-
-    // Close Mobile Menu
-    const mobileLinks = mobileMenu.querySelectorAll("a");
-    mobileLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        mobileMenu.classList.add("translate-x-full");
-        document.body.classList.remove("overflow-hidden");
-      });
-    });
-  }
 
   // === Contact Form Handling ===
   contactForm?.addEventListener("submit", function (e) {
@@ -115,13 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => {
     section.classList.add("opacity-0", "translate-y-4");
     observer.observe(section);
-  });
-
-  // === Add Header Shadow When Scrolling ===
-  window.addEventListener("scroll", () => {
-    if (header) {
-      header.classList.toggle("shadow-md", window.scrollY > 0);
-    }
   });
 
   // === Terminal Typing Animation ===
