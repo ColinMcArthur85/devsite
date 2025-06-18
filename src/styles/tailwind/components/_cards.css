@@ -23,4 +23,10 @@
   .card-hoverable {
     @apply transform transition-all duration-300 hover:-translate-y-1;
   }
+
+  .badge {
+    @apply inline-block rounded-full px-3 py-1 text-xs font-medium bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white;
+  }
+  /* Opportunity to make reusable badge component for HTML, CSS, JS, PHP, API. Just js to manage that */
+  
 }
