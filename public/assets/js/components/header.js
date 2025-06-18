@@ -1,16 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // === Load the menu ===
   fetch("components/menu.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Failed to load menu component");
-      }
-      return response.text();
-    })
+    .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
       initMenu();
-    })
-    .catch((error) => console.error("Error loading menu:", error));
+    });
 
   function initMenu() {
     // === Theme Toggle ===
@@ -24,10 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", isDark ? "dark" : "light");
       themeMeta?.setAttribute("content", isDark ? "#000000" : "#0070f3");
       icon?.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
-      themeToggle?.setAttribute(
-        "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
-      );
+      themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
     };
 
     const savedTheme = localStorage.getItem("theme");
@@ -74,10 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (targetElement) {
           e.preventDefault();
           const headerHeight = header?.offsetHeight || 0;
-          const targetPosition =
-            targetElement.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
           window.scrollTo({ top: targetPosition, behavior: "smooth" });
         }
       });
