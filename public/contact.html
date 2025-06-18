@@ -39,8 +39,8 @@
             <h1 class="hero-title">Get In Touch</h1>
             <p class="hero-subtitle">I'd love to hear from you.</p>
             <div class="hero-actions">
-              <a href="#contact" class="btn btn-primary">Contact Me</a>
-              <a href="index.html" class="btn btn-secondary">Home</a>
+              <div data-button data-text="Contact Me" data-href="#contact" data-classes="btn btn-primary"></div>
+              <div data-button data-text="Home" data-href="index.html" data-classes="btn btn-secondary"></div>
             </div>
           </div>
           <div class="flex justify-center">
@@ -81,15 +81,15 @@
               </div>
               <h3 class="mb-2 text-xl font-bold">Social</h3>
               <div class="flex justify-center space-x-4">
-                <a href="#" class="social-btn">
+                <div data-button data-href="#" data-classes="social-btn">
                   <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#" class="social-btn">
+                </div>
+                <div data-button data-href="#" data-classes="social-btn">
                   <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#" class="social-btn">
+                </div>
+                <div data-button data-href="#" data-classes="social-btn">
                   <i class="fa-brands fa-twitter"></i>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@
                 <label for="message" class="mb-2 block text-sm font-medium text-gray-700">Message</label>
                 <textarea type="text" name="message" id="message" rows="5" required class="form-input"></textarea>
               </div>
-              <button type="submit" class="btn-primary w-full">Send Message</button>
+              <div data-button data-text="Send Message" data-type="submit" data-classes="btn-primary w-full"></div>
             </form>
           </div>
         </div>
@@ -159,6 +159,7 @@
       </div>
     </footer>
     <script src="./assets/js/components/header.js"></script>
+    <script src="./assets/js/components/ui.js"></script>
     <script src="./assets/js/expressions.js"></script>
     <script src="./assets/js/scripts.js"></script>
   </body>
