@@ -4,7 +4,7 @@
   }
 
   .card-icon {
-    @apply mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10;
+    @apply mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 dark:bg-dark-background-secondary;
   }
 
   .card-title {
@@ -27,6 +27,4 @@
   .badge {
     @apply inline-block rounded-full px-3 py-1 text-xs font-medium bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white;
   }
-  /* Opportunity to make reusable badge component for HTML, CSS, JS, PHP, API. Just js to manage that */
-  
 }

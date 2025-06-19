@@ -1,5 +1,3 @@
-/* Ive created these in anticipation of swapping out the Tailwind classes for the component classes. I want to make a copy of the full HTML file once Ive completed it without any edits done to it for safe keeping. Then Ill refactor and update for myself.  */
-
 @layer components {
   .btn-primary {
     @apply hover:shadow-blue-300/30 dark:hover:shadow-blue-500/20 shadow-blue-200/20 dark:shadow-blue-700/10 transform rounded-lg bg-primary px-8 py-3 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600;
@@ -13,43 +11,3 @@
     @apply rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600;
   }
 }
-
-/* .btn-secondary {
-  @apply inline-flex items-center justify-center px-5 py-3 text-center text-base font-medium text-[#464646] transition dark:text-white;
-} */
-
-/* .btn-primary {
-  @apply inline-flex items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
-} */
-
-/* Components  */
-/* 
-@layer components {
-  .btn {
-    @apply px-8 py-3 rounded-lg transition-all duration-300 transform;
-  }
-
-  .btn-primary {
-    @apply btn bg-primary text-white shadow-lg;
-  }
-  .btn-primary:hover {
-    @apply bg-blue-600 -translate-y-1 shadow-blue-300/30 dark:shadow-blue-500/20;
-  }
-
-  .btn-secondary {
-    @apply btn bg-white dark:bg-dark-background-secondary 
-           text-gray-900 dark:text-white 
-           border border-gray-200 dark:border-gray-700 
-           transition-colors;
-  }
-  .btn-secondary:hover {
-    @apply border-gray-900 dark:border-white;
-  }
-} 
-  
-HTML Becomes
-
-<a class="btn btn-primary">View Projects</a>
-<a class="btn btn-secondary">Learn More</a>
-
-*/
