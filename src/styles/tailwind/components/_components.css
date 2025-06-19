@@ -18,10 +18,10 @@
 
   /* Progress bar */
   .progress-bar {
-    @apply h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white;
+    @apply w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white;
   }
   .progress-bar-fill {
-    @apply h-full rounded-full bg-gradient-to-r from-primary to-secondary;
+    @apply text-white pl-2 h-full rounded-full bg-gradient-to-r from-primary to-secondary;
   }
 
   /* Navigation Links */
@@ -87,4 +87,3 @@
     @apply text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary;
   }
 }
-
