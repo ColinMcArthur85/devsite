@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css",
-    "watch": "tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch"
+    "build": "tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js",
+    "watch": "rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch"
   },
   "keywords": [],
   "author": "",
