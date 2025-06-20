@@ -23,6 +23,7 @@
     const colorMap = {
       HTML5: "bg-red-500",
       CSS3: "bg-blue-500",
+      SASS: "var(--color-sass-pink)",
       JavaScript: "bg-yellow-500",
       PHP: "bg-blue-400",
       MySQL: "bg-orange-500",

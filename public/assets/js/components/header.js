@@ -1,29 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inPagesDir = window.location.pathname.includes("/pages/");
-  const basePath = inPagesDir ? "../" : "./";
+  // Dynamically calculate the base path
+  const pathDepth =
+    window.location.pathname
+      .replace(/\/$/, "") // Remove trailing slash if present
+      .split("/").length - 2; // Adjust based on depth relative to the root
+
+  // Dynamically calculate the base path
+  const basePath = "../".repeat(pathDepth - 1); // Adjust for the correct depth
 
   // === Load the menu ===
   fetch(`${basePath}components/menu.html`)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load menu: ${response.statusText}`);
+      }
+      return response.text();
+    })
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      if (inPagesDir) {
-        document
-          .querySelectorAll("#menu-container a[href]")
-          .forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href || href.startsWith("http") || href.startsWith("#")) return;
-            if (href.startsWith("pages/")) {
-              link.setAttribute("href", href.replace("pages/", ""));
-            } else {
-              link.setAttribute("href", `../${href}`);
-            }
-          });
-      }
+      // Adjust links for nested directories
+      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("http") || href.startsWith("#")) return;
+
+        link.setAttribute("href", `${basePath}${href}`);
+      });
 
       initMenu();
-    });
+    })
+    .catch((error) => console.error(error));
 
   function initMenu() {
     // === Theme Toggle ===
