@@ -13,8 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (card) {
           const bar = card.querySelector(".progress-bar-fill");
           const label = card.querySelector(".progress-percent");
+          const lines = card.querySelector(".lines-count");
           if (bar) {
             bar.style.width = `${percent}%`;
+          }
+          if (lines) {
+            lines.textContent = `${count} lines`;
           }
           if (label) {
             label.textContent = `${percent}%`;
