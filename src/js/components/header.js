@@ -1,26 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inPagesDir = window.location.pathname.includes("/pages/");
-  const basePath = inPagesDir ? "../" : "./";
+  const getRelativePath = (target) => {
+    const fromParts = window.location.pathname
+      .split("/")
+      .filter(Boolean)
+      .slice(1); // ignore repo root
+    // Remove current file if there is one (i.e. last segment contains a dot)
+    if (fromParts.length && fromParts[fromParts.length - 1].includes(".")) {
+      fromParts.pop();
+    }
+
+    const toParts = target.replace(/^\//, "").split("/");
+
+    while (fromParts.length && toParts.length && fromParts[0] === toParts[0]) {
+      fromParts.shift();
+      toParts.shift();
+    }
+
+    return "../".repeat(fromParts.length) + toParts.join("/");
+  };
 
   // === Load the menu ===
-  fetch(`${basePath}components/menu.html`)
+  fetch(getRelativePath("components/menu.html"))
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      if (inPagesDir) {
-        document
-          .querySelectorAll("#menu-container a[href]")
-          .forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href || href.startsWith("http") || href.startsWith("#")) return;
-            if (href.startsWith("pages/")) {
-              link.setAttribute("href", href.replace("pages/", ""));
-            } else {
-              link.setAttribute("href", `../${href}`);
-            }
-          });
-      }
+      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+        const href = link.getAttribute("href");
+        if (!href || href.startsWith("http") || href.startsWith("#")) return;
+        link.setAttribute("href", getRelativePath(href));
+      });
 
       initMenu();
     });
