@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById("email")?.value;
     const message = document.getElementById("message")?.value;
 
-    console.log("Form Submitted:", { name, email, message });
-
     const button = contactForm.querySelector('button[type="submit"]');
     const originalText = button?.textContent;
 

@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`${basePath}data/skills.json`)
     .then((res) => res.json())
     .then((data) => {
-      console.log("Loaded skills data:", data);
       const total = Object.values(data).reduce((sum, val) => sum + val, 0);
 
       Object.entries(data).forEach(([lang, count]) => {
