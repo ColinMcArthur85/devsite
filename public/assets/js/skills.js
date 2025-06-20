@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("./data/skills.json")
+  fetch("/data/skills.json")
     .then((res) => res.json())
     .then((data) => {
       console.log("Loaded skills data:", data);
