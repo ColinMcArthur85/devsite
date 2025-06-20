@@ -1,9 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const inPagesDir = window.location.pathname.includes("/pages/");
+  const basePath = inPagesDir ? "../" : "./";
+
   // === Load the menu ===
-  fetch("/components/menu.html")
+  fetch(`${basePath}components/menu.html`)
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
+
+      if (inPagesDir) {
+        document
+          .querySelectorAll("#menu-container a[href]")
+          .forEach((link) => {
+            const href = link.getAttribute("href");
+            if (!href || href.startsWith("http") || href.startsWith("#")) return;
+            if (href.startsWith("pages/")) {
+              link.setAttribute("href", href.replace("pages/", ""));
+            } else {
+              link.setAttribute("href", `../${href}`);
+            }
+          });
+      }
+
       initMenu();
     });
 

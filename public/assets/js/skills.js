@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/data/skills.json")
+  const basePath = window.location.pathname.includes("/pages/") ? "../" : "./";
+
+  fetch(`${basePath}data/skills.json`)
     .then((res) => res.json())
     .then((data) => {
       console.log("Loaded skills data:", data);
