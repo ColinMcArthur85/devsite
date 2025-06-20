@@ -1,9 +1,9 @@
 {
-  "HTML": 1405,
-  "CSS": 386,
-  "JavaScript": 418,
+  "HTML": 1466,
+  "CSS": 387,
+  "SASS": 0,
+  "JavaScript": 415,
   "PHP": 0,
   "MySQL": 0,
-  "React": 0,
-  "Git": 0
+  "React": 0
 }

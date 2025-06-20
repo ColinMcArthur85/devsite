@@ -1,17 +1,17 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const skillExtensions = {
-  HTML: ['.html'],
-  CSS: ['.css'],
-  JavaScript: ['.js'],
-  PHP: ['.php'],
-  MySQL: ['.sql'],
-  React: ['.jsx', '.tsx'],
-  Git: []
+  HTML: [".html"],
+  CSS: [".css"],
+  SASS: [".scss"],
+  JavaScript: [".js"],
+  PHP: [".php"],
+  MySQL: [".sql"],
+  React: [".jsx", ".tsx"],
 };
 
-const ignoreDirs = ['node_modules', '.git', 'public/assets', 'public/data', 'scripts'];
+const ignoreDirs = ["node_modules", ".git", "public/assets", "public/data", "scripts"];
 
 function walkDir(dir, cb) {
   fs.readdirSync(dir).forEach((file) => {
@@ -29,13 +29,13 @@ function walkDir(dir, cb) {
 }
 
 function countLines(filePath) {
-  return fs.readFileSync(filePath, 'utf8').split(/\r?\n/).length;
+  return fs.readFileSync(filePath, "utf8").split(/\r?\n/).length;
 }
 
 const counts = {};
 Object.keys(skillExtensions).forEach((k) => (counts[k] = 0));
 
-walkDir('.', (file) => {
+walkDir(".", (file) => {
   const ext = path.extname(file);
   for (const [skill, extensions] of Object.entries(skillExtensions)) {
     if (extensions.includes(ext)) {
@@ -45,5 +45,5 @@ walkDir('.', (file) => {
   }
 });
 
-fs.writeFileSync('public/data/skills.json', JSON.stringify(counts, null, 2));
-console.log('Updated skills.json', counts);
+fs.writeFileSync("public/data/skills.json", JSON.stringify(counts, null, 2));
+console.log("Updated skills.json", counts);
