@@ -1,0 +1,8 @@
+@layer utilities {
+  .font-html5 { font-family: 'Bebas Neue', sans-serif; }
+  .font-css3 { font-family: 'Titillium Web', sans-serif; }
+  .font-sass { font-family: 'Dancing Script', cursive; }
+  .font-js { font-family: 'Fira Code', monospace; }
+  .font-php { font-family: 'PT Sans', sans-serif; }
+  .font-mysql { font-family: 'IBM Plex Serif', serif; }
+}
