@@ -1,4 +1,4 @@
-document.querySelectorAll(".svg-boop").forEach((svg) => {
+document.querySelectorAll(".boop").forEach((svg) => {
   svg.addEventListener("mouseenter", () => {
     svg.style.transform = "rotate(30deg)";
     setTimeout(() => {

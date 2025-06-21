@@ -79,7 +79,6 @@
   --leading-relaxed: 1.625;
   --radius-lg: 0.5rem;
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --animate-bounce: bounce 1s infinite;
   --blur-sm: 8px;
   --blur-2xl: 40px;
   --default-transition-duration: 150ms;
@@ -1017,47 +1016,6 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
-  .group-hover\:scale-105 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 105%;
-        --tw-scale-y: 105%;
-        --tw-scale-z: 105%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .group-hover\:scale-110 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        --tw-scale-x: 110%;
-        --tw-scale-y: 110%;
-        --tw-scale-z: 110%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .group-hover\:-rotate-3 {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        rotate: calc(3deg * -1);
-      }
-    }
-  }
-  .group-hover\:rotate-\[-3deg\] {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        rotate: -3deg;
-      }
-    }
-  }
-  .group-hover\:animate-bounce {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        animation: var(--animate-bounce);
-      }
-    }
-  }
   .hover\:text-primary {
     &:hover {
       @media (hover: hover) {
@@ -1870,7 +1828,7 @@ section {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
 }
-.svg-boop {
+.boop {
   transition: transform 0.15s ease-in-out;
 }
 #brows {
@@ -2163,21 +2121,6 @@ section {
   syntax: "*";
   inherits: false;
 }
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
 @property --tw-leading {
   syntax: "*";
   inherits: false;
@@ -2191,16 +2134,6 @@ section {
   }
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-}
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 @layer properties {
@@ -2265,9 +2198,6 @@ section {
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
       --tw-leading: initial;
     }
   }

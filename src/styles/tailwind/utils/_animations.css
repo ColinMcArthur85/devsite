@@ -41,7 +41,7 @@ section {
   transition-duration: 500ms;
 }
 
-.svg-boop {
+.boop {
   transition: transform 0.15s ease-in-out;
 }
 
