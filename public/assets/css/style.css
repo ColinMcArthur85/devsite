@@ -729,13 +729,6 @@
     }
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .to-\[var\(--color-html5\)\]\/60 {
-    --tw-gradient-to: color-mix(in srgb, #E34F26 60%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      --tw-gradient-to: color-mix(in oklab, var(--color-html5) 60%, transparent);
-    }
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
   .to-\[var\(--color-html5\)\]\/80 {
     --tw-gradient-to: color-mix(in srgb, #E34F26 80%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -930,9 +923,6 @@
   }
   .text-green-500 {
     color: var(--color-green-500);
-  }
-  .text-html5 {
-    color: var(--color-html5);
   }
   .text-neutral-800 {
     color: var(--color-neutral-800);
@@ -1879,6 +1869,9 @@ section {
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
+}
+.svg-boop {
+  transition: transform 0.15s ease-in-out;
 }
 #brows {
   --tw-translate-y: calc(var(--spacing) * -20);
