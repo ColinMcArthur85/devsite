@@ -36,7 +36,7 @@
       Documented: "bg-blue-500",
       "Dev Tools": "bg-gray-500",
       "Component Design": "bg-purple-500",
-      "Coming Soon": "bg-yellow-500 text-white", // Added "Coming Soon" to the color map
+      "Coming Soon": "bg-yellow-500 text-white",
     };
 
     // Create the badge element
