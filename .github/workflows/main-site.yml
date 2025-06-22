@@ -11,11 +11,20 @@ jobs:
     permissions:
       contents: write
 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Optional: If you have a build step (npm run build), it goes here.
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
 
       - name: Create .nojekyll
         run: touch ./public/.nojekyll
