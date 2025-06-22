@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inPagesDir = window.location.pathname.includes("/pages/");
-  const basePath = inPagesDir ? "../" : "./";
+  const segments = window.location.pathname.split("/").filter(Boolean);
+  const depth = segments.length - 1;
+  const basePath = depth === 0 ? "./" : "../".repeat(depth);
 
   // === Load the menu ===
   fetch(`${basePath}components/menu.html`)
@@ -8,19 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      if (inPagesDir) {
-        document
-          .querySelectorAll("#menu-container a[href]")
-          .forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href || href.startsWith("http") || href.startsWith("#")) return;
-            if (href.startsWith("pages/")) {
-              link.setAttribute("href", href.replace("pages/", ""));
-            } else {
-              link.setAttribute("href", `../${href}`);
-            }
-          });
-      }
+      document
+        .querySelectorAll("#menu-container a[href]")
+        .forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#")) return;
+          link.setAttribute("href", `${basePath}${href}`);
+        });
 
       initMenu();
     });
