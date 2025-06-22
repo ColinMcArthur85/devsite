@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node scripts/updateSkillCounts.js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js",
-    "watch": "nodemon --watch src --exec 'node scripts/updateSkillCounts.js' && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch"
+    "watch": "nodemon --watch src --exec 'node scripts/updateSkillCounts.js && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js' && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch"
   },
   "keywords": [],
   "author": "",
