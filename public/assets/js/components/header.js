@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const segments = window.location.pathname.split("/").filter(Boolean);
-  const depth = segments.length - 1;
-  const basePath = depth === 0 ? "./" : "../".repeat(depth);
+  const script = document.currentScript;
+  let basePath = "./";
+  if (script) {
+    const scriptUrl = new URL(script.getAttribute("src"), window.location.href);
+    basePath = scriptUrl.pathname.replace(/assets\/js\/components\/header\.js$/, "");
+  }
 
   // === Load the menu ===
   fetch(`${basePath}components/menu.html`)
