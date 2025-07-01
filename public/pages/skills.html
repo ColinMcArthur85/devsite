@@ -37,53 +37,22 @@
 
     <title>Skills | Colin McArthur</title>
 
-    <style>
-      /*  ───────── Logo placeholder utility ───────── */
-      .logo-slot {
-        @apply inline-block w-5 h-5 shrink-0 rounded bg-gray-300/40 dark:bg-white/20;
-      }
-      .skill-list li {
-        @apply flex items-center gap-2 leading-relaxed;
-      }
-      .skill-heading {
-        @apply mt-4 font-semibold text-primary dark:text-secondary-light;
-      }
-    </style>
   </head>
 
   <body class="bg-white font-sans text-gray-900 transition-colors duration-300 dark:bg-dark-background dark:text-white">
     <!-- Header (loaded via JS) -->
     <div id="menu-container"></div>
 
-    <!-- Hero -->
-    <section id="hero" class="py-20 lg:py-28">
-      <div class="container-wrapper grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div class="text-center lg:text-left space-y-6">
-          <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">My Skill Set</h1>
-          <p class="text-lg text-gray-600 dark:text-gray-300">Everything I use to design, build, ship & support digital products.</p>
-
-          <div class="flex justify-center lg:justify-start gap-4">
-            <a href="#skills" class="btn btn-primary">View Skills</a>
-            <a href="/index.html" class="btn btn-secondary">Home</a>
-          </div>
-        </div>
-
-        <div class="flex justify-center">
-          <img src="../assets/images/hero/hero-image-01.png" alt="Colin McArthur avatar" class="max-w-[320px] lg:max-w-none" width="491" height="515" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
     <!-- Skills -->
-    <section id="skills" class="section-alt">
+    <section id="skills" class="section-alt bg-white dark:bg-black">
       <div class="container-wrapper">
         <h2 class="section-title">Skill Stacks</h2>
         <p class="section-subtitle mb-12 max-w-prose">Grouped by discipline so you can find exactly what I bring to a project.</p>
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- 1. Development & Programming -->
-          <article class="card">
-            <h3 class="card-title">💻 Development & Programming</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Development & Programming</h3>
 
             <h4 class="skill-heading">Languages & Frameworks</h4>
             <ul class="skill-list">
@@ -220,8 +189,8 @@
           </article>
 
           <!-- 🧠 AI & Automation -->
-          <article class="card">
-            <h3 class="card-title">🧠 AI & Automation</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">AI & Automation</h3>
 
             <h4 class="skill-heading">Daily Usage</h4>
             <ul class="skill-list">
@@ -286,8 +255,8 @@
           </article>
 
           <!-- 3. Technical Ops & Systems -->
-          <article class="card">
-            <h3 class="card-title">🔧 Technical Operations & Systems</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Technical Operations & Systems</h3>
 
             <h4 class="skill-heading">DNS & Domains</h4>
             <ul class="skill-list">
@@ -364,8 +333,8 @@
           </article>
 
           <!-- 4. Marketing & Content -->
-          <article class="card">
-            <h3 class="card-title">📈 Marketing & Content</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Marketing & Content</h3>
             <ul class="skill-list">
               <li>Landing pages & sales funnels</li>
               <li>SEO & blogging strategy</li>
@@ -377,8 +346,8 @@
           </article>
 
           <!-- 5. Design -->
-          <article class="card">
-            <h3 class="card-title">🎨 Design</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Design</h3>
 
             <h4 class="skill-heading">Primary Tools</h4>
             <ul class="skill-list">
@@ -400,8 +369,8 @@
           </article>
 
           <!-- 6. Product & Customer Support -->
-          <article class="card">
-            <h3 class="card-title">🧩 Product & Customer Support</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Product & Customer Support</h3>
             <ul class="skill-list">
               <li>Freshdesk & Freshchat ticket mastery</li>
               <li>Zoom live support & training</li>
@@ -412,8 +381,8 @@
           </article>
 
           <!-- 7. Education & Learning -->
-          <article class="card">
-            <h3 class="card-title">📚 Education & Learning</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Education & Learning</h3>
             <ul class="skill-list">
               <li>Multimedia Design & Communication diploma</li>
               <li>FreeCodeCamp — Responsive Web Design cert</li>
@@ -424,8 +393,8 @@
           </article>
 
           <!-- 8. Projects & Labs -->
-          <article class="card">
-            <h3 class="card-title">🧪 Projects & Labs</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Projects & Labs</h3>
             <ul class="skill-list">
               <li>AI Website Builder (Python + ChatGPT)</li>
               <li>Reusable UI component templates</li>
@@ -434,8 +403,8 @@
           </article>
 
           <!-- 9. Software & Utilities -->
-          <article class="card">
-            <h3 class="card-title">🛠️ Software & Utilities</h3>
+          <article class="card card-shadow">
+            <h3 class="card-title">Software & Utilities</h3>
 
             <h4 class="skill-heading">Task & Ticketing</h4>
             <ul class="skill-list">
@@ -567,5 +536,6 @@
     <script src="../assets/js/components/ui.js"></script>
     <script src="../assets/js/expressions.js"></script>
     <script src="../assets/js/scripts.js"></script>
+    <script src="../assets/js/accordion.js"></script>
   </body>
 </html>

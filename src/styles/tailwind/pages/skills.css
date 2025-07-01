@@ -1,22 +1,40 @@
 @layer components {
   .logo-slot {
-    @apply w-6 h-6 p-0.5 border border-gray-50 rounded;
+    @apply w-6 h-6 p-0.5 rounded border border-primary/20;
   }
 
   .dark .logo-slot {
-    @apply border-gray-900;
+    @apply border-primary/20;
   }
 
   /* Skill List Styling */
   .skill-list {
     @apply list-none pl-0 m-0;
   }
+
+  .skill-heading + .skill-list {
+    @apply max-h-0 overflow-hidden transition-[max-height];
+  }
+
+  .skill-heading.expanded + .skill-list {
+    @apply max-h-[1000px];
+  }
+
   .skill-list li {
     @apply flex items-center gap-2 leading-6;
   }
 
   /* Skill Heading Styling */
   .skill-heading {
-    @apply mt-4 font-semibold text-primary;
+    @apply mt-4 font-semibold text-primary cursor-pointer;
+  }
+
+  .skill-heading::after {
+    content: "+";
+    @apply float-right font-normal;
+  }
+
+  .skill-heading.expanded::after {
+    content: "-";
   }
 }
