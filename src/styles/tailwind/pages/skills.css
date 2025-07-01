@@ -1,34 +1,22 @@
-/* Skills Page Specific Styles */
+@layer components {
+  .logo-slot {
+    @apply w-6 h-6 p-0.5 border border-gray-50 rounded;
+  }
 
-/* Logo Slot Styling */
-.logo-slot {
-  width: 1.5rem;
-  height: 1.5rem;
-  padding: 2px;
-  border: 1px solid var(--color-gray-50);
-  border-radius: 0.25rem;
-}
+  .dark .logo-slot {
+    @apply border-gray-900;
+  }
 
-.dark .logo-slot {
-  border: 1px solid var(--color-gray-900);
-}
+  /* Skill List Styling */
+  .skill-list {
+    @apply list-none pl-0 m-0;
+  }
+  .skill-list li {
+    @apply flex items-center gap-2 leading-6;
+  }
 
-/* Skill List Styling */
-.skill-list {
-  list-style-type: none;
-  padding-left: 0;
-  margin: 0;
-}
-.skill-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1.5;
-}
-
-/* Skill Heading Styling */
-.skill-heading {
-  margin-top: 1rem;
-  font-weight: 600;
-  color: var(--primary-color);
+  /* Skill Heading Styling */
+  .skill-heading {
+    @apply mt-4 font-semibold text-primary;
+  }
 }
