@@ -9,11 +9,15 @@
 
   /* Skill List Styling */
   .skill-list {
-    @apply list-none pl-0 m-0 hidden;
+    @apply list-none pl-0 m-0;
+  }
+
+  .skill-heading + .skill-list {
+    @apply max-h-0 overflow-hidden transition-[max-height];
   }
 
   .skill-heading.expanded + .skill-list {
-    @apply block;
+    @apply max-h-[1000px];
   }
 
   .skill-list li {
