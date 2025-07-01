@@ -19,5 +19,7 @@
 @import "./tailwind/utils/_animations.css";
 /* Sprites */
 @import "./tailwind/sprites/_avatar.css";
+/* Pages */
+@import "./tailwind/pages/skills.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
