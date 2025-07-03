@@ -1,11 +1,11 @@
 @layer components {
   .logo-slot {
-    @apply w-6 h-6 p-0.5 rounded border border-primary/20;
+    @apply w-6 h-6 p-0.5 rounded border border-primary/60;
   }
 
-  .dark .logo-slot {
-    @apply border-primary/20;
-  }
+  /* .dark .logo-slot {
+    @apply border-primary/50;
+  } */
 
   /* Skill List Styling */
   .skill-list {
@@ -21,7 +21,7 @@
   }
 
   .skill-list li {
-    @apply flex items-center gap-2 leading-6;
+    @apply flex items-center gap-2 leading-6 mt-1 mb-1 ml-1;
   }
 
   /* Skill Heading Styling */

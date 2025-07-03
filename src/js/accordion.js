@@ -1,32 +1,32 @@
 // Simple accordion for skill sections
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.skill-heading').forEach((heading) => {
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".skill-heading").forEach((heading) => {
     const list = heading.nextElementSibling;
-    if (!list || !list.classList.contains('skill-list')) return;
+    if (!list || list.tagName !== "UL") return;
 
-    list.style.overflow = 'hidden';
-    list.style.maxHeight = '0px';
-    list.style.transition = 'max-height 0.3s ease';
+    list.style.overflow = "hidden";
+    list.style.maxHeight = "0px";
+    list.style.transition = "max-height 0.3s ease";
 
-    heading.addEventListener('click', () => {
-      heading.classList.toggle('expanded');
+    heading.addEventListener("click", () => {
+      heading.classList.toggle("expanded");
 
-      if (heading.classList.contains('expanded')) {
-        list.style.maxHeight = list.scrollHeight + 'px';
+      if (heading.classList.contains("expanded")) {
+        list.style.maxHeight = list.scrollHeight + "px";
 
         const onOpen = () => {
-          list.style.maxHeight = 'none';
-          list.removeEventListener('transitionend', onOpen);
+          list.style.maxHeight = "none";
+          list.removeEventListener("transitionend", onOpen);
         };
 
-        list.addEventListener('transitionend', onOpen);
+        list.addEventListener("transitionend", onOpen);
       } else {
         // Set explicit height so the transition animates when collapsing
-        list.style.maxHeight = list.scrollHeight + 'px';
+        list.style.maxHeight = list.scrollHeight + "px";
         // Force reflow to apply the height before collapsing
         void list.offsetHeight;
-        list.style.maxHeight = '0px';
+        list.style.maxHeight = "0px";
       }
     });
   });
