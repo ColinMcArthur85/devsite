@@ -1156,11 +1156,6 @@
       border-color: var(--color-gray-700);
     }
   }
-  .dark\:bg-black {
-    &:where(.dark, .dark *) {
-      background-color: var(--color-black);
-    }
-  }
   .dark\:bg-dark-background {
     &:where(.dark, .dark *) {
       background-color: var(--color-dark-background);
@@ -1905,17 +1900,11 @@ section {
     border-radius: 0.25rem;
     border-style: var(--tw-border-style);
     border-width: 1px;
-    border-color: color-mix(in srgb, #3b82f6 20%, transparent);
+    border-color: color-mix(in srgb, #3b82f6 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
+      border-color: color-mix(in oklab, var(--color-primary) 60%, transparent);
     }
     padding: calc(var(--spacing) * 0.5);
-  }
-  .dark .logo-slot {
-    border-color: color-mix(in srgb, #3b82f6 20%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
-    }
   }
   .skill-list {
     margin: calc(var(--spacing) * 0);
@@ -1933,6 +1922,9 @@ section {
     max-height: 1000px;
   }
   .skill-list li {
+    margin-top: calc(var(--spacing) * 1);
+    margin-bottom: calc(var(--spacing) * 1);
+    margin-left: calc(var(--spacing) * 1);
     display: flex;
     align-items: center;
     gap: calc(var(--spacing) * 2);
