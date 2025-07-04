@@ -359,6 +359,12 @@
   .inline-block {
     display: inline-block;
   }
+  .list-item {
+    display: list-item;
+  }
+  .table {
+    display: table;
+  }
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
   }
@@ -441,6 +447,9 @@
   .animate-morph {
     animation: var(--animate-morph);
   }
+  .list-inside {
+    list-style-position: inside;
+  }
   .list-disc {
     list-style-type: disc;
   }
@@ -519,8 +528,17 @@
       margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
+  .\!overflow-visible {
+    overflow: visible !important;
+  }
+  .overflow-auto {
+    overflow: auto;
+  }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-visible {
+    overflow: visible;
   }
   .scroll-smooth {
     scroll-behavior: smooth;
@@ -956,6 +974,27 @@
   }
   .text-primary {
     color: var(--color-primary);
+  }
+  .text-primary\/5 {
+    color: color-mix(in srgb, #3b82f6 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-primary) 5%, transparent);
+    }
+  }
+  .text-primary\/50 {
+    color: color-mix(in srgb, #3b82f6 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-primary) 50%, transparent);
+    }
+  }
+  .text-sass-pink {
+    color: var(--color-sass-pink);
+  }
+  .text-sass-pink\/50 {
+    color: color-mix(in srgb, #cc6699 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-sass-pink) 50%, transparent);
+    }
   }
   .text-transparent {
     color: transparent;
