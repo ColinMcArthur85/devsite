@@ -3,17 +3,17 @@
     @apply w-6 h-6 p-0.5 rounded border border-primary/60;
   }
 
-  /* .dark .logo-slot {
-    @apply border-primary/50;
-  } */
+  ul {
+    overflow: unset;
+  }
 
   /* Skill List Styling */
   .skill-list {
-    @apply list-none pl-0 m-0;
+    @apply pl-0 m-0;
   }
 
   .skill-heading + .skill-list {
-    @apply max-h-0 overflow-hidden transition-[max-height];
+    @apply max-h-0 transition-[max-height];
   }
 
   .skill-heading.expanded + .skill-list {

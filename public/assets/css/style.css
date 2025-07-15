@@ -447,9 +447,6 @@
   .animate-morph {
     animation: var(--animate-morph);
   }
-  .list-inside {
-    list-style-position: inside;
-  }
   .list-disc {
     list-style-type: disc;
   }
@@ -527,9 +524,6 @@
       margin-inline-start: calc(calc(var(--spacing) * 8) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
     }
-  }
-  .\!overflow-visible {
-    overflow: visible !important;
   }
   .overflow-auto {
     overflow: auto;
@@ -974,27 +968,6 @@
   }
   .text-primary {
     color: var(--color-primary);
-  }
-  .text-primary\/5 {
-    color: color-mix(in srgb, #3b82f6 5%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-primary) 5%, transparent);
-    }
-  }
-  .text-primary\/50 {
-    color: color-mix(in srgb, #3b82f6 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-primary) 50%, transparent);
-    }
-  }
-  .text-sass-pink {
-    color: var(--color-sass-pink);
-  }
-  .text-sass-pink\/50 {
-    color: color-mix(in srgb, #cc6699 50%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-sass-pink) 50%, transparent);
-    }
   }
   .text-transparent {
     color: transparent;
@@ -1945,14 +1918,15 @@ section {
     }
     padding: calc(var(--spacing) * 0.5);
   }
+  ul {
+    overflow: unset;
+  }
   .skill-list {
     margin: calc(var(--spacing) * 0);
-    list-style-type: none;
     padding-left: calc(var(--spacing) * 0);
   }
   .skill-heading + .skill-list {
     max-height: calc(var(--spacing) * 0);
-    overflow: hidden;
     transition-property: max-height;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
