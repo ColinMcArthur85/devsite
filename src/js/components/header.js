@@ -1,6 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inPagesDir = window.location.pathname.includes("/pages/");
-  const basePath = inPagesDir ? "../" : "./";
+  // Determine how deep the current file is nested so we can resolve paths back
+  // to the site root. This allows the menu to work from any subdirectory under
+  // `public`, e.g. pages or projects.
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const depth = pathParts.length - 1; // number of directories below the root
+  const basePath = depth > 0 ? "../".repeat(depth) : "";
+  const isInPagesDir = depth >= 1 && pathParts[0] === "pages";
 
   // === Load the menu ===
   fetch(`${basePath}components/menu.html`)
@@ -8,17 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      if (inPagesDir) {
-        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-          const href = link.getAttribute("href");
-          if (!href || href.startsWith("http") || href.startsWith("#")) return;
-          if (href.startsWith("pages/")) {
-            link.setAttribute("href", href.replace("pages/", ""));
+      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+        let href = link.getAttribute("href");
+        if (!href || href.startsWith("http") || href.startsWith("#")) return;
+
+        if (href.startsWith("pages/")) {
+          if (isInPagesDir) {
+            href = href.replace("pages/", "");
           } else {
-            link.setAttribute("href", `../${href}`);
+            href = `${basePath}${href}`;
           }
-        });
-      }
+        } else {
+          href = `${basePath}${href}`;
+        }
+
+        link.setAttribute("href", href);
+      });
 
       initMenu();
     });
