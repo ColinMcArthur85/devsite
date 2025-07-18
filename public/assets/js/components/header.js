@@ -9,17 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("menu-container").innerHTML = html;
 
       if (inPagesDir) {
-        document
-          .querySelectorAll("#menu-container a[href]")
-          .forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href || href.startsWith("http") || href.startsWith("#")) return;
-            if (href.startsWith("pages/")) {
-              link.setAttribute("href", href.replace("pages/", ""));
-            } else {
-              link.setAttribute("href", `../${href}`);
-            }
-          });
+        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#")) return;
+          if (href.startsWith("pages/")) {
+            link.setAttribute("href", href.replace("pages/", ""));
+          } else {
+            link.setAttribute("href", `../${href}`);
+          }
+        });
       }
 
       initMenu();
