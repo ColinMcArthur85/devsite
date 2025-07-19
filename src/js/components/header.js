@@ -1,6 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const inPagesDir = window.location.pathname.includes("/pages/");
-  const basePath = inPagesDir ? "../" : "./";
+  // Calculate the correct base path based on the current URL path
+  const pathname = window.location.pathname;
+  let basePath = "./";
+
+  if (pathname.includes("/pages/")) {
+    basePath = "../";
+  } else if (pathname.includes("/projects/")) {
+    // Count the number of directory levels after /projects/
+    // const projectsIndex = pathname.indexOf("/projects/");
+    // const pathAfterProjects = pathname.substring(projectsIndex + "/projects/".length);
+    // const directoryLevels = pathAfterProjects.split("/").filter((segment) => segment !== "").length;
+
+    // For each directory level, add "../"
+    // Add one extra "../" to get out of the projects folder itself
+    basePath = "../../../../../public/";
+    // basePath = "../".repeat(directoryLevels + 1);
+  }
 
   // === Load the menu ===
   fetch(`${basePath}components/menu.html`)
@@ -8,7 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      if (inPagesDir) {
+      // Update href attributes for different directory structures
+      if (pathname.includes("/pages/")) {
         document.querySelectorAll("#menu-container a[href]").forEach((link) => {
           const href = link.getAttribute("href");
           if (!href || href.startsWith("http") || href.startsWith("#")) return;
@@ -16,6 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
             link.setAttribute("href", href.replace("pages/", ""));
           } else {
             link.setAttribute("href", `../${href}`);
+          }
+        });
+      } else if (pathname.includes("/projects/")) {
+        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#")) return;
+          // For project pages, prepend the calculated basePath to relative links
+          if (!href.startsWith("../")) {
+            link.setAttribute("href", `${basePath}${href}`);
           }
         });
       }

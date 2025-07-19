@@ -6,27 +6,18 @@
     <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+    <!-- <link rel="stylesheet" href="css/normalize.css" /> -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../../../../assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap" rel="stylesheet" />
-    <script>
-      // On page load, set dark mode class before CSS loads
-      try {
-        const theme = localStorage.getItem("theme");
-        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-          document.documentElement.classList.add("dark");
-        }
-      } catch (e) {}
-    </script>
 
     <title>Frontend Mentor | 3-column preview card component</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
         font-size: 11px;
@@ -40,7 +31,7 @@
   <body>
     <main>
       <div id="menu-container"></div>
-      <div class="container">
+      <div class="custom-container">
         <div class="card orange">
           <img class="card__image" src="images/icon-sedans.svg" alt="Sedans Icon" />
           <h2 class="card__headline">Sedans</h2>
@@ -70,5 +61,6 @@
         .
       </div>
     </footer>
+    <script src="../../../../../src/js/components/header.js"></script>
   </body>
 </html>
