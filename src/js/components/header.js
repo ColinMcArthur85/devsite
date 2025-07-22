@@ -1,35 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Calculate the correct base path based on the current URL path
+  const pathname = window.location.pathname;
+  let basePath = "./";
+
+  if (pathname.includes("/pages/")) {
+    basePath = "../";
+  } else if (pathname.includes("/projects/")) {
+    basePath = "/public/";
+  }
+
   // === Load the menu ===
-  fetch("/public/components/menu.html") // Use an absolute path to the menu file
+  fetch(`${basePath}components/menu.html`)
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
 
-      // Dynamically adjust links based on the current path
-      const pathname = window.location.pathname;
-
-      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href || href.startsWith("http") || href.startsWith("#")) return;
-
-        if (pathname.includes("/pages/")) {
-          // Adjust links for pages under /pages/
+      // Update href attributes for different directory structures
+      if (pathname.includes("/pages/")) {
+        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#")) return;
           if (href.startsWith("pages/")) {
             link.setAttribute("href", href.replace("pages/", ""));
           } else {
-            link.setAttribute("href", `../${href}`);
+            link.setAttribute("href", `/public/${href}`);
           }
-        } else if (pathname.includes("/projects/")) {
-          // Adjust links for pages under /projects/
-          const projectsIndex = pathname.indexOf("/projects/");
-          const pathAfterProjects = pathname.substring(projectsIndex + "/projects/".length);
-          const directoryLevels = pathAfterProjects.split("/").filter((segment) => segment !== "").length;
-
-          // Calculate the relative path
-          const basePath = "../".repeat(directoryLevels + 1);
-          link.setAttribute("href", `${basePath}/public/${href}`);
-        }
-      });
+        });
+      } else if (pathname.includes("/projects/")) {
+        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (!href || href.startsWith("http") || href.startsWith("#")) return;
+          // For project pages, prepend the calculated basePath to relative links
+          if (!href.startsWith("../")) {
+            link.setAttribute("href", `${basePath}${href}`);
+          }
+        });
+      }
 
       initMenu();
     });
