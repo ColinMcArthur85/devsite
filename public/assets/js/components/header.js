@@ -6,15 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (pathname.includes("/pages/")) {
     basePath = "../";
   } else if (pathname.includes("/projects/")) {
-    // Count the number of directory levels after /projects/
-    // const projectsIndex = pathname.indexOf("/projects/");
-    // const pathAfterProjects = pathname.substring(projectsIndex + "/projects/".length);
-    // const directoryLevels = pathAfterProjects.split("/").filter((segment) => segment !== "").length;
-
-    // For each directory level, add "../"
-    // Add one extra "../" to get out of the projects folder itself
-    basePath = "../../../../../public/";
-    // basePath = "../".repeat(directoryLevels + 1);
+    basePath = "/public/";
   }
 
   // === Load the menu ===
@@ -31,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (href.startsWith("pages/")) {
             link.setAttribute("href", href.replace("pages/", ""));
           } else {
-            link.setAttribute("href", `../${href}`);
+            link.setAttribute("href", `${href}`);
           }
         });
       } else if (pathname.includes("/projects/")) {
