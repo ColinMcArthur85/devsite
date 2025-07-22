@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (href.startsWith("pages/")) {
             link.setAttribute("href", href.replace("pages/", ""));
           } else {
-            link.setAttribute("href", `/public/${href}`);
+            link.setAttribute("href", `${href}`);
           }
         });
       } else if (pathname.includes("/projects/")) {
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const href = link.getAttribute("href");
           if (!href || href.startsWith("http") || href.startsWith("#")) return;
           // For project pages, prepend the calculated basePath to relative links
-          if (!href.startsWith("../")) {
-            link.setAttribute("href", `${basePath}${href}`);
+          if (!href.startsWith("public/")) {
+            link.setAttribute("href", `${basePath}$/public/{href}`);
           }
         });
       }
