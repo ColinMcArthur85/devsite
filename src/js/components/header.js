@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (!href || href.startsWith("http") || href.startsWith("#")) return;
           // For project pages, prepend the calculated basePath to relative links
           if (!href.startsWith("../")) {
-            link.setAttribute("href", `${basePath}${href}`);
+            link.setAttribute("href", `/public/${href}`);
           }
         });
       }
