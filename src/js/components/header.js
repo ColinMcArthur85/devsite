@@ -1,52 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Calculate the correct base path based on the current URL path
-  const pathname = window.location.pathname;
-  let basePath = "./";
-
-  if (pathname.includes("/pages/")) {
-    basePath = "../";
-  } else if (pathname.includes("/projects/")) {
-    // Count the number of directory levels after /projects/
-    // const projectsIndex = pathname.indexOf("/projects/");
-    // const pathAfterProjects = pathname.substring(projectsIndex + "/projects/".length);
-    // const directoryLevels = pathAfterProjects.split("/").filter((segment) => segment !== "").length;
-
-    // For each directory level, add "../"
-    // Add one extra "../" to get out of the projects folder itself
-    basePath = "../../../../../public/";
-    // basePath = "../".repeat(directoryLevels + 1);
+  // === Load the menu ===
+  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+  let menuPath = "/components/menu.html";
+  if (scriptEl) {
+    const scriptUrl = new URL(scriptEl.src, window.location.href);
+    const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
+    menuPath = `${scriptUrl.origin}${basePath}/components/menu.html`;
   }
 
-  // === Load the menu ===
-  fetch(`${basePath}components/menu.html`)
+  fetch(menuPath)
+    .catch(() => fetch("/components/menu.html"))
     .then((response) => response.text())
     .then((html) => {
-      document.getElementById("menu-container").innerHTML = html;
+      // Calculate the correct base path based on current page location
+      const currentPath = window.location.pathname;
+      let basePath = "";
 
-      // Update href attributes for different directory structures
-      if (pathname.includes("/pages/")) {
-        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-          const href = link.getAttribute("href");
-          if (!href || href.startsWith("http") || href.startsWith("#")) return;
-          if (href.startsWith("pages/")) {
-            link.setAttribute("href", href.replace("pages/", ""));
-          } else {
-            link.setAttribute("href", `../${href}`);
-          }
-        });
-      } else if (pathname.includes("/projects/")) {
-        document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-          const href = link.getAttribute("href");
-          if (!href || href.startsWith("http") || href.startsWith("#")) return;
-          // For project pages, prepend the calculated basePath to relative links
-          if (!href.startsWith("../")) {
-            link.setAttribute("href", `${basePath}${href}`);
-          }
-        });
+      // Determine depth and set appropriate base path
+      if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
+        // Root level pages (but not project index pages)
+        basePath = "./";
+      } else if (currentPath.includes("/pages/")) {
+        // Pages in /pages/ folder
+        basePath = "../";
+      } else if (currentPath.includes("/projects/")) {
+        // Pages in /projects/ folder - need to go up to root
+        // Count the number of slashes after /projects/
+        const projectsIndex = currentPath.indexOf("/projects/");
+        const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
+        const slashCount = (pathAfterProjects.match(/\//g) || []).length;
+
+        // If we're in /public/projects/..., we need to account for that extra level
+        const hasPublicPrefix = currentPath.startsWith("/public/");
+
+        if (hasPublicPrefix) {
+          // We need to go back to /public/ directory, not to server root
+          const depth = slashCount + 1; // +1 to get back from /projects/ to /public/
+          basePath = "../".repeat(depth);
+        } else {
+          // Normal projects path handling
+          const depth = slashCount + 1;
+          basePath = "../".repeat(depth);
+        }
+      } else {
+        // Default fallback
+        basePath = "./";
       }
 
+      // Replace placeholder with calculated base path
+      const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
+
+      document.getElementById("menu-container").innerHTML = processedHtml;
       initMenu();
-    });
+    })
+    .catch((err) => console.error("Failed to load menu", err));
 
   function initMenu() {
     // === Theme Toggle ===
