@@ -1,38 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   // === Load the menu ===
-  fetch("/public/components/menu.html") // Use an absolute path to the menu file
+  const scriptUrl = new URL(document.currentScript.src, window.location.href);
+  const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
+  const menuPath = `${basePath}/components/menu.html`;
+
+  fetch(menuPath)
+    .catch(() => fetch(`/components/menu.html`))
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
-
-      // Dynamically adjust links based on the current path
-      const pathname = window.location.pathname;
-
-      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href || href.startsWith("http") || href.startsWith("#")) return;
-
-        if (pathname.includes("/pages/")) {
-          // Adjust links for pages under /pages/
-          if (href.startsWith("pages/")) {
-            link.setAttribute("href", href.replace("pages/", ""));
-          } else {
-            link.setAttribute("href", `../${href}`);
-          }
-        } else if (pathname.includes("/projects/")) {
-          // Adjust links for pages under /projects/
-          const projectsIndex = pathname.indexOf("/projects/");
-          const pathAfterProjects = pathname.substring(projectsIndex + "/projects/".length);
-          const directoryLevels = pathAfterProjects.split("/").filter((segment) => segment !== "").length;
-
-          // Calculate the relative path
-          const basePath = "../".repeat(directoryLevels + 1);
-          link.setAttribute("href", `${basePath}/public/${href}`);
-        }
-      });
-
       initMenu();
-    });
+    })
+    .catch((err) => console.error("Failed to load menu", err));
 
   function initMenu() {
     // === Theme Toggle ===
