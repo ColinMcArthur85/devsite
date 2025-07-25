@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const getBaseUrl = () => {
     const pathname = window.location.pathname;
 
-    // For GitHub Pages deployment (if your repo is named 'devsite')
-    if (pathname.includes("/devsite/")) {
-      return "/devsite/";
+    // For GitHub Pages deployment (repository name dynamically detected)
+    const repoName = document.querySelector('meta[name="repo-name"]')?.getAttribute("content") || "";
+    if (pathname.includes(`/${repoName}/`)) {
+      return `/${repoName}/`;
     }
 
     // For local development or root domain
