@@ -12,7 +12,45 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(() => fetch("/components/menu.html"))
     .then((response) => response.text())
     .then((html) => {
-      document.getElementById("menu-container").innerHTML = html;
+      // Calculate the correct base path based on current page location
+      const currentPath = window.location.pathname;
+      let basePath = "";
+
+      // Determine depth and set appropriate base path
+      if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
+        // Root level pages (but not project index pages)
+        basePath = "./";
+      } else if (currentPath.includes("/pages/")) {
+        // Pages in /pages/ folder
+        basePath = "../";
+      } else if (currentPath.includes("/projects/")) {
+        // Pages in /projects/ folder - need to go up to root
+        // Count the number of slashes after /projects/
+        const projectsIndex = currentPath.indexOf("/projects/");
+        const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
+        const slashCount = (pathAfterProjects.match(/\//g) || []).length;
+
+        // If we're in /public/projects/..., we need to account for that extra level
+        const hasPublicPrefix = currentPath.startsWith("/public/");
+
+        if (hasPublicPrefix) {
+          // We need to go back to /public/ directory, not to server root
+          const depth = slashCount + 1; // +1 to get back from /projects/ to /public/
+          basePath = "../".repeat(depth);
+        } else {
+          // Normal projects path handling
+          const depth = slashCount + 1;
+          basePath = "../".repeat(depth);
+        }
+      } else {
+        // Default fallback
+        basePath = "./";
+      }
+
+      // Replace placeholder with calculated base path
+      const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
+
+      document.getElementById("menu-container").innerHTML = processedHtml;
       initMenu();
     })
     .catch((err) => console.error("Failed to load menu", err));
