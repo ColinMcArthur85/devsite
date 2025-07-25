@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   // === Load the menu ===
-  const scriptUrl = new URL(document.currentScript.src, window.location.href);
-  const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
-  const menuPath = `${basePath}/components/menu.html`;
+  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+  let menuPath = "/components/menu.html";
+  if (scriptEl) {
+    const scriptUrl = new URL(scriptEl.src, window.location.href);
+    const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
+    menuPath = `${scriptUrl.origin}${basePath}/components/menu.html`;
+  }
 
   fetch(menuPath)
-    .catch(() => fetch(`/components/menu.html`))
+    .catch(() => fetch("/components/menu.html"))
     .then((response) => response.text())
     .then((html) => {
       document.getElementById("menu-container").innerHTML = html;
