@@ -24,7 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const href = link.getAttribute("href");
         if (href && !href.startsWith("http") && !href.startsWith("#")) {
           // For local development, ensure paths point to public directory
-          if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+          const isDevelopmentHost = ["localhost", "127.0.0.1", "0.0.0.0"].includes(window.location.hostname) ||
+                                    window.location.hostname.endsWith(".local") ||
+                                    window.location.hostname.endsWith(".test");
+          if (isDevelopmentHost) {
             if (href.startsWith("/pages/")) {
               link.setAttribute("href", href.replace("/pages/", "/public/pages/"));
             } else if (href.startsWith("/") && !href.startsWith("/public/")) {
