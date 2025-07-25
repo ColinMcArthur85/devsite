@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const getBaseUrl = () => {
     const pathname = window.location.pathname;
 
-    // For GitHub Pages deployment (if your repo is named 'devsite')
-    if (pathname.includes("/devsite/")) {
-      return "/devsite/";
-    }
+    // Dynamically detect the repository name from the URL structure
+    const pathSegments = pathname.split("/").filter(Boolean);
+    const repoName = pathSegments.length > 0 ? pathSegments[0] : null;
 
-    // For local development or root domain
-    return "/";
+    // Return the base URL based on the detected repository name or default to root
+    return repoName ? `/${repoName}/` : "/";
   };
 
   const baseUrl = getBaseUrl();
