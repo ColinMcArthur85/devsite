@@ -35,7 +35,6 @@ jobs:
           destination_dir: previews/pr-${{ env.PR_NUM }}
           publish_branch: gh-pages
           keep_files: true
-          force_orphan: true
 
       - name: Comment preview URL on PR
         uses: marocchino/sticky-pull-request-comment@v2
