@@ -1,51 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Detect the base URL for the site
-  const getBaseUrl = () => {
-    const pathname = window.location.pathname;
-
-    // For GitHub Pages deployment (if your repo is named 'devsite')
-    if (pathname.includes("/devsite/")) {
-      return "/devsite/";
-    }
-
-    // For local development or root domain
-    return "/";
-  };
-
-  const baseUrl = getBaseUrl();
-
   // === Load the menu ===
-  fetch(`${baseUrl}public/components/menu.html`)
+  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+  let menuPath = "/components/menu.html";
+  if (scriptEl) {
+    const scriptUrl = new URL(scriptEl.src, window.location.href);
+    const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
+    menuPath = `${scriptUrl.origin}${basePath}/components/menu.html`;
+  }
+
+  fetch(menuPath)
+    .catch(() => fetch("/components/menu.html"))
     .then((response) => response.text())
     .then((html) => {
-      document.getElementById("menu-container").innerHTML = html;
+      // Calculate the correct base path based on current page location
+      const currentPath = window.location.pathname;
+      let basePath = "";
 
-      // Adjust paths based on environment
-      document.querySelectorAll("#menu-container a[href]").forEach((link) => {
-        const href = link.getAttribute("href");
-        if (href && !href.startsWith("http") && !href.startsWith("#")) {
-          // For local development, ensure paths point to public directory
-          if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-            if (href.startsWith("/pages/")) {
-              link.setAttribute("href", href.replace("/pages/", "/public/pages/"));
-            } else if (href.startsWith("/") && !href.startsWith("/public/")) {
-              link.setAttribute("href", `/public${href}`);
-            }
-          }
-          // For GitHub Pages deployment
-          else if (baseUrl !== "/") {
-            if (!href.startsWith(baseUrl)) {
-              link.setAttribute("href", `${baseUrl}public${href}`);
-            }
-          }
+      // Determine depth and set appropriate base path
+      if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
+        // Root level pages (but not project index pages)
+        basePath = "./";
+      } else if (currentPath.includes("/pages/")) {
+        // Pages in /pages/ folder
+        basePath = "../";
+      } else if (currentPath.includes("/projects/")) {
+        // Pages in /projects/ folder - need to go up to root
+        // Count the number of slashes after /projects/
+        const projectsIndex = currentPath.indexOf("/projects/");
+        const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
+        const slashCount = (pathAfterProjects.match(/\//g) || []).length;
+
+        // If we're in /public/projects/..., we need to account for that extra level
+        const hasPublicPrefix = currentPath.startsWith("/public/");
+
+        if (hasPublicPrefix) {
+          // We need to go back to /public/ directory, not to server root
+          const depth = slashCount + 1; // +1 to get back from /projects/ to /public/
+          basePath = "../".repeat(depth);
+        } else {
+          // Normal projects path handling
+          const depth = slashCount + 1;
+          basePath = "../".repeat(depth);
         }
-      });
+      } else {
+        // Default fallback
+        basePath = "./";
+      }
 
+      // Replace placeholder with calculated base path
+      const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
+
+      document.getElementById("menu-container").innerHTML = processedHtml;
       initMenu();
     })
-    .catch((error) => {
-      console.error("Failed to load menu:", error);
-    });
+    .catch((err) => console.error("Failed to load menu", err));
 
   function initMenu() {
     // === Theme Toggle ===
