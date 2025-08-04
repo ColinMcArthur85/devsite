@@ -24,28 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
         if (selectedCategories.size === 0 && selectedTech.size === 0) {
           filtered = [];
         } else {
-          filtered = projects.filter((p) => (selectedCategories.size === 0 || selectedCategories.has(p.category)) && (selectedTech.size === 0 || [...selectedTech].every((t) => p.tags.includes(t))));
+          filtered = projects.filter((p) => (selectedCategories.size === 0 || selectedCategories.has(p.category)) && (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))));
         }
         currentPage = 1;
         renderPage();
       }
 
       function renderPage() {
-        listContainer.innerHTML = "";
-        const start = (currentPage - 1) * perPage;
-        const pageProjects = filtered.slice(start, start + perPage);
-        if (pageProjects.length === 0) {
-          const msg = document.createElement("p");
-          msg.textContent = selectedCategories.size === 0 && selectedTech.size === 0 ? "Please make a selection" : "No projects match your filters";
-          msg.className = "text-center text-gray-600 dark:text-gray-400";
-          listContainer.appendChild(msg);
-        } else {
-          pageProjects.forEach((project) => {
-            const card = buildProjectCard(project);
-            listContainer.appendChild(card);
-          });
-          renderPagination();
+        const oldCards = [...listContainer.children];
+        if (oldCards.length) {
+          oldCards.forEach((card) => card.classList.add("opacity-0", "translate-y-4"));
         }
+
+        setTimeout(
+          () => {
+            listContainer.innerHTML = "";
+            const start = (currentPage - 1) * perPage;
+            const pageProjects = filtered.slice(start, start + perPage);
+            if (pageProjects.length === 0) {
+              const msg = document.createElement("p");
+              msg.textContent = selectedCategories.size === 0 && selectedTech.size === 0 ? "Please make a selection" : "No projects match your filters";
+              msg.className = "text-center text-gray-600 dark:text-gray-400";
+              listContainer.appendChild(msg);
+            } else {
+              pageProjects.forEach((project) => {
+                const card = buildProjectCard(project);
+                listContainer.appendChild(card);
+                requestAnimationFrame(() => {
+                  card.classList.remove("opacity-0", "translate-y-4");
+                });
+              });
+              renderPagination();
+            }
+          },
+          oldCards.length ? 300 : 0,
+        );
       }
 
       function renderPagination() {
@@ -110,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildProjectCard(project) {
     const card = document.createElement("div");
-    card.className = "project-card card card-hoverable card-shadow p-0 flex flex-col h-full dark:bg-dark-background-secondary transition-opacity duration-300";
+    card.className = "project-card card card-hoverable card-shadow p-0 flex flex-col h-full dark:bg-dark-background-secondary transition duration-300 opacity-0 translate-y-4";
     card.dataset.tags = project.tags.join(",");
 
     card.innerHTML = `
