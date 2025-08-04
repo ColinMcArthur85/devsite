@@ -6,8 +6,8 @@
 @import "./tailwind/base/_typography.css";
 
 /* Utility Helpers */
-@import "./tailwind/utils/_flex-helpers.css";
-@import "./tailwind/utils/_brand-fonts.css";
+@import "./tailwind/utils/_flex_helpers.css";
+@import "./tailwind/utils/_brand_fonts.css";
 /* Components */
 @import "./tailwind/components/_cards.css";
 @import "./tailwind/components/_buttons.css";
