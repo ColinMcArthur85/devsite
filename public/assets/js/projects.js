@@ -78,16 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderFilters(container, items, set, onChange) {
     items.forEach((item) => {
-      const badge = UIComponents.createBadge({ text: item, classes: 'cursor-pointer opacity-60 transition' });
+      const badge = UIComponents.createBadge({
+        text: item,
+        classes: 'cursor-pointer opacity-60 transition border border-transparent'
+      });
+      badge.setAttribute('aria-pressed', 'false');
       badge.addEventListener('click', () => {
         if (set.has(item)) {
           set.delete(item);
           badge.classList.add('opacity-60');
-          badge.classList.remove('ring-2', 'ring-primary');
+          badge.classList.remove('border-primary');
+          badge.setAttribute('aria-pressed', 'false');
         } else {
           set.add(item);
           badge.classList.remove('opacity-60');
-          badge.classList.add('ring-2', 'ring-primary');
+          badge.classList.add('border-primary');
+          badge.setAttribute('aria-pressed', 'true');
         }
         onChange();
       });
