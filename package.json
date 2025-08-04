@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node scripts/updateSkillCounts.js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js",
-    "watch": "concurrently \"nodemon --watch src --exec 'node scripts/updateSkillCounts.js && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js'\" \"tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch\""
+    "build": "node scripts/update_skill_counts.js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && rm -rf ./public/components && cp -r ./src/components ./public/components && rm -rf ./public/data && cp -r ./src/data ./public/data",
+    "watch": "concurrently \\\"nodemon --watch src --exec 'node scripts/update_skill_counts.js && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && rm -rf ./public/components && cp -r ./src/components ./public/components && rm -rf ./public/data && cp -r ./src/data ./public/data'\\\" \\\"tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch\\\""
   },
   "keywords": [],
   "author": "",

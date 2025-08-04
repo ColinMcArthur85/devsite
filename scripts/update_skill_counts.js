@@ -11,7 +11,7 @@ const skillExtensions = {
   React: [".jsx", ".tsx"],
 };
 
-const ignoreDirs = ["node_modules", ".git", "public/assets", "public/data", "scripts"];
+const ignoreDirs = ["node_modules", ".git", "public/assets", "public/data", "public/components", "scripts"];
 
 function walkDir(dir, cb) {
   fs.readdirSync(dir).forEach((file) => {
@@ -45,5 +45,5 @@ walkDir(".", (file) => {
   }
 });
 
-fs.writeFileSync("public/data/skills.json", JSON.stringify(counts, null, 2));
+fs.writeFileSync("src/data/skills.json", JSON.stringify(counts, null, 2) + "\n");
 console.log("Updated skills.json", counts);
