@@ -4,8 +4,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const techFilterContainer = document.getElementById("filter-tech");
   const categoryFilterContainer = document.getElementById("filter-category");
 
-  const selectedTech = new Set();
-  const selectedCategories = new Set();
+  const storageKey = "projectFilters";
+  let stored = {};
+  try {
+    stored = JSON.parse(localStorage.getItem(storageKey)) || {};
+  } catch (e) {
+    stored = {};
+  }
+
+  const selectedTech = new Set(stored.tech || []);
+  const selectedCategories = new Set(stored.categories || []);
+
+  function saveFilters() {
+    try {
+      localStorage.setItem(
+        storageKey,
+        JSON.stringify({
+          tech: [...selectedTech],
+          categories: [...selectedCategories],
+        }),
+      );
+    } catch (e) {}
+  }
 
   fetch("../data/projects.json")
     .then((res) => res.json())
@@ -13,7 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const categories = [...new Set(projects.map((p) => p.category))];
       const techs = [...new Set(projects.flatMap((p) => p.tags))];
 
-      renderFilters(categoryFilterContainer, categories, selectedCategories, applyFilters);
+      renderFilters(
+        categoryFilterContainer,
+        categories,
+        selectedCategories,
+        applyFilters,
+      );
       renderFilters(techFilterContainer, techs, selectedTech, applyFilters);
 
       let filtered = [];
@@ -98,11 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderFilters(container, items, set, onChange) {
     items.forEach((item) => {
+      const isActive = set.has(item);
       const badge = UIComponents.createBadge({
         text: item,
-        classes: "cursor-pointer opacity-60 transition border border-transparent",
+        classes: `cursor-pointer transition border ${
+          isActive ? "border-primary" : "border-transparent opacity-60"
+        }`,
       });
-      badge.setAttribute("aria-pressed", "false");
+      badge.setAttribute("aria-pressed", isActive ? "true" : "false");
       badge.addEventListener("click", () => {
         if (set.has(item)) {
           set.delete(item);
@@ -115,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
           badge.classList.add("border-primary");
           badge.setAttribute("aria-pressed", "true");
         }
+        saveFilters();
         onChange();
       });
       container.appendChild(badge);
