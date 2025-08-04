@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const rowsContainer = document.getElementById('project-rows');
+  const listContainer = document.getElementById('project-list');
+  const paginationContainer = document.getElementById('pagination');
   const techFilterContainer = document.getElementById('filter-tech');
   const categoryFilterContainer = document.getElementById('filter-category');
 
@@ -15,37 +16,64 @@ document.addEventListener('DOMContentLoaded', () => {
       renderFilters(categoryFilterContainer, categories, selectedCategories, applyFilters);
       renderFilters(techFilterContainer, techs, selectedTech, applyFilters);
 
-      renderProjectRows(projects, categories, rowsContainer);
+      let filtered = projects;
+      let currentPage = 1;
+      const perPage = 6;
 
       function applyFilters() {
-        document.querySelectorAll('.category-row').forEach((row) => {
-          const category = row.dataset.category;
-          const container = row.querySelector('.row-scroll');
-          const showRow = selectedCategories.size === 0 || selectedCategories.has(category);
+        filtered = projects.filter(
+          (p) =>
+            (selectedCategories.size === 0 || selectedCategories.has(p.category)) &&
+            (selectedTech.size === 0 || [...selectedTech].every((t) => p.tags.includes(t)))
+        );
+        currentPage = 1;
+        renderPage();
+      }
 
-          let visible = 0;
-          container.querySelectorAll('.project-card').forEach((card) => {
-            const tags = card.dataset.tags.split(',');
-            const matchesTech = selectedTech.size === 0 || [...selectedTech].every((t) => tags.includes(t));
+      function renderPage() {
+        listContainer.innerHTML = '';
+        const start = (currentPage - 1) * perPage;
+        const pageProjects = filtered.slice(start, start + perPage);
+        pageProjects.forEach((project) => {
+          const card = buildProjectCard(project);
+          listContainer.appendChild(card);
+        });
+        renderPagination();
+      }
 
-            if (showRow && matchesTech) {
-              card.classList.remove('hidden');
-              requestAnimationFrame(() => card.classList.remove('opacity-0'));
-              visible++;
-            } else {
-              card.classList.add('opacity-0');
-              setTimeout(() => card.classList.add('hidden'), 300);
-            }
-          });
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(filtered.length / perPage);
+        if (totalPages <= 1) return;
 
-          if (showRow && visible > 0) {
-            row.classList.remove('hidden');
-            container.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            row.classList.add('hidden');
+        const prev = UIComponents.createButton({ text: 'Prev', classes: 'btn-secondary' });
+        prev.disabled = currentPage === 1;
+        if (prev.disabled) prev.classList.add('opacity-50', 'cursor-not-allowed');
+        prev.addEventListener('click', () => {
+          if (currentPage > 1) {
+            currentPage--;
+            renderPage();
           }
         });
+
+        const next = UIComponents.createButton({ text: 'Next', classes: 'btn-secondary' });
+        next.disabled = currentPage === totalPages;
+        if (next.disabled) next.classList.add('opacity-50', 'cursor-not-allowed');
+        next.addEventListener('click', () => {
+          if (currentPage < totalPages) {
+            currentPage++;
+            renderPage();
+          }
+        });
+
+        const info = document.createElement('span');
+        info.textContent = `Page ${currentPage} of ${totalPages}`;
+        info.className = 'px-4';
+
+        paginationContainer.append(prev, info, next);
       }
+
+      renderPage();
     });
 
   function renderFilters(container, items, set, onChange) {
@@ -55,9 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (set.has(item)) {
           set.delete(item);
           badge.classList.add('opacity-60');
+          badge.classList.remove('ring-2', 'ring-primary');
         } else {
           set.add(item);
           badge.classList.remove('opacity-60');
+          badge.classList.add('ring-2', 'ring-primary');
         }
         onChange();
       });
@@ -65,36 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function renderProjectRows(projects, categories, container) {
-    categories.forEach((cat) => {
-      const section = document.createElement('div');
-      section.className = 'category-row space-y-4';
-      section.dataset.category = cat;
-
-      const heading = document.createElement('h3');
-      heading.className = 'text-xl font-bold';
-      heading.textContent = cat;
-      section.appendChild(heading);
-
-      const row = document.createElement('div');
-      row.className = 'row-scroll flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory';
-      section.appendChild(row);
-
-      projects
-        .filter((p) => p.category === cat)
-        .forEach((project) => {
-          const card = buildProjectCard(project);
-          row.appendChild(card);
-        });
-
-      container.appendChild(section);
-    });
-  }
-
   function buildProjectCard(project) {
     const card = document.createElement('div');
     card.className =
-      'project-card card card-hoverable card-shadow p-0 dark:bg-dark-background-secondary transition-opacity duration-300 flex-shrink-0 w-72 snap-start';
+      'project-card card card-hoverable card-shadow p-0 flex flex-col h-full dark:bg-dark-background-secondary transition-opacity duration-300';
     card.dataset.tags = project.tags.join(',');
 
     card.innerHTML = `
@@ -102,10 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="${project.image}" loading="lazy" alt="${project.title}" class="h-full w-full object-cover" />
         <div class="absolute inset-0 bg-black/20"></div>
       </div>
-      <div class="p-6">
+      <div class="flex flex-1 flex-col p-6">
         <h3 class="mb-4 text-xl font-bold">${project.title}</h3>
-        <p class="text-gray-600 dark:text-gray-400">${project.description}</p>
-        <div class="badge-container my-6 flex flex-wrap gap-2"></div>
+        <p class="mb-4 text-gray-600 dark:text-gray-400">${project.description}</p>
+        <div class="badge-container mb-6 mt-auto flex flex-wrap gap-2"></div>
         <div class="btn-container flex gap-4">
           <a href="${project.code}" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
             <i class="fa-brands fa-github mr-2"></i>Code
@@ -126,3 +130,4 @@ document.addEventListener('DOMContentLoaded', () => {
     return card;
   }
 });
+
