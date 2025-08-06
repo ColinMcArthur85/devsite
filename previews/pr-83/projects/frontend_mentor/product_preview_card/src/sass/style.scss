@@ -1,0 +1,171 @@
+//colors
+$clr-primary-green: hsl(158, 36%, 37%);
+$clr-primary-cream: hsl(30, 38%, 92%);
+$clr-neutral-dk-blue: hsl(212, 21%, 14%);
+$clr-neutral-gray-blue: hsl(228, 12%, 48%);
+$clr-neutral-white: hsl(0, 0%, 100%);
+
+//fonts
+$ff-montserat: "Montserrat", sans-serif;
+$ff-fraunces: "Fraunces", serif;
+
+//mixins
+@mixin flex($direction, $justify, $align, $display: flex) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin text($family, $size, $weight, $color, $height, $spacing, $transform) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $height;
+  letter-spacing: $spacing;
+  text-transform: $transform;
+}
+
+body {
+  @include flex(column, center, center);
+  background-color: $clr-primary-cream;
+  font-family: $ff-montserat;
+}
+
+button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: $clr-primary-green;
+  padding-block: 1rem;
+  border-radius: 1rem;
+}
+
+.card {
+  width: min(90%, 30rem);
+  margin-inline: auto;
+  background-color: $clr-neutral-white;
+  border-radius: 1rem;
+  overflow: hidden;
+  &__img {
+    width: 100%;
+    // height: 22rem;
+    object-fit: cover;
+
+    // background-image: url(/images/image-product-mobile.jpg);
+    // background-size: cover;
+  }
+  &__content {
+    @include flex(column, space-between, flex-start);
+    padding: 2rem;
+    &-perfume {
+      @include text(
+        $ff-montserat,
+        400,
+        1rem,
+        $clr-neutral-gray-blue,
+        1rem,
+        0.5rem,
+        uppercase
+      );
+      padding-bottom: 1rem;
+    }
+    &-title {
+      @include text(
+        $ff-fraunces,
+        2.5rem,
+        700,
+        $clr-neutral-dk-blue,
+        2.5rem,
+        0.1rem,
+        none
+      );
+      padding-bottom: 1rem;
+    }
+    &-body {
+      @include text(
+        $ff-montserat,
+        1.25rem,
+        500,
+        $clr-neutral-gray-blue,
+        inherit,
+        inherit,
+        none
+      );
+      padding-bottom: 2rem;
+    }
+  }
+  &__price {
+    @include flex(row, space-between, flex-start);
+    align-items: center;
+    &-left {
+      @include text(
+        $ff-fraunces,
+        3rem,
+        700,
+        $clr-primary-green,
+        inherit,
+        inherit,
+        none
+      );
+      padding-right: 2rem;
+    }
+    &-right {
+      @include text(
+        $ff-montserat,
+        1.25rem,
+        500,
+        $clr-neutral-gray-blue,
+        inherit,
+        inherit,
+        none
+      );
+      text-decoration: line-through;
+    }
+  }
+  &__btn-icon {
+    margin-right: 1rem;
+  }
+  &__btn-text {
+    color: $clr-neutral-white;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 375px) {
+  .card__img {
+    height: 22rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card {
+    width: 48rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &__img {
+      height: 100%;
+    }
+
+    &__content {
+      padding: 3rem;
+
+      &-perfume {
+        padding-bottom: 2rem;
+      }
+
+      &-title {
+        padding-bottom: 2rem;
+      }
+    }
+    &__price {
+      padding-bottom: 2rem;
+    }
+  }
+}
