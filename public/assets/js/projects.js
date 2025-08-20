@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const paginationContainer = document.getElementById("pagination");
   const techFilterContainer = document.getElementById("filter-tech");
   const categoryFilterContainer = document.getElementById("filter-category");
+  const resultsCount = document.getElementById("results-count");
 
   const storageKey = "projectFilters";
   let stored = {};
@@ -48,8 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
       function applyFilters() {
         if (selectedCategories.size === 0 && selectedTech.size === 0) {
           filtered = [];
+          if (resultsCount) resultsCount.textContent = "";
         } else {
-          filtered = projects.filter((p) => (selectedCategories.size === 0 || selectedCategories.has(p.category)) && (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))));
+          filtered = projects.filter(
+            (p) =>
+              (selectedCategories.size === 0 || selectedCategories.has(p.category)) &&
+              (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))),
+          );
+          if (resultsCount)
+            resultsCount.textContent = `${filtered.length} project${filtered.length === 1 ? "" : "s"} found`;
         }
         currentPage = 1;
         renderPage();
