@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,6 +13,7 @@
     <title>Frontend Mentor | Notifications page</title>
   </head>
   <body>
+    <div id="menu-container"></div>
     <main>
       <section class="notification-panel">
         <div class="container">
@@ -28,28 +29,45 @@
             <li class="notification-item active" data-name="Mark Webber">
               <img class="notification-profile" src="assets/images/avatar-mark-webber.webp" width="50px" height="50px" alt="Mark Webber's profile picture" />
               <div class="notification-content">
-                <p class="notification-title"><a>Mark Webber</a> reacted to your recent post <a>My first tournament today!</a><span class="unread-indicator"></span></p>
+                <p class="notification-title">
+                  <a>Mark Webber</a>
+                  reacted to your recent post
+                  <a>My first tournament today!</a>
+                  <span class="unread-indicator"></span>
+                </p>
                 <p class="notification-description">1m ago</p>
               </div>
             </li>
             <li class="notification-item active" data-name="Angela Gray">
               <img class="notification-profile" src="assets/images/avatar-angela-gray.webp" width="50px" height="50px" alt="Angela Gray's profile picture" />
               <div class="notification-content">
-                <p class="notification-title"><a>Angela Gray</a> followed you<span class="unread-indicator"></span></p>
+                <p class="notification-title">
+                  <a>Angela Gray</a>
+                  followed you
+                  <span class="unread-indicator"></span>
+                </p>
                 <p class="notification-description">5m ago</p>
               </div>
             </li>
             <li class="notification-item active" data-name="Jacob Thompson">
               <img class="notification-profile" src="assets/images/avatar-jacob-thompson.webp" width="50px" height="50px" alt="Jacob Thompson's profile picture" />
               <div class="notification-content">
-                <p class="notification-title"><a>Jacob Thompson</a> has joined your group <a class="group-link">Chess Club</a><span class="unread-indicator"></span></p>
+                <p class="notification-title">
+                  <a>Jacob Thompson</a>
+                  has joined your group
+                  <a class="group-link">Chess Club</a>
+                  <span class="unread-indicator"></span>
+                </p>
                 <p class="notification-description">1 day ago</p>
               </div>
             </li>
             <li class="notification-item" data-name="Rizky Hasanuddin">
               <img class="notification-profile" src="assets/images/avatar-rizky-hasanuddin.webp" width="50px" height="50px" alt="Rizky Hasanuddin's profile picture" />
               <div class="notification-content">
-                <p class="notification-title"><a>Rizky Hasanuddin</a> sent you a private message</p>
+                <p class="notification-title">
+                  <a>Rizky Hasanuddin</a>
+                  sent you a private message
+                </p>
                 <p class="notification-description">5 days ago</p>
                 <div class="notification-comment">Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and I'm already having lots of fun and improving my game.</div>
               </div>
@@ -57,7 +75,10 @@
             <li class="notification-item" data-name="Kimberly Smith">
               <img class="notification-profile" src="assets/images/avatar-kimberly-smith.webp" width="50px" height="50px" alt="Kimberly Smith's profile picture" />
               <div class="notification-content">
-                <p class="notification-title"><a>Kimberly Smith</a> commented on your picture</p>
+                <p class="notification-title">
+                  <a>Kimberly Smith</a>
+                  commented on your picture
+                </p>
                 <p class="notification-description">1 week ago</p>
               </div>
               <div class="notification-image">
@@ -69,7 +90,11 @@
               <img class="notification-profile" src="assets/images/avatar-nathan-peterson.webp" width="50px" height="50px" />
               <div class="notification-content">
                 <div class="notification-content">
-                  <p class="notification-title"><a>Nathan Peterson</a> reacted to your recent post <a>5 end-game strategies to increase your win rate</a></p>
+                  <p class="notification-title">
+                    <a>Nathan Peterson</a>
+                    reacted to your recent post
+                    <a>5 end-game strategies to increase your win rate</a>
+                  </p>
                   <p class="notification-description">2 weeks ago</p>
                 </div>
               </div>
@@ -77,7 +102,11 @@
             <li class="notification-item" data-name="Anna Kim">
               <img class="notification-profile" src="assets/images/avatar-anna-kim.webp" width="50px" height="50px" />
               <div class="notification-content">
-                <p class="notification-title"><a>Anna Kim</a> left the group <a class="group-link">Chess Club</a></p>
+                <p class="notification-title">
+                  <a>Anna Kim</a>
+                  left the group
+                  <a class="group-link">Chess Club</a>
+                </p>
                 <p class="notification-description">2 weeks ago</p>
               </div>
             </li>
@@ -88,5 +117,6 @@
     <footer></footer>
 
     <script src="docs/app.js"></script>
+    <script src="../../../assets/js/components/header.js"></script>
   </body>
 </html>
