@@ -1,0 +1,108 @@
+h2 {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.container {
+  width: min(100% - 4rem, 100rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* padding-bottom: 2.5rem; */
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+.header-title {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+.header-subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  --flow-space: 0em;
+}
+.header-body {
+  font-size: 1.25rem;
+  padding-bottom: 6rem;
+  color: hsl(229deg, 6%, 66%);
+}
+
+.card {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  box-shadow: 0px 10px 15px hsl(229deg, 6%, 66%);
+  text-align: left;
+  padding: 2rem;
+}
+.card-icon {
+  background-color: white;
+}
+
+.card[data-type="supervisor"] {
+  border-top: 0.5rem solid hsl(180deg, 62%, 55%);
+}
+.card[data-type="team-builder"] {
+  border-top: 0.5rem solid hsl(0deg, 78%, 62%);
+}
+.card[data-type="karma"] {
+  border-top: 0.5rem solid hsl(34deg, 97%, 64%);
+}
+.card[data-type="calculator"] {
+  border-top: 0.5rem solid hsl(212deg, 86%, 64%);
+}
+.card-body {
+  font-size: 1.25rem;
+  color: hsl(229deg, 6%, 66%);
+  --flow-space: 0;
+}
+
+img {
+  align-self: flex-end;
+  width: 5rem;
+}
+
+@media (min-width: 60rem) {
+  .header {
+    width: 40rem;
+    margin-inline: auto;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2rem;
+    --flow-space: 0;
+  }
+  .card[data-type="supervisor"] {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 2;
+  }
+  .card[data-type="team-builder"] {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+  }
+  .card[data-type="karma"] {
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 2;
+  }
+  .card[data-type="calculator"] {
+    grid-column: 3 / span 1;
+    grid-row: 2 / span 2;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
