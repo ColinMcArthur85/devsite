@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tailwind.config.js" />
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -24,14 +23,24 @@
         },
       };
     </script>
+    <script>
+      // On page load, set dark mode class before CSS loads
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="./css/general-styles.css" />
     <link rel="stylesheet" href="../../../assets/css/style.css" />
     <title>Frontend Mentor | Order summary card</title>
   </head>
-  <body class="flex flex-col justify-center content-center min-h-screen bg-top bg-pale-blue p-6">
+  <body class="min-h-screen">
     <div id="menu-container"></div>
     <main>
       <!-- Card Container -->

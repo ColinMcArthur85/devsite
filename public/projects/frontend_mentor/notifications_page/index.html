@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="docs/styles.css" />
     <link rel="stylesheet" href="../../../assets/css/style.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet" />
@@ -21,20 +22,20 @@
           <div class="notifications-panel-header">
             <div class="notifications-panel-content">
               <div class="notifications-panel-title">Notifications</div>
-              <div class="notifications-panel-count">3</div>
+              <div class="notifications-panel-count" id="notifications-count" aria-live="polite">3</div>
             </div>
-            <button class="notifications-panel-mark-read">Mark all as read</button>
+            <button id="mark-all-read" class="notifications-panel-mark-read" aria-label="Mark all notifications as read">Mark all as read</button>
           </div>
 
-          <ul class="notification-list">
+          <ul id="notification-list" class="notification-list" role="list">
             <li class="notification-item active" data-name="Mark Webber">
               <img class="notification-profile" src="assets/images/avatar-mark-webber.webp" width="50px" height="50px" alt="Mark Webber's profile picture" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Mark Webber</a>
+                  <a href="#" class="notification-link">Mark Webber</a>
                   reacted to your recent post
-                  <a>My first tournament today!</a>
-                  <span class="unread-indicator"></span>
+                  <a href="#" class="notification-link">My first tournament today!</a>
+                  <span class="unread-indicator" aria-hidden="true"></span>
                 </p>
                 <p class="notification-description">1m ago</p>
               </div>
@@ -43,9 +44,9 @@
               <img class="notification-profile" src="assets/images/avatar-angela-gray.webp" width="50px" height="50px" alt="Angela Gray's profile picture" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Angela Gray</a>
+                  <a href="#" class="notification-link">Angela Gray</a>
                   followed you
-                  <span class="unread-indicator"></span>
+                  <span class="unread-indicator" aria-hidden="true"></span>
                 </p>
                 <p class="notification-description">5m ago</p>
               </div>
@@ -54,10 +55,10 @@
               <img class="notification-profile" src="assets/images/avatar-jacob-thompson.webp" width="50px" height="50px" alt="Jacob Thompson's profile picture" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Jacob Thompson</a>
+                  <a href="#" class="notification-link">Jacob Thompson</a>
                   has joined your group
-                  <a class="group-link">Chess Club</a>
-                  <span class="unread-indicator"></span>
+                  <a href="#" class="group-link">Chess Club</a>
+                  <span class="unread-indicator" aria-hidden="true"></span>
                 </p>
                 <p class="notification-description">1 day ago</p>
               </div>
@@ -66,7 +67,7 @@
               <img class="notification-profile" src="assets/images/avatar-rizky-hasanuddin.webp" width="50px" height="50px" alt="Rizky Hasanuddin's profile picture" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Rizky Hasanuddin</a>
+                  <a href="#" class="notification-link">Rizky Hasanuddin</a>
                   sent you a private message
                 </p>
                 <p class="notification-description">5 days ago</p>
@@ -77,7 +78,7 @@
               <img class="notification-profile" src="assets/images/avatar-kimberly-smith.webp" width="50px" height="50px" alt="Kimberly Smith's profile picture" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Kimberly Smith</a>
+                  <a href="#" class="notification-link">Kimberly Smith</a>
                   commented on your picture
                 </p>
                 <p class="notification-description">1 week ago</p>
@@ -92,9 +93,9 @@
               <div class="notification-content">
                 <div class="notification-content">
                   <p class="notification-title">
-                    <a>Nathan Peterson</a>
+                    <a href="#" class="notification-link">Nathan Peterson</a>
                     reacted to your recent post
-                    <a>5 end-game strategies to increase your win rate</a>
+                    <a href="#" class="notification-link">5 end-game strategies to increase your win rate</a>
                   </p>
                   <p class="notification-description">2 weeks ago</p>
                 </div>
@@ -104,9 +105,9 @@
               <img class="notification-profile" src="assets/images/avatar-anna-kim.webp" width="50px" height="50px" />
               <div class="notification-content">
                 <p class="notification-title">
-                  <a>Anna Kim</a>
+                  <a href="#" class="notification-link">Anna Kim</a>
                   left the group
-                  <a class="group-link">Chess Club</a>
+                  <a href="#" class="group-link">Chess Club</a>
                 </p>
                 <p class="notification-description">2 weeks ago</p>
               </div>

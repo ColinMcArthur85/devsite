@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="../../../../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -16,38 +17,27 @@
   <body>
     <div id="menu-container"></div>
     <div class="container">
-      <header>
-        <figure class="hero">
-          <img src="../assets/logo.svg" alt="Meet Logo" data-type="logo" />
-        </figure>
-      </header>
-      <main>
-        <article>
-          <section class="hero-grid flow">
-            <picture class="hero-image-left">
-              <img src="../assets/desktop/image-hero-left.png" alt="a collection of profile photos set to the left side of the screen" data-type="profile-photos" />
-            </picture>
-            <picture class="hero-image-all">
-              <img src="../assets/tablet/image-hero.png" alt="a collection of profile photos" data-type="profile-photos" />
-            </picture>
-            <div class="hero-content wrapper">
-              <h1 class="hero-title">Group Chat for Everyone</h1>
-              <p class="hero-body">Meet makes it easy to connect with others face-to-face virtually and collaborate across any device.</p>
-            </div>
-            <div class="buttons flow">
-              <button class="btn-large" data-type="primary-color">
+      <div>
+        <div class="hero">
+          <img src="assets/logo.svg" alt="Meet Logo" class="logo" />
+          <img src="assets/desktop/image-hero-left.png" alt="faces left" class="hero-face hero-face--left" />
+          <img src="assets/desktop/image-hero-right.png" alt="faces right" class="hero-face hero-face--right" />
+          <div class="hero-content wrapper">
+            <h1 class="hero-title">Group Chat for Everyone</h1>
+            <p class="hero-body">Meet makes it easy to connect with others face-to-face virtually and collaborate across any device.</p>
+            <div class="buttons">
+              <button class="blue-button" data-type="primary-color">
                 <span>Download</span>
                 <span>v1.3</span>
               </button>
-              <button class="btn-small" data-type="secondary-color">What is it?</button>
+              <button class="purple-button" data-type="secondary-color">What is it?</button>
             </div>
-            <div class="line"></div>
-            <div class="circle flex-center" data-type="top">01</div>
-
-            <picture class="hero-image-right">
-              <img src="../assets/desktop/image-hero-right.png" alt="a collection of profile photos set to the right sign of the screen" data-type="profile-photos" />
-            </picture>
-          </section>
+          </div>
+        </div>
+      </div>
+      <main>
+        <article>
+          <!-- hero section moved to header -->
           <section class="wrapper">
             <div class="about-images">
               <picture class="about-image">

@@ -1,32 +1,6 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role=list],
-ol[role=list] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -37,6 +11,7 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
+  padding-top: 100px;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -56,10 +31,23 @@ picture {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
 textarea,
+button,
 select {
   font: inherit;
+}
+
+/* Scoped button styles - avoid styling the generic <button> element */
+.btn-large,
+.btn-small,
+.purple-download,
+.blue-button,
+.purple-button {
+  border: none;
+  border-radius: 30px;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -110,6 +98,9 @@ p {
   display: flex;
   flex-direction: column;
   text-align: center;
+  /* center the whole page container and constrain width */
+  width: min(1110px, 100%);
+  margin-inline: auto;
 }
 
 .flow > * + * {
@@ -127,8 +118,40 @@ img {
   align-items: center;
 }
 
-.hero-image-left, .hero-image-right {
+.hero-image-left,
+.hero-image-right {
   display: none;
+}
+
+/* New hero structure styles */
+.hero {
+  display: grid;
+  grid-template-areas:
+    "logo"
+    "faces"
+    "textcontent";
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+  padding-block: 2rem 1rem;
+}
+
+.hero .logo {
+  grid-area: logo;
+  width: 119px;
+}
+
+.hero-face {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+}
+
+.hero-face--left {
+  justify-self: end;
+}
+.hero-face--right {
+  justify-self: start;
 }
 .hero-title {
   margin-bottom: 16px;
@@ -136,6 +159,68 @@ img {
 .hero-body {
   margin-bottom: 26px;
 }
+
+/* Hero layout: mobile-first stacking, upgraded to 3-column on wider screens */
+/* --- HERO (replace this whole section) --- */
+.hero {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+  padding-block: 2rem 1rem;
+
+  /* mobile: logo + text, hide side images */
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "logo"
+    "textcontent";
+}
+
+.hero .logo {
+  grid-area: logo;
+  width: 119px;
+  margin-block: 0.5rem 1.5rem;
+}
+
+.hero-content {
+  grid-area: textcontent;
+  padding-inline: 1.5rem;
+  text-align: center;
+}
+
+.hero-image-left,
+.hero-image-right {
+  display: none; /* shown at ≥700px */
+  width: 100%;
+  max-width: 420px;
+  object-fit: contain;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    /* three columns: left faces / text / right faces */
+    grid-template-columns: 1fr minmax(360px, 560px) 1fr;
+    grid-template-areas:
+      "logo logo logo"
+      "faces-left textcontent faces-right";
+    padding-block: 3rem;
+  }
+
+  .hero-image-left,
+  .hero-image-right {
+    display: block;
+  }
+
+  .hero-image-left {
+    grid-area: faces-left;
+    justify-self: end;
+  }
+  .hero-image-right {
+    grid-area: faces-right;
+    justify-self: start;
+  }
+}
+/* --- /HERO --- */
 
 .about-images {
   display: grid;
@@ -199,7 +284,12 @@ footer p {
   align-items: center;
 }
 
-button {
+/* Scoped button appearance so global <button> is untouched */
+.btn-large,
+.btn-small,
+.purple-download,
+.blue-button,
+.purple-button {
   padding: 1rem 3rem;
   border: none;
   border-radius: 2rem;
@@ -208,25 +298,31 @@ button {
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
-button span {
+.btn-large span,
+.btn-small span,
+.purple-download span,
+.blue-button span,
+.purple-button span {
   font-weight: 600;
 }
-button[data-type=primary-color] {
+.btn-large[data-type="primary-color"],
+.blue-button[data-type="primary-color"] {
   background-color: hsl(192deg, 37%, 48%);
 }
-button[data-type=primary-color] span {
+.btn-large[data-type="primary-color"] span,
+.blue-button[data-type="primary-color"] span {
   margin-right: 8px;
 }
-button[data-type=primary-color] span:nth-child(2) {
+button[data-type="primary-color"] span:nth-child(2) {
   color: hsl(192deg, 90%, 77%);
 }
-button[data-type=primary-color]:hover {
+button[data-type="primary-color"]:hover {
   background-color: #71c0d4;
 }
-button[data-type=secondary-color] {
+button[data-type="secondary-color"] {
   background-color: hsl(268deg, 34%, 53%);
 }
-button[data-type=secondary-color]:hover {
+button[data-type="secondary-color"]:hover {
   background-color: #b18bdd;
 }
 
@@ -251,7 +347,7 @@ button[data-type=secondary-color]:hover {
   border-radius: 50%;
   outline: rgba(135, 135, 157, 0.5) solid 1px;
 }
-.circle[data-type=bottom] {
+.circle[data-type="bottom"] {
   background-color: hsl(0deg, 0%, 98%);
   margin-bottom: -1.2rem;
   position: relative;
@@ -275,6 +371,25 @@ button[data-type=secondary-color]:hover {
   }
   .about-images {
     grid-template-columns: repeat(4, 1fr);
+  }
+  /* larger screens: make hero 3-column and show side images */
+  .hero {
+    grid-template-columns: 1fr minmax(360px, 560px) 1fr;
+    grid-template-areas: "faces textcontent faces";
+    align-items: center;
+    padding-block: 3rem;
+  }
+  .hero-face {
+    display: block;
+  }
+  .hero .hero-face--left {
+    grid-column: 1;
+  }
+  .hero .hero-content {
+    grid-column: 2;
+  }
+  .hero .hero-face--right {
+    grid-column: 3;
   }
 }
 
