@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap");
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -17,7 +8,7 @@
   color: hsl(228, 45%, 44%);
 }
 
-body {
+main {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -39,4 +30,4 @@ a {
 }
 a:hover {
   color: var(--clr-cyan);
-}
+} /*  */
