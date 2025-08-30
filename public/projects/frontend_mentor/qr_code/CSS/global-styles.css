@@ -1,3 +1,4 @@
+/* ...existing code... */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&display=swap");
 
 :root {
@@ -8,39 +9,65 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-}
-*,
-*::before,
-*::after {
   box-sizing: border-box;
 }
 
+html,
 body {
-  font-family: "Outfit", sans-serif;
-  background: var(--clr-light-gray);
+  height: 100%;
+  margin: 0;
 }
+
+body {
+  font-family:
+    "Outfit",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial;
+  background: var(--clr-light-gray);
+  color: var(--clr-dark-blue);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 2rem; */
+}
+
 main {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Image: keep aspect ratio and cap size */
 img {
-  border-radius: 10px;
-  width: 288px;
-  height: 288px;
-  margin-bottom: 1.5em;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 288px;
+  height: auto;
+  margin-bottom: 1.25rem;
+  display: block;
+  box-shadow: 0 10px 24px rgba(31, 49, 79, 0.08);
 }
 
+/* Headline / copy */
 h1 {
   font-weight: 700;
-  font-size: 22px;
-  color: #1f314f;
+  font-size: 1.125rem;
+  color: var(--clr-dark-blue);
+  margin: 0;
 }
 
 p {
   font-weight: 400;
-  font-size: 15px;
-  padding: 10px 10px;
-  color: #7d889e;
+  font-size: 0.95rem;
+  margin: 0;
+  color: var(--clr-grayish-blue);
+  text-align: center;
+  line-height: 1.4;
 }
