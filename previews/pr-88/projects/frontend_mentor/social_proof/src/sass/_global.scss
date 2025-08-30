@@ -1,0 +1,42 @@
+body {
+  //center on page
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/docs/images/bg-pattern-bottom-desktop.svg"),
+    url("/docs/images/bg-pattern-top-desktop.svg");
+  background-size: cover;
+
+  //typeography
+  font-family: "League Spartan", sans-serif;
+  font-size: $fs-600;
+  font-weight: $fw-400;
+  text-align: center;
+  color: $clr-primary-400;
+}
+
+h2 {
+  font-size: $fs-925;
+  font-weight: $fw-700;
+  line-height: $size-850;
+}
+
+h3 {
+  color: white;
+}
+
+h4 {
+  color: $clr-primary-100;
+}
+
+img {
+  &[data-type="star-icon"] {
+    width: $size-600;
+  }
+  &[data-type="profile-headshot"] {
+    border-radius: 50%;
+    margin-right: $size-500;
+    width: $size-900;
+  }
+}
