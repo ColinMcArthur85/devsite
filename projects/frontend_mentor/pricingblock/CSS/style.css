@@ -1,20 +1,9 @@
-html {
-  box-sizing: border-box;
-  font-size: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
 body {
   line-height: 1.3;
   font-family: "Karla", sans-serif;
   background-color: var(--ltgray);
   color: var(--grayblue);
-  padding: var(--paddingx);
+  padding-top: 100px;
 }
 
 :root {
