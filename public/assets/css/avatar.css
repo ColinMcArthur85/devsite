@@ -1,0 +1,17 @@
+/* avatar.css - small helper styles for avatar sprite */
+#avatar-sprite {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* center inside surrounding container if needed */
+.avatar-container,
+.pb-0.pl-6.pr-6.pt-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
