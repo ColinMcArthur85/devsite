@@ -1,0 +1,246 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: hsl(219, 12%, 42%);
+}
+
+[class$="-profile"] {
+  padding: 0em 0.25em 0em;
+}
+
+main {
+  padding-top: 100px;
+}
+
+.container {
+  width: min(100% - 16px, 48rem);
+  margin-inline: auto;
+}
+
+.notification-list a {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 700;
+  color: hsl(224, 21%, 14%);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* ---- Header / Layout ---- */
+.notifications-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.notifications-panel-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.notifications-panel-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: hsl(224, 21%, 14%);
+}
+.notifications-panel-count {
+  background-color: hsl(219, 85%, 26%);
+  color: white;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  min-width: 2rem;
+  text-align: center;
+  transition: transform 160ms ease;
+}
+.notifications-panel-count.bump {
+  transform: scale(1.08);
+}
+.notifications-panel-mark-read {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: hsl(219, 85%, 26%);
+  font-weight: 700;
+}
+
+/* ---- Panel ---- */
+.notification-panel {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(20, 34, 60, 0.07);
+  padding: 1.25rem;
+}
+
+.notification-panel .notification-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* ---- Notification item ---- */
+.notification-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  align-items: flex-start;
+  background: transparent;
+  transform-origin: left center;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 300ms ease forwards;
+}
+.notification-item:hover {
+  background-color: hsl(211, 68%, 97%);
+  transform: translateX(4px);
+}
+
+/* staggered entrance for items */
+.notification-list .notification-item:nth-child(1) {
+  animation-delay: 60ms;
+}
+.notification-list .notification-item:nth-child(2) {
+  animation-delay: 120ms;
+}
+.notification-list .notification-item:nth-child(3) {
+  animation-delay: 180ms;
+}
+.notification-list .notification-item:nth-child(4) {
+  animation-delay: 240ms;
+}
+.notification-list .notification-item:nth-child(5) {
+  animation-delay: 300ms;
+}
+.notification-list .notification-item:nth-child(6) {
+  animation-delay: 360ms;
+}
+.notification-list .notification-item:nth-child(7) {
+  animation-delay: 420ms;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-profile {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  flex: 0 0 48px;
+  object-fit: cover;
+}
+
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+.notification-title {
+  margin: 0 0 0.25rem;
+  line-height: 1.2;
+  color: hsl(224, 21%, 14%);
+  font-weight: 600;
+}
+.notification-description {
+  margin: 0;
+  color: hsl(219, 14%, 63%);
+  font-size: 0.9rem;
+}
+
+.notification-link {
+  color: hsl(224, 21%, 14%);
+  text-decoration: none;
+  font-weight: 700;
+}
+.notification-link:active {
+  transform: scale(0.98);
+}
+.group-link {
+  color: hsl(219, 85%, 26%);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* unread indicator */
+.unread-indicator {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  background: linear-gradient(180deg, #ff6b6b, #ff3b3b);
+  border-radius: 50%;
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  box-shadow: 0 0 0 rgba(255, 59, 59, 0.4);
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 59, 59, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 59, 59, 0);
+  }
+}
+
+/* when notification is read */
+.notification-item.read {
+  background: transparent;
+  opacity: 0.95;
+}
+.notification-item.read .unread-indicator {
+  display: none;
+}
+.notification-item.read .notification-title {
+  font-weight: 500;
+  color: hsl(219, 14%, 63%);
+}
+
+/* small image thumbnail for items that have image */
+.notification-image img {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* responsive */
+@media (max-width: 520px) {
+  .container {
+    padding: 0 12px;
+  }
+  .notification-profile,
+  .notification-image img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* utility */
+.muted {
+  color: hsl(219, 14%, 63%);
+}
+
+/* small source map comment preserved if needed */
+/*# sourceMappingURL=styles.css.map */

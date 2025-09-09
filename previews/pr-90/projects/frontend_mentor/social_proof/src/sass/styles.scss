@@ -1,0 +1,123 @@
+// @use "sass:color";
+@use "sass:color";
+@import "reset";
+@import "variables";
+@import "global";
+
+//mixins
+@mixin flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+//composition
+.container {
+  padding: $size-800;
+  max-width: $max-width;
+
+  //utility
+  .flow > * + * {
+    margin-top: var(--flow-space, 1em);
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.5rem;
+  }
+
+  //block
+
+  .reviews,
+  .intro {
+    margin-bottom: $size-900;
+  }
+
+  .review,
+  .card {
+    border-radius: $size-200;
+  }
+
+  .review {
+    $parent: &;
+    background: lighten($clr-primary-400, 73.5);
+    padding: $size-500;
+
+    p {
+      font-weight: $fw-500;
+    }
+    &-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: $size-400;
+    }
+  }
+
+  .card {
+    background-color: $clr-primary-400;
+    padding: $size-850;
+    p {
+      color: white;
+      text-align: left;
+    }
+
+    &-profile {
+      @include flex(row);
+      align-items: center;
+      padding-bottom: $size-700;
+    }
+  }
+  //media queries
+  @media (min-width: $lg) {
+    //composition
+    .cards > * + * {
+      margin-top: 0;
+    }
+    .even-columns {
+      @include flex(row);
+      gap: $size-900;
+      > * {
+        width: 50%;
+      }
+    }
+
+    //block
+    .intro {
+      text-align: left;
+      & h2 {
+        padding-right: clamp(7rem, 35%, 15rem);
+        padding-bottom: $size-500;
+      }
+      & p {
+        padding-right: clamp(7rem, 15%, 15rem);
+      }
+    }
+    .review {
+      @include flex(row);
+      justify-content: space-evenly;
+      flex-grow: 0;
+      &-rating {
+        margin-top: 0px !important;
+      }
+    }
+    // utilities to move the cards
+    .up {
+      position: relative;
+      bottom: $size-600;
+    }
+    .down {
+      position: relative;
+      top: $size-600;
+    }
+    .left-top {
+      position: relative;
+      right: 6rem;
+    }
+    .left-mid {
+      position: relative;
+      right: $size-900;
+    }
+  }
+}
