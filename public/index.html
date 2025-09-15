@@ -48,35 +48,158 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section relative overflow-hidden">
-      <div class="container-wrapper">
-        <div class="mx-auto max-w-4xl text-center">
-          <h1 class="hero-title">
-            <div class="mb-6">Colin McArthur</div>
-            <div class="to-accent flex justify-center bg-gradient-to-r from-primary via-secondary bg-clip-text text-xl text-transparent md:text-4xl">
-              Developer
-              <span class="ml-1 text-xl text-primary">&nbsp;●&nbsp;</span>
-              Frontend Expert
-              <span class="ml-1 text-xl text-primary">&nbsp;●&nbsp;</span>
-              IT Specialist
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-[-14rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-primary/20 blur-3xl sm:top-[-18rem] dark:bg-primary/40"></div>
+        <div class="absolute bottom-[-16rem] right-[-10rem] h-[28rem] w-[28rem] rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.45),_rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.2),_rgba(15,23,42,0))]"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="hero-grid items-start gap-16 lg:items-center">
+          <div class="flex flex-col gap-8 text-left">
+            <div class="inline-flex max-w-max items-center gap-3 rounded-full border border-white/40 bg-white/80 px-4 py-2 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-white/10">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-sm font-semibold uppercase text-white shadow-lg">CM</span>
+              <p class="text-sm font-medium tracking-[0.35em] text-gray-600 dark:text-gray-300">Hyper-real presence</p>
             </div>
-          </h1>
-          <div class="mb-4 text-xl text-gray-600 dark:text-gray-400 md:text-2xl">
-            <strong class="md:text-3xl">Self-taught and relentlessly resourceful.</strong>
-            <p>I build front-end experiences, manage the technical backbone of web platforms, and create AI tools to get work done smarter.</p>
-          </div>
-          <div class="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
-            <div data-button data-text="View Projects" data-href="pages/projects.html" data-classes="btn btn-primary"></div>
-            <div data-button data-text="Learn More" data-href="pages/about.html" data-classes="btn btn-secondary"></div>
-          </div>
-          <div class="dark:bg-dark-background-secondary mx-auto max-w-2xl overflow-hidden rounded-lg bg-gray-100 shadow-lg" id="terminal-container">
-            <div class="dark:bg-dark-background-tertiary flex items-center space-x-2 bg-gray-200 p-3">
-              <span class="h-3 w-3 rounded-full bg-red-500"></span>
-              <span class="h-3 w-3 rounded-full bg-yellow-500"></span>
-              <span class="h-3 w-3 rounded-full bg-green-500"></span>
+            <div>
+              <h1 class="hero-title text-left leading-tight text-gray-900 dark:text-white">
+                <span class="block text-balance text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">Colin McArthur</span>
+                <span class="mt-4 block text-2xl font-light text-gray-700 dark:text-gray-300 md:text-3xl">
+                  Immersive front-end experiences, resilient infrastructure, and AI copilots that feel alive.
+                </span>
+              </h1>
+              <p class="mt-6 max-w-xl text-lg leading-relaxed text-gray-700 dark:text-gray-300 md:text-xl">
+                I build tactile digital worlds where design, code, and operations interlock. Every interaction is deliberate, every deployment is stable, and every workflow has an intelligent assistant.
+              </p>
             </div>
-            <div class="terminal-content p-6 font-mono">
-              <span class="text-green-500">colinmcarthur@dev ~/portfolio %</span>
-              <span class="command-text text-gray-900 dark:text-white"></span>
+            <div class="hero-actions flex flex-col gap-4 sm:flex-row">
+              <div data-button data-text="View Projects" data-href="pages/projects.html" data-classes="btn btn-primary"></div>
+              <div data-button data-text="Learn More" data-href="pages/about.html" data-classes="btn btn-secondary"></div>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="rounded-2xl border border-white/40 bg-white/80 p-4 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-white/10">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500 dark:text-gray-400">Projects</p>
+                <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">50+</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Enterprise launches & product refreshes</p>
+              </div>
+              <div class="rounded-2xl border border-white/40 bg-white/80 p-4 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-white/10">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500 dark:text-gray-400">Automation</p>
+                <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">AI-native</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Custom GPTs, ops tooling & workflows</p>
+              </div>
+              <div class="rounded-2xl border border-white/40 bg-white/80 p-4 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-white/10">
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500 dark:text-gray-400">Stack</p>
+                <p class="mt-2 text-2xl font-semibold text-gray-900 dark:text-white">Full-spectrum</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Front-end systems + IT backbone</p>
+              </div>
+            </div>
+            <div class="rounded-3xl border border-white/40 bg-white/80 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-white/10" id="terminal-container">
+              <div class="flex items-center space-x-2 border-b border-white/40 bg-white/60 px-4 py-3 dark:border-white/5 dark:bg-slate-900/60">
+                <span class="h-3 w-3 rounded-full bg-red-400"></span>
+                <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+                <span class="h-3 w-3 rounded-full bg-green-400"></span>
+              </div>
+              <div class="terminal-content flex items-center gap-3 px-6 py-6 font-mono text-sm text-gray-900 dark:text-white">
+                <span class="text-emerald-500">colinmcarthur@dev ~/portfolio %</span>
+                <span class="command-text flex-1 text-gray-900 dark:text-white"></span>
+              </div>
+            </div>
+          </div>
+          <div class="relative mx-auto w-full max-w-lg">
+            <div class="absolute -left-16 top-12 h-64 w-64 rounded-full bg-primary/20 blur-3xl dark:bg-primary/40"></div>
+            <div class="absolute -right-10 bottom-0 h-52 w-52 rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/40"></div>
+            <div class="relative rounded-[40px] border border-white/40 bg-gradient-to-b from-white/90 via-white/70 to-white/30 p-6 shadow-[0_40px_120px_rgba(15,23,42,0.35)] backdrop-blur-2xl dark:border-white/10 dark:from-slate-900/80 dark:via-slate-900/60 dark:to-slate-900/20">
+              <div class="relative aspect-[4/5]">
+                <div
+                  id="avatar-sprite"
+                  class="hyper-avatar"
+                  role="img"
+                  aria-label="Stylized hyper-real portrait of Colin McArthur rendered entirely with CSS and SVG"
+                >
+                  <div class="hyper-avatar__halo" aria-hidden="true"></div>
+                  <div class="hyper-avatar__sheen" aria-hidden="true"></div>
+                  <svg
+                    class="hyper-avatar__portrait"
+                    viewBox="0 0 320 400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <defs>
+                      <radialGradient id="avatarGradientBg" cx="50%" cy="38%" r="74%">
+                        <stop offset="0%" stop-color="#1d2a48" stop-opacity="0.92" />
+                        <stop offset="48%" stop-color="#0f172a" stop-opacity="0.97" />
+                        <stop offset="100%" stop-color="#020617" stop-opacity="1" />
+                      </radialGradient>
+                      <radialGradient id="avatarHalo" cx="50%" cy="32%" r="58%">
+                        <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.85" />
+                        <stop offset="55%" stop-color="#7c3aed" stop-opacity="0.35" />
+                        <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
+                      </radialGradient>
+                      <linearGradient id="avatarBody" x1="20%" y1="0%" x2="80%" y2="100%">
+                        <stop offset="0%" stop-color="#312e81" />
+                        <stop offset="60%" stop-color="#1e1b4b" />
+                        <stop offset="100%" stop-color="#020617" />
+                      </linearGradient>
+                      <linearGradient id="avatarRim" x1="0%" y1="50%" x2="100%" y2="50%">
+                        <stop offset="0%" stop-color="#22d3ee" />
+                        <stop offset="55%" stop-color="#6366f1" />
+                        <stop offset="100%" stop-color="#f472b6" />
+                      </linearGradient>
+                      <linearGradient id="avatarFace" x1="28%" y1="10%" x2="78%" y2="90%">
+                        <stop offset="0%" stop-color="#fde68a" />
+                        <stop offset="48%" stop-color="#fbbf24" />
+                        <stop offset="100%" stop-color="#fb923c" />
+                      </linearGradient>
+                      <linearGradient id="avatarHair" x1="32%" y1="0%" x2="68%" y2="100%">
+                        <stop offset="0%" stop-color="#1f2937" />
+                        <stop offset="55%" stop-color="#0f172a" />
+                        <stop offset="100%" stop-color="#020617" />
+                      </linearGradient>
+                      <radialGradient id="avatarHighlight" cx="66%" cy="48%" r="22%">
+                        <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.95" />
+                        <stop offset="60%" stop-color="#fde68a" stop-opacity="0.32" />
+                        <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
+                      </radialGradient>
+                    </defs>
+                    <rect width="320" height="400" fill="url(#avatarGradientBg)" />
+                    <ellipse cx="160" cy="146" rx="148" ry="140" fill="url(#avatarHalo)" opacity="0.82" />
+                    <ellipse cx="160" cy="330" rx="128" ry="72" fill="#1e1b4b" opacity="0.25" />
+                    <path d="M36 322c26-74 86-118 124-118s98 44 124 118v78H36z" fill="url(#avatarBody)" />
+                    <path d="M60 360c32-46 66-70 100-70s68 24 100 70v40H60z" fill="url(#avatarRim)" opacity="0.22" />
+                    <circle cx="160" cy="188" r="88" fill="url(#avatarFace)" />
+                    <path d="M72 196Q118 60 160 60t88 112v52q-40-32-88-32t-88 32z" fill="url(#avatarHair)" opacity="0.95" />
+                    <path d="M94 240c14 34 40 56 66 56s52-22 66-56c-20 16-42 24-66 24s-46-8-66-24z" fill="#f59e0b" opacity="0.32" />
+                    <path d="M122 160c18-14 58-14 76 0-24-6-52-6-76 0z" fill="#f97316" opacity="0.35" />
+                    <circle cx="196" cy="204" r="30" fill="url(#avatarHighlight)" />
+                    <path d="M92 214c12 36 44 60 72 60 22 0 42-10 58-30" fill="none" stroke="url(#avatarRim)" stroke-width="6" stroke-linecap="round" opacity="0.78" />
+                    <ellipse cx="160" cy="192" rx="110" ry="126" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.22" stroke-dasharray="14 10" />
+                    <path d="M56 300c24-18 60-30 104-30s80 12 104 30" fill="none" stroke="url(#avatarRim)" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="10 12" />
+                    <circle cx="112" cy="188" r="12" fill="#fee2e2" opacity="0.24" />
+                    <circle cx="224" cy="170" r="10" fill="#bfdbfe" opacity="0.3" />
+                    <circle cx="120" cy="278" r="6" fill="#a855f7" opacity="0.6" />
+                    <circle cx="218" cy="286" r="6" fill="#38bdf8" opacity="0.65" />
+                  </svg>
+                  <div class="hyper-avatar__grid" aria-hidden="true"></div>
+                  <div class="hyper-avatar__scanline" aria-hidden="true"></div>
+                  <div class="hyper-avatar__noise" aria-hidden="true"></div>
+                  <div class="hyper-avatar__orb" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="mt-6 flex flex-col gap-3 rounded-2xl border border-white/40 bg-white/80 p-5 shadow-lg backdrop-blur-lg dark:border-white/10 dark:bg-white/10">
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+                    <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white">Realtime Systems</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Observability, ops and human-ready UX</p>
+                  </div>
+                </div>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  This portrait is sculpted live with CSS and SVG, so the lighting, glow, and parallax respond instantly—no heavy image assets required.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -84,64 +207,90 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section-alt">
-      <div class="container-wrapper">
-        <h2 class="section-title">What's in my Toolkit</h2>
-        <p class="section-subtitle">Modern dev skills, real-world infrastructure, and AI-fueled workflows.</p>
+    <section id="features" class="section-alt relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-[-10rem] top-[-6rem] h-72 w-72 rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
+        <div class="absolute right-[-8rem] bottom-[-6rem] h-64 w-64 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="section-title text-4xl font-semibold text-gray-900 dark:text-white">What's in my Toolkit</h2>
+          <p class="section-subtitle text-lg text-gray-600 dark:text-gray-300">
+            Modern dev skills, real-world infrastructure, and AI-fueled workflows with a tactile, cinematic finish.
+          </p>
+        </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Feature Card 1: Front-End Development -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-laptop-code text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-laptop-code text-xl"></i>
             </div>
-            <h3 class="card-title">Front-End Development</h3>
-            <p class="card-body">Expert in HTML5, CSS3, SASS, and Tailwind. Building modular, responsive UI components and theming systems with clean, scalable code.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Front-End Development</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              Expert in HTML5, CSS3, SASS, and Tailwind. I craft component systems with depth, motion, and ultra-clean code so the interface feels truly touchable.
+            </p>
           </div>
 
           <!-- Feature Card 2: Infrastructure & Ops -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-server text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-server text-xl"></i>
             </div>
-            <h3 class="card-title">Infrastructure & Ops</h3>
-            <p class="card-body">Web infrastructure specialist: DNS, domains, SSLs, SPF/DKIM/DMARC, mail servers, subdomain routing, LiquidWeb, Mailgun & more.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Infrastructure & Ops</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              DNS, SSL, email deliverability, hosting, monitoring—when it powers the web, I wire it up. Experiences stay as dependable as they look.
+            </p>
           </div>
 
           <!-- Feature Card 3: AI Workflow Integration -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-robot text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-robot text-xl"></i>
             </div>
-            <h3 class="card-title">AI Workflow Integration</h3>
-            <p class="card-body">Custom GPTs for automation, copywriting, Twilio/A2P registration, DNS checks, and help center consistency. AI is my personal dev assistant.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">AI Workflow Integration</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              Custom GPTs orchestrate automation, content, and support systems. Human creativity stays front and center while AI handles the repetitive grind.
+            </p>
           </div>
 
           <!-- Feature Card 4: Project Structure -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-folder-tree text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-folder-tree text-xl"></i>
             </div>
-            <h3 class="card-title">Project Structure</h3>
-            <p class="card-body">Organized, scalable codebases: DRY-first JS/CSS modules, named folder systems, dedicated logic files. I code like a detective.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Project Structure</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              Modular architecture, named systems, and obsessive documentation. Teams can onboard instantly and ship without friction.
+            </p>
           </div>
 
           <!-- Feature Card 5: Problem Solving -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-magnifying-glass-chart text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
             </div>
-            <h3 class="card-title">Problem Solving</h3>
-            <p class="card-body">Strong debugging instincts using DevTools, console logs, DNS tracebacks, and test environments. I love breaking things to figure them out.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Problem Solving</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              Diagnostics are second nature—DevTools, network traces, sandboxed repros. I find the glitch, explain the why, and fix it with empathy.
+            </p>
           </div>
 
           <!-- Feature Card 6: Building Toward -->
-          <div class="card card-hoverable card-shadow">
-            <div class="card-icon">
-              <i class="fa-solid fa-person-running text-xl text-primary boop"></i>
+          <div class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
+              <i class="fa-solid fa-person-running text-xl"></i>
             </div>
-            <h3 class="card-title">Building Toward</h3>
-            <p class="card-body">Expanding PHP/MySQL backend skills and learning deeper JavaScript architecture. React is next. Always moving forward, one solved bug at a time.</p>
+            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Building Toward</h3>
+            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+              Leveling up PHP/MySQL and diving deeper into modern JavaScript architecture—because every experiment should end with a new capability.
+            </p>
           </div>
         </div>
       </div>
@@ -149,68 +298,85 @@
 
     <!-- About Section -->
 
-    <section id="about" class="section">
-      <div class="container-wrapper">
-        <div class="hero-grid">
-          <div class="mb-6 text-xl text-gray-900 dark:text-white">
-            <h2 class="section-title text-left">About Me</h2>
-            <div class="space-y-8">
-              <div class="space-y-4">
+    <section id="about" class="section relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-[-12rem] top-[6rem] h-72 w-72 rounded-full bg-primary/15 blur-3xl dark:bg-primary/25"></div>
+        <div class="absolute right-[-10rem] top-[-6rem] h-80 w-80 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/25"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+          <div class="space-y-10 text-gray-900 dark:text-white">
+            <h2 class="section-title text-left text-4xl font-semibold">About Me</h2>
+            <div class="rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-white/5">
+              <div class="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-200">
                 <p>
-                  For most of my life, I believed software development was something for other people — people smarter than me, younger than me, more mathematically wired than me. I used to think I'd
-                  never be able to build something from scratch, let alone architect full systems. I was wrong.
+                  For most of my life, I believed software development was for other people — people smarter than me, younger than me, more mathematically wired than me. I used to think I'd never build
+                  something from scratch, let alone architect full systems. I was wrong.
                 </p>
-
                 <p>
-                  This website is more than a portfolio. It’s proof. Proof that with enough curiosity, consistency, and humility, you can teach yourself anything — even something as intimidating as
-                  code. I’m self-taught. I started in my late 30s. I work full time. And yet, here I am: designing reusable front-end components, managing real DNS infrastructure, writing custom
-                  scripts, automating workflows with AI, and building tools that didn’t exist before I made them.
+                  This site is more than a portfolio. It’s proof that curiosity and repetition can sculpt new realities. I’m self-taught. I started in my late 30s. I work full time. Yet here we are: a
+                  hyper-real experiment where reusable UI, real infrastructure, and AI tooling blend into one cinematic experience.
                 </p>
-
                 <p>
-                  I’m not the most talented developer in the room. But I’ll out-work, out-learn, out-organize, and out-care almost anyone. Because I’m not doing this to impress someone else — I’m
-                  doing this to prove to myself that I belong here. This site is my open notebook. A place to share what I’m working on, what I’m learning, and how I’m improving. If you’re someone
-                  who’s ever doubted their intelligence or felt “too late,” I hope this reminds you that you’re not.
+                  I’m not the most naturally gifted developer in the room, but I’ll out-work, out-learn, out-organize, and out-care almost anyone. I’m doing this to prove to myself that I belong here and
+                  to show others who feel “too late” that they do, too.
                 </p>
-
-                <p>We’re supposed to do hard things. And this is mine.</p>
+                <p>
+                  We’re supposed to do hard things. This living, breathing playground is mine.
+                </p>
               </div>
             </div>
-
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div class="flex flex-wrap gap-3">
+              <span class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300">
+                AI Co-Pilots
+              </span>
+              <span class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300">
+                Accessibility First
+              </span>
+              <span class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300">
+                Ops Obsessed
+              </span>
+            </div>
+            <div class="flex flex-col gap-4 sm:flex-row">
               <div data-button data-text="Say Hi" data-href="pages/contact.html" data-classes="btn-primary"></div>
               <div data-button data-text="View My Learning Journal" data-href="#" data-classes="btn-secondary"></div>
             </div>
           </div>
-
-          <!-- Avatar -->
-          <div class="relative flex justify-center flex-col items-center">
-            <div class="max-auto animate-morph to-accent relative flex w-3/4 justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary via-secondary">
-              <div class="to-accent/50 animate-morph absolute inset-0 rounded-full bg-gradient-to-br from-primary/50 via-secondary/50 blur-2xl"></div>
-              <div class="relative z-10 inline-block pt-11 lg:pt-0">
-                <div class="pb-0 pl-6 pr-6 pt-6">
-                  <img id="avatar-sprite" src="./assets/images/sprites/base.webp" alt="Colin avatar" />
-                  <div class="mt-4 flex justify-center"></div>
-                  <!-- <div class="avatar-container">
-                    <img class="max-w-none" id="head" src="./assets/images/sprites/colin_avatar/Head/head_forward_1.png" alt="Avatar" loading="lazy" width="476" height="488" />
-                    <img class="avatar-layer" id="brows" src="./assets/images/sprites/colin_avatar/Brows/brows_neutral.png" alt="Avatar" loading="lazy" width="176" height="13" />
-                    <img class="avatar-layer" id="eyes" src="./assets/images/sprites/colin_avatar/Eyes/open_forward.png" alt="Avatar" loading="lazy" width="176" height="26" />
-                    <img class="avatar-layer" id="glasses" src="./assets/images/sprites/colin_avatar/Glasses/glasses.png" alt="Avatar" loading="lazy" width="276" height="76" />
-                    <img class="avatar-layer" id="mouth" src="./assets/images/sprites/colin_avatar/Mouth/smile.png" alt="Avatar" loading="lazy" width="126" height="26" />
-                  </div> -->
+          <div class="flex flex-col gap-6">
+            <div class="rounded-3xl border border-white/30 bg-white/80 p-6 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-white/5">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Currently Building</h3>
+              <ul class="mt-4 space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                  <span>Hyper-real UI prototypes that respond to user behavior with cinematic lighting cues.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                  <span>AI copilots that orchestrate infrastructure tasks — DNS updates, monitoring, and incident response.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                  <span>Reusable component libraries that balance expressiveness with performance and accessibility.</span>
+                </li>
+              </ul>
+            </div>
+            <div class="rounded-3xl border border-white/30 bg-white/80 p-6 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-white/5">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Operating Principles</h3>
+              <div class="mt-4 grid gap-4 text-sm text-gray-600 dark:text-gray-300">
+                <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <p class="font-semibold text-gray-900 dark:text-white">Design like a filmmaker</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Light, depth, emotion</p>
+                </div>
+                <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <p class="font-semibold text-gray-900 dark:text-white">Ship like an SRE</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Reliability isn’t optional</p>
+                </div>
+                <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <p class="font-semibold text-gray-900 dark:text-white">Teach as you build</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Documentation is a feature</p>
                 </div>
               </div>
             </div>
-            <button id="avatar-play-btn" class="btn btn-secondary" type="button" aria-label="Look around">
-              Look Around
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="inline-block w-6 h-6">
-                <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                <path
-                  fill="currentColor"
-                  d="M320 96C239.2 96 174.5 132.8 127.4 176.6C80.6 220.1 49.3 272 34.4 307.7C31.1 315.6 31.1 324.4 34.4 332.3C49.3 368 80.6 420 127.4 463.4C174.5 507.1 239.2 544 320 544C400.8 544 465.5 507.2 512.6 463.4C559.4 419.9 590.7 368 605.6 332.3C608.9 324.4 608.9 315.6 605.6 307.7C590.7 272 559.4 220 512.6 176.6C465.5 132.9 400.8 96 320 96zM176 320C176 240.5 240.5 176 320 176C399.5 176 464 240.5 464 320C464 399.5 399.5 464 320 464C240.5 464 176 399.5 176 320zM320 256C320 291.3 291.3 320 256 320C244.5 320 233.7 317 224.3 311.6C223.3 322.5 224.2 333.7 227.2 344.8C240.9 396 293.6 426.4 344.8 412.7C396 399 426.4 346.3 412.7 295.1C400.5 249.4 357.2 220.3 311.6 224.3C316.9 233.6 320 244.4 320 256z"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -417,116 +583,161 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-alt">
-      <div class="container-wrapper">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Interested in working together? Let's connect.</p>
-        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
-          <!-- Contact Info -->
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 lg:col-span-1 lg:grid-cols-1">
-            <!-- Email -->
-            <div class="card card-shadow text-center">
-              <div class="icon-container">
-                <i class="fa-solid fa-envelope text-xl text-primary boop"></i>
-              </div>
-              <h3 class="mb-2 text-xl font-bold">Email</h3>
-              <p class="text-gray-600 dark:text-gray-400">example@test.com</p>
+    <section id="contact" class="relative isolate overflow-hidden py-24">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl dark:bg-primary/40"></div>
+        <div class="absolute bottom-[-8rem] right-[-6rem] h-[26rem] w-[26rem] rounded-full bg-secondary/25 blur-3xl dark:bg-secondary/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-white/45 via-white/10 to-transparent dark:from-slate-900/60 dark:via-slate-900/40 dark:to-transparent"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-3 rounded-full border border-white/40 bg-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+              <span class="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+              Always-on comms
             </div>
-            <!-- Location -->
-            <div class="card card-shadow text-center">
-              <div class="icon-container">
-                <i class="fa-solid fa-map-location-dot text-xl text-primary boop"></i>
-              </div>
-              <h3 class="mb-2 text-xl font-bold">Location</h3>
-              <p class="text-gray-600 dark:text-gray-400">Over Here</p>
-            </div>
-            <!-- Social -->
-            <div class="card card-shadow text-center">
-              <div class="icon-container">
-                <i class="fa-solid fa-globe text-xl text-primary boop"></i>
-              </div>
-              <h3 class="mb-2 text-xl font-bold">Social</h3>
-              <div class="flex justify-center space-x-4">
-                <div data-button data-href="#" data-classes="social-btn">
-                  <i class="fa-brands fa-github boop"></i>
+            <h2 class="text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">Let's orchestrate your next release</h2>
+            <p class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
+              Drop a note about the product you're shipping, the systems you need tuned, or the AI assistant you're ready to co-design. I'll respond with next steps and a lightweight plan within one business day.
+            </p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="card p-6">
+                <div class="flex items-center gap-4">
+                  <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                    <i class="fa-solid fa-envelope-open-text text-lg"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Email</p>
+                    <p class="text-base font-medium text-slate-900 dark:text-white">hello@colin.codes</p>
+                  </div>
                 </div>
-                <div data-button data-href="#" data-classes="social-btn">
-                  <i class="fa-brands fa-linkedin boop"></i>
+              </div>
+              <div class="card p-6">
+                <div class="flex items-center gap-4">
+                  <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                    <i class="fa-solid fa-satellite-dish text-lg"></i>
+                  </span>
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Availability</p>
+                    <p class="text-base font-medium text-slate-900 dark:text-white">Booking Q2 collaborations</p>
+                  </div>
                 </div>
-                <div data-button data-href="#" data-classes="social-btn">
-                  <i class="fa-brands fa-twitter boop"></i>
+              </div>
+              <div class="card p-6 sm:col-span-2">
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Signal boosts</p>
+                    <p class="text-base font-medium text-slate-900 dark:text-white">Follow builds and live debugging sessions</p>
+                  </div>
+                  <div class="flex gap-3">
+                    <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
+                      <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
+                      <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Contact Form -->
-          <div class="lg:col-span-2">
-            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6">
-              <h3 class="text-2xl font-bold">Send me a message</h3>
-              <div class="space-y-6">
-                <label for="name" class="mb-2 block text-sm font-medium text-gray-700">Name</label>
-                <input type="text" name="name" id="name" required class="form-input" />
+          <div>
+            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6 p-8">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Kickoff form</p>
+                <h3 class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Tell me about the mission</h3>
               </div>
-              <div class="space-y-6">
-                <label for="email" class="mb-2 block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" name="email" id="email" required class="form-input" />
+              <div class="space-y-2">
+                <label for="name" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Name</label>
+                <input type="text" name="name" id="name" required class="form-input" placeholder="Ada Lovelace" />
               </div>
-              <div class="space-y-6">
-                <label for="message" class="mb-2 block text-sm font-medium text-gray-700">Message</label>
-                <textarea type="text" name="message" id="message" rows="5" required class="form-input"></textarea>
+              <div class="space-y-2">
+                <label for="email" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Email</label>
+                <input type="email" name="email" id="email" required class="form-input" placeholder="ada@analytical.engine" />
               </div>
-              <div data-button data-text="Send Message" data-type="submit" data-classes="btn-primary w-full"></div>
+              <div class="space-y-2">
+                <label for="message" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Mission brief</label>
+                <textarea name="message" id="message" rows="5" required class="form-input" placeholder="What are we building together?"></textarea>
+              </div>
+              <div data-button data-text="Transmit message" data-type="submit" data-classes="btn-primary w-full"></div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Responses land within 24 hours with next steps and suggested timelines.</p>
             </form>
           </div>
         </div>
       </div>
     </section>
     <!-- Footer -->
-    <footer class="dark:bg-dark-background bg-gray-50 py-12">
-      <div class="container-wrapper">
-        <div class="mb-8 flex flex-col items-center justify-between md:flex-row">
-          <div class="mb-4 flex items-center md:mb-0">
-            <span class="text-xl font-extrabold">Colin McArthur</span>
-            <span class="ml-1 text-2xl text-primary">●</span>
+    <footer class="relative isolate overflow-hidden bg-slate-950 text-white">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-[-6rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+        <div class="absolute bottom-[-10rem] right-[-6rem] h-[28rem] w-[28rem] rounded-full bg-secondary/25 blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+      </div>
+      <div class="container-wrapper relative z-10 py-16">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Colin McArthur</p>
+                <p class="text-lg font-semibold">Hyper-real experiences engineered</p>
+              </div>
+            </div>
+            <p class="max-w-xl text-sm text-slate-300">
+              I build interactive systems that look alive, operate reliably, and weave AI copilots into everyday workflows. Each engagement pairs cinematic UI with infrastructure you can trust.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="mailto:hello@colin.codes" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20">
+                <i class="fa-solid fa-paper-plane"></i>
+                Email
+              </a>
+              <a href="https://cal.com" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20">
+                <i class="fa-solid fa-calendar-plus"></i>
+                Book a slot
+              </a>
+            </div>
           </div>
-          <ul class="mb-0 flex flex-wrap justify-center gap-6">
-            <li>
-              <a href="pages/showcase.html" class="footer-link">Showcase</a>
-            </li>
-            <li>
-              <a href="pages/about.html" class="footer-link">About</a>
-            </li>
-            <li>
-              <a href="pages/skills.html" class="footer-link">Skills</a>
-            </li>
-            <li>
-              <a href="pages/projects.html" class="footer-link">Projects</a>
-            </li>
-            <li>
-              <a href="pages/contact.html" class="footer-link">Contact</a>
-            </li>
-          </ul>
-          <div class="flex gap-4">
-            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="#" class="text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
+          <div class="grid gap-10 sm:grid-cols-2">
+            <div>
+              <h3 class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Explore</h3>
+              <ul class="mt-5 space-y-3 text-sm">
+                <li><a href="index.html" class="footer-link">Home</a></li>
+                <li><a href="pages/showcase.html" class="footer-link">Showcase</a></li>
+                <li><a href="pages/about.html" class="footer-link">About</a></li>
+                <li><a href="pages/skills.html" class="footer-link">Skills</a></li>
+                <li><a href="pages/projects.html" class="footer-link">Projects</a></li>
+                <li><a href="pages/contact.html" class="footer-link">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Connect</h3>
+              <p class="mt-5 text-sm text-slate-300">Follow ongoing builds and live ops updates.</p>
+              <div class="mt-6 flex gap-4">
+                <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="text-gray-60 text-center text-sm dark:text-gray-400">
-          <p>&copy; 2025 Colin McArthur Portfolio. All rights reserved</p>
+        <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2025 Colin McArthur. All rights reserved.</p>
+          <p>Currently shipping from the Pacific Northwest · v2.0 hyper-real build</p>
         </div>
       </div>
     </footer>
     <script src="./assets/js/components/boop.js"></script>
     <script src="./assets/js/components/header.js"></script>
     <script src="./assets/js/avatar-breathe.js"></script>
-    <script src="./assets/js/avatar-wiring.js"></script>
     <script src="./assets/js/components/ui.js"></script>
     <script src="./assets/js/skills.js"></script>
     <script src="./assets/js/expressions.js"></script>
