@@ -1,0 +1,107 @@
+@use "sass:color";
+@import "reset";
+@import "variables";
+@import "globals";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // height: 100vh;
+  text-align: center;
+}
+
+//composition
+.container {
+  width: min(100% - 4rem, 100rem);
+  margin-inline: auto;
+  padding-bottom: $size-10;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+//block
+.header {
+  &-title {
+    font-size: $size-8;
+    letter-spacing: 0.5px;
+  }
+  &-subtitle {
+    font-size: $size-8;
+    font-weight: $fw-600;
+    letter-spacing: 0.5px;
+    --flow-space: 0em;
+  }
+  &-body {
+    font-size: $size-5;
+    padding-bottom: $size-24;
+    color: $clr-neutral-400;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: $size-2;
+  box-shadow: 0px 10px 15px $clr-neutral-400;
+  text-align: left;
+  padding: $size-8;
+  &[data-type="supervisor"] {
+    border-top: $size-2 solid $clr-primary-cyan;
+  }
+  &[data-type="team-builder"] {
+    border-top: $size-2 solid $clr-primary-red;
+  }
+  &[data-type="karma"] {
+    border-top: $size-2 solid $clr-primary-orange;
+  }
+  &[data-type="calculator"] {
+    border-top: $size-2 solid $clr-primary-blue;
+  }
+  &-body {
+    font-size: $size-5;
+    color: $clr-neutral-400;
+    --flow-space: 0;
+  }
+}
+
+//images inside each card
+img {
+  align-self: flex-end;
+  width: $size-20;
+}
+
+@media (min-width: 60rem) {
+  .header {
+    width: 40rem;
+    margin-inline: auto;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: $size-8;
+    --flow-space: 0;
+  }
+  .card {
+    &[data-type="supervisor"] {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 2;
+    }
+    &[data-type="team-builder"] {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 2;
+    }
+    &[data-type="karma"] {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 2;
+    }
+    &[data-type="calculator"] {
+      grid-column: 3 / span 1;
+      grid-row: 2 / span 2;
+    }
+  }
+}
