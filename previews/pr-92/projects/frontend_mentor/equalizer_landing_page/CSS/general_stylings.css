@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap");
+
+/* Resets */
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #191826;
+} */
+
+/* Branding Colors */
+:root {
+  --clr-cyan: #66e2dc;
+  --clr-orange: #ffb964;
+  --clr-dark-orange: #fa7453;
+  --clr-white: #fcfaf9;
+  --clr-black: #191826;
+}
+
+/* Typeography  */
+h1 {
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 88px;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 52px;
+}
+.font_body-1 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+}
+.font_body-2 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+}
+p {
+  font-size: 18px;
+}

@@ -1,0 +1,105 @@
+<header class="relative fixed top-0 z-50 w-full">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/10 to-transparent dark:from-slate-950/80 dark:via-slate-900/50 dark:to-transparent"></div>
+  <div class="container-wrapper">
+    <nav class="navbar relative mt-6 rounded-3xl border border-white/30 bg-white/20 px-6 py-4 shadow-[0_20px_80px_rgba(15,23,42,0.35)] backdrop-blur-2xl dark:border-white/10 dark:bg-slate-900/60">
+      <a href="{{BASE_PATH}}index.html" class="group flex items-center gap-4">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-base font-bold text-white shadow-lg transition-transform duration-300 group-hover:-translate-y-1">CM</span>
+        <div class="flex flex-col">
+          <span class="text-base font-semibold text-slate-900 dark:text-white">Colin McArthur</span>
+          <span class="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Hyper-real lab</span>
+        </div>
+      </a>
+      <ul class="hidden items-center gap-1 md:flex">
+        <li>
+          <a href="{{BASE_PATH}}pages/showcase.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">Showcase</a>
+        </li>
+        <li>
+          <a href="{{BASE_PATH}}pages/about.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">About</a>
+        </li>
+        <li>
+          <a href="{{BASE_PATH}}pages/skills.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">Skills</a>
+        </li>
+        <li>
+          <a href="{{BASE_PATH}}pages/projects.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">Projects</a>
+        </li>
+        <li>
+          <a href="{{BASE_PATH}}pages/contact.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">Contact</a>
+        </li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button
+          id="themeToggle"
+          class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/20 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-slate-300"
+          aria-label="Switch theme"
+        >
+          <i class="fa-solid fa-moon text-base"></i>
+        </button>
+        <button
+          id="menuToggle"
+          class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/20 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-slate-300 md:hidden"
+          aria-label="Toggle navigation"
+        >
+          <div class="flex h-5 w-6 flex-col justify-between">
+            <span class="h-0.5 w-full bg-current transition-all"></span>
+            <span class="h-0.5 w-full bg-current transition-all"></span>
+            <span class="h-0.5 w-full bg-current transition-all"></span>
+          </div>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div
+  id="mobileMenu"
+  class="fixed inset-0 z-40 translate-x-full transform bg-slate-950/85 backdrop-blur-2xl transition-transform duration-500 md:hidden"
+>
+  <div class="container-wrapper flex h-full flex-col py-10">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-sm font-bold text-white shadow-lg">CM</span>
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-200">Navigation</span>
+          <p class="text-xs text-slate-400">Choose your destination</p>
+        </div>
+      </div>
+      <button
+        id="closeMenu"
+        class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/10 text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:text-white"
+        aria-label="Close navigation"
+      >
+        <i class="fa-solid fa-xmark text-2xl"></i>
+      </button>
+    </div>
+    <ul class="mt-16 flex flex-1 flex-col items-center justify-center gap-8 text-center">
+      <li>
+        <a href="{{BASE_PATH}}index.html" class="mobile-nav-link">Home</a>
+      </li>
+      <li>
+        <a href="{{BASE_PATH}}pages/showcase.html" class="mobile-nav-link">Showcase</a>
+      </li>
+      <li>
+        <a href="{{BASE_PATH}}pages/about.html" class="mobile-nav-link">About</a>
+      </li>
+      <li>
+        <a href="{{BASE_PATH}}pages/skills.html" class="mobile-nav-link">Skills</a>
+      </li>
+      <li>
+        <a href="{{BASE_PATH}}pages/projects.html" class="mobile-nav-link">Projects</a>
+      </li>
+      <li>
+        <a href="{{BASE_PATH}}pages/contact.html" class="mobile-nav-link">Contact</a>
+      </li>
+    </ul>
+    <div class="mt-12 flex justify-center gap-4">
+      <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+    </div>
+  </div>
+</div>

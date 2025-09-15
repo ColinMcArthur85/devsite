@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0070f3" />
+    <meta name="description" content="Colin McArthur Developer Portfolio Site" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    </script>
+    <title>Colin McArthur Developer Website</title>
+    <link rel="canonical" href="https://ColinMcArthur85.github.io/devsite/pages/contact.html" />
+    <meta property="og:title" content="Colin McArthur Developer Website" />
+    <meta property="og:description" content="Colin McArthur Developer Portfolio Site" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ColinMcArthur85.github.io/devsite/pages/contact.html" />
+    <meta property="og:image" content="https://ColinMcArthur85.github.io/devsite/assets/images/hero/hero-image-01.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Colin McArthur Developer Website" />
+    <meta name="twitter:description" content="Colin McArthur Developer Portfolio Site" />
+    <meta name="twitter:image" content="https://ColinMcArthur85.github.io/devsite/assets/images/hero/hero-image-01.png" />
+  </head>
+
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
+
+    <div id="menu-container"></div>
+
+    <section id="hero" class="hero-section relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-[-10rem] top-[-8rem] h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl dark:bg-primary/35"></div>
+        <div class="absolute right-[-12rem] bottom-[-10rem] h-[30rem] w-[30rem] rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/35"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35),_rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_rgba(15,23,42,0))]"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="hero-grid items-start gap-16 lg:items-center">
+          <div class="flex flex-col gap-8">
+            <div class="inline-flex max-w-max items-center gap-3 rounded-full border border-white/40 bg-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+              <span class="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+              Contact console
+            </div>
+            <div class="space-y-6">
+              <h1 class="hero-title text-left text-gray-900 dark:text-white">Let's align your next launch window</h1>
+              <p class="hero-subtitle text-left text-gray-700 dark:text-gray-300">
+                Tell me about the product, platform, or automation you're orchestrating. I'll come back with momentum, timelines, and a tactical plan—no fluff, just clarity.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="card p-6">
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Response time</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">&lt; 24 hrs</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">You'll hear from me within one business day</p>
+              </div>
+              <div class="card p-6">
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Preferred channels</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Email & sync</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Asynchronous updates with optional live sessions</p>
+              </div>
+              <div class="card p-6">
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Engagements</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Q2 slots</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Currently booking new collaborations for late spring</p>
+              </div>
+            </div>
+            <div class="hero-actions">
+              <div data-button data-text="Send a message" data-href="#contact" data-classes="btn btn-primary"></div>
+              <div data-button data-text="Book a call" data-href="https://cal.com" data-classes="btn btn-secondary"></div>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <div class="card p-6">
+              <div class="flex items-center gap-4">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                  <i class="fa-solid fa-envelope-open-text text-lg"></i>
+                </span>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Primary signal</p>
+                  <p class="text-base font-medium text-slate-900 dark:text-white">hello@colin.codes</p>
+                </div>
+              </div>
+            </div>
+            <div class="card p-6">
+              <div class="flex items-center gap-4">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                  <i class="fa-solid fa-location-dot text-lg"></i>
+                </span>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Operating from</p>
+                  <p class="text-base font-medium text-slate-900 dark:text-white">Pacific Northwest · Remote friendly</p>
+                </div>
+              </div>
+            </div>
+            <div class="card p-6">
+              <div class="flex items-center gap-4">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                  <i class="fa-solid fa-waveform-lines text-lg"></i>
+                </span>
+                <div>
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Weekly cadence</p>
+                  <p class="text-base font-medium text-slate-900 dark:text-white">Live demos, async dashboards, & recorded Looms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="relative isolate overflow-hidden py-24">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-[-12rem] bottom-[-8rem] h-[30rem] w-[30rem] rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
+        <div class="absolute right-[-10rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div class="space-y-6">
+            <h2 class="text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl">Mission briefing</h2>
+            <p class="text-base text-slate-600 dark:text-slate-300">
+              Share the essentials: product stage, tech stack, timelines, and the outcomes you want. I'll map the build plan, identify quick wins, and highlight where AI or automation can accelerate the work.
+            </p>
+            <div class="grid gap-4">
+              <div class="card p-6">
+                <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Included in your reply</h3>
+                <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                  <li class="flex items-start gap-3"><i class="fa-solid fa-check text-primary"></i> Suggested project milestones & risk notes</li>
+                  <li class="flex items-start gap-3"><i class="fa-solid fa-check text-primary"></i> Toolchain recommendations tailored to your stack</li>
+                  <li class="flex items-start gap-3"><i class="fa-solid fa-check text-primary"></i> Next steps for kickoff or discovery call</li>
+                </ul>
+              </div>
+              <div class="card p-6">
+                <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Signal boosts</h3>
+                <div class="mt-4 flex flex-wrap gap-3">
+                  <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                  </a>
+                  <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form id="contactForm" action="" class="card card-shadow flex flex-col gap-6 p-8">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Kickoff form</p>
+                <h3 class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Tell me about your mission</h3>
+              </div>
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div class="space-y-2">
+                  <label for="name" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Name</label>
+                  <input type="text" name="name" id="name" required class="form-input" placeholder="Ada Lovelace" />
+                </div>
+                <div class="space-y-2">
+                  <label for="email" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Email</label>
+                  <input type="email" name="email" id="email" required class="form-input" placeholder="ada@analytical.engine" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label for="company" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Company / Project</label>
+                <input type="text" name="company" id="company" class="form-input" placeholder="Lovelace Systems" />
+              </div>
+              <div class="space-y-2">
+                <label for="message" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Mission brief</label>
+                <textarea name="message" id="message" rows="5" required class="form-input" placeholder="Tell me about the problem, the users, and the ideal outcome."></textarea>
+              </div>
+              <div data-button data-text="Transmit message" data-type="submit" data-classes="btn-primary w-full"></div>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Prefer a direct call? <a href="https://cal.com" class="underline decoration-dotted underline-offset-4">Schedule a 30-minute session</a> and we'll map the roadmap live.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative isolate overflow-hidden py-24">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-0 h-[20rem] w-[20rem] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl dark:bg-primary/20"></div>
+        <div class="absolute bottom-[-6rem] right-[-8rem] h-[22rem] w-[22rem] rounded-full bg-secondary/10 blur-3xl dark:bg-secondary/20"></div>
+      </div>
+      <div class="container-wrapper relative z-10">
+        <div class="mx-auto max-w-3xl text-center">
+          <div class="inline-flex items-center justify-center gap-3 rounded-full border border-white/30 bg-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+            Response blueprint
+          </div>
+          <h2 class="mt-6 text-4xl font-semibold text-slate-900 dark:text-white">What happens after you reach out</h2>
+        </div>
+        <div class="mt-16 grid gap-8 md:grid-cols-3">
+          <article class="card p-6">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">T+0 hours</h3>
+            <p class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">Signal received</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">You get an acknowledgement instantly. I review scope, timelines, and any supporting links.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">T+24 hours</h3>
+            <p class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">Mission outline</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Expect a tailored response with project milestones, toolchain suggestions, and first questions.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">T+48 hours</h3>
+            <p class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">Launch prep</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">We lock a kickoff call (if needed), spin up shared spaces, and begin building momentum.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="relative isolate overflow-hidden bg-slate-950 text-white">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-1/2 top-[-6rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+        <div class="absolute bottom-[-10rem] right-[-6rem] h-[28rem] w-[28rem] rounded-full bg-secondary/25 blur-3xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+      </div>
+      <div class="container-wrapper relative z-10 py-16">
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Colin McArthur</p>
+                <p class="text-lg font-semibold">Hyper-real experiences engineered</p>
+              </div>
+            </div>
+            <p class="max-w-xl text-sm text-slate-300">
+              I build interactive systems that look alive, operate reliably, and weave AI copilots into everyday workflows. Each engagement pairs cinematic UI with infrastructure you can trust.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="mailto:hello@colin.codes" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20">
+                <i class="fa-solid fa-paper-plane"></i>
+                Email
+              </a>
+              <a href="https://cal.com" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20">
+                <i class="fa-solid fa-calendar-plus"></i>
+                Book a slot
+              </a>
+            </div>
+          </div>
+          <div class="grid gap-10 sm:grid-cols-2">
+            <div>
+              <h3 class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Explore</h3>
+              <ul class="mt-5 space-y-3 text-sm">
+                <li><a href="../index.html" class="footer-link">Home</a></li>
+                <li><a href="showcase.html" class="footer-link">Showcase</a></li>
+                <li><a href="about.html" class="footer-link">About</a></li>
+                <li><a href="skills.html" class="footer-link">Skills</a></li>
+                <li><a href="projects.html" class="footer-link">Projects</a></li>
+                <li><a href="contact.html" class="footer-link">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-400">Connect</h3>
+              <p class="mt-5 text-sm text-slate-300">Follow ongoing builds and live ops updates.</p>
+              <div class="mt-6 flex gap-4">
+                <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
+                  <i class="fa-brands fa-x-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2025 Colin McArthur. All rights reserved.</p>
+          <p>Currently shipping from the Pacific Northwest · v2.0 hyper-real build</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/js/components/header.js"></script>
+    <script src="../assets/js/components/ui.js"></script>
+    <script src="../assets/js/expressions.js"></script>
+    <script src="../assets/js/scripts.js"></script>
+  </body>
+</html>

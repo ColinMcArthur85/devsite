@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../four_card_feature/public/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="../four_card_feature/public/css/style.css" />
+    <link rel="stylesheet" href="../../../assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
+
+    <title>Frontend Mentor | Four card feature section</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu-container"></div>
+    <main class="container">
+      <div class="header text-center flow">
+        <h2 class="header-title">Reliable, efficient delivery</h2>
+        <p class="header-subtitle">Powered by Technology</p>
+
+        <div class="header-body">Our Artificial Intelligence powered tools use millions of project data points to ensure that your project is successful</div>
+      </div>
+      <div class="cards flow">
+        <div class="card flow" data-type="supervisor">
+          <h3 class="card-title">Supervisor</h3>
+          <div class="card-body">Monitors activity to identify project roadblocks</div>
+          <img class="card-icon" src="../four_card_feature/public/images/icon-supervisor.svg" />
+        </div>
+
+        <div class="card flow" data-type="team-builder">
+          <h3 class="card-title">Team Builder</h3>
+          <div class="card-body">Scans our talent network to create the optimal team for your project</div>
+          <img class="card-icon" src="../four_card_feature/public/images/icon-team-builder.svg" />
+        </div>
+        <div class="card flow" data-type="karma">
+          <h3 class="card-title">Karma</h3>
+          <div class="card-body">Regularly evaluates our talent to ensure quality</div>
+          <img class="card-icon" src="../four_card_feature/public/images/icon-karma.svg" />
+        </div>
+
+        <div class="card flow" data-type="calculator">
+          <h3 class="card-title">Calculator</h3>
+          <div class="card-body">Uses data from past projects to provide better delivery estimates</div>
+          <img class="card-icon" src="../four_card_feature/public/images/icon-calculator.svg" />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>
+        . Coded by
+        <a href="#">Colin McArthur</a>
+        .
+      </p>
+    </footer>
+    <script src="../../../assets/js/components/header.js"></script>
+  </body>
+</html>
