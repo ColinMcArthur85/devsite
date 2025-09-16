@@ -75,9 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const start = (currentPage - 1) * perPage;
             const pageProjects = filtered.slice(start, start + perPage);
             if (pageProjects.length === 0) {
-              const msg = document.createElement("p");
-              msg.textContent = selectedCategories.size === 0 && selectedTech.size === 0 ? "Please make a selection" : "No projects match your filters";
-              msg.className = "text-center text-gray-600 dark:text-gray-400";
+              const msg = document.createElement("div");
+              msg.className = "card p-8 text-center text-slate-600 dark:text-slate-300";
+              msg.innerHTML = `
+                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
+                  selectedCategories.size === 0 && selectedTech.size === 0
+                    ? "Choose a filter to curate the feed"
+                    : "No missions match those filters"
+                }</h3>
+                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adjust your selections or clear filters to explore the full archive.</p>
+              `;
               listContainer.appendChild(msg);
             } else {
               pageProjects.forEach((project) => {
@@ -101,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const prev = UIComponents.createButton({ text: "Prev", classes: "btn-secondary" });
         prev.disabled = currentPage === 1;
-        if (prev.disabled) prev.classList.add("opacity-50", "cursor-not-allowed");
+        if (prev.disabled) prev.classList.add("opacity-50", "cursor-not-allowed", "hover:translate-y-0");
         prev.addEventListener("click", () => {
           if (currentPage > 1) {
             currentPage--;
@@ -111,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const next = UIComponents.createButton({ text: "Next", classes: "btn-secondary" });
         next.disabled = currentPage === totalPages;
-        if (next.disabled) next.classList.add("opacity-50", "cursor-not-allowed");
+        if (next.disabled) next.classList.add("opacity-50", "cursor-not-allowed", "hover:translate-y-0");
         next.addEventListener("click", () => {
           if (currentPage < totalPages) {
             currentPage++;
@@ -121,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const info = document.createElement("span");
         info.textContent = `Page ${currentPage} of ${totalPages}`;
-        info.className = "px-4";
+        info.className = "rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300";
 
         paginationContainer.append(prev, info, next);
       }
@@ -132,23 +139,34 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderFilters(container, items, set, onChange) {
     items.forEach((item) => {
       const isActive = set.has(item);
-      const badge = UIComponents.createBadge({
-        text: item,
-        classes: `cursor-pointer transition border ${
-          isActive ? "border-primary" : "border-transparent opacity-60"
-        }`,
-      });
+      const badge = UIComponents.createBadge({ text: item });
+      badge.classList.add(
+        "cursor-pointer",
+        "transition-all",
+        "duration-300",
+        "hover:-translate-y-1",
+        "hover:shadow-xl",
+        "px-4",
+        "py-2",
+        "text-[0.65rem]",
+      );
+      if (isActive) {
+        badge.classList.add("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
+        badge.classList.remove("opacity-60");
+      } else {
+        badge.classList.add("bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
+      }
       badge.setAttribute("aria-pressed", isActive ? "true" : "false");
       badge.addEventListener("click", () => {
         if (set.has(item)) {
           set.delete(item);
-          badge.classList.add("opacity-60");
-          badge.classList.remove("border-primary");
+          badge.classList.add("opacity-70", "bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300");
+          badge.classList.remove("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
           badge.setAttribute("aria-pressed", "false");
         } else {
           set.add(item);
-          badge.classList.remove("opacity-60");
-          badge.classList.add("border-primary");
+          badge.classList.remove("opacity-70", "bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300");
+          badge.classList.add("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
           badge.setAttribute("aria-pressed", "true");
         }
         saveFilters();
@@ -160,21 +178,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildProjectCard(project) {
     const card = document.createElement("div");
-    card.className = "project-card card card-hoverable card-shadow p-0 flex flex-col h-full dark:bg-dark-background-secondary transition duration-300 opacity-0 translate-y-4";
+    card.className = "project-card group card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
     card.dataset.tags = project.tags.join(",");
 
     card.innerHTML = `
-      <div class="relative h-48">
-        <img src="${project.image}" loading="lazy" alt="${project.title}" class="h-full w-full object-cover" />
-        <div class="absolute inset-0 bg-black/20"></div>
+      <div class="relative h-56 overflow-hidden">
+        <img src="${project.image}" loading="lazy" alt="${project.title}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-tr from-slate-950/55 via-slate-900/10 to-transparent opacity-70 transition duration-500 group-hover:opacity-90"></div>
+        <div class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm">${project.category}</div>
       </div>
-      <div class="flex flex-1 flex-col p-6">
-        <h3 class="mb-4 text-xl font-bold">${project.title}</h3>
-        <p class="mb-4 text-gray-600 dark:text-gray-400">${project.description}</p>
-        <div class="badge-container mb-6 mt-auto flex flex-wrap gap-2"></div>
-        <div class="btn-container flex gap-4">
-          <a href="${project.code}" class="flex items-center text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary">
-            <i class="fa-brands fa-github mr-2"></i>Code
+      <div class="flex flex-1 flex-col gap-6 p-6">
+        <div>
+          <h3 class="text-xl font-semibold text-slate-900 dark:text-white">${project.title}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${project.description}</p>
+        </div>
+        <div class="badge-container flex flex-wrap gap-2"></div>
+        <div class="mt-auto flex items-center justify-between gap-3">
+          <div class="btn-container flex gap-3"></div>
+          <a href="${project.code}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 transition-colors duration-300 hover:text-primary dark:text-slate-400 dark:hover:text-primary">
+            <i class="fa-brands fa-github text-sm"></i>
+            Code
           </a>
         </div>
       </div>`;
@@ -186,8 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const btnContainer = card.querySelector(".btn-container");
-    const viewBtn = UIComponents.createButton({ text: "View Project", href: project.live, classes: "btn-sm-primary" });
-    btnContainer.prepend(viewBtn);
+    const viewBtn = UIComponents.createButton({ text: "View project", href: project.live, classes: "btn-sm-primary" });
+    btnContainer.append(viewBtn);
 
     return card;
   }
