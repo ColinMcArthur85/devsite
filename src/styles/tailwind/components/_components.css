@@ -1,89 +1,105 @@
 @layer components {
   /* Containers */
   .container-wrapper {
-    @apply container mx-auto px-4;
-  }
-  /* Icon Container */
-  .icon-container {
-    @apply mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
-  /* Section Heading Components */
-  .section-title {
-    @apply mb-4 text-center text-3xl font-bold md:text-4xl;
-  }
-  .section-subtitle {
-    @apply mb-16 text-center text-xl text-gray-600 dark:text-gray-400;
-  }
-
-  /* Progress bar */
-  .progress-bar {
-    @apply w-full overflow-hidden rounded-full bg-gray-200 dark:bg-white;
-  }
-  .progress-bar-fill {
-    @apply text-white pl-2 h-full rounded-full bg-gradient-to-r from-primary to-secondary;
-  }
-
-  /* Navigation Links */
-  .nav-link {
-    @apply text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary;
-  }
-
-  /* Navbar Container */
-  .navbar {
-    @apply flex items-center justify-between py-4;
-  }
-
-  /* Mobile Navigation Links */
-  .mobile-nav-link {
-    @apply text-2xl text-gray-700 transition-colors hover:text-primary dark:text-gray-300 dark:hover:text-primary;
-  }
-
-  /* Section Wrappers */
+  /* Layout helpers */
   .section {
-    @apply translate-y-4 py-24 opacity-0 transition-all duration-500;
-  }
-  .section-alt {
-    @apply translate-y-4 py-24 opacity-0 transition-all duration-500 dark:bg-dark-background-secondary bg-gray-50;
+    @apply relative isolate py-24 transition-all duration-500;
   }
 
-  /* Hero Section */
-  .hero-section {
-    @apply flex min-h-screen items-center pb-16 pt-20;
+  .section-alt {
+    @apply relative isolate py-24 transition-all duration-500;
   }
+
+  .section-title {
+    @apply text-balance text-center text-3xl font-semibold tracking-tight text-slate-900 dark:text-white md:text-4xl;
+  }
+
+  .section-subtitle {
+    @apply mx-auto mt-4 max-w-3xl text-center text-base text-slate-600 dark:text-slate-300 md:text-lg;
+  }
+
+  .hero-section {
+    @apply relative isolate overflow-hidden pb-20 pt-28 sm:pt-32;
+  }
+
   .hero-grid {
     @apply grid grid-cols-1 items-center gap-16 lg:grid-cols-2;
   }
+
   .hero-title {
-    @apply mb-6 text-4xl font-bold md:text-6xl;
+    @apply text-balance text-4xl font-semibold leading-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl;
   }
+
   .hero-subtitle {
-    @apply mb-8 text-xl text-gray-600 dark:text-gray-400 md:text-2xl;
+    @apply mt-6 text-lg leading-relaxed text-slate-600 dark:text-slate-300 md:text-xl;
   }
+
   .hero-actions {
-    @apply flex justify-center gap-4 lg:justify-start;
+    @apply mt-10 flex flex-wrap gap-4;
   }
+
   .hero-img {
-    @apply max-w-xs rounded-lg shadow-lg md:max-w-md;
+    @apply mx-auto max-w-md rounded-[36px] shadow-2xl;
   }
 
-  /* Form Inputs */
+  .icon-container {
+    @apply mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg;
+  }
+
+  /* Progress indicators */
+  .progress-bar {
+    @apply relative h-2 w-full overflow-hidden rounded-full bg-white/20 dark:bg-white/10;
+  }
+
+  .progress-bar::after {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-primary/60 via-indigo-500/60 to-secondary/60 opacity-40;
+  }
+
+  .progress-bar-fill {
+    @apply relative h-full rounded-full bg-gradient-to-r from-primary via-sky-500 to-secondary;
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.3);
+    z-index: 1;
+  }
+
+  .progress-bar-fill::after {
+    content: "";
+    @apply absolute inset-y-0 right-0 w-3 rounded-full bg-white/70;
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.55);
+  }
+
+  /* Inputs */
   .form-input {
-    @apply dark:bg-dark-background-secondary w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary dark:border-gray-700 dark:text-white;
+    @apply w-full rounded-2xl border border-white/30 bg-white/60 px-5 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-500 backdrop-blur-xl transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-400;
   }
 
-  /* Badge / Pill */
+  /* Navigation */
+  .navbar {
+    @apply flex items-center justify-between gap-8;
+  }
+
+  .nav-link {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:text-primary dark:text-slate-200 dark:hover:text-primary;
+  }
+
+  .mobile-nav-link {
+    @apply text-2xl font-semibold text-slate-200 transition-colors duration-200 hover:text-white;
+  }
+
+  /* Badges */
   .badge {
-    @apply dark:bg-dark-background-secondary rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600 dark:text-gray-400;
+    @apply inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-xs font-semibold uppercase text-slate-700 backdrop-blur-sm transition-colors duration-300 dark:border-white/10 dark:bg-white/10 dark:text-slate-200;
+    letter-spacing: 0.2em;
   }
 
-  /* Social Icon Button */
   .social-btn {
-    @apply dark:bg-dark-background-secondary flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition-all duration-300 hover:text-primary dark:text-gray-400 dark:hover:text-primary;
+    @apply flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:text-primary dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:text-primary;
   }
 
-  /* Footer Navigation Link */
   .footer-link {
-    @apply text-gray-600 transition-colors hover:text-primary dark:text-gray-400 dark:hover:text-primary;
+    @apply text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-white;
   }
 }

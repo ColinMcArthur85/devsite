@@ -1,13 +1,16 @@
 @layer components {
   .btn-primary {
-    @apply hover:shadow-blue-300/30 dark:hover:shadow-blue-500/20 shadow-blue-200/20 dark:shadow-blue-700/10 transform rounded-lg bg-primary px-8 py-3 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600;
+    @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-primary via-indigo-500 to-secondary px-8 py-3 text-sm font-semibold uppercase text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+    letter-spacing: 0.24em;
   }
 
   .btn-secondary {
-    @apply dark:bg-dark-background-secondary rounded-lg border border-gray-200 bg-white px-8 py-3 text-gray-900 transition-colors hover:border-gray-900 dark:border-gray-700 dark:text-white dark:hover:border-white;
+    @apply inline-flex items-center justify-center rounded-2xl border border-white/40 bg-white/20 px-8 py-3 text-sm font-semibold uppercase text-slate-900 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-white/30;
+    letter-spacing: 0.24em;
   }
 
   .btn-sm-primary {
-    @apply rounded-lg bg-primary px-4 py-2 text-white transition-colors hover:bg-blue-600;
+    @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-primary to-secondary px-4 py-2 text-xs font-semibold uppercase text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
+    letter-spacing: 0.2em;
   }
 }
