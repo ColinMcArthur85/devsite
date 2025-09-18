@@ -1,10 +1,10 @@
 @layer components {
-  .card {
+  .primary-card {
     @apply relative overflow-hidden rounded-3xl border border-white/40 bg-white/70 p-8 shadow-xl backdrop-blur-2xl transition-all duration-500 dark:border-white/10 dark:bg-slate-900/60;
     isolation: isolate;
   }
 
-  .card::before {
+  .primary-card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -15,22 +15,26 @@
     z-index: 0;
   }
 
-  .dark .card::before {
+  .dark .primary-card::before {
     background: linear-gradient(135deg, rgba(96, 165, 250, 0.16) 0%, rgba(15, 23, 42, 0.7) 55%, rgba(124, 58, 237, 0.22) 100%);
   }
 
-  .card:hover::before {
+  .primary-card:hover::before {
     opacity: 1;
   }
 
   /* Ensure card content sits above the gradient overlay */
-  .card > * {
+  .primary-card > * {
     position: relative;
     z-index: 1;
   }
 
-  .card:hover {
+  .primary-card:hover {
     @apply -translate-y-1 shadow-2xl;
+  }
+
+  .secondary-card {
+    @apply rounded-3xl border border-white/30 bg-white/80 shadow-xl backdrop-blur-lg transition-colors duration-500 dark:border-white/10 dark:bg-white/5;
   }
 
   .card-icon {
