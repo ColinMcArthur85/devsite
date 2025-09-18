@@ -1,6 +1,7 @@
 @layer components {
   .card {
     @apply relative overflow-hidden rounded-3xl border border-white/40 bg-white/70 p-8 shadow-xl backdrop-blur-2xl transition-all duration-500 dark:border-white/10 dark:bg-slate-900/60;
+    isolation: isolate;
   }
 
   .card::before {
@@ -11,6 +12,7 @@
     opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
+    z-index: 0;
   }
 
   .dark .card::before {
@@ -19,6 +21,12 @@
 
   .card:hover::before {
     opacity: 1;
+  }
+
+  /* Ensure card content sits above the gradient overlay */
+  .card > * {
+    position: relative;
+    z-index: 1;
   }
 
   .card:hover {

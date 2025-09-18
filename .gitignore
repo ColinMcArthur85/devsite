@@ -24,3 +24,4 @@ previews/
 # Others
 coverage/    # if you add test coverage later
 *.local      # local config files
+
