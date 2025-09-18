@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const pageProjects = filtered.slice(start, start + perPage);
             if (pageProjects.length === 0) {
               const msg = document.createElement("div");
-              msg.className = "card p-8 text-center text-slate-600 dark:text-slate-300";
+              msg.className = "secondary-card p-8 text-center text-slate-600 dark:text-slate-300";
               msg.innerHTML = `
                 <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
                   selectedCategories.size === 0 && selectedTech.size === 0
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function buildProjectCard(project) {
     const card = document.createElement("div");
-    card.className = "project-card group card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
+    card.className = "project-card group primary-card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
     card.dataset.tags = project.tags.join(",");
 
     card.innerHTML = `
