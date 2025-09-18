@@ -7,37 +7,74 @@ document.addEventListener("DOMContentLoaded", () => {
       const total = Object.values(data).reduce((sum, val) => sum + val, 0);
 
       const summary = document.getElementById("skill-summary");
+      const createdPills = [];
+
       if (summary) {
         summary.innerHTML = "";
       }
 
       Object.entries(data).forEach(([lang, count]) => {
-        const percent = ((count / total) * 100).toFixed(1);
+        const percentValue = total === 0 ? 0 : (count / total) * 100;
+        const percent = Number.isFinite(percentValue) ? percentValue.toFixed(1) : "0.0";
+        const displayPercent = total === 0 ? "0%" : `${percent}%`;
         const card = document.querySelector(`[data-skill="${lang}"]`);
         if (card) {
           const bar = card.querySelector(".progress-bar-fill");
           const label = card.querySelector(".progress-percent");
           const lines = card.querySelector(".lines-count");
           if (bar) {
-            bar.style.width = `${percent}%`;
+            bar.style.width = `${displayPercent}`;
           }
           if (lines) {
-            lines.textContent = `${count} lines`;
+            lines.textContent = `${count.toLocaleString()} lines`;
           }
           if (label) {
-            label.textContent = `${percent}%`;
+            label.textContent = displayPercent;
           }
         }
 
         if (summary) {
-          const row = document.createElement("div");
-          row.className =
-            "flex items-center justify-between rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-300";
-          const safePercent = total === 0 ? "0%" : `${percent}%`;
-          row.innerHTML = `<span>${lang}</span><span>${safePercent}</span>`;
-          summary.appendChild(row);
+          const pill = document.createElement("div");
+          pill.className = "usage-pill";
+          pill.dataset.percent = percentValue.toFixed(1);
+          pill.innerHTML = `<span>${lang}</span><span>${displayPercent}</span>`;
+          summary.appendChild(pill);
+          createdPills.push(pill);
         }
       });
+
+      if (!createdPills.length) {
+        return;
+      }
+
+      const prefersReducedMotion =
+        typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+        createdPills.forEach((pill) => {
+          const percent = pill.dataset.percent ? `${pill.dataset.percent}%` : "0%";
+          pill.style.setProperty("--fill-width", percent);
+          pill.classList.add("is-visible");
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const pill = entry.target;
+              const percent = pill.dataset.percent ? `${pill.dataset.percent}%` : "0%";
+              pill.style.setProperty("--fill-width", percent);
+              pill.classList.add("is-visible");
+              obs.unobserve(pill);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      createdPills.forEach((pill) => observer.observe(pill));
     })
     .catch(console.error);
 });
