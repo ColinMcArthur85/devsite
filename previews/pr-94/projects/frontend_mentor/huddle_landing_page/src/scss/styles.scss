@@ -1,0 +1,126 @@
+@import "style-guide";
+@import "normalize";
+@import "mixins";
+
+svg {
+  fill: white;
+  &:hover {
+    fill: $clr-primary-100;
+    cursor: pointer;
+  }
+}
+
+body {
+  background-color: $clr-primary-400;
+  font-family: $ff-poppins;
+}
+
+main {
+  padding-bottom: 3rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  // align-self: flex-start;
+  // width: 10rem;
+  padding-top: 4rem;
+  width: min(90%, 100rem);
+  // width: clamp(10rem, 2.5vw, 40rem);
+  margin-inline: auto;
+}
+
+.bg-image {
+  background-image: url("../src/images/bg-mobile.svg");
+  background-size: cover;
+  .flex-col {
+    padding: 3rem;
+  }
+}
+
+//reuseable flex classes
+.flex-col {
+  @include FlexCenter(column, center);
+}
+
+.flex-row {
+  @include FlexCenter(row, center);
+}
+
+.hero {
+  &-content {
+    text-align: center;
+    padding: 3rem;
+    & > * {
+      color: white;
+    }
+    &__title {
+      font-weight: 700;
+      font-size: 2rem;
+      padding-bottom: 2rem;
+    }
+    &__body {
+      font-family: $ff-sans;
+      font-size: 1.5rem;
+    }
+    &__button {
+      padding: 1rem 7rem;
+      border-radius: 2rem;
+      margin-bottom: 5rem;
+      &:hover {
+        background-color: $clr-primary-100;
+      }
+    }
+  }
+}
+
+.hero-icons > div:not(:last-child) {
+  padding-right: 1rem;
+}
+
+@media (min-width: 70rem) {
+  body {
+    background-image: url("../src/images/bg-desktop.svg");
+    background-size: cover;
+  }
+  .container {
+    @include FlexCenter(row, flex-start);
+    // height: 100vh;
+    width: min(90%, 100rem);
+    margin-inline: auto;
+  }
+  .col-split {
+    flex-basis: 100%;
+    .flex-col {
+      display: block;
+    }
+  }
+  .bg-image {
+    background-image: none;
+  }
+  .hero-content {
+    padding: 0rem 0rem 3rem 0rem;
+    text-align: left;
+    &__button {
+      margin-bottom: 0rem;
+    }
+  }
+  .hero-icons {
+    // display: flex;
+    // flex-direction: row;
+    align-self: end;
+    padding-right: 10rem;
+    // &__fb > svg > g:hover {
+    //   background: $clr-primary-100;
+    // }
+    // &__twitter > svg:hover {
+    //   background: $clr-primary-100;
+    // }
+    // &__ig:hover > svg:hover {
+    //   background: $clr-primary-100;
+    // }
+  }
+}
