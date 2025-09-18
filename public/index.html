@@ -175,7 +175,7 @@
 
                     <!-- NEW: embedded raster portrait, clipped to the face circle -->
                     <g clip-path="url(#faceClip)">
-                      <image href="../public/assets/images/sprites/base.webp" + width="360" + height="450" + transform="translate(90 100) scale(0.38)" + preserveAspectRatio="xMidYMid slice" + />
+                      <image href="assets/images/sprites/base.webp" width="360" height="450" transform="translate(90 100) scale(0.38)" preserveAspectRatio="xMidYMid slice" />
                       <!-- If you need finer control, swap x/y/width/height for a transform:
          <image href="..." width="360" height="450" transform="translate(-20,-40) scale(0.9)"/> -->
                     </g>
@@ -226,19 +226,17 @@
         <div class="absolute right-[-8rem] bottom-[-6rem] h-64 w-64 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
       </div>
       <div class="container-wrapper relative z-10">
-        <div class="mx-auto max-w-3xl text-center">
+        <div class="mx-auto max-w-3xl text-center mb-6">
           <h2 class="section-title text-4xl font-semibold text-gray-900 dark:text-white">What's in my Toolkit</h2>
           <p class="section-subtitle text-lg text-gray-600 dark:text-gray-300">Modern dev skills, real-world infrastructure, and AI-fueled workflows with a tactile, cinematic finish.</p>
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           <!-- Feature Card 1: Front-End Development -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-laptop-code text-xl"></i>
+              <i class="fa-solid fa-laptop-code text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Front-End Development</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -247,12 +245,10 @@
           </div>
 
           <!-- Feature Card 2: Infrastructure & Ops -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-server text-xl"></i>
+              <i class="fa-solid fa-server text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Infrastructure & Ops</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -261,12 +257,10 @@
           </div>
 
           <!-- Feature Card 3: AI Workflow Integration -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-robot text-xl"></i>
+              <i class="fa-solid fa-robot text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">AI Workflow Integration</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -275,12 +269,10 @@
           </div>
 
           <!-- Feature Card 4: Project Structure -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-folder-tree text-xl"></i>
+              <i class="fa-solid fa-folder-tree text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Project Structure</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -289,12 +281,10 @@
           </div>
 
           <!-- Feature Card 5: Problem Solving -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
+              <i class="fa-solid fa-magnifying-glass-chart text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Problem Solving</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
@@ -303,12 +293,10 @@
           </div>
 
           <!-- Feature Card 6: Building Toward -->
-          <div
-            class="group relative overflow-hidden rounded-3xl border border-white/30 bg-white/80 p-8 shadow-xl backdrop-blur-lg transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
+          <div class="card">
             <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <i class="fa-solid fa-person-running text-xl"></i>
+              <i class="fa-solid fa-person-running text-xl boop"></i>
             </div>
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Building Toward</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
