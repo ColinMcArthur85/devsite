@@ -1,0 +1,34 @@
+//colors
+body {
+  //orientation
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  //fonts
+  font-family: $ff-poppins;
+  color: $clr-neutral-900;
+  font-size: $size-5;
+  font-weight: $fw-200;
+  line-height: 1.5;
+  // letter-spacing: 0.5px;
+}
+//typeography
+
+//headers
+
+h2 {
+  font-size: $size-8;
+  font-weight: $fw-200;
+}
+
+h3 {
+  font-size: $size-6;
+  font-weight: $fw-600;
+}
+
+//paragraphs
+
+//containers
