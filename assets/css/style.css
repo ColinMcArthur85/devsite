@@ -446,6 +446,9 @@
   .ml-1 {
     margin-left: calc(var(--spacing) * 1);
   }
+  .ml-6 {
+    margin-left: calc(var(--spacing) * 6);
+  }
   .block {
     display: block;
   }
@@ -538,6 +541,9 @@
   }
   .h-\[32rem\] {
     height: 32rem;
+  }
+  .h-\[250px\] {
+    height: 250px;
   }
   .h-full {
     height: 100%;
@@ -666,6 +672,9 @@
   }
   .cursor-pointer {
     cursor: pointer;
+  }
+  .list-disc {
+    list-style-type: disc;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1311,9 +1320,6 @@
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
-  .py-4 {
-    padding-block: calc(var(--spacing) * 4);
-  }
   .py-6 {
     padding-block: calc(var(--spacing) * 6);
   }
@@ -1533,10 +1539,6 @@
   }
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .shadow-\[0_20px_80px_rgba\(15\,23\,42\,0\.35\)\] {
-    --tw-shadow: 0 20px 80px var(--tw-shadow-color, rgba(15,23,42,0.35));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-\[0_40px_120px_rgba\(15\,23\,42\,0\.35\)\] {
@@ -2311,6 +2313,7 @@ p {
         background-color: color-mix(in oklab, var(--color-slate-900) 60%, transparent);
       }
     }
+    isolation: isolate;
   }
   .card::before {
     content: "";
@@ -2320,12 +2323,17 @@ p {
     opacity: 0;
     transition: opacity 0.6s ease;
     pointer-events: none;
+    z-index: 0;
   }
   .dark .card::before {
     background: linear-gradient(135deg, rgba(96, 165, 250, 0.16) 0%, rgba(15, 23, 42, 0.7) 55%, rgba(124, 58, 237, 0.22) 100%);
   }
   .card:hover::before {
     opacity: 1;
+  }
+  .card > * {
+    position: relative;
+    z-index: 1;
   }
   .card:hover {
     --tw-translate-y: calc(var(--spacing) * -1);
