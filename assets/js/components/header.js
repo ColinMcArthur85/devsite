@@ -88,21 +88,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector("header");
 
     if (menuToggle && closeMenu && mobileMenu) {
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.remove("translate-x-full");
+      // Use an "is-open" class with transform/opacity transitions for a smooth entrance
+      const openMenu = () => {
+        // ensure element is visible for transition
+        mobileMenu.classList.remove("translate-x-full", "hidden");
+        // force a reflow so the next class addition triggers the transition
+        void mobileMenu.offsetWidth;
+        mobileMenu.classList.add("is-open");
+        menuToggle.classList.add("is-active");
         document.body.classList.add("overflow-hidden");
+        menuToggle.setAttribute("aria-expanded", "true");
+      };
+
+      const closeMenuFn = () => {
+        mobileMenu.classList.remove("is-open");
+        menuToggle.classList.remove("is-active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        // after transition, hide off-screen to remove from tab order
+        const onEnd = (e) => {
+          if (e.target === mobileMenu) {
+            mobileMenu.classList.add("translate-x-full");
+            document.body.classList.remove("overflow-hidden");
+            mobileMenu.removeEventListener("transitionend", onEnd);
+          }
+        };
+        mobileMenu.addEventListener("transitionend", onEnd);
+      };
+
+      menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("is-open")) closeMenuFn();
+        else openMenu();
       });
 
-      closeMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("translate-x-full");
-        document.body.classList.remove("overflow-hidden");
-      });
+      closeMenu.addEventListener("click", closeMenuFn);
 
       const mobileLinks = mobileMenu.querySelectorAll("a");
       mobileLinks.forEach((link) => {
         link.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-          document.body.classList.remove("overflow-hidden");
+          closeMenuFn();
         });
       });
     }
