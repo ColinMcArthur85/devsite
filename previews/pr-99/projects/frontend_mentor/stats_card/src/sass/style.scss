@@ -1,0 +1,178 @@
+// Font Familes Resources
+//Inter
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+//Lexend Deca
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+// layout
+// mobile: 375px
+// Desktop: 1440 px
+
+//colors
+$clr-primary-900: hsl(233, 47%, 7%);
+$clr-primary-400: hsl(244, 38%, 16%);
+$clr-primary-accent: hsl(277, 64%, 61%);
+
+$clr-neutral-400: hsl(0, 0%, 100%);
+$clr-neutral-700: hsla(0, 0%, 100%, 0.6);
+$clr-neutral-900: hsla(0, 0%, 100%, 0.75);
+
+//font-families
+
+$ff-inter: "Inter", sans-serif;
+$ff-lexend: "Lexend Deca", sans-serif;
+
+// font-sizes
+$fs-900: 3.75rem; // 60px
+$fs-800: 3rem; // 48px
+$fs-750: 2.5rem;
+$fs-700: 2rem; // 48px
+$fs-600: 1.5rem; // 24px
+$fs-500: 1.3125rem; // 21px
+$fs-400: 1.125rem; // 18px
+$fs-300: 1rem; // 18px
+
+// font-weights
+$fw-400: 400;
+$fw-700: 700;
+
+// size/spacing values (Including the border-width)
+$size-8: 0.5rem;
+$size-12: 0.75rem; // (not in design)
+$size-16: 1rem;
+$size-20: 1.25rem;
+$size-32: 2rem;
+$size-36: 2.25rem;
+$size-40: 2.5rem;
+$size-42: 3rem;
+$size-60: 5rem;
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $clr-primary-900;
+  text-align: center;
+  font-size: $fs-400;
+  font-family: $ff-inter;
+  color: $clr-neutral-400;
+}
+
+img {
+  mix-blend-mode: multiply;
+  opacity: 80%;
+  display: block;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  font-size: $fs-300;
+}
+
+.flex-col > span {
+  font-family: $ff-lexend;
+}
+
+.stats-heading {
+  font-size: $fs-700;
+  font-weight: $fw-700;
+  color: $clr-neutral-400;
+  font-family: $ff-inter;
+}
+
+.card__content-stats .flex-col:not(:last-child) {
+  margin-bottom: $size-32;
+}
+
+.accent {
+  color: $clr-primary-accent;
+}
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $clr-primary-400;
+  color: $clr-neutral-700;
+  max-width: 70vw;
+  margin-inline: auto;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    // opacity: 0.4;
+    display: block;
+    object-fit: cover;
+    max-width: 100%;
+
+    &-wrapper {
+      // margin-bottom: $size-8;
+      background: $clr-primary-accent;
+    }
+  }
+
+  &__content {
+    padding: $size-40;
+  }
+
+  &__content-heading {
+    color: $clr-neutral-400;
+    font-size: $fs-750;
+    font-weight: $fw-700;
+    margin-bottom: $size-32;
+  }
+
+  &__content-body {
+    line-height: $size-32;
+    margin-bottom: $size-40;
+    font-size: $fs-500;
+  }
+
+  &__content-stats {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card {
+    max-width: 1240px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: dense;
+
+    &__image-wrapper {
+      margin-bottom: 0px;
+    }
+
+    &__content {
+      text-align: left;
+      // width: 50%;
+      // padding: 5rem 16rem 3rem 5rem;
+
+      &-heading {
+        margin-bottom: 3rem;
+        font-size: $size-42;
+      }
+
+      &-body {
+        font-size: 1.25rem;
+        margin-bottom: 8rem;
+        padding-right: 4rem;
+      }
+      &-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 4rem;
+      }
+    }
+  }
+
+  .flex-col {
+    margin-bottom: 0px !important;
+  }
+}
