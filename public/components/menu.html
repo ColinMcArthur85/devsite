@@ -9,7 +9,7 @@
           CM
         </span>
         <div class="flex flex-col">
-          <span class="text-base font-semibold text-slate-900 dark:text-white">Colin McArthur</span>
+          <span class="text-base font-semibold text-slate-900 dark:text-slate-200">Colin McArthur</span>
           <span class="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Developers Website</span>
         </div>
       </a>
@@ -44,25 +44,29 @@
           aria-label="Toggle navigation"
         >
           <div class="flex h-5 w-6 flex-col justify-between">
-            <span class="h-0.5 w-full bg-current transition-all"></span>
-            <span class="h-0.5 w-full bg-current transition-all"></span>
-            <span class="h-0.5 w-full bg-current transition-all"></span>
+            <span class="hamburger-line h-0.5 w-full bg-current transition-all"></span>
+            <span class="hamburger-line h-0.5 w-full bg-current transition-all"></span>
+            <span class="hamburger-line h-0.5 w-full bg-current transition-all"></span>
           </div>
         </button>
       </div>
     </nav>
   </div>
 </header>
-<div id="mobileMenu" class="fixed inset-0 z-40 translate-x-full transform bg-slate-950/85 backdrop-blur-2xl transition-transform duration-500 md:hidden">
-  <div class="container-wrapper flex h-full flex-col py-10">
+<div id="mobileMenu" class="fixed inset-0 z-50 translate-x-full transform bg-slate-950/85 backdrop-blur-2xl transition-transform duration-500 md:hidden">
+  <div class="container-wrapper flex h-full flex-col py-6 px-10">
     <div class="flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-sm font-bold text-white shadow-lg">CM</span>
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-200">Navigation</span>
-          <p class="text-xs text-slate-400">Choose your destination</p>
+      <a href="{{BASE_PATH}}index.html" class="group flex items-center gap-4">
+        <span
+          class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-base font-bold text-white shadow-lg transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-2xl"
+        >
+          CM
+        </span>
+        <div class="flex flex-col">
+          <span class="text-base font-semibold text-white">Colin McArthur</span>
+          <span class="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">Developers Website</span>
         </div>
-      </div>
+      </a>
       <button
         id="closeMenu"
         class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/10 text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:text-white"

@@ -15,6 +15,9 @@
 /* Transitions */
 @import "./tailwind/utils/_transitions.css";
 
+/* Visibility / mobile menu helpers */
+@import "./tailwind/utils/_visibility.css";
+
 /* Animations */
 @import "./tailwind/utils/_animations.css";
 /* Sprites */
