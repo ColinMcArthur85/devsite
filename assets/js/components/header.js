@@ -62,23 +62,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const icon = themeToggle?.querySelector("i");
     const themeMeta = document.querySelector('meta[name="theme-color"]');
 
+    // Apply theme: default to dark unless user explicitly chose light.
     const setTheme = (isDark) => {
       htmlEl.classList.toggle("dark", isDark);
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      // Persist only when user explicitly chooses light. Do NOT persist dark as default.
+      try {
+        if (isDark) {
+          // user chose dark -> remove any persisted preference so default remains dark for new visitors
+          localStorage.removeItem("theme");
+        } else {
+          // user chose light -> persist that choice
+          localStorage.setItem("theme", "light");
+        }
+      } catch (e) {}
       themeMeta?.setAttribute("content", isDark ? "#000000" : "#0070f3");
       icon?.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
       themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
     };
 
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+    // Default: dark for everyone unless they previously selected 'light'
+    if (savedTheme === "light") {
+      setTheme(false);
+    } else {
       setTheme(true);
     }
 
     themeToggle?.addEventListener("click", () => {
-      const isDark = !htmlEl.classList.contains("dark");
-      setTheme(isDark);
+      const isDarkNow = htmlEl.classList.contains("dark");
+      // toggle: if currently dark -> switch to light (isDark=false), else switch to dark
+      setTheme(!isDarkNow);
     });
 
     // === Mobile navigation toggle ===
