@@ -1,4 +1,16 @@
 <header class="relative top-0 z-50 w-full">
+  <script>
+    // Default to dark for new visitors. Respect light only when explicitly stored.
+    try {
+      const theme = localStorage.getItem("theme");
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        // theme === "dark" OR no stored value -> default dark
+        document.documentElement.classList.add("dark");
+      }
+    } catch (e) {}
+  </script>
   <div class="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/10 to-transparent dark:from-slate-950/80 dark:via-slate-900/50 dark:to-transparent"></div>
   <div class="container-wrapper">
     <nav class="navbar relative p-6">
@@ -14,9 +26,9 @@
         </div>
       </a>
       <ul class="hidden items-center gap-1 md:flex">
-        <li>
+        <!-- <li>
           <a href="{{BASE_PATH}}pages/showcase.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">Showcase</a>
-        </li>
+        </li> -->
         <li>
           <a href="{{BASE_PATH}}pages/about.html" class="nav-link hover:bg-white/25 dark:hover:bg-white/10">About</a>
         </li>
@@ -79,9 +91,9 @@
       <li>
         <a href="{{BASE_PATH}}index.html" class="mobile-nav-link">Home</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="{{BASE_PATH}}pages/showcase.html" class="mobile-nav-link">Showcase</a>
-      </li>
+      </li> -->
       <li>
         <a href="{{BASE_PATH}}pages/about.html" class="mobile-nav-link">About</a>
       </li>

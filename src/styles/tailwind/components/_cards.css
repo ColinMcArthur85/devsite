@@ -38,7 +38,7 @@
   }
 
   .card-icon {
-    @apply relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/25 to-secondary/25 text-primary shadow-lg;
+    @apply relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl  shadow-lg;
   }
 
   .card-title {
