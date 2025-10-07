@@ -59,7 +59,7 @@
                 <span class="mt-4 block text-2xl font-light text-gray-700 dark:text-gray-300 md:text-3xl">Self-taught developer, button-masher, late starter who never stopped showing up.</span>
               </h1>
               <p class="mt-6 max-w-xl text-lg leading-relaxed text-gray-700 dark:text-gray-300 md:text-xl">
-                I tinker, I break things, I figure out what went wrong, I fix them — and eventually, it works. Clean interfaces, solid infrastructure, and something I’m proud of… myself.
+                I tinker, it breaks, I figure out what went wrong, I fix — and eventually, it works. Clean interfaces, solid infrastructure, and something I’m proud of… myself.
               </p>
             </div>
             <div class="hero-actions flex flex-col gap-4 sm:flex-row">
@@ -176,10 +176,10 @@
                     <path d="M92 214c12 36 44 60 72 60 22 0 42-10 58-30" fill="none" stroke="url(#avatarRim)" stroke-width="6" stroke-linecap="round" opacity="0.78" />
                     <ellipse cx="160" cy="192" rx="110" ry="126" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.22" stroke-dasharray="14 10" />
                     <path d="M56 300c24-18 60-30 104-30s80 12 104 30" fill="none" stroke="url(#avatarRim)" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="10 12" />
-                    <circle cx="112" cy="188" r="12" fill="#fee2e2" opacity="0.24" />
-                    <circle cx="224" cy="170" r="10" fill="#bfdbfe" opacity="0.3" />
-                    <circle cx="120" cy="278" r="6" fill="#a855f7" opacity="0.6" />
-                    <circle cx="218" cy="286" r="6" fill="#38bdf8" opacity="0.65" />
+                    <circle class="orb" cx="112" cy="188" r="12" fill="#fee2e2" opacity="0.24" />
+                    <circle class="orb" cx="224" cy="170" r="10" fill="#bfdbfe" opacity="0.3" />
+                    <circle class="orb" cx="120" cy="278" r="6" fill="#a855f7" opacity="0.6" />
+                    <circle class="orb" cx="218" cy="286" r="6" fill="#38bdf8" opacity="0.65" />
                   </svg>
                   <div class="hyper-avatar__grid" aria-hidden="true"></div>
                   <div class="hyper-avatar__scanline" aria-hidden="true"></div>
@@ -289,9 +289,8 @@
             <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Problem Solving</h3>
             <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
               I solve problems the same way I grew up playing video games: find the glitch, try everything, and don’t quit until I’ve cracked it. Sometimes that means methodical testing, sometimes
-              it’s full-on button-mashing. I’ve always been fascinated with computers when something breaks. Honestly, it’s boring when they just work (probably because I grew up on a Commodore 64,
-              then an Amiga, then a 386 — nothing ever worked right). Diagnostics are second nature now: I poke, I prod, I recreate the bug until it gives up its secrets. Then I fix it, explain it in
-              plain English (without making you feel dumb), and send it on its way. Usually with a lot of swearing — which is exactly why I don’t do live Zoom calls with you.
+              it’s full-on button-mashing. Diagnostics are second nature now: I poke, I prod, I recreate the bug until it gives up its secrets. Then I fix it, explain it in plain English (without
+              making you feel dumb), and send it on its way. Usually with a lot of swearing — which is exactly why I don’t do live Zoom calls with you.
             </p>
           </div>
 
@@ -318,85 +317,80 @@
         <div class="absolute left-[-12rem] top-[6rem] h-72 w-72 rounded-full bg-primary/15 blur-3xl dark:bg-primary/25"></div>
         <div class="absolute right-[-10rem] top-[-6rem] h-80 w-80 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/25"></div>
       </div>
+
       <div class="container-wrapper relative z-10">
-        <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1.15fr_0.85fr]">
-          <div class="space-y-10 text-gray-900 dark:text-white">
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <!-- Left column -->
+          <div class="space-y-10 text-gray-900 dark:text-white flex flex-col">
             <h2 class="section-title text-left text-4xl font-semibold">About Me</h2>
+
             <div class="secondary-card p-8">
               <div class="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-200">
                 <p>
-                  For most of my life, I believed software development was for other people — people smarter than me, younger than me, more mathematically wired than me. I used to think I'd never
-                  build something from scratch, let alone architect full systems. I was wrong.
+                  I didn’t take the traditional route. No degree, no pedigree—just stubborn curiosity, too many error logs, and a habit of showing up. I build clean, reusable interfaces, wire
+                  infrastructure so it stays up, and weave AI into everyday workflows so the boring stuff handles itself. I’m not the loudest dev in the room, but I’m relentless, organized, and
+                  allergic to mystery bugs. This site is my proof-of-work—part portfolio, part playground.
                 </p>
-                <p>
-                  This site is more than a portfolio. It’s proof that curiosity and repetition can sculpt new realities. I’m self-taught. I started in my late 30s. I work full time. Yet here we are: a
-                  hyper-real experiment where reusable UI, real infrastructure, and AI tooling blend into one cinematic experience.
-                </p>
-                <p>
-                  I’m not the most naturally gifted developer in the room, but I’ll out-work, out-learn, out-organize, and out-care almost anyone. I’m doing this to prove to myself that I belong here
-                  and to show others who feel “too late” that they do, too.
-                </p>
-                <p>We’re supposed to do hard things. This living, breathing playground is mine.</p>
+              </div>
+
+              <div class="mt-8">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Currently Building</h3>
+                <ul class="mt-6 space-y-5 text-base leading-relaxed text-gray-700 dark:text-gray-300">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                    <span>Sharpening PHP & MySQL with real-world projects.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                    <span>Experimenting with AI copilots for workflow automation.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+                    <span>Refactoring this site like it’s a living codebase.</span>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div class="flex flex-wrap gap-3">
-              <span
-                class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300"
-              >
-                AI Co-Pilots
-              </span>
-              <span
-                class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300"
-              >
-                Accessibility First
-              </span>
-              <span
-                class="rounded-full border border-white/40 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 dark:text-gray-300"
-              >
-                Ops Obsessed
-              </span>
-            </div>
-            <div class="flex flex-col gap-4 sm:flex-row">
-              <div data-button data-text="Say Hi" data-href="pages/contact.html" data-classes="btn-primary"></div>
-              <div data-button data-text="View My Learning Journal" data-href="#" data-classes="btn-secondary"></div>
-            </div>
           </div>
-          <div class="flex flex-col gap-6">
-            <div class="secondary-card p-6">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Currently Building</h3>
-              <ul class="mt-4 space-y-4 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
-                  <span>Hyper-real UI prototypes that respond to user behavior with cinematic lighting cues.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
-                  <span>AI copilots that orchestrate infrastructure tasks — DNS updates, monitoring, and incident response.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
-                  <span>Reusable component libraries that balance expressiveness with performance and accessibility.</span>
-                </li>
-              </ul>
-            </div>
-            <div class="secondary-card p-6">
+
+          <!-- Right column -->
+          <div class="flex flex-col justify-end gap-6">
+            <div class="secondary-card p-6 flex flex-col items-center text-center">
               <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Operating Principles</h3>
-              <div class="mt-4 grid gap-4 text-sm text-gray-600 dark:text-gray-300">
+              <div class="mt-6 grid gap-4 text-sm text-gray-600 dark:text-gray-300 w-full max-w-md">
                 <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-                  <p class="font-semibold text-gray-900 dark:text-white">Design like a filmmaker</p>
-                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Light, depth, emotion</p>
+                  <p class="font-semibold text-gray-900 dark:text-white">Build the foundation first</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Structure beats chaos</p>
                 </div>
+
                 <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-                  <p class="font-semibold text-gray-900 dark:text-white">Ship like an SRE</p>
-                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Reliability isn’t optional</p>
+                  <p class="font-semibold text-gray-900 dark:text-white">Hunt down every bug</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Detective mode engaged</p>
                 </div>
+
                 <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-                  <p class="font-semibold text-gray-900 dark:text-white">Teach as you build</p>
-                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Documentation is a feature</p>
+                  <p class="font-semibold text-gray-900 dark:text-white">Speak human, not robot</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">Plain English, no nerd-jargon</p>
+                </div>
+
+                <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <p class="font-semibold text-gray-900 dark:text-white">Show up every day</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">No excuses, no breaks</p>
+                </div>
+
+                <div class="rounded-2xl border border-white/30 bg-white/80 p-4 shadow-md backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                  <p class="font-semibold text-gray-900 dark:text-white">Never leave someone hanging</p>
+                  <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-500 dark:text-gray-400">There’s always a path forward</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Buttons: force them to always be last -->
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div data-button data-text="Say Hi" data-href="pages/contact.html" data-classes="btn-primary"></div>
+          <div data-button data-text="View My Learning Journal" data-href="#" data-classes="btn-secondary"></div>
         </div>
       </div>
     </section>
@@ -555,7 +549,7 @@
     <section id="frameworks" class="section-alt">
       <div class="container-wrapper">
         <h2 class="section-title">Frameworks/Library's Used</h2>
-        <p class="section-subtitle">These are the frameworks powering this site.</p>
+        <p class="section-subtitle">These are the frameworks powering this site (or potentially yours 😉).</p>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center mt-6">
           <!-- Framework Card: Tailwind CSS -->
@@ -615,12 +609,11 @@
               class="inline-flex items-center gap-3 rounded-full border border-white/40 bg-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
             >
               <span class="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
-              Always-on comms
+              I actually answer my emails
             </div>
-            <h2 class="text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">Let's orchestrate your next release</h2>
+            <h2 class="text-4xl font-semibold text-slate-900 dark:text-white sm:text-5xl">Let’s build something cool</h2>
             <p class="max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
-              Drop a note about the product you're shipping, the systems you need tuned, or the AI assistant you're ready to co-design. I'll respond with next steps and a lightweight plan within one
-              business day.
+              Shoot me a note about the site you’re launching, the system that’s giving you grief, or just to say hello. I’ll get back right away. No corporate jargon, no ghosting.
             </p>
             <div class="grid gap-4 sm:grid-cols-2">
               <div class="secondary-card p-6">
@@ -641,7 +634,7 @@
                   </span>
                   <div>
                     <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Availability</p>
-                    <p class="text-base font-medium text-slate-900 dark:text-white">Booking Q2 collaborations</p>
+                    <p class="text-base font-medium text-slate-900 dark:text-white">Available for select projects now</p>
                   </div>
                 </div>
               </div>
@@ -649,7 +642,7 @@
                 <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Signal boosts</p>
-                    <p class="text-base font-medium text-slate-900 dark:text-white">Follow builds and live debugging sessions</p>
+                    <p class="text-base font-medium text-slate-900 dark:text-white">Follow my builds, experiments, and occasional rants</p>
                   </div>
                   <div class="flex gap-3">
                     <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
@@ -670,22 +663,21 @@
             <form id="contactForm" action="" class="secondary-card card-shadow flex flex-col gap-6 p-8">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Kickoff form</p>
-                <h3 class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Tell me about the mission</h3>
+                <h3 class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">What are we building?</h3>
               </div>
               <div class="space-y-2">
                 <label for="name" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Name</label>
-                <input type="text" name="name" id="name" required class="form-input" placeholder="Ada Lovelace" />
+                <input type="text" name="name" id="name" required class="form-input" placeholder="John Smith" />
               </div>
               <div class="space-y-2">
                 <label for="email" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Email</label>
-                <input type="email" name="email" id="email" required class="form-input" placeholder="ada@analytical.engine" />
+                <input type="email" name="email" id="email" required class="form-input" placeholder="johnsmith1882@gmail.com" />
               </div>
               <div class="space-y-2">
-                <label for="message" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Mission brief</label>
-                <textarea name="message" id="message" rows="5" required class="form-input" placeholder="What are we building together?"></textarea>
+                <label for="message" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Details</label>
+                <textarea name="message" id="message" rows="5" required class="form-input" placeholder="What we doin'?"></textarea>
               </div>
-              <div data-button data-text="Transmit message" data-type="submit" data-classes="btn-primary w-full"></div>
-              <p class="text-xs text-slate-500 dark:text-slate-400">Responses land within 24 hours with next steps and suggested timelines.</p>
+              <div data-button data-text="Send Message" data-type="submit" data-classes="btn-primary w-full"></div>
             </form>
           </div>
         </div>
@@ -763,6 +755,7 @@
         </div>
       </div>
     </footer>
+    <script src="./assets/js/orb-anim.js" defer></script>
     <script src="./assets/js/components/boop.js"></script>
     <script src="./assets/js/components/header.js"></script>
     <script src="./assets/js/avatar-breathe.js"></script>

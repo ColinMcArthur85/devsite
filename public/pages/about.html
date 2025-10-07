@@ -48,33 +48,36 @@
               Mission log
             </div>
             <div class="space-y-6">
-              <h1 class="hero-title text-left text-gray-900 dark:text-white">Colin McArthur, experiential engineer</h1>
+              <h1 class="hero-title text-left text-gray-900 dark:text-white">Colin McArthur, jack of all trades, master of none (and proud of it).</h1>
               <p class="hero-subtitle text-left text-gray-700 dark:text-gray-300">
-                I architect immersive interfaces, resilient infrastructure, and AI copilots that scale with your ambitions. Every build balances spectacle with systems thinking so nothing cracks under
-                pressure.
+                What don’t I do? Customer service, detective work, bug hunting, infrastructure wiring, clean interfaces, all with a wise-ass grin. I float between nerds and normal people, translate
+                without jargon, and make sure no problem slips past without being solved properly.
               </p>
             </div>
             <div class="grid gap-4 sm:grid-cols-3">
               <div class="primary-card p-6">
-                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Deployments</p>
-                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">50+</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Shipping production-grade experiences since 2010</p>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Uptime</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">99.9%</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Except when I’m debugging at 2 a.m. (then it’s 60 Hz)</p>
               </div>
+
               <div class="primary-card p-6">
                 <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Focus</p>
-                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Human-led AI</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Copilots that amplify teams instead of replacing them</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Button-Masher DevOps</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Human-first systems that actually make sense</p>
               </div>
+
               <div class="primary-card p-6">
-                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Ops cadence</p>
-                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Weekly</p>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Tight feedback loops + calm deployments</p>
+                <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Debug Speed</p>
+                <p class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">Fast AF</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Average time to spot a missing “: ≈ 4 seconds”</p>
               </div>
             </div>
-            <div class="hero-actions">
+
+            <!-- <div class="hero-actions">
               <div data-button data-text="View timeline" data-href="#timeline" data-classes="btn btn-primary"></div>
               <div data-button data-text="Download resume" data-href="../assets/docs/Colin-McArthur-Resume.pdf" data-classes="btn btn-secondary"></div>
-            </div>
+            </div> -->
           </div>
           <div class="relative">
             <div class="absolute -left-12 top-12 h-56 w-56 rounded-full bg-primary/20 blur-3xl dark:bg-primary/35"></div>
@@ -108,11 +111,14 @@
                         <stop offset="55%" stop-color="#6366f1" />
                         <stop offset="100%" stop-color="#f472b6" />
                       </linearGradient>
+
+                      <!-- Face circle fill can stay if you want a warm tint behind the photo -->
                       <linearGradient id="avatarFace" x1="28%" y1="10%" x2="78%" y2="90%">
                         <stop offset="0%" stop-color="#fde68a" />
                         <stop offset="48%" stop-color="#fbbf24" />
                         <stop offset="100%" stop-color="#fb923c" />
                       </linearGradient>
+
                       <linearGradient id="avatarHair" x1="32%" y1="0%" x2="68%" y2="100%">
                         <stop offset="0%" stop-color="#1f2937" />
                         <stop offset="55%" stop-color="#0f172a" />
@@ -123,24 +129,41 @@
                         <stop offset="60%" stop-color="#fde68a" stop-opacity="0.32" />
                         <stop offset="100%" stop-color="#fbbf24" stop-opacity="0" />
                       </radialGradient>
+
+                      <!-- NEW: clip path for the face image -->
+                      <clipPath id="faceClip">
+                        <circle cx="160" cy="188" r="88" />
+                      </clipPath>
                     </defs>
+
                     <rect width="320" height="400" fill="url(#avatarGradientBg)" />
                     <ellipse cx="160" cy="146" rx="148" ry="140" fill="url(#avatarHalo)" opacity="0.82" />
                     <ellipse cx="160" cy="330" rx="128" ry="72" fill="#1e1b4b" opacity="0.25" />
                     <path d="M36 322c26-74 86-118 124-118s98 44 124 118v78H36z" fill="url(#avatarBody)" />
                     <path d="M60 360c32-46 66-70 100-70s68 24 100 70v40H60z" fill="url(#avatarRim)" opacity="0.22" />
-                    <circle cx="160" cy="188" r="88" fill="url(#avatarFace)" />
-                    <path d="M72 196Q118 60 160 60t88 112v52q-40-32-88-32t-88 32z" fill="url(#avatarHair)" opacity="0.95" />
-                    <path d="M94 240c14 34 40 56 66 56s52-22 66-56c-20 16-42 24-66 24s-46-8-66-24z" fill="#f59e0b" opacity="0.32" />
-                    <path d="M122 160c18-14 58-14 76 0-24-6-52-6-76 0z" fill="#f97316" opacity="0.35" />
+
+                    <!-- Optional base color under the photo -->
+                    <circle cx="160" cy="188" r="88" fill="url(#avatarFace)" opacity="0.35" />
+
+                    <!-- NEW: embedded raster portrait, clipped to the face circle -->
+                    <g clip-path="url(#faceClip)">
+                      <image href="../assets/images/sprites/base.webp" width="360" height="450" transform="translate(90 100) scale(0.38)" preserveAspectRatio="xMidYMid slice" />
+                      <!-- If you need finer control, swap x/y/width/height for a transform:
+         <image href="..." width="360" height="450" transform="translate(-20,-40) scale(0.9)"/> -->
+                    </g>
+
+                    <!-- Keep your decorative strokes/highlights -->
+                    <path d="M72 196Q118 60 160 60t88 112v52q-40-32-88-32t-88 32z" fill="url(#avatarHair)" opacity="0.0" />
+                    <path d="M94 240c14 34 40 56 66 56s52-22 66-56c-20 16-42 24-66 24s-46-8-66-24z" fill="#f59e0b" opacity="0.18" />
+                    <path d="M122 160c18-14 58-14 76 0-24-6-52-6-76 0z" fill="#f97316" opacity="0.25" />
                     <circle cx="196" cy="204" r="30" fill="url(#avatarHighlight)" />
                     <path d="M92 214c12 36 44 60 72 60 22 0 42-10 58-30" fill="none" stroke="url(#avatarRim)" stroke-width="6" stroke-linecap="round" opacity="0.78" />
                     <ellipse cx="160" cy="192" rx="110" ry="126" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.22" stroke-dasharray="14 10" />
                     <path d="M56 300c24-18 60-30 104-30s80 12 104 30" fill="none" stroke="url(#avatarRim)" stroke-width="2" stroke-opacity="0.3" stroke-dasharray="10 12" />
-                    <circle cx="112" cy="188" r="12" fill="#fee2e2" opacity="0.24" />
-                    <circle cx="224" cy="170" r="10" fill="#bfdbfe" opacity="0.3" />
-                    <circle cx="120" cy="278" r="6" fill="#a855f7" opacity="0.6" />
-                    <circle cx="218" cy="286" r="6" fill="#38bdf8" opacity="0.65" />
+                    <circle class="orb" cx="112" cy="188" r="12" fill="#fee2e2" opacity="0.24" />
+                    <circle class="orb" cx="224" cy="170" r="10" fill="#bfdbfe" opacity="0.3" />
+                    <circle class="orb" cx="120" cy="278" r="6" fill="#a855f7" opacity="0.6" />
+                    <circle class="orb" cx="218" cy="286" r="6" fill="#38bdf8" opacity="0.65" />
                   </svg>
                   <div class="hyper-avatar__grid" aria-hidden="true"></div>
                   <div class="hyper-avatar__scanline" aria-hidden="true"></div>
@@ -151,8 +174,8 @@
               <div class="mt-6 grid gap-4 sm:grid-cols-2">
                 <div class="primary-card p-5">
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Base</p>
-                  <p class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Vancouver, BC</p>
-                  <p class="text-xs text-slate-500 dark:text-slate-400">Operating remotely with global teams</p>
+                  <p class="mt-2 text-lg font-semibold text-slate-900 dark:text-white">Peachland, BC</p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Operating remotely</p>
                 </div>
                 <div class="primary-card p-5">
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Stack</p>
@@ -162,6 +185,98 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="hero-actions">
+          <div data-button data-text="View timeline" data-href="#timeline" data-classes="btn btn-primary"></div>
+          <div data-button data-text="Download resume" data-href="../assets/docs/Colin-McArthur-Resume.pdf" data-classes="btn btn-secondary"></div>
+        </div>
+      </div>
+    </section>
+    <section id="story" class="relative isolate overflow-hidden py-24">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute left-[-10rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
+        <div class="absolute right-[-12rem] bottom-[-8rem] h-[28rem] w-[28rem] rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
+      </div>
+
+      <div class="container-wrapper relative z-10 space-y-16">
+        <!-- Two-column story -->
+        <div class="grid gap-12 lg:grid-cols-2 text-base leading-relaxed text-slate-700 dark:text-slate-300">
+          <!-- Left column -->
+          <div class="space-y-6">
+            <p>
+              My first brush with a computer was pure terror. I was five or six, playing
+              <em>Aztec Challenge</em>
+              on a Commodore 64 at one of my dad’s buddies’ places. The sound alone could make your pulse jump. Once I got past the fear, I was hooked.
+            </p>
+
+            <p>
+              Then came the Amiga,
+              <em>Dragon’s Lair</em>
+              ,
+              <em>Test Drive</em>
+              , and a few tragic “games” I copied line-by-line from a programming book while
+              <em>Appetite for Destruction</em>
+              blasted in the background. Computers became my world. I taught myself DOS the way other kids learned bike tricks— trial, error, and maybe a few explosions.
+            </p>
+
+            <p>
+              I wasn’t confident. Thought I wasn’t smart enough for anything big, so I bounced through grunt jobs until I landed in the fitness industry. Selling treadmills felt like progress, but I
+              knew I was meant for more than upselling ellipticals.
+            </p>
+
+            <p>
+              Then life forced a reset. My first daughter was born, and two months later COVID hit. The world shut down and so did my sense of stability. A friend with a software company was hiring.
+              My wife said, “You should reach out.” One five-minute Zoom later, he said, “Let’s give it a try.” That sentence changed everything.
+            </p>
+
+            <p>
+              For a month I worked both jobs—6 to 8 AM, day job, 8 to midnight—then got the call: “We want you full-time.” I called my wife; she said, “Quit your job.” I did. Walked upstairs, gave
+              notice, never looked back.
+            </p>
+            <p>
+              The first year was chaos. I didn’t know an API from a DNS record. “CNAME” sounded like a rapper. Every day I was lost, but I kept showing up—because for the first time, I could be home
+              to watch my daughter grow up. That was all the motivation I needed.
+            </p>
+          </div>
+
+          <!-- Right column -->
+          <div class="space-y-6">
+            <p>
+              Then came the storm. My wife got sick while pregnant with our second child. We lived at the Ronald McDonald House for nine weeks. I planned her funeral. I thought I’d be raising my
+              daughter alone. It still haunts me. But somewhere in that darkness, a switch flipped. I promised myself that if she made it, I’d learn everything I could about software. No more
+              drifting.
+            </p>
+
+            <p>
+              So I learned. FreeCodeCamp. Kevin Powell. University of Michigan for PHP. Late nights with JavaScript docs and AI whispering explanations in plain English. I’ve melted my face off every
+              night for years since.
+            </p>
+
+            <p>
+              The detective part of me came from those busted old computers. Commodore, Amiga, 386 — nothing ever worked right. Installing a game was an act of faith. I learned that everything has a
+              pattern. Find the pattern, fix the problem.
+            </p>
+
+            <p>
+              These days I’m an IT problem-solver by trade, a developer by obsession. My rules are simple: don’t lie, stay authentic, teach what you know, and never show up with just a problem. Bring
+              a solution — even a rough one.
+            </p>
+
+            <p>
+              I love the tech world for its weird mix of genius and chaos. I’ve met some absolute brain-melters who make you feel like an idiot and others who’d give you the shirt off their GitHub
+              repo. Either way, I’ve learned to translate — turn nerd-speak into something people actually understand.
+            </p>
+
+            <p>If you’re reading this, I don’t want you thinking I’m the most gifted dev alive. I want you thinking this guy never quits. Determination beats genius every time.</p>
+          </div>
+        </div>
+
+        <!-- Full-width accent section -->
+        <div class="max-w-3xl mx-auto space-y-8 text-sm text-slate-500 dark:text-slate-400">
+          <blockquote class="border-l-2 border-primary pl-4 italic">“Find the pattern, fix the problem. Then make it better.”</blockquote>
+          <blockquote class="border-l-2 border-secondary pl-4 italic">“Don’t come with problems—come with something that almost works.”</blockquote>
+          <p class="text-center">Current Mode: IT Problem Solver • Next Upgrade: Full-Stack Dev • Favorite Debugger: Sheer Stubbornness v1.0</p>
+          <p class="text-center">Values: Authenticity • Honesty • Teaching • Relentless Curiosity</p>
         </div>
       </div>
     </section>
@@ -186,53 +301,47 @@
         <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-layer-group text-xl"></i>
+              <i class="fa-solid fa-folder text-xl"></i>
             </div>
-            <h3 class="card-title">Systems first</h3>
+            <h3 class="card-title">Set the board before you play</h3>
             <p class="card-body">
-              From naming conventions to observability dashboards, I design the invisible scaffolding that keeps teams shipping. Every component knows its role and how it degrades gracefully.
+              If your files, folders, and names aren’t right, you’re fuct before you’ve even begun. I spend days organizing environments so the rest of the project doesn’t collapse like a bad Jenga
+              tower.
             </p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-sparkles text-xl"></i>
+              <i class="fa-solid fa-search text-xl"></i>
             </div>
-            <h3 class="card-title">Cinematic interactions</h3>
+            <h3 class="card-title">Detective mode always on</h3>
             <p class="card-body">
-              Interfaces should feel touchable. I use light, motion, and depth cues that respond to the human on the other side without sacrificing accessibility or performance budgets.
+              A missing " once broke three of our platform’s key features in one shot. Preview emails dead. Opt-out links exploding into raw &lt;a href&gt; tags. Webhooks blind. AI didn’t catch it. I
+              did. Because I don’t stop until the case is closed.
             </p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-brain-circuit text-xl"></i>
+              <i class="fa-solid fa-comment-dots text-xl"></i>
             </div>
-            <h3 class="card-title">AI as teammate</h3>
+            <h3 class="card-title">Plain English or crayons</h3>
             <p class="card-body">
-              Copilots are embedded into product, ops, and support. They’re trained on your voice, your data, and your guardrails so they extend your team instead of guessing from the void.
+              I’ll over-explain in normal language until you get it. If your eyes glaze over, I’ll pull out the crayon set and break it down even simpler. Nerd jargon is a scam anyway — makes dorks
+              feel important and justifies their fat checks.
             </p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-chart-line text-xl"></i>
+              <i class="fa-solid fa-calendar-check text-xl"></i>
             </div>
-            <h3 class="card-title">Measured outcomes</h3>
-            <p class="card-body">
-              Every release has KPIs attached—conversion, uptime, cycle time, satisfaction. Dashboards come standard so you can see the impact without digging through spreadsheets.
-            </p>
+            <h3 class="card-title">Never miss a rep</h3>
+            <p class="card-body">I build or learn something every single day. No excuses. No breaks. A bit obsessive? Sure. But that’s how progress compounds.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-handshake-angle text-xl"></i>
+              <i class="fa-solid fa-hands-helping text-xl"></i>
             </div>
-            <h3 class="card-title">Transparent comms</h3>
-            <p class="card-body">Async updates, live Looms, and shared command centers keep stakeholders synced. No black boxes—only clear intent and clear accountability.</p>
-          </article>
-          <article class="primary-card p-8">
-            <div class="card-icon">
-              <i class="fa-solid fa-seedling text-xl"></i>
-            </div>
-            <h3 class="card-title">Iterate & learn</h3>
-            <p class="card-body">Release, observe, adapt. Each launch feeds the next experiment so momentum compounds and the product always has a forward pulse.</p>
+            <h3 class="card-title">Never leave anyone stranded</h3>
+            <p class="card-body">Even if I don’t have the perfect fix, I’ll get you a solution that works. Nobody I work with ever feels unheard or stuck with “not my problem.”</p>
           </article>
         </div>
       </div>
@@ -390,7 +499,7 @@
         </div>
       </div>
     </footer>
-
+    <script src="../assets/js/orb-anim.js" defer></script>
     <script src="../assets/js/components/header.js"></script>
     <script src="../assets/js/components/ui.js"></script>
     <script src="../assets/js/expressions.js"></script>
