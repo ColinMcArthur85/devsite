@@ -684,6 +684,9 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .resize {
+    resize: both;
+  }
   .list-disc {
     list-style-type: disc;
   }
@@ -1614,10 +1617,6 @@
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
   }
-  .blur {
-    --tw-blur: blur(8px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
   .blur-3xl {
     --tw-blur: blur(var(--blur-3xl));
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -1887,11 +1886,6 @@
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .lg\:grid-cols-\[1\.5fr_1fr\] {
-    @media (width >= 64rem) {
-      grid-template-columns: 1.5fr 1fr;
     }
   }
   .lg\:grid-cols-\[1\.15fr_0\.85fr\] {
@@ -2261,6 +2255,22 @@
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  :root {
+    --site-header-height: clamp(4.5rem, 12vw, 6.5rem);
+  }
+  #menu-container {
+    min-height: var(--site-header-height);
+    position: relative;
+    display: block;
+  }
+  @media (max-width: 640px) {
+    #menu-container {
+      min-height: clamp(3.75rem, 18vw, 5.5rem);
+    }
+  }
+  #menu-container[data-loaded="true"] {
+    min-height: auto;
   }
 }
 h1, h2, h3, h4, h5, h6 {

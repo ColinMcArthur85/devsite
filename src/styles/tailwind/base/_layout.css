@@ -6,4 +6,24 @@
   body {
     @apply antialiased;
   }
+
+  :root {
+    --site-header-height: clamp(4.5rem, 12vw, 6.5rem);
+  }
+
+  #menu-container {
+    min-height: var(--site-header-height);
+    position: relative;
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    #menu-container {
+      min-height: clamp(3.75rem, 18vw, 5.5rem);
+    }
+  }
+
+  #menu-container[data-loaded="true"] {
+    min-height: auto;
+  }
 }
