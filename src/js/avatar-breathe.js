@@ -12,7 +12,14 @@
     targetX: 0,
     targetY: 0,
     reduceMotion: false,
+    bounds: null,
+    boundsDirty: true,
+    lastPointerPosition: null,
+    pointerUpdateFrame: null,
   };
+
+  let resizeObserver = null;
+  let removeResizeHandler = null;
 
   const reduceQuery =
     typeof window !== "undefined" && typeof window.matchMedia === "function"
@@ -31,6 +38,30 @@
       }
     });
   }
+
+  const markBoundsDirty = () => {
+    state.boundsDirty = true;
+  };
+
+  const ensureBounds = () => {
+    if (!state.bounds || state.boundsDirty) {
+      state.bounds = root.getBoundingClientRect();
+      state.boundsDirty = false;
+    }
+  };
+
+  if (typeof ResizeObserver === "function") {
+    resizeObserver = new ResizeObserver(markBoundsDirty);
+    resizeObserver.observe(root);
+  } else {
+    const resizeHandler = () => markBoundsDirty();
+    window.addEventListener("resize", resizeHandler);
+    removeResizeHandler = () => window.removeEventListener("resize", resizeHandler);
+  }
+
+  const scrollHandler = () => markBoundsDirty();
+  window.addEventListener("scroll", scrollHandler, { passive: true });
+  window.addEventListener("load", markBoundsDirty, { once: true });
 
   function applyStaticState() {
     root.style.setProperty("--avatar-tilt-x", "0deg");
@@ -75,6 +106,10 @@
       cancelAnimationFrame(state.rafId);
       state.rafId = null;
     }
+    if (state.pointerUpdateFrame !== null) {
+      cancelAnimationFrame(state.pointerUpdateFrame);
+      state.pointerUpdateFrame = null;
+    }
     applyStaticState();
   }
 
@@ -84,24 +119,43 @@
     return value;
   }
 
-  function updatePointer(event) {
-    if (state.reduceMotion) return;
-    const rect = root.getBoundingClientRect();
-    const width = rect.width || 1;
-    const height = rect.height || 1;
-    const relativeX = (event.clientX - rect.left) / width - 0.5;
-    const relativeY = (event.clientY - rect.top) / height - 0.5;
+  function processPointerUpdate() {
+    const position = state.lastPointerPosition;
+    state.pointerUpdateFrame = null;
+
+    if (state.reduceMotion || !position) return;
+
+    ensureBounds();
+
+    const bounds = state.bounds;
+    const width = bounds?.width || 1;
+    const height = bounds?.height || 1;
+    const relativeX = (position.clientX - bounds.left) / width - 0.5;
+    const relativeY = (position.clientY - bounds.top) / height - 0.5;
+
     state.targetX = clamp(relativeX * 2);
     state.targetY = clamp(relativeY * 2);
+  }
+
+  function queuePointerUpdate(event) {
+    if (state.reduceMotion) return;
+    state.lastPointerPosition = { clientX: event.clientX, clientY: event.clientY };
+    if (state.pointerUpdateFrame !== null) return;
+    state.pointerUpdateFrame = requestAnimationFrame(processPointerUpdate);
   }
 
   function resetPointer() {
     state.targetX = 0;
     state.targetY = 0;
+    state.lastPointerPosition = null;
+    if (state.pointerUpdateFrame !== null) {
+      cancelAnimationFrame(state.pointerUpdateFrame);
+      state.pointerUpdateFrame = null;
+    }
   }
 
-  root.addEventListener("pointermove", updatePointer);
-  root.addEventListener("pointerdown", updatePointer);
+  root.addEventListener("pointermove", queuePointerUpdate);
+  root.addEventListener("pointerdown", queuePointerUpdate);
   root.addEventListener("pointerup", resetPointer);
   root.addEventListener("pointerleave", resetPointer);
 
@@ -114,7 +168,18 @@
     }
   });
 
-  window.addEventListener("beforeunload", stop);
+  window.addEventListener("beforeunload", () => {
+    stop();
+    if (resizeObserver) {
+      resizeObserver.disconnect();
+      resizeObserver = null;
+    }
+    if (removeResizeHandler) {
+      removeResizeHandler();
+      removeResizeHandler = null;
+    }
+    window.removeEventListener("scroll", scrollHandler);
+  });
 
   applyStaticState();
   start();

@@ -50,7 +50,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Replace placeholder with calculated base path
       const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
 
-      document.getElementById("menu-container").innerHTML = processedHtml;
+      const menuContainer = document.getElementById("menu-container");
+      if (!menuContainer) return;
+
+      menuContainer.innerHTML = processedHtml;
+      menuContainer.dataset.loaded = "true";
       initMenu();
     })
     .catch((err) => console.error("Failed to load menu", err));
