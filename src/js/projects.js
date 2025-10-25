@@ -34,12 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const categories = [...new Set(projects.map((p) => p.category))];
       const techs = [...new Set(projects.flatMap((p) => p.tags))];
 
-      renderFilters(
-        categoryFilterContainer,
-        categories,
-        selectedCategories,
-        applyFilters,
-      );
+      renderCategoryFilters(categoryFilterContainer, categories, selectedCategories, applyFilters);
       renderFilters(techFilterContainer, techs, selectedTech, applyFilters);
 
       let filtered = [];
@@ -51,13 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
           filtered = [];
           if (resultsCount) resultsCount.textContent = "";
         } else {
-          filtered = projects.filter(
-            (p) =>
-              (selectedCategories.size === 0 || selectedCategories.has(p.category)) &&
-              (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))),
-          );
-          if (resultsCount)
-            resultsCount.textContent = `${filtered.length} project${filtered.length === 1 ? "" : "s"} found`;
+          filtered = projects.filter((p) => (selectedCategories.size === 0 || selectedCategories.has(p.category)) && (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))));
+          if (resultsCount) resultsCount.textContent = `${filtered.length} project${filtered.length === 1 ? "" : "s"} found`;
         }
         currentPage = 1;
         renderPage();
@@ -79,9 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
               msg.className = "secondary-card p-8 text-center text-slate-600 dark:text-slate-300";
               msg.innerHTML = `
                 <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
-                  selectedCategories.size === 0 && selectedTech.size === 0
-                    ? "Choose a filter to curate the feed"
-                    : "No missions match those filters"
+                  selectedCategories.size === 0 && selectedTech.size === 0 ? "Choose a filter to curate the feed" : "No missions match those filters"
                 }</h3>
                 <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adjust your selections or clear filters to explore the full archive.</p>
               `;
@@ -128,7 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const info = document.createElement("span");
         info.textContent = `Page ${currentPage} of ${totalPages}`;
-        info.className = "rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300";
+        info.className =
+          "rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300";
 
         paginationContainer.append(prev, info, next);
       }
@@ -139,7 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderFilters(container, items, set, onChange) {
     items.forEach((item) => {
       const isActive = set.has(item);
-      const badge = UIComponents.createBadge({ text: item });
+      // Create badges in bare mode so they start with no background color
+      const badge = UIComponents.createBadge({ text: item, bare: true });
+      // Baseline neutral treatment
       badge.classList.add(
         "cursor-pointer",
         "transition-all",
@@ -149,7 +140,61 @@ document.addEventListener("DOMContentLoaded", () => {
         "px-4",
         "py-2",
         "text-[0.65rem]",
+        "rounded-full",
+        "bg-transparent",
+        "border",
+        "border-white/20",
+        "text-slate-500",
+        "dark:text-slate-300",
+        "opacity-70",
       );
+
+      function applyActiveStyles(el) {
+        el.classList.remove("opacity-70", "bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300");
+        el.classList.add("text-white", "border-transparent", "shadow-lg");
+        // Prefer CSS variable color if present; else Tailwind bg class
+        if (el.dataset.colorVar) {
+          el.style.backgroundColor = el.dataset.colorVar;
+        } else if (el.dataset.twBg) {
+          el.classList.add(el.dataset.twBg);
+        }
+      }
+
+      function clearActiveStyles(el) {
+        el.classList.remove("text-white", "border-transparent", "shadow-lg");
+        if (el.dataset.twBg) el.classList.remove(el.dataset.twBg);
+        el.style.backgroundColor = "";
+        el.classList.add("bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
+      }
+
+      if (isActive) {
+        applyActiveStyles(badge);
+      }
+
+      badge.setAttribute("aria-pressed", isActive ? "true" : "false");
+      badge.addEventListener("click", () => {
+        if (set.has(item)) {
+          set.delete(item);
+          clearActiveStyles(badge);
+          badge.setAttribute("aria-pressed", "false");
+        } else {
+          set.add(item);
+          applyActiveStyles(badge);
+          badge.setAttribute("aria-pressed", "true");
+        }
+        saveFilters();
+        onChange();
+      });
+      container.appendChild(badge);
+    });
+  }
+
+  // Preserve original styling for category filters (gradient active, subtle inactive)
+  function renderCategoryFilters(container, items, set, onChange) {
+    items.forEach((item) => {
+      const isActive = set.has(item);
+      const badge = UIComponents.createBadge({ text: item });
+      badge.classList.add("cursor-pointer", "transition-all", "duration-300", "hover:-translate-y-1", "hover:shadow-xl", "px-4", "py-2", "text-[0.65rem]");
       if (isActive) {
         badge.classList.add("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
         badge.classList.remove("opacity-60");
