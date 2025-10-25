@@ -18,20 +18,20 @@
     return element;
   }
 
-  function createBadge({ text = "", classes = "", color = "white" }) {
+  function createBadge({ text = "", classes = "", color = "white", bare = false }) {
     // Define a mapping of text to Tailwind color classes or CSS variables
     const colorMap = {
-      HTML5: "bg-red-500",
-      CSS3: "bg-blue-500",
+      HTML5: "var(--color-html5)",
+      CSS3: "var(--color-css3)",
       SASS: "var(--color-sass-pink)",
-      JavaScript: "bg-yellow-500",
-      PHP: "bg-blue-400",
-      MySQL: "bg-orange-500",
+      JavaScript: "var(--color-javascript)",
+      PHP: "var(--color-php)",
+      MySQL: "var(--color-mysql-blue)",
       Git: "bg-purple-500",
       API: "var(--color-secondary)",
       Backend: "bg-gray-700",
       Security: "bg-red-500",
-      Tailwind: "bg-blue-400",
+      Tailwind: "var(--color-tailwind-blue)",
       Frontend: "bg-green-500",
       Completed: "var(--color-green-600)",
       Documented: "bg-blue-500",
@@ -43,22 +43,39 @@
     // Create the badge element
     const span = document.createElement("span");
     span.textContent = text;
-    span.style.color = color;
+    // In bare mode, do not force a text color; the caller will style
+    if (!bare) {
+      span.style.color = color;
+    }
 
     // Handle background color
-    if (colorMap[text]) {
-      if (colorMap[text].startsWith("var(")) {
-        // If the color is a CSS variable, apply it directly
-        span.style.backgroundColor = colorMap[text];
-        span.className = "badge";
-      } else {
-        // Otherwise, use Tailwind classes
-        const backgroundColorClass = colorMap[text];
-        span.className = classes ? `badge ${classes} ${backgroundColorClass}` : `badge ${backgroundColorClass}`;
+    if (bare) {
+      // In bare mode, don't apply any background. Expose intended color via data-* for activations.
+      const mapped = colorMap[text];
+      if (mapped) {
+        if (mapped.startsWith("var(")) {
+          span.dataset.colorVar = mapped; // e.g., var(--color-html5)
+        } else {
+          // Tailwind background class string
+          span.dataset.twBg = mapped;
+        }
       }
+      span.className = classes ? `badge ${classes}` : "badge";
     } else {
-      // Default to primary color if no match
-      span.className = classes ? `badge ${classes} bg-primary` : `badge bg-primary`;
+      if (colorMap[text]) {
+        if (colorMap[text].startsWith("var(")) {
+          // If the color is a CSS variable, apply it directly
+          span.style.backgroundColor = colorMap[text];
+          span.className = "badge";
+        } else {
+          // Otherwise, use Tailwind classes
+          const backgroundColorClass = colorMap[text];
+          span.className = classes ? `badge ${classes} ${backgroundColorClass}` : `badge ${backgroundColorClass}`;
+        }
+      } else {
+        // Default to primary color if no match
+        span.className = classes ? `badge ${classes} bg-primary` : `badge bg-primary`;
+      }
     }
 
     return span;
