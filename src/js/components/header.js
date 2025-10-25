@@ -1,63 +1,93 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // === Load the menu ===
-  const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
-  let menuPath = "/components/menu.html";
-  if (scriptEl) {
-    const scriptUrl = new URL(scriptEl.src, window.location.href);
-    const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
-    menuPath = `${scriptUrl.origin}${basePath}/components/menu.html`;
-  }
+(() => {
+  const PLACEHOLDER_HEIGHT = "clamp(5.75rem, 8vw, 6.75rem)";
 
-  fetch(menuPath)
-    .catch(() => fetch("/components/menu.html"))
-    .then((response) => response.text())
-    .then((html) => {
-      // Calculate the correct base path based on current page location
-      const currentPath = window.location.pathname;
-      let basePath = "";
-
-      // Determine depth and set appropriate base path
-      if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
-        // Root level pages (but not project index pages)
-        basePath = "./";
-      } else if (currentPath.includes("/pages/")) {
-        // Pages in /pages/ folder
-        basePath = "../";
-      } else if (currentPath.includes("/projects/")) {
-        // Pages in /projects/ folder - need to go up to root
-        // Count the number of slashes after /projects/
-        const projectsIndex = currentPath.indexOf("/projects/");
-        const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
-        const slashCount = (pathAfterProjects.match(/\//g) || []).length;
-
-        // If we're in /public/projects/..., we need to account for that extra level
-        const hasPublicPrefix = currentPath.startsWith("/public/");
-
-        if (hasPublicPrefix) {
-          // We need to go back to /public/ directory, not to server root
-          const depth = slashCount + 1; // +1 to get back from /projects/ to /public/
-          basePath = "../".repeat(depth);
-        } else {
-          // Normal projects path handling
-          const depth = slashCount + 1;
-          basePath = "../".repeat(depth);
-        }
-      } else {
-        // Default fallback
-        basePath = "./";
+  const ensureMenuContainer = () => {
+    const menuContainer = document.getElementById("menu-container");
+    if (menuContainer) {
+      if (!menuContainer.style.minHeight) {
+        menuContainer.style.minHeight = PLACEHOLDER_HEIGHT;
       }
+      if (!menuContainer.style.display) {
+        menuContainer.style.display = "block";
+      }
+    }
+    return menuContainer;
+  };
 
-      // Replace placeholder with calculated base path
-      const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
+  const loadMenu = () => {
+    const menuContainer = ensureMenuContainer();
+    if (!menuContainer) return;
 
-      const menuContainer = document.getElementById("menu-container");
-      if (!menuContainer) return;
+    // === Load the menu ===
+    const scriptEl = document.currentScript || document.querySelector('script[src*="header.js"]');
+    let menuPath = "/components/menu.html";
+    if (scriptEl) {
+      const scriptUrl = new URL(scriptEl.src, window.location.href);
+      const basePath = scriptUrl.pathname.replace(/\/assets\/js\/components\/header\.js$/, "");
+      menuPath = `${scriptUrl.origin}${basePath}/components/menu.html`;
+    }
 
-      menuContainer.innerHTML = processedHtml;
-      menuContainer.dataset.loaded = "true";
-      initMenu();
-    })
-    .catch((err) => console.error("Failed to load menu", err));
+    fetch(menuPath)
+      .catch(() => fetch("/components/menu.html"))
+      .then((response) => response.text())
+      .then((html) => {
+        // Calculate the correct base path based on current page location
+        const currentPath = window.location.pathname;
+        let basePath = "";
+
+        // Determine depth and set appropriate base path
+        if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
+          // Root level pages (but not project index pages)
+          basePath = "./";
+        } else if (currentPath.includes("/pages/")) {
+          // Pages in /pages/ folder
+          basePath = "../";
+        } else if (currentPath.includes("/projects/")) {
+          // Pages in /projects/ folder - need to go up to root
+          // Count the number of slashes after /projects/
+          const projectsIndex = currentPath.indexOf("/projects/");
+          const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
+          const slashCount = (pathAfterProjects.match(/\//g) || []).length;
+
+          // If we're in /public/projects/..., we need to account for that extra level
+          const hasPublicPrefix = currentPath.startsWith("/public/");
+
+          if (hasPublicPrefix) {
+            // We need to go back to /public/ directory, not to server root
+            const depth = slashCount + 1; // +1 to get back from /projects/ to /public/
+            basePath = "../".repeat(depth);
+          } else {
+            // Normal projects path handling
+            const depth = slashCount + 1;
+            basePath = "../".repeat(depth);
+          }
+        } else {
+          // Default fallback
+          basePath = "./";
+        }
+
+        // Replace placeholder with calculated base path
+        const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
+
+        menuContainer.innerHTML = processedHtml;
+        menuContainer.dataset.loaded = "true";
+        menuContainer.style.minHeight = "";
+        menuContainer.style.display = "";
+        initMenu();
+      })
+      .catch((err) => console.error("Failed to load menu", err));
+  };
+
+  const initWhenReady = () => {
+    if (document.readyState === "loading") {
+      ensureMenuContainer();
+      document.addEventListener("DOMContentLoaded", loadMenu, { once: true });
+    } else {
+      loadMenu();
+    }
+  };
+
+  initWhenReady();
 
   function initMenu() {
     // === Theme Toggle ===
@@ -167,4 +197,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+})();
