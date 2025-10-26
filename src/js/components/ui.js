@@ -33,6 +33,8 @@
       Security: "bg-red-500",
       Tailwind: "var(--color-tailwind-blue)",
       Frontend: "bg-green-500",
+      "CSS Battle": "var(--color-css-battle)",
+      "Frontend Mentor": "var(--color-frontend-mentor)",
       Completed: "var(--color-green-600)",
       Documented: "bg-blue-500",
       "Dev Tools": "bg-gray-500",
