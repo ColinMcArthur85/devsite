@@ -189,34 +189,73 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Preserve original styling for category filters (gradient active, subtle inactive)
+  // Category filters: no background when inactive; brand background when active
   function renderCategoryFilters(container, items, set, onChange) {
     items.forEach((item) => {
       const isActive = set.has(item);
-      const badge = UIComponents.createBadge({ text: item });
-      badge.classList.add("cursor-pointer", "transition-all", "duration-300", "hover:-translate-y-1", "hover:shadow-xl", "px-4", "py-2", "text-[0.65rem]");
-      if (isActive) {
-        badge.classList.add("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
-        badge.classList.remove("opacity-60");
-      } else {
-        badge.classList.add("bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
+      const badge = UIComponents.createBadge({ text: item, bare: true });
+      badge.classList.add(
+        "cursor-pointer",
+        "transition-all",
+        "duration-300",
+        "hover:-translate-y-1",
+        "hover:shadow-xl",
+        "px-4",
+        "py-2",
+        "text-[0.65rem]",
+        "rounded-full",
+        "bg-transparent",
+        "border",
+        "border-white/20",
+        "text-slate-500",
+        "dark:text-slate-300",
+        "opacity-70",
+      );
+
+      function applyActiveStyles(el) {
+        el.classList.remove("opacity-70", "bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300");
+        // Use black text specifically for CSS Battle on bright yellow background
+        if (item === "CSS Battle") {
+          el.classList.add("text-black");
+          el.classList.remove("text-white");
+        } else {
+          el.classList.add("text-white");
+          el.classList.remove("text-black");
+        }
+        el.classList.add("border-transparent", "shadow-lg");
+        if (el.dataset.colorVar) {
+          el.style.backgroundColor = el.dataset.colorVar;
+        } else if (el.dataset.twBg) {
+          el.classList.add(el.dataset.twBg);
+        } else {
+          el.classList.add("bg-gradient-to-r", "from-primary", "to-secondary");
+        }
       }
+
+      function clearActiveStyles(el) {
+        el.classList.remove("text-white", "text-black", "border-transparent", "shadow-lg", "bg-gradient-to-r", "from-primary", "to-secondary");
+        if (el.dataset.twBg) el.classList.remove(el.dataset.twBg);
+        el.style.backgroundColor = "";
+        el.classList.add("bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
+      }
+
+      if (isActive) applyActiveStyles(badge);
+
       badge.setAttribute("aria-pressed", isActive ? "true" : "false");
       badge.addEventListener("click", () => {
         if (set.has(item)) {
           set.delete(item);
-          badge.classList.add("opacity-70", "bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300");
-          badge.classList.remove("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
+          clearActiveStyles(badge);
           badge.setAttribute("aria-pressed", "false");
         } else {
           set.add(item);
-          badge.classList.remove("opacity-70", "bg-white/10", "border-white/20", "text-slate-500", "dark:text-slate-300");
-          badge.classList.add("bg-gradient-to-r", "from-primary", "to-secondary", "text-white", "border-transparent", "shadow-lg");
+          applyActiveStyles(badge);
           badge.setAttribute("aria-pressed", "true");
         }
         saveFilters();
         onChange();
       });
+
       container.appendChild(badge);
     });
   }

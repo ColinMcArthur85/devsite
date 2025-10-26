@@ -15,6 +15,8 @@
   --color-mysql-orange: #f29111;
   --color-tailwind-blue: #3b82f6;
   --color-react-blue: #61dafb;
+  --color-css-battle: #ffdf00;
+  --color-frontend-mentor: #3e54a3;
   --font-sans: Inter, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
@@ -51,6 +53,7 @@
   --color-gray-900: oklch(21% 0.034 264.665);
   --color-neutral-200: oklch(92.2% 0 0);
   --color-neutral-800: oklch(26.9% 0 0);
+  --color-black: #000;
   --color-white: #fff;
   --spacing: 0.25rem;
   --container-md: 28rem;
@@ -1503,6 +1506,9 @@
   .text-\[var\(--color-tailwind-blue\)\] {
     color: var(--color-tailwind-blue);
   }
+  .text-black {
+    color: var(--color-black);
+  }
   .text-emerald-500 {
     color: var(--color-emerald-500);
   }
@@ -1557,20 +1563,11 @@
   .underline {
     text-decoration-line: underline;
   }
-  .decoration-dotted {
-    text-decoration-style: dotted;
-  }
-  .underline-offset-4 {
-    text-underline-offset: 4px;
-  }
   .opacity-0 {
     opacity: 0%;
   }
   .opacity-50 {
     opacity: 50%;
-  }
-  .opacity-60 {
-    opacity: 60%;
   }
   .opacity-70 {
     opacity: 70%;
