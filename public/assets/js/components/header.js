@@ -129,9 +129,9 @@
     });
 
     // === Mobile navigation toggle ===
-    const menuToggle = document.getElementById("menuToggle");
-    const closeMenu = document.getElementById("closeMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const menuToggle = document.querySelector("[data-menu-toggle]");
+    const closeMenu = document.querySelector("[data-menu-close]");
+    const mobileMenu = document.querySelector("[data-mobile-menu]");
     const header = document.querySelector("header");
 
     if (menuToggle && closeMenu && mobileMenu) {

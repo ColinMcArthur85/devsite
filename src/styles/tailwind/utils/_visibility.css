@@ -1,6 +1,5 @@
 @layer utilities {
-  /* Animated mobile menu styles (kept in source so watch/build includes them) */
-  #mobileMenu {
+  .mobile-menu {
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
@@ -10,27 +9,26 @@
     will-change: transform, opacity;
   }
 
-  #mobileMenu.is-open {
+  .mobile-menu.is-open {
     transform: translateX(0%);
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Hamburger -> X animation */
-  #menuToggle .hamburger-line {
+  .menu-toggle .hamburger-line {
     transform-origin: center;
   }
 
-  #menuToggle.is-active .hamburger-line:nth-child(1) {
+  .menu-toggle.is-active .hamburger-line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
 
-  #menuToggle.is-active .hamburger-line:nth-child(2) {
+  .menu-toggle.is-active .hamburger-line:nth-child(2) {
     opacity: 0;
     transform: scaleX(0);
   }
 
-  #menuToggle.is-active .hamburger-line:nth-child(3) {
+  .menu-toggle.is-active .hamburger-line:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
 }

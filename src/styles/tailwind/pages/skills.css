@@ -3,38 +3,28 @@
     @apply w-6 h-6 p-0.5 rounded border border-primary/60;
   }
 
-  ul {
-    overflow: unset;
-  }
-
-  /* Skill List Styling */
-  .skill-list {
-    @apply pl-0 m-0;
-  }
-
   .skill-heading + .skill-list {
-    @apply max-h-0 transition-[max-height];
+    @apply pl-0 m-0 list-none overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out;
   }
 
-  .skill-heading.expanded + .skill-list {
-    @apply max-h-[1000px];
+  .skill-heading + .skill-list.is-open {
+    @apply max-h-[1200px];
   }
 
-  .skill-list li {
+  .skill-heading + .skill-list li {
     @apply flex items-center gap-2 leading-6 mt-1 mb-1 ml-1;
   }
 
-  /* Skill Heading Styling */
   .skill-heading {
-    @apply mt-4 font-semibold text-primary cursor-pointer;
+    @apply mt-4 font-semibold text-primary cursor-pointer select-none flex items-center justify-between;
   }
 
   .skill-heading::after {
     content: "+";
-    @apply float-right font-normal;
+    @apply font-normal transition-transform duration-300;
   }
 
-  .skill-heading.expanded::after {
+  .skill-heading.is-open::after {
     content: "-";
   }
 }
