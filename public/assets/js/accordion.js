@@ -1,6 +1,6 @@
 (function (global) {
   function initAccordions() {
-    const headings = document.querySelectorAll("[data-skill-accordion] .skill-heading, .skill-accordion .skill-heading");
+    const headings = document.querySelectorAll(".skill-heading");
     headings.forEach((heading) => {
       const list = heading.nextElementSibling;
       if (!list || list.tagName !== "UL") return;

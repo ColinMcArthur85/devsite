@@ -91,6 +91,7 @@
       if (!badge) return;
       const value = badge.dataset.filterValue;
       badge.classList.toggle("is-active");
+      badge.classList.toggle("badge--ghost", !badge.classList.contains("is-active"));
       badge.setAttribute("aria-pressed", badge.classList.contains("is-active") ? "true" : "false");
       onToggle(value, badge.classList.contains("is-active"));
     };
@@ -110,6 +111,7 @@
           badge.dataset.filterValue = item;
           const isActive = filterState.isActive(group, item);
           badge.classList.toggle("is-active", isActive);
+          badge.classList.toggle("badge--ghost", !isActive);
           badge.setAttribute("role", "switch");
           badge.setAttribute("aria-pressed", isActive ? "true" : "false");
           container.appendChild(badge);
