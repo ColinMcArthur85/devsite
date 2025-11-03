@@ -51,8 +51,8 @@
           <i class="fa-solid fa-moon text-base boop"></i>
         </button>
         <button
-          id="menuToggle"
-          class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/20 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-slate-300 md:hidden"
+          data-menu-toggle
+          class="menu-toggle flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/20 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:text-primary dark:border-white/10 dark:bg-white/10 dark:text-slate-300 md:hidden"
           aria-label="Toggle navigation"
         >
           <div class="flex h-5 w-6 flex-col justify-between">
@@ -65,7 +65,7 @@
     </nav>
   </div>
 </header>
-<div id="mobileMenu" class="fixed inset-0 z-50 translate-x-full transform bg-slate-950/85 backdrop-blur-2xl transition-transform duration-500 md:hidden">
+<div data-mobile-menu class="mobile-menu fixed inset-0 z-50 translate-x-full transform bg-slate-950/85 backdrop-blur-2xl transition-transform duration-500 md:hidden">
   <div class="container-wrapper flex h-full flex-col py-6 px-10">
     <div class="flex items-center justify-between">
       <a href="{{BASE_PATH}}index.html" class="group flex items-center gap-4">
@@ -80,7 +80,7 @@
         </div>
       </a>
       <button
-        id="closeMenu"
+        data-menu-close
         class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/30 bg-white/10 text-slate-200 transition-all duration-300 hover:-translate-y-1 hover:text-white"
         aria-label="Close navigation"
       >

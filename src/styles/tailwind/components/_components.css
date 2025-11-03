@@ -135,8 +135,194 @@
 
   /* Badges */
   .badge {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-xs font-semibold uppercase text-slate-700 backdrop-blur-sm transition-colors duration-300 dark:border-white/10 dark:bg-white/10 dark:text-slate-200;
-    letter-spacing: 0.2em;
+    --badge-variant-color: var(--color-primary);
+    --badge-active-text: #fff;
+    --badge-border: rgba(255, 255, 255, 0.3);
+    @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 backdrop-blur-sm transition-all duration-300 dark:text-slate-200;
+    border-color: var(--badge-border);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .badge:not(.badge--ghost) {
+    background-color: var(--badge-variant-color);
+    color: var(--badge-active-text);
+    border-color: transparent;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  }
+
+  .badge--ghost {
+    background-color: transparent;
+    color: rgba(148, 163, 184, 0.85);
+    border-color: rgba(255, 255, 255, 0.2);
+    opacity: 0.75;
+  }
+
+  .badge.is-active {
+    color: var(--badge-active-text);
+    background-color: var(--badge-variant-color);
+    border-color: transparent;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+    opacity: 1;
+  }
+
+  .dark .badge:not(.badge--ghost) {
+    background-color: var(--badge-variant-color);
+    color: var(--badge-active-text);
+    border-color: transparent;
+  }
+
+  .dark .badge {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: rgba(226, 232, 240, 0.9);
+  }
+
+  .dark .badge.is-active {
+    background-color: var(--badge-variant-color);
+    color: var(--badge-active-text);
+    border-color: transparent;
+  }
+
+  .dark .badge--ghost {
+    color: rgba(203, 213, 225, 0.75);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .badge--html5 {
+    --badge-variant-color: var(--color-html5);
+  }
+
+  .badge--css3 {
+    --badge-variant-color: var(--color-css3);
+  }
+
+  .badge--sass {
+    --badge-variant-color: var(--color-sass-pink);
+  }
+
+  .badge--javascript {
+    --badge-variant-color: var(--color-javascript);
+    --badge-active-text: #000;
+  }
+
+  .badge--php {
+    --badge-variant-color: var(--color-php);
+  }
+
+  .badge--mysql {
+    --badge-variant-color: var(--color-mysql-blue);
+  }
+
+  .badge--tailwind {
+    --badge-variant-color: var(--color-tailwind-blue);
+  }
+
+  .badge--react {
+    --badge-variant-color: var(--color-react-blue);
+  }
+
+  .badge--api {
+    --badge-variant-color: var(--color-secondary);
+  }
+
+  .badge--backend {
+    --badge-variant-color: #334155;
+  }
+
+  .badge--security {
+    --badge-variant-color: #dc2626;
+  }
+
+  .badge--frontend {
+    --badge-variant-color: #16a34a;
+  }
+
+  .badge--css-battle {
+    --badge-variant-color: var(--color-css-battle);
+    --badge-active-text: #1f2937;
+  }
+
+  .badge--frontend-mentor {
+    --badge-variant-color: var(--color-frontend-mentor);
+  }
+
+  .badge--completed {
+    --badge-variant-color: var(--color-green-600);
+  }
+
+  .badge--documented {
+    --badge-variant-color: #3b82f6;
+  }
+
+  .badge--coming-soon {
+    --badge-variant-color: #facc15;
+    --badge-active-text: #1f2937;
+  }
+
+  .badge--dev-tools {
+    --badge-variant-color: #6b7280;
+  }
+
+  .badge--component-design {
+    --badge-variant-color: #8b5cf6;
+  }
+
+  .filter-pill {
+    @apply cursor-pointer px-4 py-2 text-[0.65rem] rounded-full transition-all duration-200;
+  }
+
+  .filter-pill:not(.is-active) {
+    @apply opacity-75;
+  }
+
+  .filter-pill.is-active {
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+  }
+
+  .btn-secondary.is-disabled {
+    @apply opacity-50 cursor-not-allowed hover:translate-y-0;
+  }
+
+  .pagination__info {
+    @apply rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300;
+  }
+
+  [data-contact-submit] {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  [data-contact-submit].is-busy {
+    @apply cursor-wait;
+    box-shadow: none;
+  }
+
+  [data-contact-submit].is-success {
+    @apply bg-emerald-500 text-white;
+  }
+
+  [data-contact-submit].is-error {
+    @apply bg-rose-500 text-white;
+  }
+
+  .form-status {
+    @apply text-sm font-medium text-slate-600 dark:text-slate-300;
+    min-height: 1.5rem;
+  }
+
+  .form-status.is-success {
+    @apply text-emerald-600 dark:text-emerald-400;
+  }
+
+  .form-status.is-error {
+    @apply text-rose-500 dark:text-rose-400;
+  }
+
+  .terminal__line {
+    @apply block font-mono text-sm text-slate-900 dark:text-slate-100;
+  }
+
+  .terminal__cursor {
+    @apply inline-block h-5 w-2 align-middle bg-slate-900 dark:bg-white;
+    animation: blink 1s step-end infinite;
   }
 
   .social-btn {

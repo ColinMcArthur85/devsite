@@ -1,301 +1,321 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const listContainer = document.getElementById("project-list");
-  const paginationContainer = document.getElementById("pagination");
-  const techFilterContainer = document.getElementById("filter-tech");
-  const categoryFilterContainer = document.getElementById("filter-category");
-  const resultsCount = document.getElementById("results-count");
+(function (global) {
+  const SELECTORS = {
+    list: "project-list",
+    pagination: "pagination",
+    techFilters: "filter-tech",
+    categoryFilters: "filter-category",
+    resultsCount: "results-count",
+  };
 
-  const storageKey = "projectFilters";
-  let stored = {};
-  try {
-    stored = JSON.parse(localStorage.getItem(storageKey)) || {};
-  } catch (e) {
-    stored = {};
-  }
+  const STORAGE_KEY = "projectFilters";
+  const PAGE_SIZE = 6;
 
-  const selectedTech = new Set(stored.tech || []);
-  const selectedCategories = new Set(stored.categories || []);
+  const FilterStorage = {
+    load() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { tech: [], categories: [] };
+      } catch (error) {
+        console.warn("Unable to read project filters from storage", error);
+        return { tech: [], categories: [] };
+      }
+    },
+    save(state) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (error) {
+        console.warn("Unable to persist project filters", error);
+      }
+    },
+  };
 
-  function saveFilters() {
-    try {
-      localStorage.setItem(
-        storageKey,
-        JSON.stringify({
-          tech: [...selectedTech],
-          categories: [...selectedCategories],
-        }),
-      );
-    } catch (e) {}
-  }
+  const ProjectService = {
+    async fetchAll() {
+      const response = await fetch("../data/projects.json");
+      if (!response.ok) throw new Error("Failed to load projects");
+      return response.json();
+    },
+  };
 
-  fetch("../data/projects.json")
-    .then((res) => res.json())
-    .then((projects) => {
-      const categories = [...new Set(projects.map((p) => p.category))];
-      const techs = [...new Set(projects.flatMap((p) => p.tags))];
+  function createFilterState(initial = { tech: [], categories: [] }) {
+    const state = {
+      tech: new Set(initial.tech),
+      categories: new Set(initial.categories),
+    };
 
-      renderCategoryFilters(categoryFilterContainer, categories, selectedCategories, applyFilters);
-      renderFilters(techFilterContainer, techs, selectedTech, applyFilters);
-
-      let filtered = [];
-      let currentPage = 1;
-      const perPage = 6;
-
-      function applyFilters() {
-        if (selectedCategories.size === 0 && selectedTech.size === 0) {
-          filtered = [];
-          if (resultsCount) resultsCount.textContent = "";
+    return {
+      toggle(group, value) {
+        const set = state[group];
+        if (!set) return;
+        if (set.has(value)) {
+          set.delete(value);
         } else {
-          filtered = projects.filter((p) => (selectedCategories.size === 0 || selectedCategories.has(p.category)) && (selectedTech.size === 0 || [...selectedTech].some((t) => p.tags.includes(t))));
-          if (resultsCount) resultsCount.textContent = `${filtered.length} project${filtered.length === 1 ? "" : "s"} found`;
+          set.add(value);
         }
-        currentPage = 1;
+      },
+      isActive(group, value) {
+        const set = state[group];
+        return set ? set.has(value) : false;
+      },
+      resetIfEmpty() {
+        if (!state.tech.size && !state.categories.size) {
+          return true;
+        }
+        return false;
+      },
+      serialise() {
+        return {
+          tech: Array.from(state.tech),
+          categories: Array.from(state.categories),
+        };
+      },
+      apply(projects) {
+        if (!state.tech.size && !state.categories.size) {
+          return [];
+        }
+        return projects.filter((project) => {
+          const categoryMatch = !state.categories.size || state.categories.has(project.category);
+          const techMatch =
+            !state.tech.size || Array.from(state.tech).some((tech) => project.tags.includes(tech));
+          return categoryMatch && techMatch;
+        });
+      },
+      hasSelections() {
+        return state.tech.size > 0 || state.categories.size > 0;
+      },
+    };
+  }
+
+  function FilterView(container, group, onToggle) {
+    const handleClick = (event) => {
+      const badge = event.target.closest("[data-filter-value]");
+      if (!badge) return;
+      const value = badge.dataset.filterValue;
+      badge.classList.toggle("is-active");
+      badge.classList.toggle("badge--ghost", !badge.classList.contains("is-active"));
+      badge.setAttribute("aria-pressed", badge.classList.contains("is-active") ? "true" : "false");
+      onToggle(value, badge.classList.contains("is-active"));
+    };
+
+    container.addEventListener("click", handleClick);
+
+    return {
+      render(items, filterState) {
+        container.innerHTML = "";
+        items.forEach((item) => {
+          const badge = global.UIComponents.createBadge({
+            text: item,
+            appearance: "ghost",
+            classes: "filter-pill",
+          });
+          badge.dataset.filterGroup = group;
+          badge.dataset.filterValue = item;
+          const isActive = filterState.isActive(group, item);
+          badge.classList.toggle("is-active", isActive);
+          badge.classList.toggle("badge--ghost", !isActive);
+          badge.setAttribute("role", "switch");
+          badge.setAttribute("aria-pressed", isActive ? "true" : "false");
+          container.appendChild(badge);
+        });
+      },
+    };
+  }
+
+  function ResultsView(listContainer, paginationContainer, resultsCountEl) {
+    let currentPage = 1;
+    let filteredProjects = [];
+    let hasActiveFilters = false;
+
+    function updateResultsCount() {
+      if (!resultsCountEl) return;
+      if (!filteredProjects.length) {
+        resultsCountEl.textContent = "";
+      } else {
+        resultsCountEl.textContent = `${filteredProjects.length} project${filteredProjects.length === 1 ? "" : "s"} found`;
+      }
+    }
+
+    function renderPagination() {
+      paginationContainer.innerHTML = "";
+      const totalPages = Math.ceil(filteredProjects.length / PAGE_SIZE);
+      if (totalPages <= 1) return;
+
+      const createButton = (label, disabled, onClick) => {
+        const button = global.UIComponents.createButton({ text: label, classes: "btn-secondary" });
+        button.disabled = disabled;
+        button.classList.toggle("is-disabled", disabled);
+        if (!disabled) {
+          button.addEventListener("click", onClick);
+        }
+        return button;
+      };
+
+      const prev = createButton("Prev", currentPage === 1, () => {
+        currentPage -= 1;
         renderPage();
-      }
+      });
+      const next = createButton("Next", currentPage === totalPages, () => {
+        currentPage += 1;
+        renderPage();
+      });
 
-      function renderPage() {
-        const oldCards = [...listContainer.children];
-        if (oldCards.length) {
-          oldCards.forEach((card) => card.classList.add("opacity-0", "translate-y-4"));
-        }
+      const info = document.createElement("span");
+      info.textContent = `Page ${currentPage} of ${totalPages}`;
+      info.className =
+        "pagination__info";
 
-        setTimeout(
-          () => {
-            listContainer.innerHTML = "";
-            const start = (currentPage - 1) * perPage;
-            const pageProjects = filtered.slice(start, start + perPage);
-            if (pageProjects.length === 0) {
-              const msg = document.createElement("div");
-              msg.className = "secondary-card p-8 text-center text-slate-600 dark:text-slate-300";
-              msg.innerHTML = `
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
-                  selectedCategories.size === 0 && selectedTech.size === 0 ? "Choose a filter to curate the feed" : "No missions match those filters"
-                }</h3>
-                <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adjust your selections or clear filters to explore the full archive.</p>
-              `;
-              listContainer.appendChild(msg);
-            } else {
-              pageProjects.forEach((project) => {
-                const card = buildProjectCard(project);
-                listContainer.appendChild(card);
-                requestAnimationFrame(() => {
-                  card.classList.remove("opacity-0", "translate-y-4");
-                });
-              });
-              renderPagination();
-            }
-          },
-          oldCards.length ? 300 : 0,
-        );
-      }
+      paginationContainer.append(prev, info, next);
+    }
 
-      function renderPagination() {
+    function renderEmptyState(hasFilters) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "secondary-card p-8 text-center text-slate-600 dark:text-slate-300";
+      wrapper.innerHTML = `
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
+          hasFilters ? "No missions match those filters" : "Choose a filter to curate the feed"
+        }</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adjust your selections or clear filters to explore the full archive.</p>
+      `;
+      listContainer.appendChild(wrapper);
+    }
+
+    function renderProjects(projects) {
+      listContainer.innerHTML = "";
+      if (!projects.length) {
+        renderEmptyState(hasActiveFilters);
         paginationContainer.innerHTML = "";
-        const totalPages = Math.ceil(filtered.length / perPage);
-        if (totalPages <= 1) return;
+        return;
+      }
 
-        const prev = UIComponents.createButton({ text: "Prev", classes: "btn-secondary" });
-        prev.disabled = currentPage === 1;
-        if (prev.disabled) prev.classList.add("opacity-50", "cursor-not-allowed", "hover:translate-y-0");
-        prev.addEventListener("click", () => {
-          if (currentPage > 1) {
-            currentPage--;
-            renderPage();
-          }
+      projects.forEach((project) => {
+        const card = document.createElement("div");
+        card.className =
+          "project-card group primary-card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
+        card.dataset.tags = project.tags.join(",");
+
+        card.innerHTML = `
+          <div class="relative h-56 overflow-hidden">
+            <img src="${project.image}" loading="lazy" alt="${project.title}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-tr from-slate-950/55 via-slate-900/10 to-transparent opacity-70 transition duration-500 group-hover:opacity-90"></div>
+            <div class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm">${project.category}</div>
+          </div>
+          <div class="flex flex-1 flex-col gap-6 p-6">
+            <div>
+              <h3 class="text-xl font-semibold text-slate-900 dark:text-white">${project.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${project.description}</p>
+            </div>
+            <div class="badge-container flex flex-wrap gap-2"></div>
+            <div class="mt-auto flex items-center justify-between gap-3">
+              <div class="btn-container flex gap-3"></div>
+              <a href="${project.code}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 transition-colors duration-300 hover:text-primary dark:text-slate-400 dark:hover:text-primary">
+                <i class="fa-brands fa-github text-sm"></i>
+                Code
+              </a>
+            </div>
+          </div>`;
+
+        const badgeContainer = card.querySelector(".badge-container");
+        project.tags.forEach((tag) => {
+          const badge = global.UIComponents.createBadge({ text: tag });
+          badgeContainer.appendChild(badge);
         });
 
-        const next = UIComponents.createButton({ text: "Next", classes: "btn-secondary" });
-        next.disabled = currentPage === totalPages;
-        if (next.disabled) next.classList.add("opacity-50", "cursor-not-allowed", "hover:translate-y-0");
-        next.addEventListener("click", () => {
-          if (currentPage < totalPages) {
-            currentPage++;
-            renderPage();
-          }
+        const btnContainer = card.querySelector(".btn-container");
+        const viewBtn = global.UIComponents.createButton({ text: "View project", href: project.live, classes: "btn-sm-primary" });
+        btnContainer.append(viewBtn);
+
+        listContainer.appendChild(card);
+        requestAnimationFrame(() => {
+          card.classList.remove("opacity-0", "translate-y-4");
         });
-
-        const info = document.createElement("span");
-        info.textContent = `Page ${currentPage} of ${totalPages}`;
-        info.className =
-          "rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300";
-
-        paginationContainer.append(prev, info, next);
-      }
-
-      applyFilters();
-    });
-
-  function renderFilters(container, items, set, onChange) {
-    items.forEach((item) => {
-      const isActive = set.has(item);
-      // Create badges in bare mode so they start with no background color
-      const badge = UIComponents.createBadge({ text: item, bare: true });
-      // Baseline neutral treatment
-      badge.classList.add(
-        "cursor-pointer",
-        "transition-all",
-        "duration-300",
-        "hover:-translate-y-1",
-        "hover:shadow-xl",
-        "px-4",
-        "py-2",
-        "text-[0.65rem]",
-        "rounded-full",
-        "bg-transparent",
-        "border",
-        "border-white/20",
-        "text-slate-500",
-        "dark:text-slate-300",
-        "opacity-70",
-      );
-
-      function applyActiveStyles(el) {
-        el.classList.remove("opacity-70", "bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300");
-        el.classList.add("text-white", "border-transparent", "shadow-lg");
-        // Prefer CSS variable color if present; else Tailwind bg class
-        if (el.dataset.colorVar) {
-          el.style.backgroundColor = el.dataset.colorVar;
-        } else if (el.dataset.twBg) {
-          el.classList.add(el.dataset.twBg);
-        }
-      }
-
-      function clearActiveStyles(el) {
-        el.classList.remove("text-white", "border-transparent", "shadow-lg");
-        if (el.dataset.twBg) el.classList.remove(el.dataset.twBg);
-        el.style.backgroundColor = "";
-        el.classList.add("bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
-      }
-
-      if (isActive) {
-        applyActiveStyles(badge);
-      }
-
-      badge.setAttribute("aria-pressed", isActive ? "true" : "false");
-      badge.addEventListener("click", () => {
-        if (set.has(item)) {
-          set.delete(item);
-          clearActiveStyles(badge);
-          badge.setAttribute("aria-pressed", "false");
-        } else {
-          set.add(item);
-          applyActiveStyles(badge);
-          badge.setAttribute("aria-pressed", "true");
-        }
-        saveFilters();
-        onChange();
       });
-      container.appendChild(badge);
-    });
+    }
+
+    function renderPage() {
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const pageProjects = filteredProjects.slice(start, start + PAGE_SIZE);
+      renderProjects(pageProjects);
+      renderPagination();
+    }
+
+    return {
+      update(projects) {
+        filteredProjects = projects;
+        currentPage = 1;
+        hasActiveFilters = true;
+        updateResultsCount();
+        renderPage();
+      },
+      refresh() {
+        updateResultsCount();
+        renderPage();
+      },
+      showEmptyState(hasFilters) {
+        filteredProjects = [];
+        hasActiveFilters = hasFilters;
+        listContainer.innerHTML = "";
+        renderEmptyState(hasFilters);
+        paginationContainer.innerHTML = "";
+        updateResultsCount();
+      },
+    };
   }
 
-  // Category filters: no background when inactive; brand background when active
-  function renderCategoryFilters(container, items, set, onChange) {
-    items.forEach((item) => {
-      const isActive = set.has(item);
-      const badge = UIComponents.createBadge({ text: item, bare: true });
-      badge.classList.add(
-        "cursor-pointer",
-        "transition-all",
-        "duration-300",
-        "hover:-translate-y-1",
-        "hover:shadow-xl",
-        "px-4",
-        "py-2",
-        "text-[0.65rem]",
-        "rounded-full",
-        "bg-transparent",
-        "border",
-        "border-white/20",
-        "text-slate-500",
-        "dark:text-slate-300",
-        "opacity-70",
-      );
+  function initProjects() {
+    const listContainer = document.getElementById(SELECTORS.list);
+    const paginationContainer = document.getElementById(SELECTORS.pagination);
+    const techFilterContainer = document.getElementById(SELECTORS.techFilters);
+    const categoryFilterContainer = document.getElementById(SELECTORS.categoryFilters);
+    const resultsCount = document.getElementById(SELECTORS.resultsCount);
 
-      function applyActiveStyles(el) {
-        el.classList.remove("opacity-70", "bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300");
-        // Use black text specifically for CSS Battle on bright yellow background
-        if (item === "CSS Battle") {
-          el.classList.add("text-black");
-          el.classList.remove("text-white");
-        } else {
-          el.classList.add("text-white");
-          el.classList.remove("text-black");
-        }
-        el.classList.add("border-transparent", "shadow-lg");
-        if (el.dataset.colorVar) {
-          el.style.backgroundColor = el.dataset.colorVar;
-        } else if (el.dataset.twBg) {
-          el.classList.add(el.dataset.twBg);
-        } else {
-          el.classList.add("bg-gradient-to-r", "from-primary", "to-secondary");
-        }
+    if (!listContainer || !paginationContainer || !techFilterContainer || !categoryFilterContainer) {
+      return;
+    }
+
+    const stored = FilterStorage.load();
+    const filterState = createFilterState(stored);
+    const resultsView = ResultsView(listContainer, paginationContainer, resultsCount);
+
+    function onFiltersChanged() {
+      FilterStorage.save(filterState.serialise());
+      const filtered = filterState.apply(allProjects);
+      if (!filterState.hasSelections()) {
+        resultsView.showEmptyState(false);
+        return;
       }
-
-      function clearActiveStyles(el) {
-        el.classList.remove("text-white", "text-black", "border-transparent", "shadow-lg", "bg-gradient-to-r", "from-primary", "to-secondary");
-        if (el.dataset.twBg) el.classList.remove(el.dataset.twBg);
-        el.style.backgroundColor = "";
-        el.classList.add("bg-transparent", "border-white/20", "text-slate-500", "dark:text-slate-300", "opacity-70");
+      if (!filtered.length) {
+        resultsView.showEmptyState(true);
+        return;
       }
+      resultsView.update(filtered);
+    }
 
-      if (isActive) applyActiveStyles(badge);
+    const techView = FilterView(techFilterContainer, "tech", (value) => {
+      filterState.toggle("tech", value);
+      onFiltersChanged();
+    });
+    const categoryView = FilterView(categoryFilterContainer, "categories", (value) => {
+      filterState.toggle("categories", value);
+      onFiltersChanged();
+    });
 
-      badge.setAttribute("aria-pressed", isActive ? "true" : "false");
-      badge.addEventListener("click", () => {
-        if (set.has(item)) {
-          set.delete(item);
-          clearActiveStyles(badge);
-          badge.setAttribute("aria-pressed", "false");
-        } else {
-          set.add(item);
-          applyActiveStyles(badge);
-          badge.setAttribute("aria-pressed", "true");
-        }
-        saveFilters();
-        onChange();
+    let allProjects = [];
+    ProjectService.fetchAll()
+      .then((projects) => {
+        allProjects = projects;
+        const categories = Array.from(new Set(projects.map((project) => project.category)));
+        const techs = Array.from(new Set(projects.flatMap((project) => project.tags)));
+
+        techView.render(techs, filterState);
+        categoryView.render(categories, filterState);
+
+        onFiltersChanged();
+      })
+      .catch((error) => {
+        console.error(error);
+        resultsView.showEmptyState(true);
       });
-
-      container.appendChild(badge);
-    });
   }
 
-  function buildProjectCard(project) {
-    const card = document.createElement("div");
-    card.className = "project-card group primary-card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
-    card.dataset.tags = project.tags.join(",");
-
-    card.innerHTML = `
-      <div class="relative h-56 overflow-hidden">
-        <img src="${project.image}" loading="lazy" alt="${project.title}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-tr from-slate-950/55 via-slate-900/10 to-transparent opacity-70 transition duration-500 group-hover:opacity-90"></div>
-        <div class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm">${project.category}</div>
-      </div>
-      <div class="flex flex-1 flex-col gap-6 p-6">
-        <div>
-          <h3 class="text-xl font-semibold text-slate-900 dark:text-white">${project.title}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${project.description}</p>
-        </div>
-        <div class="badge-container flex flex-wrap gap-2"></div>
-        <div class="mt-auto flex items-center justify-between gap-3">
-          <div class="btn-container flex gap-3"></div>
-          <a href="${project.code}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 transition-colors duration-300 hover:text-primary dark:text-slate-400 dark:hover:text-primary">
-            <i class="fa-brands fa-github text-sm"></i>
-            Code
-          </a>
-        </div>
-      </div>`;
-
-    const badgeContainer = card.querySelector(".badge-container");
-    project.tags.forEach((tag) => {
-      const badge = UIComponents.createBadge({ text: tag });
-      badgeContainer.appendChild(badge);
-    });
-
-    const btnContainer = card.querySelector(".btn-container");
-    const viewBtn = UIComponents.createButton({ text: "View project", href: project.live, classes: "btn-sm-primary" });
-    btnContainer.append(viewBtn);
-
-    return card;
-  }
-});
+  global.SiteFeatureModules = global.SiteFeatureModules || [];
+  global.SiteFeatureModules.push({ name: "projects", init: initProjects });
+})(window);
