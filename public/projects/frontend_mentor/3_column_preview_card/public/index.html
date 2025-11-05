@@ -33,9 +33,14 @@
       }
     </style>
   </head>
-  <body>
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <!-- Dark mode background gradients -->
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
+    <!-- Header loaded via JS -->
+    <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
     <main>
-      <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
       <div class="custom-container">
         <div class="card orange">
           <img class="card__image" src="images/icon-sedans.svg" alt="Sedans Icon" />

@@ -1,24 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap");
 
-/* Resets */
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-img {
-  display: block;
-}
-
-body {
-  font-family: "IBM Plex Sans", sans-serif;
-  color: #191826;
-} */
-
 /* Branding Colors */
 :root {
   --clr-cyan: #66e2dc;

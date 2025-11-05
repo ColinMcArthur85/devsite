@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,9 +12,14 @@
     <link rel="stylesheet" href="https://unpkg.com/open-props" />
     <!-- <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css"/> -->
   </head>
-  <body>
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <!-- Dark mode background gradients -->
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
+    <!-- Header loaded via JS -->
+    <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
     <main>
-      <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
       <section id="pilot_battle">
         <header>
           <h2 style="text-align: center">Battle # 1 - Pilot Battle</h2>

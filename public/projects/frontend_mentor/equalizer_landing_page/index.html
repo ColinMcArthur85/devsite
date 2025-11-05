@@ -1,24 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0070f3" />
     <link rel="icon" type="image/png" sizes="32x32" href="./Images/favicon-32x32.png" />
     <link rel="stylesheet" href="../../../assets/css/style.css" />
     <link rel="stylesheet" href="CSS/general_stylings.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="icon" href="Images/favicon-32x32.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
     <title>Frontend Mentor | Equalizer landing page</title>
   </head>
-  <body>
+  <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
+    <!-- Dark mode background gradients -->
+    <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+    </div>
+    <!-- Header loaded via JS -->
     <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
     <div class="container">
       <div class="header">
-        <img class="logo" src="Images/logo.svg" alt="Equalizer Logo" />
+        <p class="logo">Equalizer</p>
         <h1>We make your music sound extraordinary.</h1>
         <p class="subtitle">
           A system audio equalizer specifically designed for Android and iOS. Freely tune the way your music sounds with a professional grade parametric EQ & volume mixer. Control bass, mids, treble,
@@ -55,7 +60,7 @@
 
       <footer>
         <div class="logo-right-container">
-          <img class="logo-footer" src="Images/logo.svg" alt="Equalizer Logo" />
+          <h1 class="logo-footer">equalizer</h1>
           <p class="copyright">
             All rights reserved © Equalizer 2021
             <br />
