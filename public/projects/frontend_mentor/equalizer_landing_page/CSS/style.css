@@ -1,24 +1,3 @@
-/* Reset and base styles */
-/* html {
-  box-sizing: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}
-body {
-  min-height: 100vh;
-  font-family: "IBM Plex Sans", sans-serif;
-  background: #fcfaf9;
-  display: flex;
-  justify-content: center;
-  overflow-x: hidden;
-  text-align: left;
-} */
-
 /* Container and background */
 .container {
   max-width: 575px;
@@ -36,7 +15,7 @@ body {
   top: -144px;
   width: 381.4px;
   height: 520px;
-  background-image: url("../images/bg-main-mobile.png");
+  background-image: url("../Images/bg-main-mobile.png");
   background-size: cover;
   background-position: 20% 60%;
   z-index: -1;
@@ -47,7 +26,7 @@ body {
     padding: 62px 40px 0 40px;
   }
   .container::after {
-    background-image: url("../images/bg-main-tablet.png");
+    background-image: url("../Images/bg-main-tablet.png");
     background-position: 80% 60%;
     right: -30px;
     top: -144px;
@@ -61,7 +40,7 @@ body {
     padding: 62px 33px 0 33px;
   }
   .container::after {
-    background-image: url("../images/bg-main-desktop.png");
+    background-image: url("../Images/bg-main-desktop.png");
     background-position: 135% 60%;
     right: -280px;
     top: -144px;
@@ -84,9 +63,16 @@ body {
   position: relative;
 }
 .logo {
-  width: 146px;
-  height: 32px;
   margin-bottom: 64px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: 28px;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--clr-dark-orange), var(--clr-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .design {
   display: none;
@@ -99,6 +85,7 @@ body {
   }
   .logo {
     margin-bottom: 95px;
+    font-size: 36px;
   }
   .design {
     display: block;
@@ -117,6 +104,7 @@ body {
   }
   .logo {
     margin-bottom: 127px;
+    font-size: 40px;
   }
   .design {
     width: 312px;
@@ -132,15 +120,12 @@ body {
   font-size: 40px;
   line-height: 48px;
   letter-spacing: -0.454545px;
-  margin-bottom: 20px;
-  color: #191826;
 }
 @media (min-width: 750px) {
   .header h1 {
     font-size: 64px;
     line-height: 64px;
     letter-spacing: -0.727273px;
-    margin-bottom: 28px;
   }
 }
 @media (min-width: 1050px) {
@@ -148,13 +133,11 @@ body {
     font-size: 88px;
     line-height: 88px;
     letter-spacing: -1px;
-    margin-bottom: 40px;
   }
 }
 .header .subtitle {
   font-size: 16px;
   line-height: 26px;
-  color: #191826;
 }
 @media (min-width: 750px) {
   .header .subtitle {
@@ -252,13 +235,13 @@ main {
   font-size: 32px;
   line-height: 40px;
   font-weight: bold;
-  color: #fcfaf9;
+
   margin-bottom: 12px;
 }
 .premium-card-body {
   font-size: 18px;
   line-height: 28px;
-  color: #fcfaf9;
+
   font-weight: normal;
   margin-bottom: 33px;
 }
@@ -266,7 +249,7 @@ main {
   font-weight: bold;
   font-size: 65px;
   line-height: 52px;
-  color: #fcfaf9;
+
   margin-bottom: 32px;
 }
 .price-light {
@@ -274,7 +257,6 @@ main {
   font-weight: normal;
   font-size: 20px;
   letter-spacing: -0.2px;
-  color: #fcfaf9;
 }
 @media (min-width: 750px) {
   .premium-card {
@@ -319,12 +301,18 @@ footer {
   margin-bottom: 55px;
 }
 .logo-footer {
+  font-size: 32px;
   margin-bottom: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--clr-dark-orange), var(--clr-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .copyright {
   font-size: 16px;
   line-height: 26px;
-  color: #191826;
 }
 .right-bold {
   font-weight: bold;
