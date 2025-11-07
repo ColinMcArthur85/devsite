@@ -11,18 +11,17 @@ const skillExtensions = {
   React: [".jsx", ".tsx"],
 };
 
-const ignoreDirs = ["node_modules", ".git", "public/assets", "public/data", "public/components", "scripts"];
+const ignoreDirNames = new Set(["node_modules", ".git"]);
+const searchRoots = ["public"];
 
 function walkDir(dir, cb) {
-  fs.readdirSync(dir).forEach((file) => {
-    const fullPath = path.join(dir, file);
-    const stat = fs.statSync(fullPath);
-    const base = path.basename(fullPath);
-    if (stat.isDirectory()) {
-      if (!ignoreDirs.some((d) => fullPath.includes(d))) {
+  fs.readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (!ignoreDirNames.has(entry.name)) {
         walkDir(fullPath, cb);
       }
-    } else {
+    } else if (entry.isFile()) {
       cb(fullPath);
     }
   });
@@ -35,15 +34,19 @@ function countLines(filePath) {
 const counts = {};
 Object.keys(skillExtensions).forEach((k) => (counts[k] = 0));
 
-walkDir(".", (file) => {
-  const ext = path.extname(file);
-  for (const [skill, extensions] of Object.entries(skillExtensions)) {
-    if (extensions.includes(ext)) {
-      counts[skill] += countLines(file);
-      break;
-    }
-  }
-});
+searchRoots
+  .filter((root) => fs.existsSync(root))
+  .forEach((root) => {
+    walkDir(root, (file) => {
+      const ext = path.extname(file);
+      for (const [skill, extensions] of Object.entries(skillExtensions)) {
+        if (extensions.includes(ext)) {
+          counts[skill] += countLines(file);
+          break;
+        }
+      }
+    });
+  });
 
 fs.writeFileSync("src/data/skills.json", JSON.stringify(counts, null, 2) + "\n");
 console.log("Updated skills.json", counts);
