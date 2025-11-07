@@ -4,7 +4,6 @@
   --clr-dark-blue-main: hsl(217, 54%, 11%);
   --clr-dark-blue-card: hsl(216, 50%, 16%);
   --clr-dark-blue-line: hsl(215, 32%, 27%);
-  --clr-white: hsl(0, 0%, 100%);
   --font-weight-1: 100;
   --font-weight-2: 200;
   --font-weight-3: 300;
@@ -14,19 +13,12 @@
   --font-weight-7: 700;
 }
 
-/* The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px */
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.flex {
-  display: flex;
-}
+
 .card {
   background-color: var(--clr-dark-blue-card);
   padding: 20px;

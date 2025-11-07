@@ -19,10 +19,6 @@ h3 {
   /* padding-bottom: 2.5rem; */
 }
 
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
 .header-title {
   font-size: 2rem;
   letter-spacing: 0.5px;
@@ -48,6 +44,11 @@ h3 {
   text-align: left;
   padding: 2rem;
 }
+
+.card-title {
+  color: black;
+}
+
 .card-icon {
   background-color: white;
 }
@@ -104,5 +105,3 @@ img {
     grid-row: 2 / span 2;
   }
 }
-
-/*# sourceMappingURL=style.css.map */

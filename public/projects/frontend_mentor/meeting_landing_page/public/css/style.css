@@ -1,40 +1,8 @@
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 /* Set core body defaults */
 body {
-  padding-top: 100px;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-/* Inherit fonts for inputs and buttons */
-input,
-textarea,
-button,
-select {
-  font: inherit;
 }
 
 /* Scoped button styles - avoid styling the generic <button> element */
@@ -66,7 +34,7 @@ select {
 }
 body {
   font-family: "Red Hat Display", sans-serif;
-  background-color: hsl(0deg, 0%, 98%);
+  /* background-color: hsl(0deg, 0%, 98%); */
 }
 
 h1,
