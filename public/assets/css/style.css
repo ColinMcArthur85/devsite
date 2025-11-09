@@ -1,8 +1,11 @@
 /*! tailwindcss v4.1.4 | MIT License | https://tailwindcss.com */
 @layer properties;
 :root, :host {
+  --color-primary-yellow: var(--color-yellow-300);
+  --color-primary-blue: var(--color-blue-950);
   --color-primary: #3b82f6;
   --color-secondary: #7928ca;
+  --color-accent: #79ffe1;
   --color-dark-background: #000;
   --color-dark-background-secondary: #111;
   --color-sass-pink: #cc6699;
@@ -672,9 +675,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .list-disc {
     list-style-type: disc;
