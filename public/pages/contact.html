@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#0070f3" />
     <meta name="description" content="Colin McArthur Developer Portfolio Site" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
@@ -79,7 +78,9 @@
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
-                  <i class="fa-solid fa-envelope-open-text text-lg"></i>
+                  <svg class="icon text-lg" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#envelope-open-text"></use>
+                  </svg>
                 </span>
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Primary signal</p>
@@ -90,7 +91,9 @@
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
-                  <i class="fa-solid fa-location-dot text-lg"></i>
+                  <svg class="icon text-lg" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#location-dot"></use>
+                  </svg>
                 </span>
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Operating from</p>
@@ -101,7 +104,9 @@
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
                 <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
-                  <i class="fa-solid fa-waveform-lines text-lg"></i>
+                  <svg class="icon text-lg" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#waveform-lines"></use>
+                  </svg>
                 </span>
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Weekly cadence</p>
@@ -132,15 +137,21 @@
                 <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Included in your reply</h3>
                 <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
                   <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-check text-primary"></i>
+                    <svg class="icon text-primary" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#check"></use>
+                    </svg>
                     Suggested project milestones & risk notes
                   </li>
                   <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-check text-primary"></i>
+                    <svg class="icon text-primary" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#check"></use>
+                    </svg>
                     Toolchain recommendations tailored to your stack
                   </li>
                   <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-check text-primary"></i>
+                    <svg class="icon text-primary" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#check"></use>
+                    </svg>
                     Next steps for kickoff or discovery call
                   </li>
                 </ul>
@@ -149,13 +160,19 @@
                 <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Signal boosts</h3>
                 <div class="mt-4 flex flex-wrap gap-3">
                   <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#github"></use>
+                    </svg>
                   </a>
                   <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#linkedin"></use>
+                    </svg>
                   </a>
                   <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
-                    <i class="fa-brands fa-x-twitter"></i>
+                    <svg class="icon" aria-hidden="true" focusable="false">
+                      <use href="/assets/icons/sprite.svg#x-twitter"></use>
+                    </svg>
                   </a>
                 </div>
               </div>
@@ -254,14 +271,18 @@
                 href="mailto:colinsba@gmail.com"
                 class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
               >
-                <i class="fa-solid fa-paper-plane"></i>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#paper-plane"></use>
+                </svg>
                 Email
               </a>
               <a
                 href="https://cal.com"
                 class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
               >
-                <i class="fa-solid fa-calendar-plus"></i>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#calendar-plus"></use>
+                </svg>
                 Book a slot
               </a>
             </div>
@@ -283,13 +304,19 @@
               <p class="mt-5 text-sm text-slate-300">Follow ongoing builds and live ops updates.</p>
               <div class="mt-6 flex gap-4">
                 <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
-                  <i class="fa-brands fa-github"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#github"></use>
+                  </svg>
                 </a>
                 <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
-                  <i class="fa-brands fa-linkedin-in"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#linkedin"></use>
+                  </svg>
                 </a>
                 <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
-                  <i class="fa-brands fa-x-twitter"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#x-twitter"></use>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -308,5 +335,7 @@
     <script src="../assets/js/modules/scroll-reveal.js"></script>
     <script src="../assets/js/modules/contact-form.js"></script>
     <script src="../assets/js/scripts.js"></script>
+    <!-- SVG sprite (cached by HTTP cache) -->
+    <object type="image/svg+xml" data="/assets/icons/sprite.svg" aria-hidden="true" tabindex="-1" style="position:absolute;width:0;height:0;overflow:hidden;"></object>
   </body>
 </html>

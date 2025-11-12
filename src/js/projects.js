@@ -207,7 +207,9 @@
             <div class="mt-auto flex items-center justify-between gap-3">
               <div class="btn-container flex gap-3"></div>
               <a href="${project.code}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 transition-colors duration-300 hover:text-primary dark:text-slate-400 dark:hover:text-primary">
-                <i class="fa-brands fa-github text-sm"></i>
+                <svg class="icon text-sm" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#github"></use>
+                </svg>
                 Code
               </a>
             </div>
