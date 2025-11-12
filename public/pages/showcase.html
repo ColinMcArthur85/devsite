@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#0070f3" />
     <meta name="description" content="Colin McArthur Developer Portfolio Site" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Camingo+Code:wght@400;700&display=swap" rel="stylesheet" />
@@ -93,42 +92,54 @@
         <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-grid-2 text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#grid-2"></use>
+              </svg>
             </div>
             <h3 class="card-title">Responsive layout grids</h3>
             <p class="card-body">Adaptive column systems with fluid spacing tokens and container queries so everything snaps into place from mobile to ultrawide displays.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-rectangle-ad text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#rectangle-ad"></use>
+              </svg>
             </div>
             <h3 class="card-title">Hero & storytelling blocks</h3>
             <p class="card-body">Immersive hero sections, testimonial carousels, and narrative timelines with layered lighting and motion.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-diagram-project text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#diagram-project"></use>
+              </svg>
             </div>
             <h3 class="card-title">Admin dashboards</h3>
             <p class="card-body">Data visualizations, activity feeds, audit trails, and real-time alerts tuned for clarity and quick decision-making.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-comments text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#comments"></use>
+              </svg>
             </div>
             <h3 class="card-title">Support & knowledge bases</h3>
             <p class="card-body">AI-assisted triage, contextual FAQs, and searchable documentation that keep teams informed.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-robot text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#robot"></use>
+              </svg>
             </div>
             <h3 class="card-title">Automation launchpads</h3>
             <p class="card-body">Workflow builders, GPT prompt libraries, and integration hubs that let humans orchestrate complex systems effortlessly.</p>
           </article>
           <article class="primary-card p-8">
             <div class="card-icon">
-              <i class="fa-solid fa-vial-circle-check text-xl"></i>
+              <svg class="icon text-xl" aria-hidden="true" focusable="false">
+                <use href="/assets/icons/sprite.svg#vial-circle-check"></use>
+              </svg>
             </div>
             <h3 class="card-title">Design QA suites</h3>
             <p class="card-body">Theme toggle, accessibility tests, and motion toggles wired into every component from day one.</p>
@@ -192,14 +203,18 @@
                 href="mailto:colinsba@gmail.com"
                 class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
               >
-                <i class="fa-solid fa-paper-plane"></i>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#paper-plane"></use>
+                </svg>
                 Email
               </a>
               <a
                 href="https://cal.com"
                 class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
               >
-                <i class="fa-solid fa-calendar-plus"></i>
+                <svg class="icon" aria-hidden="true" focusable="false">
+                  <use href="/assets/icons/sprite.svg#calendar-plus"></use>
+                </svg>
                 Book a slot
               </a>
             </div>
@@ -221,13 +236,19 @@
               <p class="mt-5 text-sm text-slate-300">Follow ongoing builds and live ops updates.</p>
               <div class="mt-6 flex gap-4">
                 <a href="https://github.com/ColinMcArthur85" class="social-btn" aria-label="GitHub">
-                  <i class="fa-brands fa-github"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#github"></use>
+                  </svg>
                 </a>
                 <a href="https://www.linkedin.com" class="social-btn" aria-label="LinkedIn">
-                  <i class="fa-brands fa-linkedin-in"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#linkedin"></use>
+                  </svg>
                 </a>
                 <a href="https://twitter.com" class="social-btn" aria-label="Twitter">
-                  <i class="fa-brands fa-x-twitter"></i>
+                  <svg class="icon" aria-hidden="true" focusable="false">
+                    <use href="/assets/icons/sprite.svg#x-twitter"></use>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -245,5 +266,7 @@
     <script src="../assets/js/expressions.js"></script>
     <script src="../assets/js/modules/scroll-reveal.js"></script>
     <script src="../assets/js/scripts.js"></script>
+    <!-- SVG sprite (cached by HTTP cache) -->
+    <object type="image/svg+xml" data="/assets/icons/sprite.svg" aria-hidden="true" tabindex="-1" style="position:absolute;width:0;height:0;overflow:hidden;"></object>
   </body>
 </html>

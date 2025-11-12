@@ -1,0 +1,1 @@
+No remaining Font Awesome icons detected. All known usages migrated to /assets/icons/sprite.svg.

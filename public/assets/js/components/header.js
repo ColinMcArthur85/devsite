@@ -93,7 +93,7 @@
     // === Theme Toggle ===
     const htmlEl = document.documentElement;
     const themeToggle = document.getElementById("themeToggle");
-    const icon = themeToggle?.querySelector("i");
+    const iconUse = themeToggle?.querySelector("use");
     const themeMeta = document.querySelector('meta[name="theme-color"]');
 
     // Apply theme: default to dark unless user explicitly chose light.
@@ -110,7 +110,7 @@
         }
       } catch (e) {}
       themeMeta?.setAttribute("content", isDark ? "#000000" : "#0070f3");
-      icon?.classList.replace(isDark ? "fa-moon" : "fa-sun", isDark ? "fa-sun" : "fa-moon");
+      iconUse?.setAttribute("href", `/assets/icons/sprite.svg#${isDark ? "sun" : "moon"}`);
       themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
     };
 
