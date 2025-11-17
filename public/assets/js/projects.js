@@ -74,8 +74,7 @@
         }
         return projects.filter((project) => {
           const categoryMatch = !state.categories.size || state.categories.has(project.category);
-          const techMatch =
-            !state.tech.size || Array.from(state.tech).some((tech) => project.tags.includes(tech));
+          const techMatch = !state.tech.size || Array.from(state.tech).some((tech) => project.tags.includes(tech));
           return categoryMatch && techMatch;
         });
       },
@@ -160,8 +159,7 @@
 
       const info = document.createElement("span");
       info.textContent = `Page ${currentPage} of ${totalPages}`;
-      info.className =
-        "pagination__info";
+      info.className = "pagination__info";
 
       paginationContainer.append(prev, info, next);
     }
@@ -170,9 +168,7 @@
       const wrapper = document.createElement("div");
       wrapper.className = "secondary-card p-8 text-center text-slate-600 dark:text-slate-300";
       wrapper.innerHTML = `
-        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${
-          hasFilters ? "No missions match those filters" : "Choose a filter to curate the feed"
-        }</h3>
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">${hasFilters ? "No missions match those filters" : "Choose a filter to curate the feed"}</h3>
         <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adjust your selections or clear filters to explore the full archive.</p>
       `;
       listContainer.appendChild(wrapper);
@@ -188,8 +184,7 @@
 
       projects.forEach((project) => {
         const card = document.createElement("div");
-        card.className =
-          "project-card group primary-card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
+        card.className = "project-card group primary-card card-hoverable card-shadow overflow-hidden p-0 flex flex-col transition duration-500 opacity-0 translate-y-4";
         card.dataset.tags = project.tags.join(",");
 
         card.innerHTML = `
@@ -208,7 +203,7 @@
               <div class="btn-container flex gap-3"></div>
               <a href="${project.code}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 transition-colors duration-300 hover:text-primary dark:text-slate-400 dark:hover:text-primary">
                 <svg class="icon text-sm" aria-hidden="true" focusable="false">
-                  <use href="/assets/icons/sprite.svg#github"></use>
+                  <use href="../assets/icons/sprite.svg#github"></use>
                 </svg>
                 Code
               </a>
