@@ -31,6 +31,21 @@
       .catch(() => fetch("/components/menu.html"))
       .then((response) => response.text())
       .then((html) => {
+        // Fallback: if fetched menu is missing mobile nav links (empty <ul>), inject a default set.
+        const hasMobileLinks = /mobile-nav-link/.test(html);
+        if (!hasMobileLinks) {
+          console.warn("[menu] mobile-nav-link anchors missing in fetched menu.html; injecting fallback nav items.");
+          html = html.replace(/<ul class=\"mt-16[\s\S]*?<\/ul>/, (match) => {
+            const basePath = "{{BASE_PATH}}"; // placeholder; replaced later
+            return `<ul class="mt-16 flex flex-1 flex-col items-center justify-center gap-8 text-center">
+        <li><a href="${basePath}index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="${basePath}pages/about.html" class="mobile-nav-link">About</a></li>
+        <li><a href="${basePath}pages/skills.html" class="mobile-nav-link">Skills</a></li>
+        <li><a href="${basePath}pages/projects.html" class="mobile-nav-link">Projects</a></li>
+        <li><a href="${basePath}pages/contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>`;
+          });
+        }
         // Calculate the correct base path based on current page location
         const currentPath = window.location.pathname;
         let basePath = "";
@@ -70,6 +85,31 @@
         const processedHtml = html.replace(/\{\{BASE_PATH\}\}/g, basePath);
 
         menuContainer.innerHTML = processedHtml;
+        // Runtime DOM-level fallback: ensure mobile menu has nav items even if HTML replacement failed.
+        try {
+          const mobileUl = menuContainer.querySelector("[data-mobile-menu] ul");
+          if (mobileUl && mobileUl.querySelectorAll("li").length === 0) {
+            const items = [
+              { href: basePath + "index.html", label: "Home" },
+              { href: basePath + "pages/about.html", label: "About" },
+              { href: basePath + "pages/skills.html", label: "Skills" },
+              { href: basePath + "pages/projects.html", label: "Projects" },
+              { href: basePath + "pages/contact.html", label: "Contact" },
+            ];
+            items.forEach((item) => {
+              const li = document.createElement("li");
+              const a = document.createElement("a");
+              a.href = item.href;
+              a.textContent = item.label;
+              a.className = "mobile-nav-link";
+              li.appendChild(a);
+              mobileUl.appendChild(li);
+            });
+            console.warn("[menu] Injected runtime fallback mobile nav items");
+          }
+        } catch (e) {
+          console.error("[menu] mobile nav fallback failed", e);
+        }
         menuContainer.dataset.loaded = "true";
         menuContainer.style.minHeight = "";
         menuContainer.style.display = "";
