@@ -1,18 +1,43 @@
 /* SVG icon utilities */
+:root {
+  --icon-size-sm: 0.875rem;
+  --icon-size-base: 1rem;
+  --icon-size-md: 1.25rem;
+  --icon-size-lg: 1.5rem;
+  --icon-size-xl: 2rem;
+}
+
 .icon {
-  width: 1em;
-  height: 1em;
+  width: var(--icon-size-base);
+  height: var(--icon-size-base);
   vertical-align: -0.125em;
   display: inline-block;
   fill: currentColor;
 }
 
 .icon-sm {
-  width: 0.875em;
-  height: 0.875em;
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+  display: inline-block;
+  fill: currentColor;
 }
 
+.icon-md {
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  display: inline-block;
+  fill: currentColor;
+}
 .icon-lg {
-  width: 1.25em;
-  height: 1.25em;
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  display: inline-block;
+  fill: currentColor;
+}
+
+.icon-xl {
+  width: var(--icon-size-xl);
+  height: var(--icon-size-xl);
+  display: inline-block;
+  fill: currentColor;
 }
