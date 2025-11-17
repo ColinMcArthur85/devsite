@@ -96,6 +96,30 @@
     const iconUse = themeToggle?.querySelector("use");
     const themeMeta = document.querySelector('meta[name="theme-color"]');
 
+    // Compute a base path for icons based on current location (mirrors menu BASE_PATH logic)
+    const getBasePath = () => {
+      const currentPath = window.location.pathname;
+      let basePath = "";
+
+      if (currentPath === "/" || (currentPath.endsWith("/index.html") && !currentPath.includes("/projects/"))) {
+        basePath = "./";
+      } else if (currentPath.includes("/pages/")) {
+        basePath = "../";
+      } else if (currentPath.includes("/projects/")) {
+        const projectsIndex = currentPath.indexOf("/projects/");
+        const pathAfterProjects = currentPath.substring(projectsIndex + "/projects/".length);
+        const slashCount = (pathAfterProjects.match(/\//g) || []).length;
+        const hasPublicPrefix = currentPath.startsWith("/public/");
+        const depth = slashCount + 1; // back from /projects/ to its parent
+        basePath = "../".repeat(depth);
+        if (hasPublicPrefix && basePath === "") basePath = "./";
+      } else {
+        basePath = "./";
+      }
+      return basePath;
+    };
+    const basePathForIcons = getBasePath();
+
     // Apply theme: default to dark unless user explicitly chose light.
     const setTheme = (isDark) => {
       htmlEl.classList.toggle("dark", isDark);
@@ -110,7 +134,7 @@
         }
       } catch (e) {}
       themeMeta?.setAttribute("content", isDark ? "#000000" : "#0070f3");
-      iconUse?.setAttribute("href", `/assets/icons/sprite.svg#${isDark ? "sun" : "moon"}`);
+      iconUse?.setAttribute("href", `${basePathForIcons}assets/icons/sprite.svg#${isDark ? "sun" : "moon"}`);
       themeToggle?.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
     };
 
