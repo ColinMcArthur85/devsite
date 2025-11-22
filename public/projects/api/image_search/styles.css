@@ -1,1 +1,8 @@
-
+.search-section {
+  background-color: #39297b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
