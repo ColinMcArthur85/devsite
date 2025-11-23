@@ -3,8 +3,6 @@
 :root, :host {
   --color-primary: #3b82f6;
   --color-secondary: #7928ca;
-  --color-accent: #79ffe1;
-  --color-dark-accent: #79ffe1;
   --color-dark-background: #000;
   --color-dark-background-secondary: #111;
   --color-sass-pink: #cc6699;
@@ -828,9 +826,6 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 2px;
   }
-  .border-accent {
-    border-color: var(--color-accent);
-  }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
@@ -920,12 +915,6 @@
   }
   .bg-current {
     background-color: currentcolor;
-  }
-  .bg-dark-accent {
-    background-color: var(--color-dark-accent);
-  }
-  .bg-dark-background {
-    background-color: var(--color-dark-background);
   }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
