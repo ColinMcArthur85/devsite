@@ -1,5 +1,3 @@
-const accessKey = "jNuay71hUe6dJqH14fcrdyNeffqDn2uZCEm3HWs0K1Q";
-
 const searchForm = document.getElementById("search-form");
 /** @type {HTMLInputElement} */
 const searchBox = document.getElementById("search-box");
@@ -36,7 +34,6 @@ function buildSearchUrl() {
   const params = new URLSearchParams({
     page: String(page),
     query: keyword,
-    client_id: accessKey,
     per_page: perPageSelect.value || "12",
   });
 
@@ -44,7 +41,8 @@ function buildSearchUrl() {
   if (colorSelect.value) params.append("color", colorSelect.value);
   if (orderSelect.value) params.append("order_by", orderSelect.value);
 
-  return `https://api.unsplash.com/search/photos?${params.toString()}`;
+  // Call our Cloudflare Pages Function proxy instead of Unsplash directly
+  return `/api/unsplash?${params.toString()}`;
 }
 
 async function searchImages() {
