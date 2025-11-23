@@ -1,0 +1,4 @@
+name = "devsite"
+compatibility_date = "2025-11-23"
+# Directory containing static assets for Cloudflare Pages local dev
+pages_build_output_dir = "public"
