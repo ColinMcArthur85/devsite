@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#0070f3" />
     <meta name="description" content="Colin McArthur Developer Portfolio Site" />
     <link rel="preload" as="image" type="image/webp" href="./assets/images/sprites/base.webp" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/avatar.css" />
+    <link rel="stylesheet" href="./styles/tailwind.css" />
+    <link rel="stylesheet" href="./styles/avatar.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=Fira+Code:wght@400;700&display=swap" />
@@ -230,98 +230,7 @@
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <!-- Feature Card 1: Front-End Development -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#laptop-code"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Front-End Development</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              HTML, CSS, and JavaScript are my bread and butter. SASS and I are cool, but with modern CSS stealing most of its best tricks, I usually stick to vanilla. Tailwind powers this site, and
-              it keeps things fast, clean, and scalable. I build reusable components that don’t just look good — they actually behave. (Yes, even on Safari. Please stop using Safari.)
-            </p>
-          </div>
-
-          <!-- Feature Card 2: Infrastructure & Ops -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#server"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Infrastructure & Ops</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              DNS, SSL, email deliverability, hosting, monitoring — the “unsexy” stuff nobody cares about until it breaks. Then suddenly you care, don’t you?! I’m basically your digital Tyler Durden:
-              I cook your meals, haul your trash, connect your calls, drive your ambulances. I guard you while you sleep.
-            </p>
-          </div>
-
-          <!-- Feature Card 3: AI Workflow Integration -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#robot"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">AI Workflow Integration</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              I build custom GPTs to handle the boring, repetitive grunt work — content, automation, customer support, all of it. Think of it as outsourcing to robots, only instead of rising up to
-              destroy humanity, mine just fix typos or fact-check me. Basically, it’s the Terminator spin-off James Cameron never made — the unrequited love story between the T-1000 and John Connor.
-            </p>
-          </div>
-
-          <!-- Feature Card 4: Project Structure -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#folder-tree"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Project Structure</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              I live by “a place for everything, and everything in its place.” Unfortunately, I married someone who operates in the exact opposite way, so I’ve basically surrendered at home and get
-              all my organizational kicks on my computer. How she thrives in that chaos and still knows exactly where everything is — I’ll never understand. So I build things modular, documented, and
-              properly named. Because as Phil Karlton famously said:
-              <em>“There are only two hard things in computer science: cache invalidation and naming things.”</em>
-            </p>
-          </div>
-
-          <!-- Feature Card 5: Problem Solving -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#magnifying-glass-chart"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Problem Solving</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              I solve problems the same way I grew up playing video games: find the glitch, try everything, and don’t quit until I’ve cracked it. Sometimes that means methodical testing, sometimes
-              it’s full-on button-mashing. Diagnostics are second nature now: I poke, I prod, I recreate the bug until it gives up its secrets. Then I fix it, explain it in plain English (without
-              making you feel dumb), and send it on its way. Usually with a lot of swearing — which is exactly why I don’t do live Zoom calls with you.
-            </p>
-          </div>
-
-          <!-- Feature Card 6: Building Toward -->
-          <div class="primary-card">
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg">
-              <svg class="boop icon-lg" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#person-running"></use>
-              </svg>
-            </div>
-            <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">Building Toward</h3>
-            <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-              Right now I’m sharpening my PHP, MySQL, and modern JavaScript skills. Translation: I’m still breaking things — just at a slightly higher level than before. Every failed experiment
-              teaches me something, every working one gives me a new trick to play with. The goal isn’t perfection, it’s progress (again, with lots of swearing).
-            </p>
-          </div>
+          <!-- Features rendered by JS -->
         </div>
       </div>
     </section>
@@ -419,123 +328,7 @@
         <p class="section-subtitle">Each card below updates automatically to show how many lines of a specific technology is powering this site — straight from the source.</p>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6">
-          <!-- Skills Card 1 -->
-          <div class="primary-card" data-skill="HTML">
-            <div class="card-icon bg-[var(--color-html5)]/15">
-              <svg class="boop icon-xl text-[var(--color-html5)]" aria-hidden="true" focusable="false">
-                <use href="./assets/icons/sprite.svg#html5"></use>
-              </svg>
-            </div>
-            <h3 class="card-title font-html5 text-[var(--color-html5)]">HTML5</h3>
-
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div
-                  class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-html5)] to-[var(--color-html5)]/60 rounded-lg transition-all duration-1000 ease-in-out"
-                ></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1">0 lines</p>
-          </div>
-          <!-- Skills Card 2 -->
-          <div class="primary-card" data-skill="CSS">
-            <div class="card-icon bg-[var(--color-css3)]/15 group transition-transform duration-300">
-              <svg class="boop icon-xl text-[var(--color-css3)] boop icon" xmlns="http://www.w3.org/2000/svg">
-                <use href="./assets/icons/sprite.svg#css3"></use>
-              </svg>
-            </div>
-            <h3 class="card-title font-css3 text-[var(--color-css3)]">CSS3</h3>
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div
-                  class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-css3)] to-[var(--color-css3)]/60 rounded-lg transition-all duration-1000 ease-in-out"
-                ></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1">0 lines</p>
-          </div>
-          <!-- Skills Card 3 -->
-          <div class="primary-card" data-skill="SASS">
-            <div class="card-icon bg-[var(--color-sass-pink)]/15 group transition-transform duration-300">
-              <svg class="boop icon-xl text-[var(--color-sass-pink)]" xmlns="http://www.w3.org/2000/svg">
-                <use href="./assets/icons/sprite.svg#sass-alt"></use>
-              </svg>
-            </div>
-            <h3 class="card-title font-sass text-[var(--color-sass)]">SASS</h3>
-
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div
-                  class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-sass-pink)]/60 to-[var(--color-sass-pink)] rounded-lg transition-all duration-1000 ease-in-out"
-                ></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1">0 lines</p>
-          </div>
-
-          <!-- Skills Card 4 -->
-          <div class="primary-card" data-skill="JavaScript">
-            <div class="card-icon bg-[var(--color-javascript)]/15 group transition-transform duration-300">
-              <svg class="boop icon-xl text-[var(--color-javascript)]" xmlns="http://www.w3.org/2000/svg"><use href="./assets/icons/sprite.svg#js"></use></svg>
-            </div>
-            <h3 class="card-title font-js text-[var(--color-javascript)]">JavaScript</h3>
-
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div
-                  class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-javascript)]/60 to-[var(--color-javascript)] rounded-lg transition-all duration-1000 ease-in-out"
-                ></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1">0 lines</p>
-          </div>
-
-          <!-- Skills Card 5 -->
-          <div class="primary-card" data-skill="PHP">
-            <div class="card-icon bg-[var(--color-php)]/15 group transition-transform duration-300">
-              <svg class="boop icon-xl text-[var(--color-php)]" role="img" xmlns="http://www.w3.org/2000/svg">
-                <use href="./assets/icons/sprite.svg#php"></use>
-              </svg>
-            </div>
-            <h3 class="card-title font-php text-[var(--color-php)]">PHP</h3>
-
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-php)]/60 to-[var(--color-php)] rounded-lg transition-all duration-1000 ease-in-out"></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1 mb-4">0 lines</p>
-            <span data-badge="Coming Soon"></span>
-          </div>
-
-          <!-- Skills Card 6 -->
-          <div class="primary-card" data-skill="MySQL">
-            <div class="card-icon bg-[var(--color-mysql-blue)]/15 group transition-transform duration-300">
-              <svg class="boop icon-xl text-[var(--color-mysql-orange)]" role="img" xmlns="http://www.w3.org/2000/svg">
-                <use href="./assets/icons/sprite.svg#mysql"></use>
-              </svg>
-            </div>
-            <h3 class="card-title font-mysql">
-              <span class="text-[var(--color-mysql-blue)]">My</span>
-              <span class="text-[var(--color-mysql-orange)]">SQL</span>
-            </h3>
-
-            <div class="flex items-center gap-2">
-              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
-                <div
-                  class="progress-bar-fill absolute left-0 top-0 h-full bg-gradient-to-r from-[var(--color-mysql-blue)] to-[var(--color-mysql-orange)] rounded-lg transition-all duration-1000 ease-in-out"
-                ></div>
-              </div>
-              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">0%</span>
-            </div>
-            <p class="lines-count text-xs text-neutral-800 dark:text-neutral-200 font-mono mt-1 mb-4">0 lines</p>
-            <span data-badge="Coming Soon"></span>
-          </div>
+          <!-- Skills rendered by JS -->
         </div>
       </div>
     </section>
@@ -757,13 +550,14 @@
         </div>
       </div>
     </footer>
-    <script src="./assets/js/orb-anim.js" defer></script>
-    <script src="./assets/js/components/boop.js"></script>
-    <script src="./assets/js/components/header.js"></script>
-    <script src="./assets/js/components/ui.js"></script>
-    <script src="./assets/js/skills.js"></script>
-    <script src="./assets/js/modules/scroll-reveal.js"></script>
-    <script src="./assets/js/modules/terminal-typing.js"></script>
-    <script src="./assets/js/scripts.js"></script>
+    <script type="module" src="./js/orb-anim.js"></script>
+    <script type="module" src="./js/components/boop.js"></script>
+    <script type="module" src="./js/components/header.js"></script>
+    <script type="module" src="./js/components/ui.js"></script>
+    <script type="module" src="./js/renderers/features-renderer.js"></script>
+    <script type="module" src="./js/renderers/skills-renderer.js"></script>
+    <script type="module" src="./js/modules/scroll-reveal.js"></script>
+    <script type="module" src="./js/modules/terminal-typing.js"></script>
+    <script type="module" src="./js/scripts.js"></script>
   </body>
 </html>

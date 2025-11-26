@@ -158,5 +158,15 @@
     "code": "https://github.com/ColinMcArthur85/devsite/tree/main/public/projects/CSSBattle",
     "tags": ["HTML5", "CSS3"],
     "category": "CSS Battle"
+  },
+  {
+    "id": "image-search-engine",
+    "title": "Image Search Engine",
+    "description": "Image Search Generator using Unsplash API",
+    "image": "../projects/api/image_search/image_search_screenshot.png",
+    "live": "../projects/api/image_search/index.html",
+    "code": "https://github.com/ColinMcArthur85/devsite/tree/main/public/projects/api/image_search",
+    "tags": ["HTML5", "CSS3", "Javascript", "API"],
+    "category": "Just for fun"
   }
 ]

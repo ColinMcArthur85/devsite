@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Front-End Development",
+    "icon": "laptop-code",
+    "description": "HTML, CSS, and JavaScript are my bread and butter. SASS and I are cool, but with modern CSS stealing most of its best tricks, I usually stick to vanilla. Tailwind powers this site, and it keeps things fast, clean, and scalable. I build reusable components that don’t just look good — they actually behave. (Yes, even on Safari. Please stop using Safari.)"
+  },
+  {
+    "title": "Infrastructure & Ops",
+    "icon": "server",
+    "description": "DNS, SSL, email deliverability, hosting, monitoring — the “unsexy” stuff nobody cares about until it breaks. Then suddenly you care, don’t you?! I’m basically your digital Tyler Durden: I cook your meals, haul your trash, connect your calls, drive your ambulances. I guard you while you sleep."
+  },
+  {
+    "title": "AI Workflow Integration",
+    "icon": "robot",
+    "description": "I build custom GPTs to handle the boring, repetitive grunt work — content, automation, customer support, all of it. Think of it as outsourcing to robots, only instead of rising up to destroy humanity, mine just fix typos or fact-check me. Basically, it’s the Terminator spin-off James Cameron never made — the unrequited love story between the T-1000 and John Connor."
+  },
+  {
+    "title": "Project Structure",
+    "icon": "folder-tree",
+    "description": "I live by “a place for everything, and everything in its place.” Unfortunately, I married someone who operates in the exact opposite way, so I’ve basically surrendered at home and get all my organizational kicks on my computer. How she thrives in that chaos and still knows exactly where everything is — I’ll never understand. So I build things modular, documented, and properly named. Because as Phil Karlton famously said: <em>“There are only two hard things in computer science: cache invalidation and naming things.”</em>"
+  },
+  {
+    "title": "Problem Solving",
+    "icon": "magnifying-glass-chart",
+    "description": "I solve problems the same way I grew up playing video games: find the glitch, try everything, and don’t quit until I’ve cracked it. Sometimes that means methodical testing, sometimes it’s full-on button-mashing. Diagnostics are second nature now: I poke, I prod, I recreate the bug until it gives up its secrets. Then I fix it, explain it in plain English (without making you feel dumb), and send it on its way. Usually with a lot of swearing — which is exactly why I don’t do live Zoom calls with you."
+  },
+  {
+    "title": "Building Toward",
+    "icon": "person-running",
+    "description": "Right now I’m sharpening my PHP, MySQL, and modern JavaScript skills. Translation: I’m still breaking things — just at a slightly higher level than before. Every failed experiment teaches me something, every working one gives me a new trick to play with. The goal isn’t perfection, it’s progress (again, with lots of swearing)."
+  }
+]
