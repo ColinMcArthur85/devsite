@@ -41,8 +41,12 @@ function buildSearchUrl() {
   if (colorSelect.value) params.append("color", colorSelect.value);
   if (orderSelect.value) params.append("order_by", orderSelect.value);
 
-  // Call our Cloudflare Pages Function proxy instead of Unsplash directly
-  return `/api/unsplash?${params.toString()}`;
+  // In development, use port 8788 where Cloudflare Functions are available
+  // In production, use relative path
+  const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const baseUrl = isDev ? 'http://localhost:8788' : '';
+  
+  return `${baseUrl}/api/unsplash?${params.toString()}`;
 }
 
 async function searchImages() {

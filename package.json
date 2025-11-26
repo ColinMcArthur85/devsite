@@ -4,26 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node scripts/update_skill_counts.js && tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && rm -rf ./public/components && cp -r ./src/components ./public/components && rm -rf ./public/data && cp -r ./src/data ./public/data",
-    "watch": "concurrently \"nodemon --watch src --ignore src/data --exec 'node scripts/update_skill_counts.js && rm -rf ./public/assets/js && cp -r ./src/js ./public/assets/js && rm -rf ./public/components && cp -r ./src/components ./public/components && rm -rf ./public/data && cp -r ./src/data ./public/data'\" \"tailwindcss -i ./src/styles/tailwind.css -o ./public/assets/css/style.css --watch\"",
+    "dev": "wrangler pages dev -- vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@tailwindcss/vite": "^4.1.17",
     "autoprefixer": "^10.4.21",
+    "babel-jest": "^29.7.0",
     "concurrently": "^9.2.0",
+    "dotenv": "^16.4.5",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailgrids": "^2.3.0",
     "tailwindcss": "^4.1.5",
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "babel-jest": "^29.7.0",
-    "jest": "^29.7.0",
-    "dotenv": "^16.4.5"
+    "vite": "^6.4.1"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.4"
