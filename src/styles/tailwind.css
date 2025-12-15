@@ -1,5 +1,5 @@
-@import "./variables.css";
 @import "tailwindcss";
+@import "./variables.css";
 
 /* Base Styles */
 @import "./tailwind/base/_layout.css";
