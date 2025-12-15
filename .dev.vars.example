@@ -1,4 +1,0 @@
-# Copy this file to .dev.vars (do not commit .dev.vars)
-# Then replace YOUR_UNSPLASH_KEY_HERE with your actual key.
-# Cloudflare Pages local dev will load these into env.* automatically.
-UNSPLASH_ACCESS_KEY=YOUR_UNSPLASH_KEY_HERE

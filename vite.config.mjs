@@ -18,6 +18,7 @@ export default defineConfig({
         about: resolve(__dirname, 'src/pages/about.html'),
         contact: resolve(__dirname, 'src/pages/contact.html'),
         skills: resolve(__dirname, 'src/pages/skills.html'),
+        'projects/api/image_search/index': resolve(__dirname, 'src/projects/api/image_search/index.html'),
         // showcase: resolve(__dirname, 'src/pages/showcase.html'), // Uncomment if exists
       },
     },

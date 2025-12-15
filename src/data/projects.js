@@ -1,4 +1,16 @@
-[
+import timesheetImage from '../projects/full_stack/timesheet_tracker/timesheet_preview.png';
+
+export const projects = [
+  {
+    "id": "timesheet-tracker",
+    "title": "Timesheet Tracker",
+    "description": "A full-stack time tracking application built with Next.js and Postgres. Features Slack integration, comprehensive reporting, and a real-time dashboard for managing hours effectively.",
+    "image": timesheetImage,
+    "live": "https://timesheet.colinmcarthur.com/select-mode",
+    "code": "https://github.com/ColinMcArthur85/timesheet-tracker",
+    "tags": ["Next.js", "Postgres", "Tailwind", "Slack API"],
+    "category": "Full Stack"
+  },
   {
     "id": "3-column-preview-card",
     "title": "3 Column Preview Card",
@@ -166,7 +178,7 @@
     "image": "/projects/api/image_search/image_search_screenshot.png",
     "live": "/projects/api/image_search/index.html",
     "code": "https://github.com/ColinMcArthur85/devsite/tree/main/public/projects/api/image_search",
-    "tags": ["HTML5", "CSS3", "Javascript", "API"],
-    "category": "Just for fun"
+    "tags": ["HTML5", "CSS3", "Javascript"],
+    "category": "API"
   }
-]
+];
