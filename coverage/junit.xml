@@ -1,161 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="169" failures="0" errors="0" time="6.205">
-  <testsuite name="sanity" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.496" tests="1">
-    <testcase classname="sanity adds numbers" name="sanity adds numbers" time="0.03">
+<testsuites name="jest tests" tests="198" failures="0" errors="0" time="4.653">
+  <testsuite name="sanity" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="1.906" tests="1">
+    <testcase classname="sanity adds numbers" name="sanity adds numbers" time="0.011">
     </testcase>
   </testsuite>
-  <testsuite name="createFilterState" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.573" tests="24">
-    <testcase classname="createFilterState initialization creates state with empty defaults" name="createFilterState initialization creates state with empty defaults" time="0.047">
+  <testsuite name="createFilterState" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="1.968" tests="24">
+    <testcase classname="createFilterState initialization creates state with empty defaults" name="createFilterState initialization creates state with empty defaults" time="0.02">
     </testcase>
-    <testcase classname="createFilterState initialization creates state with initial values" name="createFilterState initialization creates state with initial values" time="0.001">
+    <testcase classname="createFilterState initialization creates state with initial values" name="createFilterState initialization creates state with initial values" time="0.005">
     </testcase>
-    <testcase classname="createFilterState initialization handles partial initial values" name="createFilterState initialization handles partial initial values" time="0.001">
+    <testcase classname="createFilterState initialization handles partial initial values" name="createFilterState initialization handles partial initial values" time="0.004">
     </testcase>
-    <testcase classname="createFilterState toggle adds value when not present" name="createFilterState toggle adds value when not present" time="0.003">
+    <testcase classname="createFilterState toggle adds value when not present" name="createFilterState toggle adds value when not present" time="0.002">
     </testcase>
-    <testcase classname="createFilterState toggle removes value when already present" name="createFilterState toggle removes value when already present" time="0.005">
+    <testcase classname="createFilterState toggle removes value when already present" name="createFilterState toggle removes value when already present" time="0.001">
     </testcase>
-    <testcase classname="createFilterState toggle handles toggle on categories" name="createFilterState toggle handles toggle on categories" time="0.004">
+    <testcase classname="createFilterState toggle handles toggle on categories" name="createFilterState toggle handles toggle on categories" time="0">
     </testcase>
-    <testcase classname="createFilterState toggle does nothing for invalid group" name="createFilterState toggle does nothing for invalid group" time="0.002">
+    <testcase classname="createFilterState toggle does nothing for invalid group" name="createFilterState toggle does nothing for invalid group" time="0.001">
     </testcase>
-    <testcase classname="createFilterState isActive returns true for active filter" name="createFilterState isActive returns true for active filter" time="0.001">
+    <testcase classname="createFilterState isActive returns true for active filter" name="createFilterState isActive returns true for active filter" time="0.004">
     </testcase>
-    <testcase classname="createFilterState isActive returns false for inactive filter" name="createFilterState isActive returns false for inactive filter" time="0">
+    <testcase classname="createFilterState isActive returns false for inactive filter" name="createFilterState isActive returns false for inactive filter" time="0.001">
     </testcase>
-    <testcase classname="createFilterState isActive returns false for invalid group" name="createFilterState isActive returns false for invalid group" time="0.001">
+    <testcase classname="createFilterState isActive returns false for invalid group" name="createFilterState isActive returns false for invalid group" time="0">
     </testcase>
-    <testcase classname="createFilterState serialise returns arrays from sets" name="createFilterState serialise returns arrays from sets" time="0.007">
+    <testcase classname="createFilterState serialise returns arrays from sets" name="createFilterState serialise returns arrays from sets" time="0">
     </testcase>
-    <testcase classname="createFilterState serialise returns empty arrays when no selections" name="createFilterState serialise returns empty arrays when no selections" time="0.002">
+    <testcase classname="createFilterState serialise returns empty arrays when no selections" name="createFilterState serialise returns empty arrays when no selections" time="0.001">
     </testcase>
-    <testcase classname="createFilterState hasSelections returns false when no selections" name="createFilterState hasSelections returns false when no selections" time="0.001">
+    <testcase classname="createFilterState hasSelections returns false when no selections" name="createFilterState hasSelections returns false when no selections" time="0">
     </testcase>
-    <testcase classname="createFilterState hasSelections returns true when tech selected" name="createFilterState hasSelections returns true when tech selected" time="0.001">
+    <testcase classname="createFilterState hasSelections returns true when tech selected" name="createFilterState hasSelections returns true when tech selected" time="0">
     </testcase>
     <testcase classname="createFilterState hasSelections returns true when category selected" name="createFilterState hasSelections returns true when category selected" time="0.001">
     </testcase>
-    <testcase classname="createFilterState resetIfEmpty returns true when no selections" name="createFilterState resetIfEmpty returns true when no selections" time="0.001">
+    <testcase classname="createFilterState resetIfEmpty returns true when no selections" name="createFilterState resetIfEmpty returns true when no selections" time="0">
     </testcase>
     <testcase classname="createFilterState resetIfEmpty returns false when has selections" name="createFilterState resetIfEmpty returns false when has selections" time="0.001">
     </testcase>
-    <testcase classname="createFilterState apply returns empty array when no selections" name="createFilterState apply returns empty array when no selections" time="0.001">
+    <testcase classname="createFilterState apply returns empty array when no selections" name="createFilterState apply returns empty array when no selections" time="0.002">
     </testcase>
-    <testcase classname="createFilterState apply filters by single tech" name="createFilterState apply filters by single tech" time="0.002">
+    <testcase classname="createFilterState apply filters by single tech" name="createFilterState apply filters by single tech" time="0.003">
     </testcase>
     <testcase classname="createFilterState apply filters by single category" name="createFilterState apply filters by single category" time="0.001">
     </testcase>
-    <testcase classname="createFilterState apply filters by tech OR (any match)" name="createFilterState apply filters by tech OR (any match)" time="0.002">
+    <testcase classname="createFilterState apply filters by tech OR (any match)" name="createFilterState apply filters by tech OR (any match)" time="0">
     </testcase>
-    <testcase classname="createFilterState apply filters by tech AND category" name="createFilterState apply filters by tech AND category" time="0.002">
+    <testcase classname="createFilterState apply filters by tech AND category" name="createFilterState apply filters by tech AND category" time="0.001">
     </testcase>
-    <testcase classname="createFilterState apply returns empty when no matches" name="createFilterState apply returns empty when no matches" time="0.001">
+    <testcase classname="createFilterState apply returns empty when no matches" name="createFilterState apply returns empty when no matches" time="0">
     </testcase>
-    <testcase classname="createFilterState apply handles empty projects array" name="createFilterState apply handles empty projects array" time="0.002">
+    <testcase classname="createFilterState apply handles empty projects array" name="createFilterState apply handles empty projects array" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Environment Variables" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.659" tests="24">
-    <testcase classname="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" name="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" time="0.044">
+  <testsuite name="Contact Form Validation" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="1.993" tests="29">
+    <testcase classname="Contact Form Validation validateName accepts valid names" name="Contact Form Validation validateName accepts valid names" time="0.03">
     </testcase>
-    <testcase classname="Input Validation - validateQuery accepts valid alphanumeric queries" name="Input Validation - validateQuery accepts valid alphanumeric queries" time="0.004">
+    <testcase classname="Contact Form Validation validateName rejects empty names" name="Contact Form Validation validateName rejects empty names" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validateQuery rejects empty queries" name="Input Validation - validateQuery rejects empty queries" time="0.002">
+    <testcase classname="Contact Form Validation validateName rejects null/undefined" name="Contact Form Validation validateName rejects null/undefined" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validateQuery rejects queries that are too long" name="Input Validation - validateQuery rejects queries that are too long" time="0.001">
+    <testcase classname="Contact Form Validation validateName rejects names that are too short" name="Contact Form Validation validateName rejects names that are too short" time="0">
     </testcase>
-    <testcase classname="Input Validation - validateQuery strips HTML tags from queries" name="Input Validation - validateQuery strips HTML tags from queries" time="0.005">
+    <testcase classname="Contact Form Validation validateName rejects names that are too long" name="Contact Form Validation validateName rejects names that are too long" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validateQuery handles special characters safely" name="Input Validation - validateQuery handles special characters safely" time="0.006">
+    <testcase classname="Contact Form Validation validateName strips HTML tags" name="Contact Form Validation validateName strips HTML tags" time="0">
+    </testcase>
+    <testcase classname="Contact Form Validation validateEmail accepts valid emails" name="Contact Form Validation validateEmail accepts valid emails" time="0.002">
+    </testcase>
+    <testcase classname="Contact Form Validation validateEmail rejects empty emails" name="Contact Form Validation validateEmail rejects empty emails" time="0.004">
+    </testcase>
+    <testcase classname="Contact Form Validation validateEmail rejects invalid email formats" name="Contact Form Validation validateEmail rejects invalid email formats" time="0.01">
+    </testcase>
+    <testcase classname="Contact Form Validation validateEmail rejects emails that are too long" name="Contact Form Validation validateEmail rejects emails that are too long" time="0.004">
+    </testcase>
+    <testcase classname="Contact Form Validation validateMessage accepts valid messages" name="Contact Form Validation validateMessage accepts valid messages" time="0.001">
+    </testcase>
+    <testcase classname="Contact Form Validation validateMessage rejects empty messages" name="Contact Form Validation validateMessage rejects empty messages" time="0.001">
+    </testcase>
+    <testcase classname="Contact Form Validation validateMessage rejects messages that are too short" name="Contact Form Validation validateMessage rejects messages that are too short" time="0">
+    </testcase>
+    <testcase classname="Contact Form Validation validateMessage rejects messages that are too long" name="Contact Form Validation validateMessage rejects messages that are too long" time="0.001">
+    </testcase>
+    <testcase classname="Form Data Sanitization sanitizeFormData sanitizes all fields" name="Form Data Sanitization sanitizeFormData sanitizes all fields" time="0.001">
+    </testcase>
+    <testcase classname="Form Data Sanitization sanitizeFormData trims whitespace" name="Form Data Sanitization sanitizeFormData trims whitespace" time="0">
+    </testcase>
+    <testcase classname="Form Data Sanitization sanitizeFormData handles missing fields gracefully" name="Form Data Sanitization sanitizeFormData handles missing fields gracefully" time="0.001">
+    </testcase>
+    <testcase classname="ContactFormState initial state starts as idle" name="ContactFormState initial state starts as idle" time="0.002">
+    </testcase>
+    <testcase classname="ContactFormState initial state has no errors initially" name="ContactFormState initial state has no errors initially" time="0.005">
+    </testcase>
+    <testcase classname="ContactFormState setBusy sets status to busy" name="ContactFormState setBusy sets status to busy" time="0.001">
+    </testcase>
+    <testcase classname="ContactFormState setSuccess sets status to success" name="ContactFormState setSuccess sets status to success" time="0">
+    </testcase>
+    <testcase classname="ContactFormState setError sets status to error with message" name="ContactFormState setError sets status to error with message" time="0.003">
+    </testcase>
+    <testcase classname="ContactFormState setValidationErrors stores field-level errors" name="ContactFormState setValidationErrors stores field-level errors" time="0.001">
+    </testcase>
+    <testcase classname="ContactFormState reset resets state to initial values" name="ContactFormState reset resets state to initial values" time="0.001">
+    </testcase>
+    <testcase classname="ContactFormState isValid returns true when no errors" name="ContactFormState isValid returns true when no errors" time="0">
+    </testcase>
+    <testcase classname="ContactFormState isValid returns false when has errors" name="ContactFormState isValid returns false when has errors" time="0.001">
+    </testcase>
+    <testcase classname="XSS Prevention validateName strips script tags" name="XSS Prevention validateName strips script tags" time="0.001">
+    </testcase>
+    <testcase classname="XSS Prevention sanitizeFormData prevents XSS in all fields" name="XSS Prevention sanitizeFormData prevents XSS in all fields" time="0">
+    </testcase>
+    <testcase classname="XSS Prevention email field rejects javascript protocol" name="XSS Prevention email field rejects javascript protocol" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="Environment Variables" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="1.985" tests="24">
+    <testcase classname="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" name="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" time="0.016">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery accepts valid alphanumeric queries" name="Input Validation - validateQuery accepts valid alphanumeric queries" time="0.002">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery rejects empty queries" name="Input Validation - validateQuery rejects empty queries" time="0.012">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery rejects queries that are too long" name="Input Validation - validateQuery rejects queries that are too long" time="0.003">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery strips HTML tags from queries" name="Input Validation - validateQuery strips HTML tags from queries" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery handles special characters safely" name="Input Validation - validateQuery handles special characters safely" time="0.001">
     </testcase>
     <testcase classname="Input Validation - validatePagination accepts valid page numbers" name="Input Validation - validatePagination accepts valid page numbers" time="0.002">
     </testcase>
     <testcase classname="Input Validation - validatePagination defaults to page 1 and 12 per page" name="Input Validation - validatePagination defaults to page 1 and 12 per page" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validatePagination rejects non-numeric page values" name="Input Validation - validatePagination rejects non-numeric page values" time="0">
+    <testcase classname="Input Validation - validatePagination rejects non-numeric page values" name="Input Validation - validatePagination rejects non-numeric page values" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validatePagination rejects negative page numbers" name="Input Validation - validatePagination rejects negative page numbers" time="0.001">
+    <testcase classname="Input Validation - validatePagination rejects negative page numbers" name="Input Validation - validatePagination rejects negative page numbers" time="0">
     </testcase>
     <testcase classname="Input Validation - validatePagination limits per_page to maximum of 30" name="Input Validation - validatePagination limits per_page to maximum of 30" time="0.001">
     </testcase>
-    <testcase classname="Input Validation - validatePagination limits page to maximum of 100" name="Input Validation - validatePagination limits page to maximum of 100" time="0">
+    <testcase classname="Input Validation - validatePagination limits page to maximum of 100" name="Input Validation - validatePagination limits page to maximum of 100" time="0.001">
     </testcase>
-    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for internal errors" name="Error Handling - sanitizeErrorMessage returns generic message for internal errors" time="0.002">
+    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for internal errors" name="Error Handling - sanitizeErrorMessage returns generic message for internal errors" time="0.003">
     </testcase>
-    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for stack traces" name="Error Handling - sanitizeErrorMessage returns generic message for stack traces" time="0.001">
+    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for stack traces" name="Error Handling - sanitizeErrorMessage returns generic message for stack traces" time="0.005">
     </testcase>
-    <testcase classname="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" name="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" time="0.008">
+    <testcase classname="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" name="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" time="0.002">
     </testcase>
-    <testcase classname="Error Handling - sanitizeErrorMessage allows safe error messages through" name="Error Handling - sanitizeErrorMessage allows safe error messages through" time="0.002">
+    <testcase classname="Error Handling - sanitizeErrorMessage allows safe error messages through" name="Error Handling - sanitizeErrorMessage allows safe error messages through" time="0">
     </testcase>
-    <testcase classname="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" name="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" time="0.003">
+    <testcase classname="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" name="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" time="0.001">
     </testcase>
-    <testcase classname="CORS Headers - getCorsHeaders returns localhost origin in development" name="CORS Headers - getCorsHeaders returns localhost origin in development" time="0.051">
+    <testcase classname="CORS Headers - getCorsHeaders returns localhost origin in development" name="CORS Headers - getCorsHeaders returns localhost origin in development" time="0.001">
     </testcase>
-    <testcase classname="CORS Headers - getCorsHeaders returns null origin for disallowed origins" name="CORS Headers - getCorsHeaders returns null origin for disallowed origins" time="0.009">
+    <testcase classname="CORS Headers - getCorsHeaders returns null origin for disallowed origins" name="CORS Headers - getCorsHeaders returns null origin for disallowed origins" time="0.001">
     </testcase>
-    <testcase classname="CORS - isAllowedOrigin allows production domain" name="CORS - isAllowedOrigin allows production domain" time="0.004">
+    <testcase classname="CORS - isAllowedOrigin allows production domain" name="CORS - isAllowedOrigin allows production domain" time="0.001">
     </testcase>
-    <testcase classname="CORS - isAllowedOrigin allows localhost in development" name="CORS - isAllowedOrigin allows localhost in development" time="0.008">
+    <testcase classname="CORS - isAllowedOrigin allows localhost in development" name="CORS - isAllowedOrigin allows localhost in development" time="0">
     </testcase>
-    <testcase classname="CORS - isAllowedOrigin blocks localhost in production" name="CORS - isAllowedOrigin blocks localhost in production" time="0">
+    <testcase classname="CORS - isAllowedOrigin blocks localhost in production" name="CORS - isAllowedOrigin blocks localhost in production" time="0.001">
     </testcase>
-    <testcase classname="CORS - isAllowedOrigin blocks unknown origins" name="CORS - isAllowedOrigin blocks unknown origins" time="0.001">
+    <testcase classname="CORS - isAllowedOrigin blocks unknown origins" name="CORS - isAllowedOrigin blocks unknown origins" time="0.003">
     </testcase>
     <testcase classname="Security Headers response includes security headers" name="Security Headers response includes security headers" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="ProjectService" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.704" tests="10">
-    <testcase classname="ProjectService fetchAll returns an array of projects" name="ProjectService fetchAll returns an array of projects" time="0.038">
-    </testcase>
-    <testcase classname="ProjectService fetchAll returns non-empty array" name="ProjectService fetchAll returns non-empty array" time="0.005">
-    </testcase>
-    <testcase classname="ProjectService fetchAll each project has required fields" name="ProjectService fetchAll each project has required fields" time="0.024">
-    </testcase>
-    <testcase classname="ProjectService fetchAll project tags is an array" name="ProjectService fetchAll project tags is an array" time="0.004">
-    </testcase>
-    <testcase classname="ProjectService fetchAll project category is a string" name="ProjectService fetchAll project category is a string" time="0.004">
-    </testcase>
-    <testcase classname="ProjectService data structure validation project has valid category" name="ProjectService data structure validation project has valid category" time="0.027">
-    </testcase>
-    <testcase classname="ProjectService data structure validation project tags are non-empty strings" name="ProjectService data structure validation project tags are non-empty strings" time="0.083">
-    </testcase>
-    <testcase classname="ProjectService data structure validation project title is a non-empty string" name="ProjectService data structure validation project title is a non-empty string" time="0.022">
-    </testcase>
-    <testcase classname="ProjectService async behavior fetchAll returns a promise" name="ProjectService async behavior fetchAll returns a promise" time="0.002">
-    </testcase>
-    <testcase classname="ProjectService async behavior fetchAll resolves successfully" name="ProjectService async behavior fetchAll resolves successfully" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="escapeHtml" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.693" tests="47">
-    <testcase classname="escapeHtml escapes &lt; and &gt; characters" name="escapeHtml escapes &lt; and &gt; characters" time="0.016">
+  <testsuite name="escapeHtml" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="2.04" tests="47">
+    <testcase classname="escapeHtml escapes &lt; and &gt; characters" name="escapeHtml escapes &lt; and &gt; characters" time="0.015">
     </testcase>
     <testcase classname="escapeHtml escapes &amp; character" name="escapeHtml escapes &amp; character" time="0.001">
     </testcase>
-    <testcase classname="escapeHtml escapes &quot; and &apos; characters" name="escapeHtml escapes &quot; and &apos; characters" time="0.001">
+    <testcase classname="escapeHtml escapes &quot; and &apos; characters" name="escapeHtml escapes &quot; and &apos; characters" time="0.013">
     </testcase>
-    <testcase classname="escapeHtml handles multiple special characters" name="escapeHtml handles multiple special characters" time="0">
+    <testcase classname="escapeHtml handles multiple special characters" name="escapeHtml handles multiple special characters" time="0.002">
     </testcase>
     <testcase classname="escapeHtml returns empty string for null/undefined" name="escapeHtml returns empty string for null/undefined" time="0.001">
     </testcase>
-    <testcase classname="escapeHtml converts numbers to string" name="escapeHtml converts numbers to string" time="0.001">
+    <testcase classname="escapeHtml converts numbers to string" name="escapeHtml converts numbers to string" time="0">
     </testcase>
     <testcase classname="escapeHtml handles empty string" name="escapeHtml handles empty string" time="0.001">
     </testcase>
-    <testcase classname="escapeHtml preserves safe text" name="escapeHtml preserves safe text" time="0.003">
+    <testcase classname="escapeHtml preserves safe text" name="escapeHtml preserves safe text" time="0.001">
     </testcase>
-    <testcase classname="stripTags removes simple HTML tags" name="stripTags removes simple HTML tags" time="0.001">
+    <testcase classname="stripTags removes simple HTML tags" name="stripTags removes simple HTML tags" time="0.006">
     </testcase>
     <testcase classname="stripTags removes script tags and content" name="stripTags removes script tags and content" time="0.001">
     </testcase>
-    <testcase classname="stripTags removes multiple tags" name="stripTags removes multiple tags" time="0.001">
+    <testcase classname="stripTags removes multiple tags" name="stripTags removes multiple tags" time="0">
     </testcase>
     <testcase classname="stripTags handles self-closing tags" name="stripTags handles self-closing tags" time="0.001">
     </testcase>
-    <testcase classname="stripTags removes attributes" name="stripTags removes attributes" time="0">
+    <testcase classname="stripTags removes attributes" name="stripTags removes attributes" time="0.001">
     </testcase>
     <testcase classname="stripTags returns empty string for null/undefined" name="stripTags returns empty string for null/undefined" time="0.001">
     </testcase>
-    <testcase classname="stripTags handles malformed HTML" name="stripTags handles malformed HTML" time="0">
+    <testcase classname="stripTags handles malformed HTML" name="stripTags handles malformed HTML" time="0.002">
     </testcase>
     <testcase classname="sanitizeForUrl encodes special URL characters" name="sanitizeForUrl encodes special URL characters" time="0.001">
     </testcase>
@@ -167,191 +205,213 @@
     </testcase>
     <testcase classname="sanitizeForUrl allows https URLs" name="sanitizeForUrl allows https URLs" time="0">
     </testcase>
-    <testcase classname="sanitizeForUrl allows relative URLs" name="sanitizeForUrl allows relative URLs" time="0.001">
+    <testcase classname="sanitizeForUrl allows relative URLs" name="sanitizeForUrl allows relative URLs" time="0">
     </testcase>
-    <testcase classname="sanitizeForUrl returns empty string for null/undefined" name="sanitizeForUrl returns empty string for null/undefined" time="0.001">
+    <testcase classname="sanitizeForUrl returns empty string for null/undefined" name="sanitizeForUrl returns empty string for null/undefined" time="0.005">
     </testcase>
-    <testcase classname="sanitizeForUrl handles case-insensitive javascript protocol" name="sanitizeForUrl handles case-insensitive javascript protocol" time="0.005">
+    <testcase classname="sanitizeForUrl handles case-insensitive javascript protocol" name="sanitizeForUrl handles case-insensitive javascript protocol" time="0.002">
     </testcase>
     <testcase classname="sanitizeText combines stripTags and escapeHtml" name="sanitizeText combines stripTags and escapeHtml" time="0.001">
     </testcase>
-    <testcase classname="sanitizeText escapes remaining special characters after stripping" name="sanitizeText escapes remaining special characters after stripping" time="0">
+    <testcase classname="sanitizeText escapes remaining special characters after stripping" name="sanitizeText escapes remaining special characters after stripping" time="0.001">
     </testcase>
-    <testcase classname="sanitizeText handles complex XSS attempts" name="sanitizeText handles complex XSS attempts" time="0.002">
+    <testcase classname="sanitizeText handles complex XSS attempts" name="sanitizeText handles complex XSS attempts" time="0.001">
     </testcase>
     <testcase classname="sanitizeText returns empty string for null/undefined" name="sanitizeText returns empty string for null/undefined" time="0.002">
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0.026">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0.002">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0.02">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" time="0.009">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" time="0.002">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" time="0.006">
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.011">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" time="0.004">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0.003">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.002">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0.002">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0.004">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" time="0.002">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.002">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.001">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.002">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="createButton" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.928" tests="25">
-    <testcase classname="createButton element creation creates a button element by default" name="createButton element creation creates a button element by default" time="0.069">
+  <testsuite name="ProjectService" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="2.139" tests="10">
+    <testcase classname="ProjectService fetchAll returns an array of projects" name="ProjectService fetchAll returns an array of projects" time="0.03">
     </testcase>
-    <testcase classname="createButton element creation creates an anchor element when href provided" name="createButton element creation creates an anchor element when href provided" time="0.103">
+    <testcase classname="ProjectService fetchAll returns non-empty array" name="ProjectService fetchAll returns non-empty array" time="0.001">
     </testcase>
-    <testcase classname="createButton element creation sets button type attribute" name="createButton element creation sets button type attribute" time="0.003">
+    <testcase classname="ProjectService fetchAll each project has required fields" name="ProjectService fetchAll each project has required fields" time="0.035">
     </testcase>
-    <testcase classname="createButton element creation defaults to type=&quot;button&quot;" name="createButton element creation defaults to type=&quot;button&quot;" time="0.002">
+    <testcase classname="ProjectService fetchAll project tags is an array" name="ProjectService fetchAll project tags is an array" time="0.018">
     </testcase>
-    <testcase classname="createButton text content sets text content from text property" name="createButton text content sets text content from text property" time="0.004">
+    <testcase classname="ProjectService fetchAll project category is a string" name="ProjectService fetchAll project category is a string" time="0.018">
     </testcase>
-    <testcase classname="createButton text content sets innerHTML when html property provided" name="createButton text content sets innerHTML when html property provided" time="0.039">
+    <testcase classname="ProjectService data structure validation project has valid category" name="ProjectService data structure validation project has valid category" time="0.04">
     </testcase>
-    <testcase classname="createButton text content prefers text over html when both provided" name="createButton text content prefers text over html when both provided" time="0.002">
+    <testcase classname="ProjectService data structure validation project tags are non-empty strings" name="ProjectService data structure validation project tags are non-empty strings" time="0.025">
     </testcase>
-    <testcase classname="createButton classes applies classes from string" name="createButton classes applies classes from string" time="0.003">
+    <testcase classname="ProjectService data structure validation project title is a non-empty string" name="ProjectService data structure validation project title is a non-empty string" time="0.01">
     </testcase>
-    <testcase classname="createButton classes handles empty classes" name="createButton classes handles empty classes" time="0.002">
+    <testcase classname="ProjectService async behavior fetchAll returns a promise" name="ProjectService async behavior fetchAll returns a promise" time="0.003">
     </testcase>
-    <testcase classname="createButton click handler attaches click event listener" name="createButton click handler attaches click event listener" time="0.007">
+    <testcase classname="ProjectService async behavior fetchAll resolves successfully" name="ProjectService async behavior fetchAll resolves successfully" time="0.001">
     </testcase>
-    <testcase classname="createButton click handler does not attach listener when onClick is null" name="createButton click handler does not attach listener when onClick is null" time="0.004">
+  </testsuite>
+  <testsuite name="createButton" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="2.144" tests="25">
+    <testcase classname="createButton element creation creates a button element by default" name="createButton element creation creates a button element by default" time="0.038">
     </testcase>
-    <testcase classname="createBadge element creation creates a span element" name="createBadge element creation creates a span element" time="0.011">
+    <testcase classname="createButton element creation creates an anchor element when href provided" name="createButton element creation creates an anchor element when href provided" time="0.035">
     </testcase>
-    <testcase classname="createBadge element creation adds badge class" name="createBadge element creation adds badge class" time="0.002">
+    <testcase classname="createButton element creation sets button type attribute" name="createButton element creation sets button type attribute" time="0.004">
     </testcase>
-    <testcase classname="createBadge text content sets text content" name="createBadge text content sets text content" time="0.052">
+    <testcase classname="createButton element creation defaults to type=&quot;button&quot;" name="createButton element creation defaults to type=&quot;button&quot;" time="0.006">
     </testcase>
-    <testcase classname="createBadge text content handles empty text" name="createBadge text content handles empty text" time="0.008">
+    <testcase classname="createButton text content sets text content from text property" name="createButton text content sets text content from text property" time="0.003">
+    </testcase>
+    <testcase classname="createButton text content sets innerHTML when html property provided" name="createButton text content sets innerHTML when html property provided" time="0.025">
+    </testcase>
+    <testcase classname="createButton text content prefers text over html when both provided" name="createButton text content prefers text over html when both provided" time="0.001">
+    </testcase>
+    <testcase classname="createButton classes applies classes from string" name="createButton classes applies classes from string" time="0.002">
+    </testcase>
+    <testcase classname="createButton classes handles empty classes" name="createButton classes handles empty classes" time="0.004">
+    </testcase>
+    <testcase classname="createButton click handler attaches click event listener" name="createButton click handler attaches click event listener" time="0.006">
+    </testcase>
+    <testcase classname="createButton click handler does not attach listener when onClick is null" name="createButton click handler does not attach listener when onClick is null" time="0.002">
+    </testcase>
+    <testcase classname="createBadge element creation creates a span element" name="createBadge element creation creates a span element" time="0.01">
+    </testcase>
+    <testcase classname="createBadge element creation adds badge class" name="createBadge element creation adds badge class" time="0.004">
+    </testcase>
+    <testcase classname="createBadge text content sets text content" name="createBadge text content sets text content" time="0.033">
+    </testcase>
+    <testcase classname="createBadge text content handles empty text" name="createBadge text content handles empty text" time="0.001">
     </testcase>
     <testcase classname="createBadge classes applies additional classes" name="createBadge classes applies additional classes" time="0.002">
     </testcase>
     <testcase classname="createBadge classes handles multiple classes" name="createBadge classes handles multiple classes" time="0.002">
     </testcase>
-    <testcase classname="createBadge appearance adds ghost class for ghost appearance" name="createBadge appearance adds ghost class for ghost appearance" time="0.002">
+    <testcase classname="createBadge appearance adds ghost class for ghost appearance" name="createBadge appearance adds ghost class for ghost appearance" time="0">
     </testcase>
-    <testcase classname="createBadge appearance defaults to solid appearance" name="createBadge appearance defaults to solid appearance" time="0.004">
+    <testcase classname="createBadge appearance defaults to solid appearance" name="createBadge appearance defaults to solid appearance" time="0">
     </testcase>
-    <testcase classname="createBadge color handling applies color for known technologies" name="createBadge color handling applies color for known technologies" time="0.016">
+    <testcase classname="createBadge color handling applies color for known technologies" name="createBadge color handling applies color for known technologies" time="0.002">
     </testcase>
-    <testcase classname="createBadge color handling falls back to variant class for unknown colors" name="createBadge color handling falls back to variant class for unknown colors" time="0.001">
+    <testcase classname="createBadge color handling falls back to variant class for unknown colors" name="createBadge color handling falls back to variant class for unknown colors" time="0">
     </testcase>
-    <testcase classname="createBadge variant handling uses provided variant" name="createBadge variant handling uses provided variant" time="0.004">
+    <testcase classname="createBadge variant handling uses provided variant" name="createBadge variant handling uses provided variant" time="0.015">
     </testcase>
-    <testcase classname="createBadge variant handling generates variant from text when not provided" name="createBadge variant handling generates variant from text when not provided" time="0.071">
+    <testcase classname="createBadge variant handling generates variant from text when not provided" name="createBadge variant handling generates variant from text when not provided" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention createButton escapes text content" name="XSS Prevention createButton escapes text content" time="0.002">
+    <testcase classname="XSS Prevention createButton escapes text content" name="XSS Prevention createButton escapes text content" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention createBadge escapes text content" name="XSS Prevention createBadge escapes text content" time="0.016">
+    <testcase classname="XSS Prevention createBadge escapes text content" name="XSS Prevention createBadge escapes text content" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="FilterView" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="3.967" tests="16">
-    <testcase classname="FilterView initialization creates a filter view instance" name="FilterView initialization creates a filter view instance" time="0.049">
+  <testsuite name="FilterView" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="2.249" tests="16">
+    <testcase classname="FilterView initialization creates a filter view instance" name="FilterView initialization creates a filter view instance" time="0.027">
     </testcase>
-    <testcase classname="FilterView render creates badges for each filter item" name="FilterView render creates badges for each filter item" time="0.184">
+    <testcase classname="FilterView render creates badges for each filter item" name="FilterView render creates badges for each filter item" time="0.147">
     </testcase>
     <testcase classname="FilterView render sets correct text for each badge" name="FilterView render sets correct text for each badge" time="0.017">
     </testcase>
-    <testcase classname="FilterView render clears previous badges on re-render" name="FilterView render clears previous badges on re-render" time="0.018">
+    <testcase classname="FilterView render clears previous badges on re-render" name="FilterView render clears previous badges on re-render" time="0.011">
     </testcase>
-    <testcase classname="FilterView render handles empty items array" name="FilterView render handles empty items array" time="0.003">
+    <testcase classname="FilterView render handles empty items array" name="FilterView render handles empty items array" time="0.018">
     </testcase>
-    <testcase classname="FilterView render marks active filters with is-active class" name="FilterView render marks active filters with is-active class" time="0.02">
+    <testcase classname="FilterView render marks active filters with is-active class" name="FilterView render marks active filters with is-active class" time="0.006">
     </testcase>
-    <testcase classname="FilterView data attributes sets data-filter-group attribute" name="FilterView data attributes sets data-filter-group attribute" time="0.004">
+    <testcase classname="FilterView data attributes sets data-filter-group attribute" name="FilterView data attributes sets data-filter-group attribute" time="0.008">
     </testcase>
-    <testcase classname="FilterView data attributes sets data-filter-value attribute" name="FilterView data attributes sets data-filter-value attribute" time="0.01">
+    <testcase classname="FilterView data attributes sets data-filter-value attribute" name="FilterView data attributes sets data-filter-value attribute" time="0.003">
     </testcase>
-    <testcase classname="FilterView ARIA attributes sets role=&quot;switch&quot; on badges" name="FilterView ARIA attributes sets role=&quot;switch&quot; on badges" time="0.009">
+    <testcase classname="FilterView ARIA attributes sets role=&quot;switch&quot; on badges" name="FilterView ARIA attributes sets role=&quot;switch&quot; on badges" time="0.003">
     </testcase>
-    <testcase classname="FilterView ARIA attributes sets aria-pressed=&quot;false&quot; for inactive filters" name="FilterView ARIA attributes sets aria-pressed=&quot;false&quot; for inactive filters" time="0.011">
+    <testcase classname="FilterView ARIA attributes sets aria-pressed=&quot;false&quot; for inactive filters" name="FilterView ARIA attributes sets aria-pressed=&quot;false&quot; for inactive filters" time="0.027">
     </testcase>
-    <testcase classname="FilterView ARIA attributes sets aria-pressed=&quot;true&quot; for active filters" name="FilterView ARIA attributes sets aria-pressed=&quot;true&quot; for active filters" time="0.056">
+    <testcase classname="FilterView ARIA attributes sets aria-pressed=&quot;true&quot; for active filters" name="FilterView ARIA attributes sets aria-pressed=&quot;true&quot; for active filters" time="0.003">
     </testcase>
-    <testcase classname="FilterView click handling calls onToggle when badge is clicked" name="FilterView click handling calls onToggle when badge is clicked" time="0.053">
+    <testcase classname="FilterView click handling calls onToggle when badge is clicked" name="FilterView click handling calls onToggle when badge is clicked" time="0.013">
     </testcase>
-    <testcase classname="FilterView click handling toggles is-active class on click" name="FilterView click handling toggles is-active class on click" time="0.011">
+    <testcase classname="FilterView click handling toggles is-active class on click" name="FilterView click handling toggles is-active class on click" time="0.004">
     </testcase>
-    <testcase classname="FilterView click handling updates aria-pressed on click" name="FilterView click handling updates aria-pressed on click" time="0.003">
+    <testcase classname="FilterView click handling updates aria-pressed on click" name="FilterView click handling updates aria-pressed on click" time="0.004">
     </testcase>
     <testcase classname="FilterView click handling does not call onToggle when clicking outside badges" name="FilterView click handling does not call onToggle when clicking outside badges" time="0.003">
     </testcase>
-    <testcase classname="FilterView filter-pill class adds filter-pill class to badges" name="FilterView filter-pill class adds filter-pill class to badges" time="0.003">
+    <testcase classname="FilterView filter-pill class adds filter-pill class to badges" name="FilterView filter-pill class adds filter-pill class to badges" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="ResultsView" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:43:07" time="4.298" tests="22">
-    <testcase classname="ResultsView initialization creates a results view instance" name="ResultsView initialization creates a results view instance" time="0.13">
+  <testsuite name="ResultsView" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:47:19" time="2.6" tests="22">
+    <testcase classname="ResultsView initialization creates a results view instance" name="ResultsView initialization creates a results view instance" time="0.039">
     </testcase>
-    <testcase classname="ResultsView update renders project cards" name="ResultsView update renders project cards" time="0.297">
+    <testcase classname="ResultsView update renders project cards" name="ResultsView update renders project cards" time="0.211">
     </testcase>
     <testcase classname="ResultsView update displays project titles" name="ResultsView update displays project titles" time="0.059">
     </testcase>
-    <testcase classname="ResultsView update displays project descriptions" name="ResultsView update displays project descriptions" time="0.036">
+    <testcase classname="ResultsView update displays project descriptions" name="ResultsView update displays project descriptions" time="0.023">
     </testcase>
-    <testcase classname="ResultsView update displays project categories" name="ResultsView update displays project categories" time="0.053">
+    <testcase classname="ResultsView update displays project categories" name="ResultsView update displays project categories" time="0.035">
     </testcase>
-    <testcase classname="ResultsView update creates badges for tags" name="ResultsView update creates badges for tags" time="0.026">
+    <testcase classname="ResultsView update creates badges for tags" name="ResultsView update creates badges for tags" time="0.018">
     </testcase>
-    <testcase classname="ResultsView update updates results count" name="ResultsView update updates results count" time="0.014">
+    <testcase classname="ResultsView update updates results count" name="ResultsView update updates results count" time="0.015">
     </testcase>
     <testcase classname="ResultsView update handles single project count grammar" name="ResultsView update handles single project count grammar" time="0.005">
     </testcase>
-    <testcase classname="ResultsView showEmptyState displays empty state message when no filters" name="ResultsView showEmptyState displays empty state message when no filters" time="0.004">
+    <testcase classname="ResultsView showEmptyState displays empty state message when no filters" name="ResultsView showEmptyState displays empty state message when no filters" time="0.002">
     </testcase>
-    <testcase classname="ResultsView showEmptyState displays no matches message when has filters" name="ResultsView showEmptyState displays no matches message when has filters" time="0.001">
+    <testcase classname="ResultsView showEmptyState displays no matches message when has filters" name="ResultsView showEmptyState displays no matches message when has filters" time="0.002">
     </testcase>
     <testcase classname="ResultsView showEmptyState clears pagination on empty state" name="ResultsView showEmptyState clears pagination on empty state" time="0.009">
     </testcase>
-    <testcase classname="ResultsView showEmptyState clears results count on empty state" name="ResultsView showEmptyState clears results count on empty state" time="0.013">
+    <testcase classname="ResultsView showEmptyState clears results count on empty state" name="ResultsView showEmptyState clears results count on empty state" time="0.023">
     </testcase>
-    <testcase classname="ResultsView pagination shows pagination controls when more than 6 projects" name="ResultsView pagination shows pagination controls when more than 6 projects" time="0.018">
+    <testcase classname="ResultsView pagination shows pagination controls when more than 6 projects" name="ResultsView pagination shows pagination controls when more than 6 projects" time="0.023">
     </testcase>
-    <testcase classname="ResultsView pagination shows only 6 projects per page" name="ResultsView pagination shows only 6 projects per page" time="0.011">
+    <testcase classname="ResultsView pagination shows only 6 projects per page" name="ResultsView pagination shows only 6 projects per page" time="0.053">
     </testcase>
-    <testcase classname="ResultsView pagination does not show pagination for 6 or fewer projects" name="ResultsView pagination does not show pagination for 6 or fewer projects" time="0.006">
+    <testcase classname="ResultsView pagination does not show pagination for 6 or fewer projects" name="ResultsView pagination does not show pagination for 6 or fewer projects" time="0.013">
     </testcase>
-    <testcase classname="ResultsView pagination displays page info" name="ResultsView pagination displays page info" time="0.009">
+    <testcase classname="ResultsView pagination displays page info" name="ResultsView pagination displays page info" time="0.035">
     </testcase>
-    <testcase classname="ResultsView links and buttons creates view project button with correct href" name="ResultsView links and buttons creates view project button with correct href" time="0.007">
+    <testcase classname="ResultsView links and buttons creates view project button with correct href" name="ResultsView links and buttons creates view project button with correct href" time="0.015">
     </testcase>
-    <testcase classname="ResultsView links and buttons creates github link with correct href" name="ResultsView links and buttons creates github link with correct href" time="0.006">
+    <testcase classname="ResultsView links and buttons creates github link with correct href" name="ResultsView links and buttons creates github link with correct href" time="0.013">
     </testcase>
-    <testcase classname="ResultsView XSS Prevention does not execute script tags in content" name="ResultsView XSS Prevention does not execute script tags in content" time="0.006">
+    <testcase classname="ResultsView XSS Prevention does not execute script tags in content" name="ResultsView XSS Prevention does not execute script tags in content" time="0.005">
     </testcase>
-    <testcase classname="ResultsView XSS Prevention handles special characters in description" name="ResultsView XSS Prevention handles special characters in description" time="0.006">
+    <testcase classname="ResultsView XSS Prevention handles special characters in description" name="ResultsView XSS Prevention handles special characters in description" time="0.007">
     </testcase>
-    <testcase classname="ResultsView data attributes sets data-tags on project cards" name="ResultsView data attributes sets data-tags on project cards" time="0.009">
+    <testcase classname="ResultsView data attributes sets data-tags on project cards" name="ResultsView data attributes sets data-tags on project cards" time="0.007">
     </testcase>
-    <testcase classname="ResultsView refresh refresh re-renders current page" name="ResultsView refresh refresh re-renders current page" time="0.025">
+    <testcase classname="ResultsView refresh refresh re-renders current page" name="ResultsView refresh refresh re-renders current page" time="0.045">
     </testcase>
   </testsuite>
 </testsuites>
