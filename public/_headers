@@ -1,0 +1,31 @@
+# Cloudflare Pages Security Headers
+# Applied to all pages served from this site
+# Reference: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  # Prevent clickjacking attacks - only allow framing from same origin
+  X-Frame-Options: SAMEORIGIN
+  
+  # Prevent MIME type sniffing - browser should trust Content-Type header
+  X-Content-Type-Options: nosniff
+  
+  # Control referrer information sent with requests
+  # strict-origin-when-cross-origin: send full URL for same-origin, origin only for cross-origin
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # Content Security Policy - controls what resources can be loaded
+  # This is a permissive starting policy - tighten as needed
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.unsplash.com; frame-ancestors 'self';
+  
+  # Permissions Policy - control browser features
+  # Disable features we don't need for security
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  
+  # Force HTTPS (Cloudflare handles this, but good to be explicit)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# API routes - add CORS headers
+/api/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type

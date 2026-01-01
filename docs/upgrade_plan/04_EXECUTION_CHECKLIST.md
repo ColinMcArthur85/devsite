@@ -79,47 +79,47 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ---
 
-## Phase 2: Security Foundation 🔴
+## Phase 2: Security Foundation ✅ (Partial)
 
 > Reference: [03_SECURITY_HARDENING.md](./03_SECURITY_HARDENING.md)
 
 ### HTTP Security Headers
 
-- [ ] **2.1** Create `public/_headers` file with security headers
+- [x] **2.1** Create `public/_headers` file with security headers
   - X-Frame-Options
   - X-Content-Type-Options
   - Content-Security-Policy
   - Referrer-Policy
   - Permissions-Policy
 
-- [ ] **2.2** Deploy to Cloudflare Pages (staging)
-- [ ] **2.3** Verify headers in browser DevTools (Network tab)
+- [ ] **2.2** Deploy to Cloudflare Pages (staging) — *pending deployment*
+- [ ] **2.3** Verify headers in browser DevTools (Network tab) — *pending deployment*
 
 ### Sanitization Utility
 
-- [ ] **2.4** **[TDD: RED]** Create `src/js/utils/sanitize.test.js`
+- [x] **2.4** **[TDD: RED]** Create `src/js/utils/sanitize.test.js`
   - Write failing tests for escapeHtml
   - Write failing tests for stripTags
   - Write failing tests for sanitizeForUrl
   - Write failing tests for XSS vectors
 
-- [ ] **2.5** Run tests, confirm they fail
+- [x] **2.5** Run tests, confirm they fail — *confirmed: "Cannot find module"*
   ```bash
   npm test -- sanitize
   ```
 
-- [ ] **2.6** **[TDD: GREEN]** Create `src/js/utils/sanitize.js`
+- [x] **2.6** **[TDD: GREEN]** Create `src/js/utils/sanitize.js`
   - Implement escapeHtml
   - Implement stripTags
   - Implement sanitizeForUrl
   - Implement sanitizeText
 
-- [ ] **2.7** Run tests, confirm they pass
+- [x] **2.7** Run tests, confirm they pass — *47 tests passing*
   ```bash
   npm test -- sanitize
   ```
 
-- [ ] **2.8** **[TDD: REFACTOR]** Optimize if needed, tests still pass
+- [x] **2.8** **[TDD: REFACTOR]** Optimize if needed, tests still pass — *49 total tests passing*
 
 ---
 
