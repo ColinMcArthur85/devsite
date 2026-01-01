@@ -148,12 +148,12 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 - [x] **3.4** Run tests, confirm they pass — *24 tests passing*
 
-- [ ] **3.5** Test locally with Wrangler — *pending manual testing*
+- [x] **3.5** Test locally with Wrangler — *confirmed working*
   ```bash
   npm run dev
   ```
 
-- [ ] **3.6** Verify API works in Image Search page — *pending manual testing*
+- [x] **3.6** Verify API works in Image Search page — *confirmed working*
 
 ### Environment Variables
 
@@ -261,26 +261,26 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ---
 
-## Phase 7: Integration Tests 🟡
+## Phase 7: Integration Tests ✅
 
 > Reference: [02_BDD_FEATURES.md](./02_BDD_FEATURES.md)
 
-- [ ] **7.1** Create `__tests__/integration/projects-filter.test.js`
+- [x] **7.1** Create `__tests__/integration/projects-filter.test.js` — *14 tests*
   - Test full filtering workflow
   - Test filter persistence
 
-- [ ] **7.2** Create `__tests__/integration/contact-form.test.js`
+- [x] **7.2** Create `__tests__/integration/contact-form.test.js` — *13 tests*
   - Test form submission workflow
 
-- [ ] **7.3** Create `__tests__/integration/theme-toggle.test.js`
+- [x] **7.3** Create `__tests__/integration/theme-toggle.test.js` — *12 tests*
   - Test theme switching
   - Test localStorage persistence
 
-- [ ] **7.4** Create `__tests__/integration/image-search.test.js`
+- [x] **7.4** Create `__tests__/integration/image-search.test.js` — *19 tests*
   - Test search workflow
   - Test error handling
 
-- [ ] **7.5** Run all integration tests
+- [x] **7.5** Run all integration tests — *58 tests passing*
   ```bash
   npm run test:integration
   ```
@@ -466,7 +466,7 @@ git add -A && git commit -m "..."  # Commit changes
 | Phase 4: Core Unit Tests | [x] | 2026-01-01 | AI + User |
 | Phase 5: View Layer Tests | [x] | 2026-01-01 | AI + User |
 | Phase 6: Contact Form Security | [x] | 2026-01-01 | AI + User |
-| Phase 7: Integration Tests | [ ] | | |
+| Phase 7: Integration Tests | [x] | 2026-01-01 | AI + User |
 | Phase 8: Security Tests | [ ] | | |
 | Phase 9: Dependency Management | [ ] | | |
 | Phase 10: Documentation | [ ] | | |
