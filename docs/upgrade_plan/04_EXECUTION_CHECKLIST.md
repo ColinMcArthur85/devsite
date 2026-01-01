@@ -165,45 +165,45 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ---
 
-## Phase 4: Core Unit Tests 🟠
+## Phase 4: Core Unit Tests ✅
 
 > Reference: [02_BDD_FEATURES.md](./02_BDD_FEATURES.md)
 
 ### Filter State Tests
 
-- [ ] **4.1** **[TDD: RED]** Create `src/js/state/filter-state.test.js`
+- [x] **4.1** **[TDD: RED]** Create `src/js/state/filter-state.test.js`
   - Test toggle functionality
   - Test isActive functionality  
   - Test serialise functionality
   - Test apply filtering logic
   - Test edge cases (empty, invalid)
 
-- [ ] **4.2** Run tests, verify coverage
+- [x] **4.2** Run tests, verify coverage — *24 tests passing*
   ```bash
   npm test -- filter-state
   ```
 
-- [ ] **4.3** **[TDD: REFACTOR]** Improve filter-state.js if needed
+- [x] **4.3** **[TDD: REFACTOR]** Improve filter-state.js if needed — *code already clean*
 
 ### UI Component Tests
 
-- [ ] **4.4** **[TDD: RED]** Create `src/js/components/ui.test.js`
+- [x] **4.4** **[TDD: RED]** Create `src/js/components/ui.test.js`
   - Test createButton functionality
   - Test createBadge functionality
   - Test color config mapping
   - Test sanitization of badge text
 
-- [ ] **4.5** Run tests, verify they pass
+- [x] **4.5** Run tests, verify they pass — *25 tests passing*
 
-- [ ] **4.6** **[TDD: REFACTOR]** Update ui.js to use sanitization
+- [x] **4.6** **[TDD: REFACTOR]** Update ui.js to use sanitization — *uses textContent already*
 
 ### Project Service Tests
 
-- [ ] **4.7** **[TDD: RED]** Create `src/js/services/project-service.test.js`
+- [x] **4.7** **[TDD: RED]** Create `src/js/services/project-service.test.js`
   - Test fetchAll returns projects
   - Test data structure validation
 
-- [ ] **4.8** Run tests, verify they pass
+- [x] **4.8** Run tests, verify they pass — *10 tests passing*
 
 ---
 
@@ -463,7 +463,7 @@ git add -A && git commit -m "..."  # Commit changes
 | Phase 1: Test Infrastructure | [x] | 2026-01-01 | AI + User |
 | Phase 2: Security Foundation | [ ] | | |
 | Phase 3: API Security | [ ] | | |
-| Phase 4: Core Unit Tests | [ ] | | |
+| Phase 4: Core Unit Tests | [x] | 2026-01-01 | AI + User |
 | Phase 5: View Layer Tests | [ ] | | |
 | Phase 6: Contact Form Security | [ ] | | |
 | Phase 7: Integration Tests | [ ] | | |
