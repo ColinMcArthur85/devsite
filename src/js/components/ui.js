@@ -34,7 +34,7 @@ export function createButton({ text = "", href = "", classes = "", type = "butto
   return element;
 }
 
-import { TAG_COLORS } from '../config/color-config.js';
+import { TAG_COLORS } from "../config/color-config.js";
 
 export function createBadge({ text = "", classes = "", variant, appearance = "solid" }) {
   const span = document.createElement("span");
@@ -51,31 +51,30 @@ export function createBadge({ text = "", classes = "", variant, appearance = "so
   // Color logic
   const key = text.toLowerCase();
   const colorVar = TAG_COLORS[key] || TAG_COLORS[computedVariant];
-  
-  if (colorVar) {
-     if (appearance === 'ghost') {
-        span.style.color = colorVar;
-        span.style.borderColor = colorVar;
-        span.style.backgroundColor = `color-mix(in srgb, ${colorVar} 10%, transparent)`;
-     } else {
-        // Solid
-        span.style.backgroundColor = colorVar;
-        // Adjust text color based on brightness if needed, or stick to white for solid
-        // For brighter colors like JS (yellow) or CSS Battle (yellow), we might need dark text.
-        if (['javascript', 'js', 'css battle', 'css-battle'].includes(key) || colorVar.includes('yellow')) {
-             span.style.color = '#000';
-        } else {
-             span.style.color = '#fff';
-        }
-     }
-  } else {
-      // Fallback classes if no specific color found
-      if (computedVariant) {
-        span.dataset.variant = computedVariant;
-        span.classList.add(`badge--${computedVariant}`);
-      }
-  }
 
+  if (colorVar) {
+    if (appearance === "ghost") {
+      span.style.color = colorVar;
+      span.style.borderColor = colorVar;
+      span.style.backgroundColor = `color-mix(in srgb, ${colorVar} 10%, transparent)`;
+    } else {
+      // Solid
+      span.style.backgroundColor = colorVar;
+      // Adjust text color based on brightness if needed, or stick to white for solid
+      // For brighter colors like JS (yellow) or CSS Battle (yellow), we might need dark text.
+      if (["javascript", "js", "css battle", "css-battle"].includes(key) || colorVar.includes("yellow")) {
+        span.style.color = "#000";
+      } else {
+        span.style.color = "#fff";
+      }
+    }
+  } else {
+    // Fallback classes if no specific color found
+    if (computedVariant) {
+      span.dataset.variant = computedVariant;
+      span.classList.add(`badge--${computedVariant}`);
+    }
+  }
 
   if (appearance === "ghost") {
     span.classList.add("badge--ghost");

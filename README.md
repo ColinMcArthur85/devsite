@@ -40,6 +40,7 @@ npm run test:coverage     # Generate coverage report
 ```
 
 Comprehensive tests cover:
+
 - **Sanitization Utilities**: 47+ tests for XSS prevention.
 - **API Security**: 24+ tests for Unsplash API hardening.
 - **Core State**: 24+ tests for filter state management.

@@ -1,7 +1,7 @@
-import { ProjectService } from './services/project-service.js';
-import { createFilterState } from './state/filter-state.js';
-import { FilterView } from './views/filter-view.js';
-import { ResultsView } from './views/results-view.js';
+import { ProjectService } from "./services/project-service.js";
+import { createFilterState } from "./state/filter-state.js";
+import { FilterView } from "./views/filter-view.js";
+import { ResultsView } from "./views/results-view.js";
 
 const SELECTORS = {
   list: "project-list",
@@ -96,8 +96,8 @@ function initProjects() {
 // But index.html imports this file directly.
 // So let's run it.
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initProjects);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProjects);
 } else {
   initProjects();
 }

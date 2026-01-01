@@ -1,6 +1,7 @@
 import skills from "../../data/skills.json";
 import { skillsConfig } from "../config/skills-config.js";
 import { createBadge } from "../components/ui.js";
+import { escapeHtml } from "../utils/sanitize.js";
 
 export function renderSkills() {
   // Manual stats for external projects (e.g. Timesheet Tracker)
@@ -9,11 +10,11 @@ export function renderSkills() {
     CSS: 500,
     JavaScript: 15000, // Next.js + Node logic
     MySQL: 500, // Postgres/SQL logic
-    React: 5000 
+    React: 5000,
   };
 
   const mergedSkills = { ...skills };
-  Object.keys(externalStats).forEach(key => {
+  Object.keys(externalStats).forEach((key) => {
     mergedSkills[key] = (mergedSkills[key] || 0) + externalStats[key];
   });
 
@@ -31,7 +32,7 @@ export function renderSkills() {
       // The original HTML had "0%" and "0 lines" initially.
 
       // We need to handle the gradient title for MySQL
-      let titleHtml = `<h3 class="card-title ${config.class} text-[${config.color}]">${config.title}</h3>`;
+      let titleHtml = `<h3 class="card-title ${config.class} text-[${config.color}]">${escapeHtml(config.title)}</h3>`;
       if (config.isGradient) {
         titleHtml = `<h3 class="card-title ${config.class}">
         <span class="text-[${config.color}]">My</span>
@@ -42,7 +43,7 @@ export function renderSkills() {
       // Badge
       let badgeHtml = "";
       if (config.badge) {
-        badgeHtml = `<span data-badge="${config.badge}"></span>`;
+        badgeHtml = `<span data-badge="${escapeHtml(config.badge)}"></span>`;
       }
 
       // Progress bar gradient

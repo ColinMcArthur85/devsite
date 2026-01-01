@@ -6,11 +6,7 @@
   };
 
   const DEFAULTS = {
-    commands: [
-      { text: "sudo ./init-portfolio.sh" },
-      { text: "Loading Developer Profile...", pause: 1500 },
-      { text: "Welcome to my portfolio!" },
-    ],
+    commands: [{ text: "sudo ./init-portfolio.sh" }, { text: "Loading Developer Profile...", pause: 1500 }, { text: "Welcome to my portfolio!" }],
     startDelay: 800,
     typingDelay: 45,
     holdDelay: 2000,

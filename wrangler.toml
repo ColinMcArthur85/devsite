@@ -1,4 +1,0 @@
-name = "devsite"
-compatibility_date = "2025-11-18"
-# Directory containing static assets for Cloudflare Pages
-# pages_build_output_dir = "dist"

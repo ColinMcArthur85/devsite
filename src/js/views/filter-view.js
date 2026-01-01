@@ -1,4 +1,4 @@
-import { createBadge } from '../components/ui.js';
+import { createBadge } from "../components/ui.js";
 
 export function FilterView(container, group, onToggle) {
   const handleClick = (event) => {

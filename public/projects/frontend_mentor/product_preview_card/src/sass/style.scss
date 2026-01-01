@@ -63,39 +63,15 @@ button {
     @include flex(column, space-between, flex-start);
     padding: 2rem;
     &-perfume {
-      @include text(
-        $ff-montserat,
-        400,
-        1rem,
-        $clr-neutral-gray-blue,
-        1rem,
-        0.5rem,
-        uppercase
-      );
+      @include text($ff-montserat, 400, 1rem, $clr-neutral-gray-blue, 1rem, 0.5rem, uppercase);
       padding-bottom: 1rem;
     }
     &-title {
-      @include text(
-        $ff-fraunces,
-        2.5rem,
-        700,
-        $clr-neutral-dk-blue,
-        2.5rem,
-        0.1rem,
-        none
-      );
+      @include text($ff-fraunces, 2.5rem, 700, $clr-neutral-dk-blue, 2.5rem, 0.1rem, none);
       padding-bottom: 1rem;
     }
     &-body {
-      @include text(
-        $ff-montserat,
-        1.25rem,
-        500,
-        $clr-neutral-gray-blue,
-        inherit,
-        inherit,
-        none
-      );
+      @include text($ff-montserat, 1.25rem, 500, $clr-neutral-gray-blue, inherit, inherit, none);
       padding-bottom: 2rem;
     }
   }
@@ -103,27 +79,11 @@ button {
     @include flex(row, space-between, flex-start);
     align-items: center;
     &-left {
-      @include text(
-        $ff-fraunces,
-        3rem,
-        700,
-        $clr-primary-green,
-        inherit,
-        inherit,
-        none
-      );
+      @include text($ff-fraunces, 3rem, 700, $clr-primary-green, inherit, inherit, none);
       padding-right: 2rem;
     }
     &-right {
-      @include text(
-        $ff-montserat,
-        1.25rem,
-        500,
-        $clr-neutral-gray-blue,
-        inherit,
-        inherit,
-        none
-      );
+      @include text($ff-montserat, 1.25rem, 500, $clr-neutral-gray-blue, inherit, inherit, none);
       text-decoration: line-through;
     }
   }

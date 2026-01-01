@@ -1,65 +1,53 @@
 /**
  * Unsplash API Proxy
- * 
+ *
  * Cloudflare Pages Function that proxies requests to Unsplash API.
  * Includes security hardening: input validation, CORS, error sanitization.
  */
 
 // Import helper functions (for Cloudflare Workers, these are bundled)
 // For local testing, we use require(); in production, the bundler handles it
-const helpers = require('./unsplash-helpers');
+const helpers = require("./unsplash-helpers");
 
 export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
-  
+
   // Determine environment
-  const environment = env.ENVIRONMENT || 'development';
-  
+  const environment = env.ENVIRONMENT || "development";
+
   // Get origin for CORS
-  const origin = request.headers.get('Origin') || '';
+  const origin = request.headers.get("Origin") || "";
   const corsHeaders = helpers.getCorsHeaders(origin, environment);
 
   // Handle preflight requests
-  if (request.method === 'OPTIONS') {
-    return new Response(null, { 
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
       status: 204,
-      headers: corsHeaders 
+      headers: corsHeaders,
     });
   }
 
   // Only allow GET requests
-  if (request.method !== 'GET') {
-    return jsonResponse(
-      { error: 'Method not allowed' },
-      405,
-      corsHeaders
-    );
+  if (request.method !== "GET") {
+    return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders);
   }
 
   // Validate and sanitize query parameter
   const queryParam = url.searchParams.get("query");
   const queryResult = helpers.validateQuery(queryParam);
-  
+
   if (!queryResult.valid) {
-    return jsonResponse(
-      { error: queryResult.error },
-      400,
-      corsHeaders
-    );
+    return jsonResponse({ error: queryResult.error }, 400, corsHeaders);
   }
 
   // Validate pagination
   const pageParam = url.searchParams.get("page");
   const perPageParam = url.searchParams.get("per_page");
   const paginationResult = helpers.validatePagination(pageParam, perPageParam);
-  
+
   if (!paginationResult.valid) {
-    return jsonResponse(
-      { error: paginationResult.error },
-      400,
-      corsHeaders
-    );
+    return jsonResponse({ error: paginationResult.error }, 400, corsHeaders);
   }
 
   // Optional parameters (validated)
@@ -68,23 +56,15 @@ export async function onRequest(context) {
   const orderBy = url.searchParams.get("order_by") || "relevant";
 
   // Validate orientation if provided
-  const validOrientations = ['landscape', 'portrait', 'squarish'];
+  const validOrientations = ["landscape", "portrait", "squarish"];
   if (orientation && !validOrientations.includes(orientation)) {
-    return jsonResponse(
-      { error: 'Invalid orientation value' },
-      400,
-      corsHeaders
-    );
+    return jsonResponse({ error: "Invalid orientation value" }, 400, corsHeaders);
   }
 
   // Validate orderBy
-  const validOrderBy = ['relevant', 'latest'];
+  const validOrderBy = ["relevant", "latest"];
   if (!validOrderBy.includes(orderBy)) {
-    return jsonResponse(
-      { error: 'Invalid order_by value' },
-      400,
-      corsHeaders
-    );
+    return jsonResponse({ error: "Invalid order_by value" }, 400, corsHeaders);
   }
 
   // Build Unsplash API URL
@@ -106,38 +86,23 @@ export async function onRequest(context) {
     // Check for Unsplash API errors
     if (!response.ok) {
       const status = response.status;
-      
+
       // Rate limiting
       if (status === 403) {
-        return jsonResponse(
-          { error: 'Rate limit exceeded. Please try again later.' },
-          429,
-          corsHeaders
-        );
+        return jsonResponse({ error: "Rate limit exceeded. Please try again later." }, 429, corsHeaders);
       }
-      
+
       // Other errors
-      return jsonResponse(
-        { error: 'Unable to fetch images. Please try again.' },
-        status >= 500 ? 502 : status,
-        corsHeaders
-      );
+      return jsonResponse({ error: "Unable to fetch images. Please try again." }, status >= 500 ? 502 : status, corsHeaders);
     }
 
     const data = await response.json();
     return jsonResponse(data, 200, corsHeaders);
-    
   } catch (err) {
     // Sanitize error message before sending to client
-    const safeMessage = helpers.sanitizeErrorMessage(
-      err && err.message ? err.message : String(err)
-    );
-    
-    return jsonResponse(
-      { error: safeMessage },
-      500,
-      corsHeaders
-    );
+    const safeMessage = helpers.sanitizeErrorMessage(err && err.message ? err.message : String(err));
+
+    return jsonResponse({ error: safeMessage }, 500, corsHeaders);
   }
 }
 
@@ -149,7 +114,7 @@ function jsonResponse(data, status, corsHeaders) {
     status,
     headers: {
       "Content-Type": "application/json",
-      ...corsHeaders
+      ...corsHeaders,
     },
   });
 }

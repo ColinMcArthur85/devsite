@@ -17,7 +17,7 @@
 
 ### 1. Behavior-Driven & Test-Driven Development (BDD/TDD)
 
-> **Rule:** Implementation code is *never* written before the test.
+> **Rule:** Implementation code is _never_ written before the test.
 
 #### Workflow
 
@@ -36,11 +36,11 @@
 
 #### Test File Naming
 
-| Type | Pattern | Location |
-|------|---------|----------|
-| Unit | `*.test.js` | Co-located with source |
+| Type        | Pattern                 | Location                 |
+| ----------- | ----------------------- | ------------------------ |
+| Unit        | `*.test.js`             | Co-located with source   |
 | Integration | `*.integration.test.js` | `__tests__/integration/` |
-| Security | `*.security.test.js` | `__tests__/security/` |
+| Security    | `*.security.test.js`    | `__tests__/security/`    |
 
 ---
 
@@ -55,20 +55,20 @@
 
 #### Constraints
 
-| Constraint | Enforcement |
-|------------|-------------|
-| **Never commit secrets** | Use `.dev.vars` (local), Cloudflare env vars (production) |
-| **Content Security Policy** | Defined in `public/_headers` |
-| **Input sanitization** | Use `src/js/utils/sanitize.js` for all user input |
-| **Form validation** | Client-side AND server-side (Cloudflare Functions) |
-| **Dependency auditing** | `npm audit` before major updates |
+| Constraint                  | Enforcement                                               |
+| --------------------------- | --------------------------------------------------------- |
+| **Never commit secrets**    | Use `.dev.vars` (local), Cloudflare env vars (production) |
+| **Content Security Policy** | Defined in `public/_headers`                              |
+| **Input sanitization**      | Use `src/js/utils/sanitize.js` for all user input         |
+| **Form validation**         | Client-side AND server-side (Cloudflare Functions)        |
+| **Dependency auditing**     | `npm audit` before major updates                          |
 
 #### Security Utilities
 
 Always use these functions when handling user input:
 
 ```javascript
-import { escapeHtml, sanitizeForUrl, sanitizeText } from '@/js/utils/sanitize.js';
+import { escapeHtml, sanitizeForUrl, sanitizeText } from "@/js/utils/sanitize.js";
 
 // For HTML rendering
 element.innerHTML = `<p>${escapeHtml(userInput)}</p>`;
@@ -86,12 +86,12 @@ element.textContent = sanitizeText(userInput);
 
 #### Technology Stack
 
-| Layer | Technology |
-|-------|------------|
-| Build | Vite |
-| Styling | Tailwind CSS (v4) |
-| Testing | Jest + jsdom |
-| Hosting | Cloudflare Pages |
+| Layer     | Technology         |
+| --------- | ------------------ |
+| Build     | Vite               |
+| Styling   | Tailwind CSS (v4)  |
+| Testing   | Jest + jsdom       |
+| Hosting   | Cloudflare Pages   |
 | Functions | Cloudflare Workers |
 
 #### Code Style
@@ -102,12 +102,12 @@ element.textContent = sanitizeText(userInput);
 
 #### Naming Conventions
 
-| Element | Convention | Example |
-|---------|------------|---------|
-| Files | kebab-case | `filter-state.js` |
-| Functions | camelCase | `createFilterState` |
-| Constants | SCREAMING_SNAKE_CASE | `RATE_LIMIT` |
-| Classes | PascalCase | `FilterView` |
+| Element   | Convention           | Example             |
+| --------- | -------------------- | ------------------- |
+| Files     | kebab-case           | `filter-state.js`   |
+| Functions | camelCase            | `createFilterState` |
+| Constants | SCREAMING_SNAKE_CASE | `RATE_LIMIT`        |
+| Classes   | PascalCase           | `FilterView`        |
 
 #### Documentation Requirements
 
@@ -145,15 +145,17 @@ devsite/
 When asked to perform a task:
 
 ### Step 1: Reference Checklist
+
 Identify the specific step in `docs/upgrade_plan/04_EXECUTION_CHECKLIST.md` being addressed.
 
 ### Step 2: Propose Test First
+
 Present the test case following the TDD template:
 
 ```javascript
-describe('ComponentName', () => {
-  describe('featureName', () => {
-    it('should [expected behavior] when [condition]', () => {
+describe("ComponentName", () => {
+  describe("featureName", () => {
+    it("should [expected behavior] when [condition]", () => {
       // Arrange
       // Act
       // Assert
@@ -163,16 +165,20 @@ describe('ComponentName', () => {
 ```
 
 ### Step 3: Confirm Before Implementation
+
 Wait for user confirmation before generating implementation code.
 
 ### Step 4: Security Verification
+
 Before finalizing, verify:
+
 - [ ] No hardcoded secrets
 - [ ] Input sanitization applied
 - [ ] Error messages don't expose internals
 - [ ] CORS configured correctly (for APIs)
 
 ### Step 5: Report Test Results
+
 Always run and report results of `npm test`.
 
 ---
@@ -202,6 +208,7 @@ npm audit fix            # Auto-fix vulnerabilities
 When implementing a new feature, follow this structure:
 
 ### 1. User Story
+
 ```gherkin
 Feature: [Feature Name]
   As a [role]
@@ -210,6 +217,7 @@ Feature: [Feature Name]
 ```
 
 ### 2. Acceptance Criteria
+
 ```gherkin
 Scenario: [Scenario Name]
   Given [precondition]
@@ -218,6 +226,7 @@ Scenario: [Scenario Name]
 ```
 
 ### 3. Test File Header
+
 ```javascript
 /**
  * @file feature-name.test.js
@@ -227,6 +236,7 @@ Scenario: [Scenario Name]
 ```
 
 ### 4. Implementation with Documentation
+
 ```javascript
 /**
  * Brief description of function
@@ -257,24 +267,25 @@ Pause and request user input when:
 
 ## References
 
-| Document | Purpose |
-|----------|---------|
-| [01_TDD_STRATEGY.md](docs/upgrade_plan/01_TDD_STRATEGY.md) | Testing configuration and templates |
-| [02_BDD_FEATURES.md](docs/upgrade_plan/02_BDD_FEATURES.md) | Feature specifications |
-| [03_SECURITY_HARDENING.md](docs/upgrade_plan/03_SECURITY_HARDENING.md) | Security implementation |
-| [04_EXECUTION_CHECKLIST.md](docs/upgrade_plan/04_EXECUTION_CHECKLIST.md) | Step-by-step implementation |
-| [.agent/dependency-cleanup.md](.agent/dependency-cleanup.md) | Dependency audit |
-| [.agent/security-audit.md](.agent/security-audit.md) | Security assessment |
+| Document                                                                 | Purpose                             |
+| ------------------------------------------------------------------------ | ----------------------------------- |
+| [01_TDD_STRATEGY.md](docs/upgrade_plan/01_TDD_STRATEGY.md)               | Testing configuration and templates |
+| [02_BDD_FEATURES.md](docs/upgrade_plan/02_BDD_FEATURES.md)               | Feature specifications              |
+| [03_SECURITY_HARDENING.md](docs/upgrade_plan/03_SECURITY_HARDENING.md)   | Security implementation             |
+| [04_EXECUTION_CHECKLIST.md](docs/upgrade_plan/04_EXECUTION_CHECKLIST.md) | Step-by-step implementation         |
+| [.agent/dependency-cleanup.md](.agent/dependency-cleanup.md)             | Dependency audit                    |
+| [.agent/security-audit.md](.agent/security-audit.md)                     | Security assessment                 |
 
 ---
+
 **Version:** 2.1
 **Last Updated:** 2026-01-01
 **Classification:** Agent Configuration
 
 ## Version History
 
-| Version | Date | Changes |
-|---------|------|---------|
-| 1.0 | 2025-12-31 | Initial agent guidelines |
-| 2.0 | 2025-12-31 | Enhanced with TDD/BDD/Security directives |
-| 2.1 | 2026-01-01 | Finalized after Phase 10 completion |
+| Version | Date       | Changes                                   |
+| ------- | ---------- | ----------------------------------------- |
+| 1.0     | 2025-12-31 | Initial agent guidelines                  |
+| 2.0     | 2025-12-31 | Enhanced with TDD/BDD/Security directives |
+| 2.1     | 2026-01-01 | Finalized after Phase 10 completion       |

@@ -47,8 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const prefersReducedMotion =
-        typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const prefersReducedMotion = typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
         createdPills.forEach((pill) => {
@@ -71,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         },
-        { threshold: 0.35 }
+        { threshold: 0.35 },
       );
 
       createdPills.forEach((pill) => observer.observe(pill));

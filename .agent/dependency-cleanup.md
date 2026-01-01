@@ -35,54 +35,62 @@ This document outlines dependencies that should be reviewed for removal or conso
 ## ❌ Recommended for Removal
 
 ### 1. `autoprefixer` - **Likely Unused**
-- [ ] **Remove**: Tailwind CSS v4 includes autoprefixing by default
+
+- [x] **Remove**: Tailwind CSS v4 includes autoprefixing by default
 - **Reason**: With `@tailwindcss/vite` plugin, autoprefixer is built-in
 - **Action**: Remove from `devDependencies`
 - **Verification**: Build and check CSS output still has vendor prefixes
 
 ### 2. `nodemon` - **Unused**
-- [ ] **Remove**: Not referenced in any npm scripts or config files
+
+- [x] **Remove**: Not referenced in any npm scripts or config files
 - **Reason**: Vite handles hot-reload; Wrangler handles function reloading
 - **Action**: Remove from `devDependencies`
 - **Verification**: Confirm no scripts use `nodemon`
 
 ### 3. `concurrently` - **Unused**
-- [ ] **Remove**: Not referenced in any npm scripts
+
+- [x] **Remove**: Not referenced in any npm scripts
 - **Reason**: Previous build setup may have needed this, but current `wrangler pages dev -- vite` handles concurrent processes
 - **Action**: Remove from `devDependencies`
 - **Verification**: Check `package.json` scripts don't use `concurrently`
 
 ### 4. `dotenv` - **Potentially Unused**
-- [ ] **Review**: Check if used anywhere in codebase
-- **Reason**: Cloudflare uses `.dev.vars` and `wrangler.toml` for env vars, not `dotenv`
-- **Action**: Search codebase for `require('dotenv')` or `import dotenv`
-- **Verification**: If not found, safe to remove
+
+- [x] **Review**: Check if used anywhere in codebase
+- **Reason**: Cloudflare uses `.dev.vars` and `wrangler.toml` for env vars, but **dotenv is required for local Jest testing** (used in `unsplash.test.js`).
+- **Action**: Keep for dev environment support.
+- **Verification**: Confirmed usage in `functions/api/unsplash.test.js`.
 
 ### 5. `@tailwindcss/cli` (regular dependency) - **Misplaced**
-- [ ] **Move to devDependencies**: CLI tool is only needed for development
+
+- [x] **Move to devDependencies**: CLI tool is only needed for development
 - **Reason**: Should be devDependency, not production dependency
 - **Action**: Move from `dependencies` to `devDependencies`
 - **Verification**: Build still works
 
 ### 6. `tailgrids` - **Review Usage**
-- [ ] **Review**: Check if Tailgrids components are actually used
-- **Reason**: Only referenced in `tailwind.config.js` as a plugin
-- **Action**: Search for Tailgrids-specific classes or components in HTML/CSS
-- **Verification**: If not actively used, consider removing to reduce bundle size
+
+- [x] **Review**: Check if Tailgrids components are actually used
+- **Reason**: Only referenced in `tailwind.config.js` as a plugin; no `ud-` classes found in source.
+- **Action**: Removed from `package.json` and `tailwind.config.js`.
+- **Verification**: Build and dev server still function.
 
 ---
 
 ## ⚠️ Dependencies to Keep (But Consider Updating)
 
 ### Babel Stack (`@babel/core`, `@babel/preset-env`, `babel-jest`)
+
 - **Keep**: Required for Jest testing
 - **Consider**: Could potentially switch to Vitest which would eliminate need for Babel
 - [ ] **Future TODO**: Evaluate migrating from Jest to Vitest for better Vite integration
 
 ### Prettier Stack (`prettier`, `prettier-plugin-tailwindcss`)
+
 - **Keep**: Used for code formatting
 - **Note**: Consider adding a `.prettierrc` format script to `package.json`
-- [ ] **Improvement**: Add `"format": "prettier --write ."` script
+- [x] **Improvement**: Add `"format": "prettier --write ."` script (Done)
 
 ---
 

@@ -26,8 +26,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role=list],
-ol[role=list] {
+ul[role="list"],
+ol[role="list"] {
   list-style: none;
 }
 
@@ -46,7 +46,7 @@ body {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   -webkit-text-decoration-skip: ink;
-          text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -70,12 +70,12 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     -webkit-animation-duration: 0.01ms !important;
-            animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
-            animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -108,10 +108,10 @@ h4 {
   color: hsl(333deg, 80%, 67%);
 }
 
-img[data-type=star-icon] {
+img[data-type="star-icon"] {
   width: 1.5rem;
 }
-img[data-type=profile-headshot] {
+img[data-type="profile-headshot"] {
   border-radius: 50%;
   margin-right: 1.25rem;
   width: 3rem;
@@ -212,4 +212,4 @@ img[data-type=profile-headshot] {
     position: relative;
     right: 3rem;
   }
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
