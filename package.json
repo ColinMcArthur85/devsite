@@ -13,7 +13,8 @@
     "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit",
     "test:unit": "jest --testPathPattern='(src|functions)/.*\\.test\\.js$'",
     "test:integration": "jest --testPathPattern='__tests__/integration'",
-    "test:security": "jest --testPathPattern='__tests__/security'"
+    "test:security": "jest --testPathPattern='__tests__/security'",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -31,7 +32,6 @@
     "jest-junit": "^16.0.0",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailgrids": "^2.3.0",
     "tailwindcss": "^4.1.5",
     "vite": "^6.4.1"
   }

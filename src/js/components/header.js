@@ -13,7 +13,7 @@ const ensureMenuContainer = () => {
   return menuContainer;
 };
 
-import menuHtml from '../../components/menu.html?raw';
+import menuHtml from "../../components/menu.html?raw";
 
 const loadMenu = () => {
   const menuContainer = ensureMenuContainer();

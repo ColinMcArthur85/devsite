@@ -1,6 +1,6 @@
 /**
  * Jest Setup File
- * 
+ *
  * This file runs before each test file and sets up global mocks
  * for browser APIs that aren't available in jsdom.
  */
@@ -14,13 +14,13 @@ const localStorageMock = {
   length: 0,
   key: jest.fn(),
 };
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(window, "localStorage", {
   value: localStorageMock,
   writable: true,
 });
 
 // Mock sessionStorage
-Object.defineProperty(window, 'sessionStorage', {
+Object.defineProperty(window, "sessionStorage", {
   value: localStorageMock,
   writable: true,
 });
@@ -30,24 +30,30 @@ class IntersectionObserverMock {
   constructor(callback) {
     this.callback = callback;
   }
-  observe() { return null; }
-  unobserve() { return null; }
-  disconnect() { return null; }
+  observe() {
+    return null;
+  }
+  unobserve() {
+    return null;
+  }
+  disconnect() {
+    return null;
+  }
 }
-Object.defineProperty(window, 'IntersectionObserver', {
+Object.defineProperty(window, "IntersectionObserver", {
   value: IntersectionObserverMock,
   writable: true,
 });
 
 // Mock matchMedia
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
-  value: jest.fn().mockImplementation(query => ({
+  value: jest.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(),      // deprecated
-    removeListener: jest.fn(),   // deprecated
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
@@ -56,11 +62,17 @@ Object.defineProperty(window, 'matchMedia', {
 
 // Mock ResizeObserver
 class ResizeObserverMock {
-  observe() { return null; }
-  unobserve() { return null; }
-  disconnect() { return null; }
+  observe() {
+    return null;
+  }
+  unobserve() {
+    return null;
+  }
+  disconnect() {
+    return null;
+  }
 }
-Object.defineProperty(window, 'ResizeObserver', {
+Object.defineProperty(window, "ResizeObserver", {
   value: ResizeObserverMock,
   writable: true,
 });
@@ -73,8 +85,8 @@ global.fetch = jest.fn(() =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve({}),
-    text: () => Promise.resolve(''),
-  })
+    text: () => Promise.resolve(""),
+  }),
 );
 
 // Clear all mocks between tests

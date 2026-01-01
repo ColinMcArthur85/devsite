@@ -20,13 +20,13 @@ User Story → Acceptance Criteria → Failing Test → Implementation → Passi
 
 ## 2. Feature Categories
 
-| Category | Features | Priority |
-|----------|----------|----------|
-| Navigation | Header, Mobile Menu, Theme Toggle | High |
-| Project Gallery | Filtering, Pagination, Cards | High |
-| Contact | Form Submission, Validation | Medium |
-| Skills Display | Stats Rendering, Animations | Low |
-| API Integration | Image Search (Unsplash) | Medium |
+| Category        | Features                          | Priority |
+| --------------- | --------------------------------- | -------- |
+| Navigation      | Header, Mobile Menu, Theme Toggle | High     |
+| Project Gallery | Filtering, Pagination, Cards      | High     |
+| Contact         | Form Submission, Validation       | Medium   |
+| Skills Display  | Stats Rendering, Animations       | Low      |
+| API Integration | Image Search (Unsplash)           | Medium   |
 
 ---
 
@@ -35,6 +35,7 @@ User Story → Acceptance Criteria → Failing Test → Implementation → Passi
 ### Feature F01: Project Gallery Filtering
 
 **User Story:**
+
 > As a **visitor**, I want to **filter projects by technology or category** so that I can **find relevant examples of work**.
 
 **Acceptance Criteria:**
@@ -92,10 +93,10 @@ Feature: Project Gallery Filtering
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: Filter state management | `src/js/state/filter-state.test.js` |
-| Unit: Filter view rendering | `src/js/views/filter-view.test.js` |
+| Scenario                      | Test File                                       |
+| ----------------------------- | ----------------------------------------------- |
+| Unit: Filter state management | `src/js/state/filter-state.test.js`             |
+| Unit: Filter view rendering   | `src/js/views/filter-view.test.js`              |
 | Integration: Full filter flow | `__tests__/integration/projects-filter.test.js` |
 
 ---
@@ -103,6 +104,7 @@ Feature: Project Gallery Filtering
 ### Feature F02: Project Card Display
 
 **User Story:**
+
 > As a **visitor**, I want to **view project cards with details** so that I can **understand the scope and technologies of each project**.
 
 **Acceptance Criteria:**
@@ -145,10 +147,10 @@ Feature: Project Card Display
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: Card rendering | `src/js/views/results-view.test.js` |
-| Unit: Badge creation | `src/js/components/ui.test.js` |
+| Scenario                  | Test File                                     |
+| ------------------------- | --------------------------------------------- |
+| Unit: Card rendering      | `src/js/views/results-view.test.js`           |
+| Unit: Badge creation      | `src/js/components/ui.test.js`                |
 | Integration: Card display | `__tests__/integration/project-cards.test.js` |
 
 ---
@@ -156,6 +158,7 @@ Feature: Project Card Display
 ### Feature F03: Contact Form Submission
 
 **User Story:**
+
 > As a **visitor**, I want to **submit a contact form** so that I can **reach out to the site owner**.
 
 **Acceptance Criteria:**
@@ -210,18 +213,19 @@ Feature: Contact Form Submission
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: Form view behavior | `src/js/modules/contact-form.test.js` |
-| Unit: Input sanitization | `src/js/utils/sanitize.test.js` |
-| Integration: Form flow | `__tests__/integration/contact-form.test.js` |
-| Security: XSS prevention | `__tests__/security/form-security.test.js` |
+| Scenario                 | Test File                                    |
+| ------------------------ | -------------------------------------------- |
+| Unit: Form view behavior | `src/js/modules/contact-form.test.js`        |
+| Unit: Input sanitization | `src/js/utils/sanitize.test.js`              |
+| Integration: Form flow   | `__tests__/integration/contact-form.test.js` |
+| Security: XSS prevention | `__tests__/security/form-security.test.js`   |
 
 ---
 
 ### Feature F04: Theme Toggle
 
 **User Story:**
+
 > As a **visitor**, I want to **toggle between light and dark themes** so that I can **view the site in my preferred mode**.
 
 **Acceptance Criteria:**
@@ -266,9 +270,9 @@ Feature: Theme Toggle
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: Theme toggle logic | `src/js/components/header.test.js` |
+| Scenario                       | Test File                                    |
+| ------------------------------ | -------------------------------------------- |
+| Unit: Theme toggle logic       | `src/js/components/header.test.js`           |
 | Integration: Theme persistence | `__tests__/integration/theme-toggle.test.js` |
 
 ---
@@ -276,6 +280,7 @@ Feature: Theme Toggle
 ### Feature F05: Image Search (Unsplash API)
 
 **User Story:**
+
 > As a **visitor**, I want to **search for images using Unsplash** so that I can **find relevant photos**.
 
 **Acceptance Criteria:**
@@ -328,18 +333,19 @@ Feature: Image Search via Unsplash
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: API handler | `functions/api/unsplash.test.js` |
-| Unit: Input sanitization | `src/js/utils/sanitize.test.js` |
+| Scenario                 | Test File                                    |
+| ------------------------ | -------------------------------------------- |
+| Unit: API handler        | `functions/api/unsplash.test.js`             |
+| Unit: Input sanitization | `src/js/utils/sanitize.test.js`              |
 | Integration: Search flow | `__tests__/integration/image-search.test.js` |
-| Security: API security | `__tests__/security/api-security.test.js` |
+| Security: API security   | `__tests__/security/api-security.test.js`    |
 
 ---
 
 ### Feature F06: Skills Display
 
 **User Story:**
+
 > As a **visitor**, I want to **see language usage statistics** so that I can **understand the technical depth of the portfolio**.
 
 **Acceptance Criteria:**
@@ -373,8 +379,8 @@ Feature: Skills Display
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
+| Scenario              | Test File                                  |
+| --------------------- | ------------------------------------------ |
 | Unit: Skills renderer | `src/js/renderers/skills-renderer.test.js` |
 
 ---
@@ -382,6 +388,7 @@ Feature: Skills Display
 ### Feature F07: Mobile Navigation
 
 **User Story:**
+
 > As a **mobile visitor**, I want to **access navigation via hamburger menu** so that I can **navigate the site on small screens**.
 
 **Acceptance Criteria:**
@@ -423,24 +430,24 @@ Feature: Mobile Navigation
 
 **Test File Mapping:**
 
-| Scenario | Test File |
-|----------|-----------|
-| Unit: Menu toggle behavior | `src/js/components/header.test.js` |
-| Accessibility: Menu a11y | `__tests__/a11y/mobile-nav.test.js` |
+| Scenario                   | Test File                           |
+| -------------------------- | ----------------------------------- |
+| Unit: Menu toggle behavior | `src/js/components/header.test.js`  |
+| Accessibility: Menu a11y   | `__tests__/a11y/mobile-nav.test.js` |
 
 ---
 
 ## 4. Priority Matrix
 
-| Priority | Feature | Business Value | Complexity |
-|----------|---------|----------------|------------|
-| P0 | F03: Contact Form (Security) | High | Medium |
-| P0 | F05: Image Search (Security) | High | Medium |
-| P1 | F01: Project Filtering | High | Low |
-| P1 | F02: Project Cards | Medium | Low |
-| P2 | F04: Theme Toggle | Medium | Low |
-| P2 | F07: Mobile Navigation | Medium | Medium |
-| P3 | F06: Skills Display | Low | Low |
+| Priority | Feature                      | Business Value | Complexity |
+| -------- | ---------------------------- | -------------- | ---------- |
+| P0       | F03: Contact Form (Security) | High           | Medium     |
+| P0       | F05: Image Search (Security) | High           | Medium     |
+| P1       | F01: Project Filtering       | High           | Low        |
+| P1       | F02: Project Cards           | Medium         | Low        |
+| P2       | F04: Theme Toggle            | Medium         | Low        |
+| P2       | F07: Mobile Navigation       | Medium         | Medium     |
+| P3       | F06: Skills Display          | Low            | Low        |
 
 ---
 
@@ -476,13 +483,13 @@ Feature: Mobile Navigation
 Each feature maps to specific steps in `04_EXECUTION_CHECKLIST.md`:
 
 | Feature | Checklist Steps |
-|---------|-----------------|
-| F01-F02 | Steps 8-12 |
-| F03 | Steps 13-16 |
-| F04 | Steps 17-18 |
-| F05 | Steps 19-22 |
-| F06 | Steps 23-24 |
-| F07 | Steps 25-26 |
+| ------- | --------------- |
+| F01-F02 | Steps 8-12      |
+| F03     | Steps 13-16     |
+| F04     | Steps 17-18     |
+| F05     | Steps 19-22     |
+| F06     | Steps 23-24     |
+| F07     | Steps 25-26     |
 
 ---
 

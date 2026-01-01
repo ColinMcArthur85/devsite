@@ -23,11 +23,11 @@ updates:
     commit-message:
       prefix: "deps"
       include: "scope"
-    
+
     # Security updates get priority
     reviewers:
       - "ColinMcArthur85"
-      
+
   # GitHub Actions updates
   - package-ecosystem: "github-actions"
     directory: "/"

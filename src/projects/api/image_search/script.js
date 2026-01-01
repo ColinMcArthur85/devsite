@@ -43,9 +43,9 @@ function buildSearchUrl() {
 
   // In development, use port 8788 where Cloudflare Functions are available
   // In production, use relative path
-  const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const baseUrl = isDev ? 'http://localhost:8788' : '';
-  
+  const isDev = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+  const baseUrl = isDev ? "http://localhost:8788" : "";
+
   return `${baseUrl}/api/unsplash?${params.toString()}`;
 }
 

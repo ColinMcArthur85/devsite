@@ -11,6 +11,7 @@
 This is the master execution checklist for upgrading devsite with TDD, BDD, and security best practices. Complete items in order, checking off each as you go.
 
 **Legend:**
+
 - 🔴 **CRITICAL** - Security or blocking issue
 - 🟠 **HIGH** - Important for code quality
 - 🟡 **MEDIUM** - Recommended improvement
@@ -22,8 +23,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ### Environment Setup
 
-- [x] **0.1** Verify Node.js version is 18+ (`node -v`) — *v24.11.1*
-- [x] **0.2** Verify npm is up to date (`npm -v`) — *v11.6.2*
+- [x] **0.1** Verify Node.js version is 18+ (`node -v`) — _v24.11.1_
+- [x] **0.2** Verify npm is up to date (`npm -v`) — _v11.6.2_
 - [x] **0.3** Create backup branch (`git checkout -b backup/pre-upgrade`)
 - [x] **0.4** Return to main branch (`git checkout main`)
 - [x] **0.5** Create upgrade branch (`git checkout -b feature/tdd-security-upgrade`)
@@ -37,6 +38,7 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 ### Jest Configuration
 
 - [x] **1.1** Install additional test dependencies
+
   ```bash
   npm install --save-dev jest-environment-jsdom identity-obj-proxy jest-junit
   ```
@@ -54,7 +56,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 - [x] **1.4** Create `__mocks__/fileMock.js`
 
-- [x] **1.5** Verify test infrastructure works — *2 tests passing*
+- [x] **1.5** Verify test infrastructure works — _2 tests passing_
+
   ```bash
   npm test
   ```
@@ -92,8 +95,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Referrer-Policy
   - Permissions-Policy
 
-- [ ] **2.2** Deploy to Cloudflare Pages (staging) — *pending deployment*
-- [ ] **2.3** Verify headers in browser DevTools (Network tab) — *pending deployment*
+- [ ] **2.2** Deploy to Cloudflare Pages (staging) — _pending deployment_
+- [ ] **2.3** Verify headers in browser DevTools (Network tab) — _pending deployment_
 
 ### Sanitization Utility
 
@@ -103,7 +106,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Write failing tests for sanitizeForUrl
   - Write failing tests for XSS vectors
 
-- [x] **2.5** Run tests, confirm they fail — *confirmed: "Cannot find module"*
+- [x] **2.5** Run tests, confirm they fail — _confirmed: "Cannot find module"_
+
   ```bash
   npm test -- sanitize
   ```
@@ -114,12 +118,13 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Implement sanitizeForUrl
   - Implement sanitizeText
 
-- [x] **2.7** Run tests, confirm they pass — *47 tests passing*
+- [x] **2.7** Run tests, confirm they pass — _47 tests passing_
+
   ```bash
   npm test -- sanitize
   ```
 
-- [x] **2.8** **[TDD: REFACTOR]** Optimize if needed, tests still pass — *49 total tests passing*
+- [x] **2.8** **[TDD: REFACTOR]** Optimize if needed, tests still pass — _49 total tests passing_
 
 ---
 
@@ -135,7 +140,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Add security header tests
   - Add error handling tests
 
-- [x] **3.2** Run tests, confirm they fail — *"Cannot find module './unsplash-helpers'"*
+- [x] **3.2** Run tests, confirm they fail — _"Cannot find module './unsplash-helpers'"_
+
   ```bash
   npm test -- unsplash
   ```
@@ -146,19 +152,20 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Add proper CORS configuration
   - Add error message sanitization
 
-- [x] **3.4** Run tests, confirm they pass — *24 tests passing*
+- [x] **3.4** Run tests, confirm they pass — _24 tests passing_
 
-- [x] **3.5** Test locally with Wrangler — *confirmed working*
+- [x] **3.5** Test locally with Wrangler — _confirmed working_
+
   ```bash
   npm run dev
   ```
 
-- [x] **3.6** Verify API works in Image Search page — *confirmed working*
+- [x] **3.6** Verify API works in Image Search page — _confirmed working_
 
 ### Environment Variables
 
-- [x] **3.7** Verify `.dev.vars` is in `.gitignore` — *confirmed line 16*
-- [ ] **3.8** Configure Cloudflare Dashboard environment variables — *pending deployment*
+- [x] **3.7** Verify `.dev.vars` is in `.gitignore` — _confirmed line 16_
+- [ ] **3.8** Configure Cloudflare Dashboard environment variables — _pending deployment_
   - `UNSPLASH_ACCESS_KEY`
   - `ALLOWED_ORIGIN`
   - `ENVIRONMENT`
@@ -173,17 +180,18 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 - [x] **4.1** **[TDD: RED]** Create `src/js/state/filter-state.test.js`
   - Test toggle functionality
-  - Test isActive functionality  
+  - Test isActive functionality
   - Test serialise functionality
   - Test apply filtering logic
   - Test edge cases (empty, invalid)
 
-- [x] **4.2** Run tests, verify coverage — *24 tests passing*
+- [x] **4.2** Run tests, verify coverage — _24 tests passing_
+
   ```bash
   npm test -- filter-state
   ```
 
-- [x] **4.3** **[TDD: REFACTOR]** Improve filter-state.js if needed — *code already clean*
+- [x] **4.3** **[TDD: REFACTOR]** Improve filter-state.js if needed — _code already clean_
 
 ### UI Component Tests
 
@@ -193,9 +201,9 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Test color config mapping
   - Test sanitization of badge text
 
-- [x] **4.5** Run tests, verify they pass — *25 tests passing*
+- [x] **4.5** Run tests, verify they pass — _25 tests passing_
 
-- [x] **4.6** **[TDD: REFACTOR]** Update ui.js to use sanitization — *uses textContent already*
+- [x] **4.6** **[TDD: REFACTOR]** Update ui.js to use sanitization — _uses textContent already_
 
 ### Project Service Tests
 
@@ -203,7 +211,7 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Test fetchAll returns projects
   - Test data structure validation
 
-- [x] **4.8** Run tests, verify they pass — *10 tests passing*
+- [x] **4.8** Run tests, verify they pass — _10 tests passing_
 
 ---
 
@@ -218,7 +226,7 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Test click toggles filter
   - Test ARIA attributes
 
-- [x] **5.2** Run tests, verify they pass — *16 tests passing*
+- [x] **5.2** Run tests, verify they pass — _16 tests passing_
 
 ### Results View Tests
 
@@ -228,9 +236,9 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Test empty state displays
   - Test XSS prevention in rendering
 
-- [x] **5.4** Run tests, verify they pass — *22 tests passing*
+- [x] **5.4** Run tests, verify they pass — _22 tests passing_
 
-- [ ] **5.5** **[TDD: REFACTOR]** Update results-view.js to use escapeHtml — *future enhancement*
+- [ ] **5.5** **[TDD: REFACTOR]** Update results-view.js to use escapeHtml — _future enhancement_
 
 ---
 
@@ -246,7 +254,7 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
   - Test form state management
   - Test XSS prevention
 
-- [x] **6.2** Run tests, verify they pass — *29 tests passing*
+- [x] **6.2** Run tests, verify they pass — _29 tests passing_
 
 - [x] **6.3** **[TDD: REFACTOR]** Create `contact-form-validation.js` module
   - Add input validation (name, email, message)
@@ -255,9 +263,9 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ### Server-Side Validation (Optional)
 
-- [ ] **6.4** Create `functions/api/contact.js` if implementing real form — *future enhancement*
-- [ ] **6.5** Create `functions/api/contact.test.js` — *future enhancement*
-- [ ] **6.6** Implement server-side validation — *future enhancement*
+- [ ] **6.4** Create `functions/api/contact.js` if implementing real form — _future enhancement_
+- [ ] **6.5** Create `functions/api/contact.test.js` — _future enhancement_
+- [ ] **6.6** Implement server-side validation — _future enhancement_
 
 ---
 
@@ -265,22 +273,22 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 > Reference: [02_BDD_FEATURES.md](./02_BDD_FEATURES.md)
 
-- [x] **7.1** Create `__tests__/integration/projects-filter.test.js` — *14 tests*
+- [x] **7.1** Create `__tests__/integration/projects-filter.test.js` — _14 tests_
   - Test full filtering workflow
   - Test filter persistence
 
-- [x] **7.2** Create `__tests__/integration/contact-form.test.js` — *13 tests*
+- [x] **7.2** Create `__tests__/integration/contact-form.test.js` — _13 tests_
   - Test form submission workflow
 
-- [x] **7.3** Create `__tests__/integration/theme-toggle.test.js` — *12 tests*
+- [x] **7.3** Create `__tests__/integration/theme-toggle.test.js` — _12 tests_
   - Test theme switching
   - Test localStorage persistence
 
-- [x] **7.4** Create `__tests__/integration/image-search.test.js` — *19 tests*
+- [x] **7.4** Create `__tests__/integration/image-search.test.js` — _19 tests_
   - Test search workflow
   - Test error handling
 
-- [x] **7.5** Run all integration tests — *58 tests passing*
+- [x] **7.5** Run all integration tests — _58 tests passing_
   ```bash
   npm run test:integration
   ```
@@ -289,17 +297,17 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ## Phase 8: Security Tests ✅
 
-- [x] **8.1** Create `__tests__/security/xss-prevention.test.js` — *107 tests*
+- [x] **8.1** Create `__tests__/security/xss-prevention.test.js` — _107 tests_
   - Test all XSS vectors on form inputs
   - Test all XSS vectors on search inputs
   - Test rendering escapes HTML
 
-- [x] **8.2** Create `__tests__/security/api-security.test.js` — *45 tests*
+- [x] **8.2** Create `__tests__/security/api-security.test.js` — _45 tests_
   - Test API key not exposed
   - Test rate limiting
   - Test input validation
 
-- [x] **8.3** Run security test suite — *152 tests passing*
+- [x] **8.3** Run security test suite — _152 tests passing_
   ```bash
   npm run test:security
   ```
@@ -312,11 +320,11 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ### Audit & Cleanup
 
-- [x] **9.1** Run npm audit — *0 vulnerabilities*
-- [x] **9.2** Fix vulnerabilities — *N/A*
-- [x] **9.3** Remove unused dependencies — *Removed autoprefixer, nodemon, concurrently*
+- [x] **9.1** Run npm audit — _0 vulnerabilities_
+- [x] **9.2** Fix vulnerabilities — _N/A_
+- [x] **9.3** Remove unused dependencies — _Removed autoprefixer, nodemon, concurrently_
 - [x] **9.4** Move @tailwindcss/cli to devDependencies
-- [x] **9.5** Verify build still works — *Build successful*
+- [x] **9.5** Verify build still works — _Build successful_
 
 ### Automation
 
@@ -336,7 +344,8 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ### Code Coverage Review
 
-- [x] **10.4** Run coverage report — *408 tests passing. Core utilities at 100% coverage.*
+- [x] **10.4** Run coverage report — _408 tests passing. Core utilities at 100% coverage._
+
   ```bash
   npm run test:coverage
   ```
@@ -348,11 +357,13 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 ### Final Verification
 
 - [ ] **10.7** Run full test suite
+
   ```bash
   npm test
   ```
 
 - [ ] **10.8** Run local dev server and manual smoke test
+
   ```bash
   npm run dev
   ```
@@ -403,31 +414,35 @@ git add -A && git commit -m "..."  # Commit changes
 
 ## Success Criteria
 
-| Metric | Target | Actual |
-|--------|--------|--------|
-| Unit Test Coverage | ≥60% | ____% |
-| Security Tests Pass | 100% | ____% |
-| npm audit (high+) | 0 vulnerabilities | ____ |
-| CSP Active | Yes | [ ] |
-| All Pages Load | No errors | [ ] |
+| Metric              | Target            | Actual    |
+| ------------------- | ----------------- | --------- |
+| Unit Test Coverage  | ≥60%              | \_\_\_\_% |
+| Security Tests Pass | 100%              | \_\_\_\_% |
+| npm audit (high+)   | 0 vulnerabilities | \_\_\_\_  |
+| CSP Active          | Yes               | [ ]       |
+| All Pages Load      | No errors         | [ ]       |
 
 ---
 
 ## Troubleshooting
 
 ### Tests fail with "Cannot find module"
+
 - Check `moduleNameMapper` in jest.config.js
 - Verify file paths are correct
 
 ### JSDOM not working
+
 - Ensure `jest-environment-jsdom` is installed
 - Check `testEnvironment: "jsdom"` in config
 
 ### Coverage not meeting threshold
+
 - Check `collectCoverageFrom` includes correct paths
 - Review uncovered lines in coverage/lcov-report/index.html
 
 ### Build fails after changes
+
 - Run `npm run build` to check errors
 - Verify all imports resolve correctly
 
@@ -437,19 +452,19 @@ git add -A && git commit -m "..."  # Commit changes
 
 **Phase Completion:**
 
-| Phase | Completed | Date | Verified By |
-|-------|-----------|------|-------------|
-| Phase 0: Prerequisites | [x] | 2026-01-01 | AI + User |
-| Phase 1: Test Infrastructure | [x] | 2026-01-01 | AI + User |
-| Phase 2: Security Foundation | [ ] | | |
-| Phase 3: API Security | [ ] | | |
-| Phase 4: Core Unit Tests | [x] | 2026-01-01 | AI + User |
-| Phase 5: View Layer Tests | [x] | 2026-01-01 | AI + User |
-| Phase 6: Contact Form Security | [x] | 2026-01-01 | AI + User |
-| Phase 7: Integration Tests | [x] | 2026-01-01 | AI + User |
-| Phase 8: Security Tests | [x] | 2026-01-01 | AI + User |
-| Phase 9: Dependency Management | [x] | 2026-01-01 | AI + User |
-| Phase 10: Documentation | [x] | 2026-01-01 | AI + User |
+| Phase                          | Completed | Date       | Verified By |
+| ------------------------------ | --------- | ---------- | ----------- |
+| Phase 0: Prerequisites         | [x]       | 2026-01-01 | AI + User   |
+| Phase 1: Test Infrastructure   | [x]       | 2026-01-01 | AI + User   |
+| Phase 2: Security Foundation   | [ ]       |            |             |
+| Phase 3: API Security          | [ ]       |            |             |
+| Phase 4: Core Unit Tests       | [x]       | 2026-01-01 | AI + User   |
+| Phase 5: View Layer Tests      | [x]       | 2026-01-01 | AI + User   |
+| Phase 6: Contact Form Security | [x]       | 2026-01-01 | AI + User   |
+| Phase 7: Integration Tests     | [x]       | 2026-01-01 | AI + User   |
+| Phase 8: Security Tests        | [x]       | 2026-01-01 | AI + User   |
+| Phase 9: Dependency Management | [x]       | 2026-01-01 | AI + User   |
+| Phase 10: Documentation        | [x]       | 2026-01-01 | AI + User   |
 
 **Final Sign-Off:** All security upgrades and TDD cycles complete. 408 tests passing.
 
@@ -458,5 +473,5 @@ git add -A && git commit -m "..."  # Commit changes
 - [ ] Documentation updated
 - [ ] Production deployment verified
 
-**Completed By:** _______________  
-**Date:** _______________
+**Completed By:** **\*\***\_\_\_**\*\***  
+**Date:** **\*\***\_\_\_**\*\***
