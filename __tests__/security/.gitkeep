@@ -1,0 +1,3 @@
+# Security Tests
+
+Tests for XSS prevention, API security, and input validation.
