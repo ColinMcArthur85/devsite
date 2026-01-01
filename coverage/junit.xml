@@ -1,31 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="49" failures="0" errors="0" time="1.303">
-  <testsuite name="escapeHtml" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:29:36" time="0.552" tests="47">
-    <testcase classname="escapeHtml escapes &lt; and &gt; characters" name="escapeHtml escapes &lt; and &gt; characters" time="0.002">
+<testsuites name="jest tests" tests="72" failures="0" errors="0" time="1.365">
+  <testsuite name="Environment Variables" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:33:33" time="0.593" tests="24">
+    <testcase classname="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" name="Environment Variables UNSPLASH_ACCESS_KEY should be defined locally" time="0.005">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery accepts valid alphanumeric queries" name="Input Validation - validateQuery accepts valid alphanumeric queries" time="0.002">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery rejects empty queries" name="Input Validation - validateQuery rejects empty queries" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery rejects queries that are too long" name="Input Validation - validateQuery rejects queries that are too long" time="0">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery strips HTML tags from queries" name="Input Validation - validateQuery strips HTML tags from queries" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validateQuery handles special characters safely" name="Input Validation - validateQuery handles special characters safely" time="0">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination accepts valid page numbers" name="Input Validation - validatePagination accepts valid page numbers" time="0">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination defaults to page 1 and 12 per page" name="Input Validation - validatePagination defaults to page 1 and 12 per page" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination rejects non-numeric page values" name="Input Validation - validatePagination rejects non-numeric page values" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination rejects negative page numbers" name="Input Validation - validatePagination rejects negative page numbers" time="0">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination limits per_page to maximum of 30" name="Input Validation - validatePagination limits per_page to maximum of 30" time="0.001">
+    </testcase>
+    <testcase classname="Input Validation - validatePagination limits page to maximum of 100" name="Input Validation - validatePagination limits page to maximum of 100" time="0">
+    </testcase>
+    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for internal errors" name="Error Handling - sanitizeErrorMessage returns generic message for internal errors" time="0.001">
+    </testcase>
+    <testcase classname="Error Handling - sanitizeErrorMessage returns generic message for stack traces" name="Error Handling - sanitizeErrorMessage returns generic message for stack traces" time="0">
+    </testcase>
+    <testcase classname="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" name="Error Handling - sanitizeErrorMessage strips sensitive paths from errors" time="0.001">
+    </testcase>
+    <testcase classname="Error Handling - sanitizeErrorMessage allows safe error messages through" name="Error Handling - sanitizeErrorMessage allows safe error messages through" time="0">
+    </testcase>
+    <testcase classname="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" name="CORS Headers - getCorsHeaders returns correct headers for allowed origin in production" time="0">
+    </testcase>
+    <testcase classname="CORS Headers - getCorsHeaders returns localhost origin in development" name="CORS Headers - getCorsHeaders returns localhost origin in development" time="0">
+    </testcase>
+    <testcase classname="CORS Headers - getCorsHeaders returns null origin for disallowed origins" name="CORS Headers - getCorsHeaders returns null origin for disallowed origins" time="0">
+    </testcase>
+    <testcase classname="CORS - isAllowedOrigin allows production domain" name="CORS - isAllowedOrigin allows production domain" time="0">
+    </testcase>
+    <testcase classname="CORS - isAllowedOrigin allows localhost in development" name="CORS - isAllowedOrigin allows localhost in development" time="0">
+    </testcase>
+    <testcase classname="CORS - isAllowedOrigin blocks localhost in production" name="CORS - isAllowedOrigin blocks localhost in production" time="0">
+    </testcase>
+    <testcase classname="CORS - isAllowedOrigin blocks unknown origins" name="CORS - isAllowedOrigin blocks unknown origins" time="0">
+    </testcase>
+    <testcase classname="Security Headers response includes security headers" name="Security Headers response includes security headers" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="escapeHtml" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:33:33" time="0.068" tests="47">
+    <testcase classname="escapeHtml escapes &lt; and &gt; characters" name="escapeHtml escapes &lt; and &gt; characters" time="0.001">
     </testcase>
     <testcase classname="escapeHtml escapes &amp; character" name="escapeHtml escapes &amp; character" time="0.001">
     </testcase>
     <testcase classname="escapeHtml escapes &quot; and &apos; characters" name="escapeHtml escapes &quot; and &apos; characters" time="0">
     </testcase>
-    <testcase classname="escapeHtml handles multiple special characters" name="escapeHtml handles multiple special characters" time="0.001">
+    <testcase classname="escapeHtml handles multiple special characters" name="escapeHtml handles multiple special characters" time="0">
     </testcase>
     <testcase classname="escapeHtml returns empty string for null/undefined" name="escapeHtml returns empty string for null/undefined" time="0">
     </testcase>
-    <testcase classname="escapeHtml converts numbers to string" name="escapeHtml converts numbers to string" time="0.001">
+    <testcase classname="escapeHtml converts numbers to string" name="escapeHtml converts numbers to string" time="0">
     </testcase>
-    <testcase classname="escapeHtml handles empty string" name="escapeHtml handles empty string" time="0">
+    <testcase classname="escapeHtml handles empty string" name="escapeHtml handles empty string" time="0.001">
     </testcase>
     <testcase classname="escapeHtml preserves safe text" name="escapeHtml preserves safe text" time="0">
     </testcase>
     <testcase classname="stripTags removes simple HTML tags" name="stripTags removes simple HTML tags" time="0">
     </testcase>
-    <testcase classname="stripTags removes script tags and content" name="stripTags removes script tags and content" time="0">
+    <testcase classname="stripTags removes script tags and content" name="stripTags removes script tags and content" time="0.001">
     </testcase>
     <testcase classname="stripTags removes multiple tags" name="stripTags removes multiple tags" time="0">
     </testcase>
     <testcase classname="stripTags handles self-closing tags" name="stripTags handles self-closing tags" time="0">
     </testcase>
-    <testcase classname="stripTags removes attributes" name="stripTags removes attributes" time="0">
+    <testcase classname="stripTags removes attributes" name="stripTags removes attributes" time="0.001">
     </testcase>
     <testcase classname="stripTags returns empty string for null/undefined" name="stripTags returns empty string for null/undefined" time="0">
     </testcase>
@@ -41,13 +91,13 @@
     </testcase>
     <testcase classname="sanitizeForUrl allows https URLs" name="sanitizeForUrl allows https URLs" time="0">
     </testcase>
-    <testcase classname="sanitizeForUrl allows relative URLs" name="sanitizeForUrl allows relative URLs" time="0.001">
+    <testcase classname="sanitizeForUrl allows relative URLs" name="sanitizeForUrl allows relative URLs" time="0">
     </testcase>
     <testcase classname="sanitizeForUrl returns empty string for null/undefined" name="sanitizeForUrl returns empty string for null/undefined" time="0">
     </testcase>
-    <testcase classname="sanitizeForUrl handles case-insensitive javascript protocol" name="sanitizeForUrl handles case-insensitive javascript protocol" time="0.001">
+    <testcase classname="sanitizeForUrl handles case-insensitive javascript protocol" name="sanitizeForUrl handles case-insensitive javascript protocol" time="0">
     </testcase>
-    <testcase classname="sanitizeText combines stripTags and escapeHtml" name="sanitizeText combines stripTags and escapeHtml" time="0">
+    <testcase classname="sanitizeText combines stripTags and escapeHtml" name="sanitizeText combines stripTags and escapeHtml" time="0.001">
     </testcase>
     <testcase classname="sanitizeText escapes remaining special characters after stripping" name="sanitizeText escapes remaining special characters after stripping" time="0">
     </testcase>
@@ -57,29 +107,29 @@
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;iframe src=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors escapeHtml prevents: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.001">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors escapeHtml prevents: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0">
     </testcase>
     <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors escapeHtml prevents: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;img src=x onerror=alert(&quot;XSS&quot;)&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;svg onload=alert(&quot;XSS&quot;)&gt;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;body onload=alert(&quot;XSS&quot;)&gt;" time="0">
     </testcase>
@@ -87,20 +137,16 @@
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;a href=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;click&lt;/a&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0.001">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &quot;&gt;&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" name="XSS Prevention Vectors sanitizeText neutralizes: &apos;-alert(&apos;XSS&apos;)-&apos;" time="0.001">
     </testcase>
     <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;div style=&quot;background:url(javascript:alert(&apos;XSS&apos;))&quot;&gt;" time="0">
     </testcase>
-    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0">
+    <testcase classname="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" name="XSS Prevention Vectors sanitizeText neutralizes: &lt;math&gt;&lt;maction xlink:href=&quot;javascript:alert(1)&quot;&gt;click&lt;/maction&gt;&lt;/math&gt;" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Unsplash env variable" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:29:37" time="0.059" tests="1">
-    <testcase classname="Unsplash env variable UNSPLASH_ACCESS_KEY should be defined locally" name="Unsplash env variable UNSPLASH_ACCESS_KEY should be defined locally" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="sanity" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:29:37" time="0.034" tests="1">
+  <testsuite name="sanity" errors="0" failures="0" skipped="0" timestamp="2026-01-01T15:33:33" time="0.038" tests="1">
     <testcase classname="sanity adds numbers" name="sanity adds numbers" time="0.001">
     </testcase>
   </testsuite>

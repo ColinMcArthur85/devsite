@@ -123,42 +123,42 @@ This is the master execution checklist for upgrading devsite with TDD, BDD, and 
 
 ---
 
-## Phase 3: API Security 🔴
+## Phase 3: API Security ✅ (Partial)
 
 > Reference: [03_SECURITY_HARDENING.md](./03_SECURITY_HARDENING.md) Section 4
 
 ### Unsplash API Hardening
 
-- [ ] **3.1** **[TDD: RED]** Enhance `functions/api/unsplash.test.js`
+- [x] **3.1** **[TDD: RED]** Enhance `functions/api/unsplash.test.js`
   - Add input validation tests
   - Add rate limiting tests
   - Add security header tests
   - Add error handling tests
 
-- [ ] **3.2** Run tests, confirm they fail
+- [x] **3.2** Run tests, confirm they fail — *"Cannot find module './unsplash-helpers'"*
   ```bash
   npm test -- unsplash
   ```
 
-- [ ] **3.3** **[TDD: GREEN]** Update `functions/api/unsplash.js`
+- [x] **3.3** **[TDD: GREEN]** Update `functions/api/unsplash.js`
   - Add input sanitization
   - Add rate limiting logic
   - Add proper CORS configuration
   - Add error message sanitization
 
-- [ ] **3.4** Run tests, confirm they pass
+- [x] **3.4** Run tests, confirm they pass — *24 tests passing*
 
-- [ ] **3.5** Test locally with Wrangler
+- [ ] **3.5** Test locally with Wrangler — *pending manual testing*
   ```bash
   npm run dev
   ```
 
-- [ ] **3.6** Verify API works in Image Search page
+- [ ] **3.6** Verify API works in Image Search page — *pending manual testing*
 
 ### Environment Variables
 
-- [ ] **3.7** Verify `.dev.vars` is in `.gitignore`
-- [ ] **3.8** Configure Cloudflare Dashboard environment variables
+- [x] **3.7** Verify `.dev.vars` is in `.gitignore` — *confirmed line 16*
+- [ ] **3.8** Configure Cloudflare Dashboard environment variables — *pending deployment*
   - `UNSPLASH_ACCESS_KEY`
   - `ALLOWED_ORIGIN`
   - `ENVIRONMENT`
