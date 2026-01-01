@@ -26,12 +26,18 @@ jobs:
 
       - name: Run unit tests
         run: npm run test:unit
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
 
       - name: Run integration tests
         run: npm run test:integration
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
 
       - name: Run security tests
         run: npm run test:security
+        env:
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
 
       - name: Run all tests with coverage
         run: npm run test:coverage

@@ -23,6 +23,8 @@ const { validateQuery, validatePagination, sanitizeErrorMessage, getCorsHeaders,
 
 describe("Environment Variables", () => {
   test("UNSPLASH_ACCESS_KEY should be defined locally", () => {
+    // Skip this check in CI as the secret may not be configured on the runner
+    if (process.env.CI) return;
     expect(process.env.UNSPLASH_ACCESS_KEY).toBeDefined();
   });
 });
