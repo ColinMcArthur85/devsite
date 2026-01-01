@@ -1,7 +1,7 @@
 # Antigravity Agent Directives
 
-**Version:** 2.0  
-**Last Updated:** 2025-12-31  
+**Version:** 2.1  
+**Last Updated:** 2026-01-01  
 **Classification:** Agent Configuration
 
 ---
@@ -267,6 +267,9 @@ Pause and request user input when:
 | [.agent/security-audit.md](.agent/security-audit.md) | Security assessment |
 
 ---
+**Version:** 2.1
+**Last Updated:** 2026-01-01
+**Classification:** Agent Configuration
 
 ## Version History
 
@@ -274,3 +277,4 @@ Pause and request user input when:
 |---------|------|---------|
 | 1.0 | 2025-12-31 | Initial agent guidelines |
 | 2.0 | 2025-12-31 | Enhanced with TDD/BDD/Security directives |
+| 2.1 | 2026-01-01 | Finalized after Phase 10 completion |
