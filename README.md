@@ -1,26 +1,62 @@
 # Devsite
 
-This repository contains the source code and compiled assets for a small developer portfolio site built with Tailwind CSS.
+A modern developer portfolio site built with Vite, Tailwind CSS v4, and Cloudflare Pages.
 
-## Folder structure
-
-- `src/` – Source styles, JavaScript, components, and data used to build the site.
-- `public/` – Compiled site with HTML and the final CSS, JavaScript, components, and data that get deployed.
-- `docs/` – Reference material and design snippets used while iterating on the site.
-
-Make changes in the `src/` directory and run the build scripts to generate the output under `public/`.
-
-## Building the styles
-
-Use the following npm scripts:
+## 🚀 Getting Started
 
 ```bash
-npm run build  # compile once
-npm run watch  # watch files and recompile on changes
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-Both commands output `public/assets/css/style.css` from `src/styles/tailwind.css` and copy the JavaScript from `src/js` to `public/assets/js` and replicate `src/components` and `src/data` into `public/components` and `public/data`.
+## 📂 Project Structure
 
-## Additional documentation
+- `src/` – Source components, views, state management, and styles.
+- `functions/` – Cloudflare Pages Functions (API handlers).
+- `__tests__/` – Integration and Security test suites.
+- `dist/` – Production build output (generated).
+- `public/` – Static assets and configuration.
+- `docs/` – Project plans, BDD strategy, and security documentation.
 
-Pattern snippets for Tailwind components now live in [`docs/refactor.md`](docs/refactor.md) so they sit alongside other helper notes and are easier to discover.
+## 🧪 Testing
+
+This project uses a TDD (Test Driven Development) approach with Jest.
+
+```bash
+# Run all tests
+npm test
+
+# Run specific test suites
+npm run test:unit         # Core unit tests
+npm run test:integration  # Full workflow tests
+npm run test:security     # Security/XSS/API tests
+npm run test:coverage     # Generate coverage report
+```
+
+Comprehensive tests cover:
+- **Sanitization Utilities**: 47+ tests for XSS prevention.
+- **API Security**: 24+ tests for Unsplash API hardening.
+- **Core State**: 24+ tests for filter state management.
+- **UI Components**: 25+ tests for buttons and badges.
+- **View Layer**: 38+ tests for Filter and Results views.
+
+## 🛡️ Security Features
+
+- **XSS Prevention**: Centralized sanitization utilities (`src/js/utils/sanitize.js`).
+- **API Hardening**: Input validation, rate limiting, and environment-aware CORS for Unsplash proxy.
+- **Security Headers**: CSP, X-Frame-Options, HSTS, and Permissions-Policy configured via `public/_headers`.
+- **Automated Audits**: Weekly Dependabot updates and GitHub Actions security workflows.
+
+## 🛠️ Tech Stack
+
+- **Styling**: Tailwind CSS v4
+- **Bundler**: Vite
+- **Deployment**: Cloudflare Pages
+- **Testing**: Jest & JSDOM
+- **Code Quality**: Prettier
