@@ -4,13 +4,13 @@
     @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
   }
 
-  /* Layout helpers */
+  /* Layout helpers — generous whitespace for premium feel */
   .section {
-    @apply relative isolate py-24 transition-all duration-500;
+    @apply relative isolate py-32 transition-all duration-500 lg:py-40;
   }
 
   .section-alt {
-    @apply relative isolate py-24 transition-all duration-500;
+    @apply relative isolate py-32 transition-all duration-500 lg:py-40;
   }
 
   .section-title {
@@ -18,15 +18,15 @@
   }
 
   .section-subtitle {
-    @apply mx-auto mt-4 max-w-3xl text-center text-base text-slate-600 dark:text-slate-300 md:text-lg;
+    @apply mx-auto mt-6 max-w-3xl text-center text-base text-slate-600 dark:text-slate-300 md:text-lg lg:mt-8;
   }
 
   .hero-section {
-    @apply relative isolate overflow-hidden pb-20 pt-28 sm:pt-32;
+    @apply relative isolate overflow-hidden pb-24 pt-32 sm:pt-40 lg:pb-32;
   }
 
   .hero-grid {
-    @apply grid grid-cols-1 items-center gap-16 lg:grid-cols-2;
+    @apply grid grid-cols-1 items-center gap-20 lg:grid-cols-2 lg:gap-24;
   }
 
   .hero-title {
@@ -38,7 +38,7 @@
   }
 
   .hero-actions {
-    @apply mt-10 flex flex-wrap gap-4 justify-center;
+    @apply mt-12 flex flex-wrap gap-5 justify-center lg:mt-14;
   }
 
   .hero-img {
@@ -46,7 +46,7 @@
   }
 
   .icon-container {
-    @apply mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg;
+    @apply mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-primary/20 to-secondary/20 text-primary shadow-lg;
   }
 
   /* Progress indicators */
@@ -56,7 +56,7 @@
 
   .progress-bar::after {
     content: "";
-    @apply absolute inset-0 bg-gradient-to-r from-primary/60 via-indigo-500/60 to-secondary/60 opacity-40;
+    @apply absolute inset-0 bg-linear-to-r from-primary/60 via-indigo-500/60 to-secondary/60 opacity-40;
   }
 
   .progress-bar-fill {
@@ -115,9 +115,35 @@
     box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
   }
 
-  /* Inputs */
+  /* Inputs — Inset appearance (recessed into screen) */
   .form-input {
-    @apply w-full rounded-2xl border border-white/30 bg-white/60 px-5 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-500 backdrop-blur-xl transition-all duration-300 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-400;
+    @apply w-full rounded-2xl border border-white/30 bg-white/60 px-5 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-500 backdrop-blur-xl transition-all duration-300 focus:border-primary focus:outline-none dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-400;
+    /* Inset shadow: dark top edge simulates depth */
+    box-shadow:
+      inset 0 2px 4px rgba(15, 23, 42, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .form-input {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .form-input:focus {
+    box-shadow:
+      inset 0 2px 4px rgba(15, 23, 42, 0.06),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+      0 0 0 3px rgba(59, 130, 246, 0.15),
+      0 0 16px rgba(59, 130, 246, 0.1);
+  }
+
+  .dark .form-input:focus {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 0 0 3px rgba(59, 130, 246, 0.25),
+      0 0 20px rgba(59, 130, 246, 0.15);
   }
 
   /* Navigation */
@@ -152,9 +178,9 @@
 
   .badge--ghost {
     background-color: transparent;
-    color: rgba(148, 163, 184, 0.85);
-    border-color: rgba(255, 255, 255, 0.2);
-    opacity: 0.75;
+    color: rgba(71, 85, 105, 1);
+    border-color: rgba(100, 116, 139, 0.4);
+    opacity: 1;
   }
 
   .badge.is-active {
@@ -183,8 +209,8 @@
   }
 
   .dark .badge--ghost {
-    color: rgba(203, 213, 225, 0.75);
-    border-color: rgba(255, 255, 255, 0.12);
+    color: rgba(226, 232, 240, 1);
+    border-color: rgba(148, 163, 184, 0.4);
   }
 
   .badge--html5 {
@@ -218,6 +244,7 @@
 
   .badge--react {
     --badge-variant-color: var(--color-react-blue);
+    --badge-active-text: #0f172a;
   }
 
   .badge--api {

@@ -1,6 +1,26 @@
-/* Design Tokens */
+/* Design Tokens — Brand: Self-made, Technical, Human */
 @theme {
-  /* Brand palette */
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BRAND PALETTE
+     Primary: Technical blue (#3b82f6)
+     Secondary: Creative purple (#7928ca)
+     Accent: Human warmth (#79ffe1)
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Primary hue scale (blue, technical) */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #0f1d3a;
+
+  /* Legacy aliases */
   --color-primary-yellow: var(--color-yellow-300);
   --color-primary-red: var(--color-rose-500);
   --color-primary-blue: var(--color-blue-950);
@@ -8,17 +28,34 @@
   --color-secondary: #7928ca;
   --color-accent: #79ffe1;
 
-  --color-dark-primary: #60a5fa;
-  --color-dark-secondary: #7928ca;
-  --color-dark-accent: #79ffe1;
-  --color-dark-text: #fff;
-  --color-dark-text-secondary: #888;
-  --color-dark-background: #000;
-  --color-dark-background-secondary: #111;
-  --color-dark-background-tertiary: #171717;
-  --color-dark-border: #333;
+  /* ═══════════════════════════════════════════════════════════════════════════
+     DARK MODE — Saturated with primary hue (no flat blacks!)
+     These grays have a subtle blue tint for "technical" feel
+     ═══════════════════════════════════════════════════════════════════════════ */
 
-  /* Skill + badge palette */
+  --color-dark-primary: #60a5fa;
+  --color-dark-secondary: #a855f7;
+  --color-dark-accent: #79ffe1;
+
+  /* Text colors — warm enough to feel "human" */
+  --color-dark-text: #f1f5f9;
+  --color-dark-text-secondary: #94a3b8;
+  --color-dark-text-muted: #64748b;
+
+  /* Background colors — deep blue-blacks for "technical" feel */
+  --color-dark-background: #0a0f1a;
+  --color-dark-background-secondary: #111827;
+  --color-dark-background-tertiary: #1e293b;
+  --color-dark-background-elevated: #1e3a5f;
+
+  /* Border colors — visible but subtle */
+  --color-dark-border: #1e3a5f;
+  --color-dark-border-subtle: #334155;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SKILL + BADGE PALETTE
+     ═══════════════════════════════════════════════════════════════════════════ */
+
   --color-sass-pink: #cc6699;
   --color-html5: #e34f26;
   --color-css3: #2965f1;
@@ -32,11 +69,42 @@
   --color-frontend-mentor: #3f54a3;
   --color-green-600: #16a34a;
 
-  /* Typography */
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════════════════════════════════════════ */
+
   --font-sans: Inter, sans-serif;
   --font-primary: "Camingo Code", monospace;
+  --font-mono: "Fira Code", "Camingo Code", monospace;
 
-  /* Shadows */
-  --shadow-custom: 0 4px 14px rgba(0, 0, 0, 0.1);
-  --shadow-dark: 0 4px 14px rgba(0, 0, 0, 0.25);
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SHADOWS — "Light from the sky" system
+     Saturated with primary hue for richer, more cohesive shadows
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* Light mode shadows (subtle, professional) */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 8px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.12), 0 4px 8px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.15), 0 8px 16px rgba(15, 23, 42, 0.08);
+  --shadow-2xl: 0 32px 64px rgba(15, 23, 42, 0.2), 0 12px 24px rgba(15, 23, 42, 0.1);
+
+  /* Dark mode shadows (deeper, with blue tint) */
+  --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.05);
+  --shadow-dark-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.08);
+  --shadow-dark-lg: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(59, 130, 246, 0.1);
+  --shadow-dark-xl: 0 24px 48px rgba(0, 0, 0, 0.6), 0 0 32px rgba(59, 130, 246, 0.12);
+
+  /* Inset shadows (for inputs, pressed states) */
+  --shadow-inset: inset 0 2px 4px rgba(15, 23, 42, 0.1);
+  --shadow-inset-dark: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+
+  /* Glow effects (for focus, highlights) */
+  --shadow-glow-primary: 0 0 20px rgba(59, 130, 246, 0.4);
+  --shadow-glow-secondary: 0 0 20px rgba(121, 40, 202, 0.4);
+
+  /* Legacy aliases */
+  --shadow-custom: var(--shadow-md);
+  --shadow-dark: var(--shadow-dark-md);
 }

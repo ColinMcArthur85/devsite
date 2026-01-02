@@ -1,16 +1,100 @@
 @layer components {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BUTTONS — "Light from the Sky" system
+     - Lighter top edge (reflecting overhead light)
+     - Shadow cast below
+     - Pressed state: darker overall (hands blocking light)
+     ═══════════════════════════════════════════════════════════════════════════ */
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-primary via-indigo-500 to-secondary px-8 py-3 text-sm font-semibold uppercase text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-primary via-indigo-500 to-secondary px-8 py-3 text-sm font-semibold uppercase text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
     letter-spacing: 0.24em;
+    /* Light from the sky: lighter top edge, shadow below */
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 4px 8px rgba(15, 23, 42, 0.15),
+      0 12px 24px rgba(59, 130, 246, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 8px 16px rgba(15, 23, 42, 0.2),
+      0 20px 40px rgba(59, 130, 246, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+    /* Pressed state: darker, less shadow (simulating compression) */
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.2),
+      0 2px 4px rgba(15, 23, 42, 0.1);
+    filter: brightness(0.95);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-2xl border border-white/40 bg-white/20 px-8 py-3 text-sm font-semibold uppercase text-slate-900 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/60 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:border-white/30;
+    @apply inline-flex items-center justify-center rounded-2xl border border-white/40 bg-white/20 px-8 py-3 text-sm font-semibold uppercase text-slate-900 backdrop-blur-xl transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 dark:border-white/10 dark:bg-white/10 dark:text-white;
     letter-spacing: 0.24em;
+    /* Light from the sky: subtle outset appearance */
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      0 2px 4px rgba(15, 23, 42, 0.08),
+      0 4px 8px rgba(15, 23, 42, 0.06);
+  }
+
+  .dark .btn-secondary {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-secondary:hover {
+    @apply border-white/60 text-primary dark:border-white/30;
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 4px 8px rgba(15, 23, 42, 0.1),
+      0 8px 16px rgba(15, 23, 42, 0.08);
+  }
+
+  .dark .btn-secondary:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 0 16px rgba(59, 130, 246, 0.1);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+    box-shadow:
+      inset 0 2px 4px rgba(15, 23, 42, 0.1),
+      0 1px 2px rgba(15, 23, 42, 0.05);
   }
 
   .btn-sm-primary {
-    @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-primary to-secondary px-4 py-2 text-xs font-semibold uppercase text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center rounded-2xl bg-linear-to-r from-primary to-secondary px-4 py-2 text-xs font-semibold uppercase text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2;
     letter-spacing: 0.2em;
+    /* Smaller button, proportionally smaller shadow */
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 2px 4px rgba(15, 23, 42, 0.12),
+      0 6px 12px rgba(59, 130, 246, 0.2);
+  }
+
+  .btn-sm-primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      0 4px 8px rgba(15, 23, 42, 0.15),
+      0 10px 20px rgba(59, 130, 246, 0.25);
+  }
+
+  .btn-sm-primary:active {
+    transform: translateY(0);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.15),
+      0 1px 2px rgba(15, 23, 42, 0.08);
+    filter: brightness(0.95);
   }
 }

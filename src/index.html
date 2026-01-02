@@ -43,6 +43,12 @@
         <div
           class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.45),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.2),rgba(15,23,42,0))]"
         ></div>
+        <!-- Costly Signal: Subtle dot grid pattern (technical/self-made aesthetic) -->
+        <div 
+          class="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+          style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;"
+          aria-hidden="true"
+        ></div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="hero-grid items-start gap-16 lg:items-center">
@@ -51,8 +57,13 @@
               <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-sm font-semibold uppercase text-white shadow-lg">CM</span>
               <p class="text-sm font-medium tracking-[0.35em] text-gray-600 dark:text-gray-300">Hyper-real presence</p>
             </div> -->
-            <div>
-              <h1 class="hero-title text-left leading-tight text-gray-900 dark:text-white">
+            <div class="relative">
+              <!-- Costly Signal: XL monospace initials as background visual element -->
+              <div 
+                class="pointer-events-none absolute -left-4 -top-8 select-none font-mono text-[12rem] font-bold leading-none text-primary/[0.04] dark:text-primary/[0.08] sm:text-[16rem] lg:-left-8 lg:-top-12 lg:text-[20rem]"
+                aria-hidden="true"
+              >CM</div>
+              <h1 class="hero-title relative text-left leading-tight text-gray-900 dark:text-white">
                 <span class="block text-balance text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">Colin McArthur</span>
                 <span class="mt-4 block text-2xl font-light text-gray-700 dark:text-gray-300 md:text-3xl">Self-taught developer, button-masher, late starter who never stopped showing up.</span>
               </h1>
@@ -222,14 +233,14 @@
         <div class="absolute -right-32 -bottom-24 h-64 w-64 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
       </div>
       <div class="container-wrapper relative z-10">
-        <div class="mx-auto max-w-3xl text-center mb-6">
+        <div class="mx-auto max-w-3xl text-center mb-10 lg:mb-14">
           <h2 class="section-title text-4xl font-semibold text-gray-900 dark:text-white">What's in my Toolkit</h2>
           <p class="section-subtitle text-lg text-gray-600 dark:text-gray-300">
             Fancy words aside (seriously, why is nerd talk so damn confusing): these are the things I used to screw up constantly. Now I’m actually pretty good at them.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
           <!-- Features rendered by JS -->
         </div>
       </div>
@@ -244,9 +255,14 @@
       </div>
 
       <div class="container-wrapper relative z-10">
-        <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <!-- Left column -->
-          <div class="space-y-10 text-gray-900 dark:text-white flex flex-col">
+          <div class="space-y-12 text-gray-900 dark:text-white flex flex-col">
+            <!-- Sprezzatura: offset accent line (breaks the rectangle) -->
+            <div class="flex items-center gap-4 mb-3">
+              <div class="h-1 w-12 rounded-full bg-linear-to-r from-primary to-secondary lg:w-16"></div>
+              <span class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Who I Am</span>
+            </div>
             <h2 class="section-title text-left text-4xl font-semibold">About Me</h2>
 
             <div class="secondary-card p-8">
@@ -327,7 +343,7 @@
         <h2 class="section-title">Languages used</h2>
         <p class="section-subtitle">Each card below updates automatically to show how many lines of a specific technology is powering this site — straight from the source.</p>
 
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mt-6">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 mt-10 lg:mt-14">
           <!-- Skills rendered by skills-renderer.js -->
         </div>
       </div>
@@ -339,7 +355,7 @@
         <h2 class="section-title">Frameworks/Library's Used</h2>
         <p class="section-subtitle">These are the frameworks powering this site (or potentially yours 😉).</p>
 
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 justify-center mt-6">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 lg:gap-12 justify-center mt-10 lg:mt-14">
           <!-- Framework Card: Tailwind CSS -->
           <div class="primary-card" data-framework="Tailwind">
             <div class="card-icon bg-(--color-tailwind-blue)/15">
@@ -376,6 +392,12 @@
         <div class="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl dark:bg-primary/40"></div>
         <div class="absolute -bottom-32 -right-24 h-104 w-104 rounded-full bg-secondary/25 blur-3xl dark:bg-secondary/40"></div>
         <div class="absolute inset-0 bg-linear-to-b from-white/45 via-white/10 to-transparent dark:from-slate-900/60 dark:via-slate-900/40 dark:to-transparent"></div>
+        <!-- Recurring Visual Motif: Subtle dot grid -->
+        <div 
+          class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
+          style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;"
+          aria-hidden="true"
+        ></div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
