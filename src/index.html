@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
+  <script>document.documentElement.classList.add('js')</script>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,7 +62,7 @@
             <div class="relative">
               <!-- Costly Signal: XL monospace initials as background visual element -->
               <div 
-                class="pointer-events-none absolute -left-4 -top-8 select-none font-mono text-[12rem] font-bold leading-none text-primary/[0.04] dark:text-primary/[0.08] sm:text-[16rem] lg:-left-8 lg:-top-12 lg:text-[20rem]"
+                class="pointer-events-none absolute -left-4 -top-8 select-none font-mono text-[12rem] font-bold leading-none text-primary/4 dark:text-primary/8 sm:text-[16rem] lg:-left-8 lg:-top-12 lg:text-[20rem]"
                 aria-hidden="true"
               >CM</div>
               <h1 class="hero-title relative text-left leading-tight text-gray-900 dark:text-white">
@@ -71,7 +73,7 @@
                 I tinker, it breaks, I figure out what went wrong, I fix — and eventually, it works. Clean interfaces, solid infrastructure, and something I’m proud of… myself.
               </p>
             </div>
-            <div class="hero-actions flex flex-col gap-4 sm:flex-row">
+            <div class="hero-actions flex flex-col gap-4 sm:flex-row min-h-[56px]">
               <div data-button data-text="View Projects" data-href="pages/projects.html" data-classes="btn btn-primary"></div>
               <div data-button data-text="Learn More" data-href="pages/about.html" data-classes="btn btn-secondary"></div>
             </div>
@@ -240,7 +242,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 min-h-[400px]">
           <!-- Features rendered by JS -->
         </div>
       </div>
@@ -343,7 +345,7 @@
         <h2 class="section-title">Languages used</h2>
         <p class="section-subtitle">Each card below updates automatically to show how many lines of a specific technology is powering this site — straight from the source.</p>
 
-        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 mt-10 lg:mt-14">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 mt-10 lg:mt-14 min-h-[600px]">
           <!-- Skills rendered by skills-renderer.js -->
         </div>
       </div>
@@ -355,7 +357,7 @@
         <h2 class="section-title">Frameworks/Library's Used</h2>
         <p class="section-subtitle">These are the frameworks powering this site (or potentially yours 😉).</p>
 
-        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 lg:gap-12 justify-center mt-10 lg:mt-14">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 lg:gap-12 justify-center mt-10 lg:mt-14 min-h-[300px]">
           <!-- Framework Card: Tailwind CSS -->
           <div class="primary-card" data-framework="Tailwind">
             <div class="card-icon bg-(--color-tailwind-blue)/15">

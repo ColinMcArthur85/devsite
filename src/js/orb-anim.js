@@ -34,28 +34,38 @@
     };
   });
 
-  let last = performance.now();
-  function tick(now) {
-    const dt = (now - last) / 1000;
-    last = now;
+  function init() {
+    let last = performance.now();
+    function tick(now) {
+      const dt = (now - last) / 1000;
+      last = now;
 
-    for (const o of orbs) {
-      o.angle += o.speed * dt;
-      const pulse = Math.sin((now / 1000) * o.pulseSpeed * Math.PI * 2) * o.radialPulse;
-      const r = o.baseR + pulse;
-      const x = centerX + Math.cos(o.angle) * r;
-      const y = centerY + Math.sin(o.angle) * r * 0.95; // slight ellipse for natural feel
-      o.el.setAttribute("cx", x.toFixed(2));
-      o.el.setAttribute("cy", y.toFixed(2));
-      // subtle scale pulse
-      const scale = 1 + 0.06 * Math.sin((now / 1000) * o.pulseSpeed * Math.PI * 2 + o.angle);
-      o.el.style.transform = `scale(${scale})`;
-      o.el.style.transformBox = "fill-box";
-      o.el.style.transformOrigin = "center";
+      for (const o of orbs) {
+        o.angle += o.speed * dt;
+        const pulse = Math.sin((now / 1000) * o.pulseSpeed * Math.PI * 2) * o.radialPulse;
+        const r = o.baseR + pulse;
+        const x = centerX + Math.cos(o.angle) * r;
+        const y = centerY + Math.sin(o.angle) * r * 0.95; // slight ellipse for natural feel
+        o.el.setAttribute("cx", x.toFixed(2));
+        o.el.setAttribute("cy", y.toFixed(2));
+        // subtle scale pulse
+        const scale = 1 + 0.06 * Math.sin((now / 1000) * o.pulseSpeed * Math.PI * 2 + o.angle);
+        o.el.style.transform = `scale(${scale})`;
+        o.el.style.transformBox = "fill-box";
+        o.el.style.transformOrigin = "center";
+      }
+
+      requestAnimationFrame(tick);
     }
 
     requestAnimationFrame(tick);
   }
 
-  requestAnimationFrame(tick);
+  // Defer animation until window loaded to improve TBT (Total Blocking Time)
+  if (document.readyState === "complete") {
+    init();
+  } else {
+    window.addEventListener("load", init, { once: true });
+  }
 })();
+
