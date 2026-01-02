@@ -1,75 +1,68 @@
+
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Code coverage report for src/js/modules/contact-form-validation.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
     <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-      .coverage-summary .sorter {
-        background-image: url(../../../sort-arrow-sprite.png);
-      }
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
     </style>
-  </head>
-
-  <body>
-    <div class="wrapper">
-      <div class="pad1">
-        <h1>
-          <a href="../../../index.html">All files</a>
-          /
-          <a href="index.html">src/js/modules</a>
-          contact-form-validation.js
-        </h1>
-        <div class="clearfix">
-          <div class="fl pad1y space-right2">
-            <span class="strong">97.1%</span>
-            <span class="quiet">Statements</span>
-            <span class="fraction">67/69</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">95.65%</span>
-            <span class="quiet">Branches</span>
-            <span class="fraction">44/46</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">100%</span>
-            <span class="quiet">Functions</span>
-            <span class="fraction">16/16</span>
-          </div>
-
-          <div class="fl pad1y space-right2">
-            <span class="strong">97.05%</span>
-            <span class="quiet">Lines</span>
-            <span class="fraction">66/68</span>
-          </div>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/js/modules</a> contact-form-validation.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">97.1% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>67/69</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">95.65% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>44/46</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>16/16</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">97.05% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>66/68</span>
+            </div>
+        
+            
         </div>
         <p class="quiet">
-          Press
-          <em>n</em>
-          or
-          <em>j</em>
-          to go to the next uncovered block,
-          <em>b</em>
-          ,
-          <em>p</em>
-          or
-          <em>k</em>
-          for the previous block.
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
         <template id="filterTemplate">
-          <div class="quiet">
-            Filter:
-            <input type="search" id="fileSearch" />
-          </div>
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
         </template>
-      </div>
-      <div class="status-line high"></div>
-      <pre><table class="coverage">
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
 <a name='L3'></a><a href='#L3'>3</a>
@@ -486,7 +479,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * Contact Form Validation Module
- * 
+ *
  * Provides validation, sanitization, and state management for contact forms.
  * Designed to be testable and reusable.
  */
@@ -497,13 +490,13 @@
  * @returns {string} String with HTML tags removed
  */
 function stripTags(str) {
-  if (!str) return '';
+  if (!str) return "";
   // Remove script/style tags and content first
   let result = String(str)
-    .replace(/&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi, '')
-    .replace(/&lt;style\b[^&lt;]*(?:(?!&lt;\/style&gt;)&lt;[^&lt;]*)*&lt;\/style&gt;/gi, '');
+    .replace(/&lt;script\b[^&lt;]*(?:(?!&lt;\/script&gt;)&lt;[^&lt;]*)*&lt;\/script&gt;/gi, "")
+    .replace(/&lt;style\b[^&lt;]*(?:(?!&lt;\/style&gt;)&lt;[^&lt;]*)*&lt;\/style&gt;/gi, "");
   // Then remove all remaining tags
-  return result.replace(/&lt;[^&gt;]*&gt;/g, '').trim();
+  return result.replace(/&lt;[^&gt;]*&gt;/g, "").trim();
 }
 &nbsp;
 /**
@@ -513,23 +506,23 @@ function stripTags(str) {
  */
 export function validateName(name) {
   if (name === null || name === undefined) {
-    return { valid: false, error: 'Name is required' };
+    return { valid: false, error: "Name is required" };
   }
-  
+&nbsp;
   const sanitized = stripTags(String(name)).trim();
-  
+&nbsp;
   if (!sanitized) {
-    return { valid: false, error: 'Name is required' };
+    return { valid: false, error: "Name is required" };
   }
-  
+&nbsp;
   if (sanitized.length &lt; 2) {
-    return { valid: false, error: 'Name must be at least 2 characters' };
+    return { valid: false, error: "Name must be at least 2 characters" };
   }
-  
+&nbsp;
   if (sanitized.length &gt; 100) {
-    return { valid: false, error: 'Name must be less than 100 characters' };
+    return { valid: false, error: "Name must be less than 100 characters" };
   }
-  
+&nbsp;
   return { valid: true };
 }
 &nbsp;
@@ -540,31 +533,31 @@ export function validateName(name) {
  */
 export function validateEmail(email) {
   <span class="missing-if-branch" title="if path not taken" >I</span>if (email === null || email === undefined) {
-<span class="cstat-no" title="statement not covered" >    return { valid: false, error: 'Email is required' };</span>
+<span class="cstat-no" title="statement not covered" >    return { valid: false, error: "Email is required" };</span>
   }
-  
+&nbsp;
   const trimmed = String(email).trim();
-  
+&nbsp;
   if (!trimmed) {
-    return { valid: false, error: 'Email is required' };
+    return { valid: false, error: "Email is required" };
   }
-  
+&nbsp;
   if (trimmed.length &gt; 254) {
-    return { valid: false, error: 'Email must be less than 254 characters' };
+    return { valid: false, error: "Email must be less than 254 characters" };
   }
-  
+&nbsp;
   // Check for dangerous protocols
   if (/^(javascript|data|vbscript):/i.test(trimmed)) {
-    return { valid: false, error: 'Please enter a valid email address' };
+    return { valid: false, error: "Please enter a valid email address" };
   }
-  
+&nbsp;
   // Basic email format validation
   // This regex handles most common email formats
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(trimmed)) {
-    return { valid: false, error: 'Please enter a valid email address' };
+    return { valid: false, error: "Please enter a valid email address" };
   }
-  
+&nbsp;
   return { valid: true };
 }
 &nbsp;
@@ -575,23 +568,23 @@ export function validateEmail(email) {
  */
 export function validateMessage(message) {
   <span class="missing-if-branch" title="if path not taken" >I</span>if (message === null || message === undefined) {
-<span class="cstat-no" title="statement not covered" >    return { valid: false, error: 'Message is required' };</span>
+<span class="cstat-no" title="statement not covered" >    return { valid: false, error: "Message is required" };</span>
   }
-  
+&nbsp;
   const trimmed = String(message).trim();
-  
+&nbsp;
   if (!trimmed) {
-    return { valid: false, error: 'Message is required' };
+    return { valid: false, error: "Message is required" };
   }
-  
+&nbsp;
   if (trimmed.length &lt; 10) {
-    return { valid: false, error: 'Message must be at least 10 characters' };
+    return { valid: false, error: "Message must be at least 10 characters" };
   }
-  
+&nbsp;
   if (trimmed.length &gt; 5000) {
-    return { valid: false, error: 'Message must be less than 5000 characters' };
+    return { valid: false, error: "Message must be less than 5000 characters" };
   }
-  
+&nbsp;
   return { valid: true };
 }
 &nbsp;
@@ -602,9 +595,9 @@ export function validateMessage(message) {
  */
 export function sanitizeFormData(data) {
   return {
-    name: stripTags(data.name || ''),
-    email: String(data.email || '').trim(),
-    message: stripTags(data.message || '')
+    name: stripTags(data.name || ""),
+    email: String(data.email || "").trim(),
+    message: stripTags(data.message || ""),
   };
 }
 &nbsp;
@@ -613,53 +606,53 @@ export function sanitizeFormData(data) {
  * @returns {Object} State management object
  */
 export function ContactFormState() {
-  let status = 'idle'; // 'idle' | 'busy' | 'success' | 'error'
+  let status = "idle"; // 'idle' | 'busy' | 'success' | 'error'
   let errors = {};
-  let errorMessage = '';
-  
+  let errorMessage = "";
+&nbsp;
   return {
     getStatus() {
       return status;
     },
-    
+&nbsp;
     getErrors() {
       return { ...errors };
     },
-    
+&nbsp;
     getErrorMessage() {
       return errorMessage;
     },
-    
+&nbsp;
     setBusy() {
-      status = 'busy';
+      status = "busy";
       errors = {};
-      errorMessage = '';
+      errorMessage = "";
     },
-    
+&nbsp;
     setSuccess() {
-      status = 'success';
+      status = "success";
       errors = {};
-      errorMessage = '';
+      errorMessage = "";
     },
-    
+&nbsp;
     setError(message) {
-      status = 'error';
+      status = "error";
       errorMessage = message;
     },
-    
+&nbsp;
     setValidationErrors(fieldErrors) {
       errors = { ...fieldErrors };
     },
-    
+&nbsp;
     isValid() {
       return Object.keys(errors).length === 0;
     },
-    
+&nbsp;
     reset() {
-      status = 'idle';
+      status = "idle";
       errors = {};
-      errorMessage = '';
-    }
+      errorMessage = "";
+    },
   };
 }
 &nbsp;
@@ -670,45 +663,44 @@ export function ContactFormState() {
  */
 export function validateForm(data) {
   const errors = {};
-  
+&nbsp;
   const nameResult = validateName(data.name);
   if (!nameResult.valid) {
     errors.name = nameResult.error;
   }
-  
+&nbsp;
   const emailResult = validateEmail(data.email);
   if (!emailResult.valid) {
     errors.email = emailResult.error;
   }
-  
+&nbsp;
   const messageResult = validateMessage(data.message);
   if (!messageResult.valid) {
     errors.message = messageResult.error;
   }
-  
+&nbsp;
   return {
     valid: Object.keys(errors).length === 0,
-    errors
+    errors,
   };
 }
 &nbsp;</pre></td></tr></table></pre>
 
-      <div class="push"></div>
-      <!-- for sticky footer -->
-    </div>
-    <!-- /wrapper -->
-    <div class="footer quiet pad2 space-top1 center small">
-      Code coverage generated by
-      <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-      at 2026-01-01T16:10:09.231Z
-    </div>
-    <script src="../../../prettify.js"></script>
-    <script>
-      window.onload = function () {
-        prettyPrint();
-      };
-    </script>
-    <script src="../../../sorter.js"></script>
-    <script src="../../../block-navigation.js"></script>
-  </body>
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-01-02T02:21:09.388Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
 </html>
+    
