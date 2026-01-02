@@ -26,7 +26,7 @@
 
   <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
     <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+      <div class="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-secondary/10"></div>
     </div>
 
     <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
@@ -38,6 +38,12 @@
         <div
           class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35),_rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_rgba(15,23,42,0))]"
         ></div>
+        <!-- Costly Signal: Subtle dot grid pattern -->
+        <div 
+          class="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+          style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;"
+          aria-hidden="true"
+        ></div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="hero-grid items-start gap-16 lg:items-center">
@@ -45,7 +51,7 @@
             <div
               class="inline-flex max-w-max items-center gap-3 rounded-full border border-white/40 bg-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
             >
-              <span class="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+              <span class="inline-flex h-2 w-2 rounded-full bg-linear-to-r from-primary to-secondary"></span>
               Contact console
             </div>
             <div class="space-y-6">
@@ -79,7 +85,7 @@
           <div class="grid gap-6">
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
-                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
                   <svg class="icon text-lg" aria-hidden="true" focusable="false">
                     <use href="../assets/icons/sprite.svg#envelope-open-text"></use>
                   </svg>
@@ -92,7 +98,7 @@
             </div>
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
-                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
                   <svg class="icon text-lg" aria-hidden="true" focusable="false">
                     <use href="../assets/icons/sprite.svg#location-dot"></use>
                   </svg>
@@ -105,7 +111,7 @@
             </div>
             <div class="primary-card p-6">
               <div class="flex items-center gap-4">
-                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
+                <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary/20 to-secondary/20 text-primary shadow-lg">
                   <svg class="icon text-lg" aria-hidden="true" focusable="false">
                     <use href="../assets/icons/sprite.svg#waveform-lines"></use>
                   </svg>
@@ -253,13 +259,13 @@
       <div class="absolute inset-0 -z-10">
         <div class="absolute left-1/2 top-[-6rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
         <div class="absolute bottom-[-10rem] right-[-6rem] h-[28rem] w-[28rem] rounded-full bg-secondary/25 blur-3xl"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
       </div>
       <div class="container-wrapper relative z-10 py-16">
         <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div class="space-y-6">
             <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
               <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Colin McArthur</p>
                 <p class="text-lg font-semibold">Hyper-real experiences engineered</p>
@@ -331,11 +337,10 @@
       </div>
     </footer>
 
-    <script src="../assets/js/components/header.js"></script>
-    <script src="../assets/js/components/ui.js"></script>
-    <script src="../assets/js/expressions.js"></script>
-    <script src="../assets/js/modules/scroll-reveal.js"></script>
-    <script src="../assets/js/modules/contact-form.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    <script type="module" src="../js/components/header.js"></script>
+    <script type="module" src="../js/components/ui.js"></script>
+    <script type="module" src="../js/modules/scroll-reveal.js"></script>
+    <script type="module" src="../js/modules/contact-form.js"></script>
+    <script type="module" src="../js/scripts.js"></script>
   </body>
 </html>
