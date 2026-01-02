@@ -1,3 +1,7 @@
+// Import modules to ensure they register before we run initializers
+import "./modules/scroll-reveal.js";
+import "./modules/terminal-typing.js";
+
 (function (global) {
   function runInitialisers() {
     const modules = global.SiteFeatureModules || [];

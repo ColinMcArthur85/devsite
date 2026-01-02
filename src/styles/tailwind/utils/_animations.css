@@ -61,9 +61,20 @@
     animation: boop 450ms ease-in-out;
   }
 
-  [data-animate-on-scroll] {
+  /* Scroll Reveal System */
+  /* If JS is enabled, hide elements until they are ready/visible to avoid flicker/shift */
+  :root.js [data-animate-on-scroll] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    pointer-events: none;
+  }
+
+  /* When element is scrolled into view or is already in viewport */
+  /* Must match :root.js specificity from the hiding rule above */
+  :root.js [data-animate-on-scroll].is-visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
   }
 
   [data-animate-on-scroll].is-reveal-ready {
