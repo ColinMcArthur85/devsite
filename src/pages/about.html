@@ -26,17 +26,23 @@
 
   <body class="dark:bg-dark-background bg-white font-sans text-gray-900 transition-colors duration-300 dark:text-white">
     <div class="pointer-events-none fixed inset-0 -z-10 opacity-0 transition-opacity duration-500 dark:opacity-100">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10"></div>
+      <div class="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-secondary/10"></div>
     </div>
 
     <div id="menu-container" style="min-height: clamp(5.75rem, 8vw, 6.75rem); display: block"></div>
 
     <section data-animate-on-scroll id="hero" class="hero-section relative overflow-hidden">
       <div class="absolute inset-0 -z-10">
-        <div class="absolute left-[-12rem] top-[-8rem] h-[28rem] w-[28rem] rounded-full bg-primary/20 blur-3xl dark:bg-primary/35"></div>
-        <div class="absolute right-[-14rem] bottom-[-10rem] h-[32rem] w-[32rem] rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/35"></div>
+        <div class="absolute -left-48 -top-32 h-112 w-md rounded-full bg-primary/20 blur-3xl dark:bg-primary/35"></div>
+        <div class="absolute -right-56 -bottom-40 h-128 w-lg rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/35"></div>
         <div
-          class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35),_rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.18),_rgba(15,23,42,0))]"
+          class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.35),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),rgba(15,23,42,0))]"
+        ></div>
+        <!-- Costly Signal: Subtle dot grid pattern -->
+        <div 
+          class="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]"
+          style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;"
+          aria-hidden="true"
         ></div>
       </div>
       <div class="container-wrapper relative z-10">
@@ -45,7 +51,7 @@
             <div
               class="inline-flex max-w-max items-center gap-3 rounded-full border border-white/40 bg-white/30 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-600 backdrop-blur-lg dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
             >
-              <span class="inline-flex h-2 w-2 rounded-full bg-gradient-to-r from-primary to-secondary"></span>
+              <span class="inline-flex h-2 w-2 rounded-full bg-linear-to-r from-primary to-secondary"></span>
               About me
             </div>
             <div class="space-y-6">
@@ -84,9 +90,9 @@
             <div class="absolute -left-12 top-12 h-56 w-56 rounded-full bg-primary/20 blur-3xl dark:bg-primary/35"></div>
             <div class="absolute -right-10 bottom-0 h-48 w-48 rounded-full bg-secondary/20 blur-3xl dark:bg-secondary/35"></div>
             <div
-              class="relative rounded-[40px] border border-white/40 bg-gradient-to-b from-white/90 via-white/70 to-white/30 p-6 shadow-[0_40px_120px_rgba(15,23,42,0.35)] backdrop-blur-2xl dark:border-white/10 dark:from-slate-900/80 dark:via-slate-900/60 dark:to-slate-900/20"
+              class="relative rounded-[40px] border border-white/40 bg-linear-to-b from-white/90 via-white/70 to-white/30 p-6 shadow-[0_40px_120px_rgba(15,23,42,0.35)] backdrop-blur-2xl dark:border-white/10 dark:from-slate-900/80 dark:via-slate-900/60 dark:to-slate-900/20"
             >
-              <div class="relative aspect-[4/5]">
+              <div class="relative aspect-4/5">
                 <div id="avatar-sprite" class="hyper-avatar" role="img" aria-label="Stylized hyper-real portrait of Colin McArthur rendered entirely with CSS and SVG">
                   <div class="hyper-avatar__halo" aria-hidden="true"></div>
                   <div class="hyper-avatar__sheen" aria-hidden="true"></div>
@@ -195,8 +201,8 @@
     </section>
     <section data-animate-on-scroll id="story" class="relative isolate overflow-hidden py-24">
       <div class="absolute inset-0 -z-10">
-        <div class="absolute left-[-10rem] top-[-6rem] h-[26rem] w-[26rem] rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
-        <div class="absolute right-[-12rem] bottom-[-8rem] h-[28rem] w-[28rem] rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
+        <div class="absolute -left-40 -top-24 h-104 w-104 rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
+        <div class="absolute -right-48 -bottom-32 h-112 w-md rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
       </div>
       <div class="container-wrapper relative z-10 space-y-16">
         <!-- Two-column story -->
@@ -291,8 +297,8 @@
 
     <section data-animate-on-scroll id="about" class="relative isolate overflow-hidden py-24">
       <div class="absolute inset-0 -z-10">
-        <div class="absolute left-[-10rem] bottom-[-6rem] h-[26rem] w-[26rem] rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
-        <div class="absolute right-[-12rem] top-[-8rem] h-[28rem] w-[28rem] rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
+        <div class="absolute -left-40 -bottom-24 h-104 w-104 rounded-full bg-primary/15 blur-3xl dark:bg-primary/30"></div>
+        <div class="absolute -right-48 -top-32 h-112 w-md rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/30"></div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="mx-auto max-w-3xl text-center">
@@ -308,7 +314,7 @@
         </div>
         <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <article class="primary-card p-8">
-            <div class="card-icon bg-gradient-to-br from-primary to-secondary">
+            <div class="card-icon bg-linear-to-br from-primary to-secondary">
               <svg class="icon text-xl boop" aria-hidden="true" focusable="false">
                 <use href="../assets/icons/sprite.svg#folder"></use>
               </svg>
@@ -320,7 +326,7 @@
             </p>
           </article>
           <article class="primary-card p-8">
-            <div class="card-icon bg-gradient-to-br from-primary to-secondary">
+            <div class="card-icon bg-linear-to-br from-primary to-secondary">
               <svg class="icon text-xl boop" aria-hidden="true" focusable="false">
                 <use href="../assets/icons/sprite.svg#search"></use>
               </svg>
@@ -332,7 +338,7 @@
             </p>
           </article>
           <article class="primary-card p-8">
-            <div class="card-icon bg-gradient-to-br from-primary to-secondary">
+            <div class="card-icon bg-linear-to-br from-primary to-secondary">
               <svg class="icon text-xl boop" aria-hidden="true" focusable="false">
                 <use href="../assets/icons/sprite.svg#comment-dots"></use>
               </svg>
@@ -344,7 +350,7 @@
             </p>
           </article>
           <article class="primary-card p-8">
-            <div class="card-icon bg-gradient-to-br from-primary to-secondary">
+            <div class="card-icon bg-linear-to-br from-primary to-secondary">
               <svg class="icon text-xl boop" aria-hidden="true" focusable="false">
                 <use href="../assets/icons/sprite.svg#calendar-check"></use>
               </svg>
@@ -353,7 +359,7 @@
             <p class="card-body">I build or learn something every single day. No excuses. No breaks. A bit obsessive? Sure. But that’s how progress compounds.</p>
           </article>
           <article class="primary-card p-8">
-            <div class="card-icon bg-gradient-to-br from-primary to-secondary">
+            <div class="card-icon bg-linear-to-br from-primary to-secondary">
               <svg class="icon text-xl boop" aria-hidden="true" focusable="false">
                 <use href="../assets/icons/sprite.svg#hands-helping"></use>
               </svg>
@@ -367,9 +373,9 @@
 
     <section data-animate-on-scroll id="timeline" class="relative isolate overflow-hidden py-24">
       <div class="absolute inset-0 -z-10">
-        <div class="absolute left-1/2 top-0 h-[22rem] w-[22rem] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl dark:bg-primary/25"></div>
-        <div class="absolute bottom-[-8rem] right-[-6rem] h-[24rem] w-[24rem] rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/25"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-white/35 via-white/5 to-transparent dark:from-slate-900/50 dark:via-slate-900/30 dark:to-transparent"></div>
+        <div class="absolute left-1/2 top-0 h-88 w-88 -translate-x-1/2 rounded-full bg-primary/15 blur-3xl dark:bg-primary/25"></div>
+        <div class="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-secondary/15 blur-3xl dark:bg-secondary/25"></div>
+        <div class="absolute inset-0 bg-linear-to-b from-white/35 via-white/5 to-transparent dark:from-slate-900/50 dark:via-slate-900/30 dark:to-transparent"></div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="mx-auto max-w-3xl text-center">
@@ -448,15 +454,15 @@
 
     <footer class="relative isolate overflow-hidden bg-slate-950 text-white">
       <div class="absolute inset-0 -z-10">
-        <div class="absolute left-1/2 top-[-6rem] h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
-        <div class="absolute bottom-[-10rem] right-[-6rem] h-[28rem] w-[28rem] rounded-full bg-secondary/25 blur-3xl"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+        <div class="absolute left-1/2 -top-24 h-128 w-lg -translate-x-1/2 rounded-full bg-primary/25 blur-3xl"></div>
+        <div class="absolute -bottom-40 -right-24 h-112 w-md rounded-full bg-secondary/25 blur-3xl"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
       </div>
       <div class="container-wrapper relative z-10 py-16">
         <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div class="space-y-6">
             <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
+              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary via-indigo-500 to-secondary text-lg font-bold text-white shadow-lg">CM</span>
               <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-300">Colin McArthur</p>
                 <p class="text-lg font-semibold">Hyper-real experiences engineered</p>
@@ -527,11 +533,11 @@
         </div>
       </div>
     </footer>
-    <script src="../assets/js/orb-anim.js" defer></script>
-    <script src="../assets/js/components/header.js"></script>
-    <script src="../assets/js/components/ui.js"></script>
-    <script src="../assets/js/components/boop.js"></script>
-    <script src="../assets/js/modules/scroll-reveal.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    <script type="module" src="../js/orb-anim.js"></script>
+    <script type="module" src="../js/components/header.js"></script>
+    <script type="module" src="../js/components/ui.js"></script>
+    <script type="module" src="../js/components/boop.js"></script>
+    <script type="module" src="../js/modules/scroll-reveal.js"></script>
+    <script type="module" src="../js/scripts.js"></script>
   </body>
 </html>
