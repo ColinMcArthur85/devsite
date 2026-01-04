@@ -2,9 +2,14 @@
 import "./modules/scroll-reveal.js";
 import "./modules/terminal-typing.js";
 import { initHeroDots } from "./modules/dot-magnet.js";
+import { initAvatarTilt } from "./modules/avatar-tilt.js";
+import { initComponents } from "./components/ui.js";
 
 (function (global) {
   function runInitialisers() {
+    // Process data-button and data-badge attributes
+    initComponents();
+
     const modules = global.SiteFeatureModules || [];
     modules.forEach((module) => {
       try {
@@ -18,6 +23,9 @@ import { initHeroDots } from "./modules/dot-magnet.js";
     
     // Initialize hero dots magnet effect
     initHeroDots();
+
+    // Initialize 3D Avatar Tilt
+    initAvatarTilt();
   }
 
   if (document.readyState === "loading") {

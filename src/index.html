@@ -52,7 +52,8 @@
         ></div>
         <!-- Costly Signal: Interactive dot grid pattern (magnetic effect) -->
         <div 
-          class="absolute inset-0 opacity-[0.20] dark:opacity-[0.16] text-primary"
+          id="hero-dots"
+          class="absolute inset-0 opacity-[0.10] dark:opacity-[0.16] text-primary"
           aria-hidden="true"
         >
           <canvas id="hero-dots-canvas" class="h-full w-full"></canvas>
@@ -68,7 +69,7 @@
             <div class="relative">
               <!-- Costly Signal: XL monospace initials as background visual element -->
               <div 
-                class="pointer-events-none absolute -left-4 -top-8 select-none font-mono text-[12rem] font-bold leading-none text-primary/12 dark:text-primary/8 sm:text-[16rem] lg:-left-8 lg:-top-12 lg:text-[20rem]"
+                class="pointer-events-none absolute -left-4 -top-8 select-none font-mono text-[12rem] font-bold leading-none text-primary/12 dark:text-primary/12 sm:text-[16rem] lg:-left-8 lg:-top-12 lg:text-[20rem]"
                 aria-hidden="true"
               >CM</div>
               <h1 class="hero-title relative text-left leading-tight text-gray-900 dark:text-white">
@@ -363,32 +364,45 @@
         <h2 class="section-title">Frameworks/Library's Used</h2>
         <p class="section-subtitle">These are the frameworks powering this site (or potentially yours 😉).</p>
 
-        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 lg:gap-12 justify-center mt-10 lg:mt-14">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-12 justify-center mt-10 lg:mt-14">
           <!-- Framework Card: Tailwind CSS -->
           <div class="primary-card" data-framework="Tailwind">
-            <div class="card-icon bg-(--color-tailwind-blue)/15">
+            <div class="card-icon shrink-0 bg-(--color-tailwind-blue)/15">
               <svg class="icon-xl boop text-(--color-tailwind-blue)" role="img" xmlns="http://www.w3.org/2000/svg">
                 <use href="./assets/icons/sprite.svg#tailwind"></use>
               </svg>
             </div>
-            <h3 class="card-title font-tailwind text-(--color-tailwind)">Tailwind CSS</h3>
-            <p class="card-body text-sm text-neutral-800 dark:text-neutral-200 mt-1">
+            <h3 class="card-title font-tailwind" style="color: var(--color-tailwind-blue)">Tailwind CSS</h3>
+            <p class="card-body text-sm text-neutral-800 dark:text-neutral-200 mt-1 mb-4">
               Utility-first CSS framework for rapid UI development. Tailwind is the backbone of this site's styling, enabling clean and scalable designs.
             </p>
+            <div class="flex items-center gap-2">
+              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
+                <div class="progress-bar-fill absolute left-0 top-0 h-full rounded-lg transition-all duration-1000 ease-in-out" style="background: var(--color-tailwind-blue); width: 39%"></div>
+              </div>
+              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">39%</span>
+            </div>
+            <p class="lines-count text-xs text-neutral-600 dark:text-neutral-400 font-mono mt-1">9,694 lines</p>
           </div>
 
           <!-- Framework Card: React -->
-          <div class="primary-card mx-auto" data-framework="React">
-            <div class="card-icon bg-react-blue/15">
+          <div class="primary-card" data-framework="React">
+            <div class="card-icon shrink-0 bg-react-blue/15">
               <svg class="boop icon-xl text-react-blue" xmlns="http://www.w3.org/2000/svg">
                 <use href="./assets/icons/sprite.svg#react"></use>
               </svg>
             </div>
-            <h3 class="card-title font-react text-(--color-react)">React</h3>
+            <h3 class="card-title font-react" style="color: var(--color-react-blue)">React</h3>
             <p class="card-body text-sm text-neutral-800 dark:text-neutral-200 mb-4">
-              React will soon be integrated into this site to enhance interactivity and dynamic content. Stay tuned for updates as I expand my skills in React development!
+              Modern frontend library for building reactive user interfaces. This site leverages React components for complex states and dynamic rendering.
             </p>
-            <span data-badge="Coming Soon"></span>
+            <div class="flex items-center gap-2">
+              <div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden">
+                <div class="progress-bar-fill absolute left-0 top-0 h-full rounded-lg transition-all duration-1000 ease-in-out" style="background: var(--color-react-blue); width: 20%"></div>
+              </div>
+              <span class="progress-percent text-sm text-neutral-800 dark:text-neutral-200 font-mono w-10 text-right">20%</span>
+            </div>
+            <p class="lines-count text-xs text-neutral-600 dark:text-neutral-400 font-mono mt-1">5,000 lines</p>
           </div>
         </div>
       </div>

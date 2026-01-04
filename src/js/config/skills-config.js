@@ -4,48 +4,58 @@ export const skillsConfig = {
     icon: "html5",
     color: "var(--color-html5)",
     class: "font-html5",
+    description: "Semantic markup, accessibility anchors, and structured content that forms the foundation of every web page.",
   },
   CSS: {
     title: "CSS3",
     icon: "css3",
     color: "var(--color-css3)",
     class: "font-css3",
+    description: "Custom properties, responsive layouts, and smooth animations that bring interfaces to life.",
   },
   SASS: {
     title: "SASS",
     icon: "sass-alt",
     color: "var(--color-sass-pink)",
     class: "font-sass",
+    description: "Nested rules, mixins, and variables for scalable stylesheets and maintainable design systems.",
   },
   JavaScript: {
     title: "JavaScript",
     icon: "js",
     color: "var(--color-javascript)",
     class: "font-js",
+    description: "DOM manipulation, async logic, and modular architecture powering interactive experiences.",
+  },
+  TypeScript: {
+    title: "TypeScript",
+    icon: "typescript",
+    color: "#3178c6",
+    class: "font-ts",
+    description: "Type-safe code, interface definitions, and compile-time checks for robust, scalable applications.",
   },
   PHP: {
     title: "PHP",
     icon: "php",
     color: "var(--color-php)",
     class: "font-php",
+    description: "Server-side rendering, API endpoints, and automation scripts for backend workflows.",
     badge: "Coming Soon",
   },
   MySQL: {
-    title: "MySQL", // Special handling for color in title if needed
-    icon: "mysql",
-    color: "var(--color-mysql-blue)", // Gradient start
-    colorEnd: "var(--color-mysql-orange)", // Gradient end
+    title: "MySQL",
+    icon: "database",
+    color: "var(--color-mysql-blue)",
+    colorEnd: "var(--color-mysql-orange)",
     class: "font-mysql",
-    badge: "Coming Soon",
     isGradient: true,
+    description: "Schema design, optimized queries, and data modeling for performant database operations.",
   },
   React: {
-    // In frameworks section in HTML, but listed in skills.json
     title: "React",
     icon: "react",
     color: "var(--color-react-blue)",
     class: "font-react",
-    badge: "Coming Soon",
-    isFramework: true, // Maybe separate section?
+    isFramework: true, // Excluded from Languages section, shown in Frameworks
   },
 };
