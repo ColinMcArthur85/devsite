@@ -111,12 +111,12 @@ describe("ResultsView", () => {
 
     test("updates results count", () => {
       view.update(mockProjects);
-      expect(resultsCountEl.textContent).toBe("3 projects found");
+      expect(resultsCountEl.textContent).toBe("Showing 3 projects");
     });
 
     test("handles single project count grammar", () => {
       view.update([mockProjects[0]]);
-      expect(resultsCountEl.textContent).toBe("1 project found");
+      expect(resultsCountEl.textContent).toBe("Showing 1 project");
     });
   });
 

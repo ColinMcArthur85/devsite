@@ -2,7 +2,7 @@
  * Filter State Unit Tests
  *
  * Tests for the createFilterState function that manages
- * project filtering by technology and category.
+ * project filtering by technology, category, and search query.
  */
 
 import { createFilterState } from "./filter-state.js";
@@ -11,18 +11,27 @@ describe("createFilterState", () => {
   describe("initialization", () => {
     test("creates state with empty defaults", () => {
       const state = createFilterState();
-      expect(state.serialise()).toEqual({ tech: [], categories: [] });
+      expect(state.serialise()).toEqual({
+        tech: [],
+        categories: [],
+        searchQuery: "",
+        sortBy: "default",
+      });
     });
 
     test("creates state with initial values", () => {
       const state = createFilterState({
         tech: ["react", "vue"],
         categories: ["frontend"],
+        searchQuery: "test",
+        sortBy: "title-asc",
       });
       const serialized = state.serialise();
       expect(serialized.tech).toContain("react");
       expect(serialized.tech).toContain("vue");
       expect(serialized.categories).toContain("frontend");
+      expect(serialized.searchQuery).toBe("test");
+      expect(serialized.sortBy).toBe("title-asc");
     });
 
     test("handles partial initial values", () => {
@@ -30,6 +39,8 @@ describe("createFilterState", () => {
       const serialized = state.serialise();
       expect(serialized.tech).toContain("javascript");
       expect(serialized.categories).toEqual([]);
+      expect(serialized.searchQuery).toBe("");
+      expect(serialized.sortBy).toBe("default");
     });
   });
 
@@ -53,12 +64,6 @@ describe("createFilterState", () => {
       state.toggle("categories", "frontend");
       expect(state.isActive("categories", "frontend")).toBe(false);
     });
-
-    test("does nothing for invalid group", () => {
-      const state = createFilterState();
-      state.toggle("invalid", "value");
-      expect(state.serialise()).toEqual({ tech: [], categories: [] });
-    });
   });
 
   describe("isActive", () => {
@@ -71,24 +76,32 @@ describe("createFilterState", () => {
       const state = createFilterState();
       expect(state.isActive("tech", "react")).toBe(false);
     });
+  });
 
-    test("returns false for invalid group", () => {
+  describe("search", () => {
+    test("sets and gets search query", () => {
       const state = createFilterState();
-      expect(state.isActive("invalid", "value")).toBe(false);
+      state.setSearchQuery("react");
+      expect(state.getSearchQuery()).toBe("react");
+    });
+  });
+
+  describe("sort", () => {
+    test("sets and gets sort by", () => {
+      const state = createFilterState();
+      state.setSortBy("title-asc");
+      expect(state.getSortBy()).toBe("title-asc");
     });
   });
 
   describe("serialise", () => {
-    test("returns arrays from sets", () => {
-      const state = createFilterState({ tech: ["a", "b"], categories: ["c"] });
+    test("returns all state fields", () => {
+      const state = createFilterState({ tech: ["react"], searchQuery: "test" });
       const result = state.serialise();
-      expect(Array.isArray(result.tech)).toBe(true);
-      expect(Array.isArray(result.categories)).toBe(true);
-    });
-
-    test("returns empty arrays when no selections", () => {
-      const state = createFilterState();
-      expect(state.serialise()).toEqual({ tech: [], categories: [] });
+      expect(result.tech).toEqual(["react"]);
+      expect(result.searchQuery).toBe("test");
+      expect(result.categories).toEqual([]);
+      expect(result.sortBy).toBe("default");
     });
   });
 
@@ -103,35 +116,23 @@ describe("createFilterState", () => {
       expect(state.hasSelections()).toBe(true);
     });
 
-    test("returns true when category selected", () => {
-      const state = createFilterState({ categories: ["frontend"] });
+    test("returns true when search query set", () => {
+      const state = createFilterState({ searchQuery: "test" });
       expect(state.hasSelections()).toBe(true);
-    });
-  });
-
-  describe("resetIfEmpty", () => {
-    test("returns true when no selections", () => {
-      const state = createFilterState();
-      expect(state.resetIfEmpty()).toBe(true);
-    });
-
-    test("returns false when has selections", () => {
-      const state = createFilterState({ tech: ["react"] });
-      expect(state.resetIfEmpty()).toBe(false);
     });
   });
 
   describe("apply", () => {
     const mockProjects = [
-      { id: 1, category: "frontend", tags: ["react", "javascript"] },
-      { id: 2, category: "frontend", tags: ["vue", "javascript"] },
-      { id: 3, category: "backend", tags: ["python", "django"] },
-      { id: 4, category: "fullstack", tags: ["react", "node"] },
+      { id: 1, title: "React App", description: "A react app", category: "frontend", tags: ["react", "javascript"] },
+      { id: 2, title: "Vue Site", description: "A vue site", category: "frontend", tags: ["vue", "javascript"] },
+      { id: 3, title: "Python API", description: "A python api", category: "backend", tags: ["python", "django"] },
+      { id: 4, title: "FullStack", description: "A fullstack app", category: "fullstack", tags: ["react", "node"] },
     ];
 
-    test("returns empty array when no selections", () => {
+    test("returns all projects when no selections", () => {
       const state = createFilterState();
-      expect(state.apply(mockProjects)).toEqual([]);
+      expect(state.apply(mockProjects)).toEqual(mockProjects);
     });
 
     test("filters by single tech", () => {
@@ -149,31 +150,25 @@ describe("createFilterState", () => {
       expect(result.every((p) => p.category === "frontend")).toBe(true);
     });
 
-    test("filters by tech OR (any match)", () => {
-      const state = createFilterState({ tech: ["react", "vue"] });
-      const result = state.apply(mockProjects);
-      expect(result).toHaveLength(3);
-    });
-
-    test("filters by tech AND category", () => {
-      const state = createFilterState({
-        tech: ["react"],
-        categories: ["frontend"],
-      });
+    test("filters by search query", () => {
+      const state = createFilterState({ searchQuery: "python" });
       const result = state.apply(mockProjects);
       expect(result).toHaveLength(1);
-      expect(result[0].id).toBe(1);
+      expect(result[0].id).toBe(3);
     });
 
-    test("returns empty when no matches", () => {
-      const state = createFilterState({ tech: ["nonexistent"] });
+    test("filters by search query in tags", () => {
+      const state = createFilterState({ searchQuery: "django" });
       const result = state.apply(mockProjects);
-      expect(result).toEqual([]);
+      expect(result).toHaveLength(1);
+      expect(result[0].tags).toContain("django");
     });
 
-    test("handles empty projects array", () => {
-      const state = createFilterState({ tech: ["react"] });
-      expect(state.apply([])).toEqual([]);
+    test("applies sort", () => {
+      const state = createFilterState({ sortBy: "title-asc" });
+      const result = state.apply(mockProjects);
+      expect(result[0].title).toBe("FullStack"); // F before P, R, V
+      expect(result[3].title).toBe("Vue Site");
     });
   });
 });

@@ -72,7 +72,7 @@
   }
 
   .usage-pill {
-    @apply relative flex items-center justify-between overflow-hidden rounded-full border border-white/20 bg-white/30 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md transition-transform duration-500 dark:border-white/10 dark:bg-white/10 dark:text-slate-300;
+    @apply relative flex items-center justify-between overflow-hidden rounded-full border border-light-border bg-light-surface px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md transition-transform duration-500 dark:border-white/10 dark:bg-white/10 dark:text-slate-300;
     transition:
       transform 0.5s ease,
       box-shadow 0.6s ease;
@@ -117,7 +117,7 @@
 
   /* Inputs — Inset appearance (recessed into screen) */
   .form-input {
-    @apply w-full rounded-2xl border border-white/30 bg-white/60 px-5 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-500 backdrop-blur-xl transition-all duration-300 focus:border-primary focus:outline-none dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-400;
+    @apply w-full rounded-2xl border border-light-border bg-light-surface px-5 py-3 text-sm font-medium text-slate-900 placeholder:text-slate-500 backdrop-blur-xl transition-all duration-300 focus:border-primary focus:outline-none dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-400;
     /* Inset shadow: dark top edge simulates depth */
     box-shadow:
       inset 0 2px 4px rgba(15, 23, 42, 0.08),
@@ -310,7 +310,7 @@
   }
 
   .pagination__info {
-    @apply rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300;
+    @apply rounded-full border border-light-border bg-light-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-slate-300;
   }
 
   [data-contact-submit] {
@@ -361,4 +361,114 @@
   .footer-link {
     @apply text-sm font-medium text-slate-300 transition-colors duration-300 hover:text-white;
   }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SEARCH COMMAND CENTER — Collapsible smart filters
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  .search-command-center {
+    @apply relative;
+  }
+
+  .search-bar-wrapper {
+    @apply transition-all duration-300;
+  }
+
+  .search-input {
+    box-shadow:
+      inset 0 2px 4px rgba(15, 23, 42, 0.06),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .search-input {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.25),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .search-input:focus {
+    box-shadow:
+      inset 0 2px 4px rgba(15, 23, 42, 0.04),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+      0 0 0 3px rgba(59, 130, 246, 0.15),
+      0 0 16px rgba(59, 130, 246, 0.08);
+  }
+
+  .dark .search-input:focus {
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 0 0 3px rgba(59, 130, 246, 0.25),
+      0 0 20px rgba(59, 130, 246, 0.12);
+  }
+
+  .sort-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  .dark .sort-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%9ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+  }
+
+  .filter-toggle-btn[aria-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .filter-panel {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .filter-panel.hidden {
+    display: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .active-filter-chip {
+    animation: chipIn 0.2s ease-out;
+  }
+
+  @keyframes chipIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .active-filters:empty {
+    display: none;
+  }
+
+  .filter-count-badge {
+    min-width: 1.25rem;
+    text-align: center;
+  }
+
+  .clear-filters-btn:hover {
+    @apply -translate-y-0.5;
+  }
+
+  .clear-filters-btn:active {
+    @apply translate-y-0;
+  }
 }
+

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0070f3" />
     <meta name="description" content="Colin McArthur Developer Portfolio Site" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../styles/tailwind.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..900&family=Fira+Code:wght@400;700&display=swap" />
@@ -38,6 +38,13 @@
         <div
           class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.35),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),rgba(15,23,42,0))]"
         ></div>
+        <!-- Costly Signal: Interactive dot grid pattern (magnetic effect) -->
+        <div 
+          class="absolute inset-0 opacity-[0.20] dark:opacity-[0.16] text-primary"
+          aria-hidden="true"
+        >
+          <canvas id="hero-dots-canvas" class="h-full w-full"></canvas>
+        </div>
       </div>
       <div class="container-wrapper relative z-10">
         <div class="hero-grid items-start gap-16 lg:items-center">
@@ -263,10 +270,11 @@
       </div>
     </footer>
 
-    <script src="../assets/js/components/header.js"></script>
-    <script src="../assets/js/components/ui.js"></script>
-    <script src="../assets/js/expressions.js"></script>
-    <script src="../assets/js/modules/scroll-reveal.js"></script>
-    <script src="../assets/js/scripts.js"></script>
+    <script type="module" src="../js/orb-anim.js"></script>
+    <script type="module" src="../js/components/header.js"></script>
+    <script type="module" src="../js/components/ui.js"></script>
+    <script type="module" src="../js/components/boop.js"></script>
+    <script type="module" src="../js/modules/scroll-reveal.js"></script>
+    <script type="module" src="../js/scripts.js"></script>
   </body>
 </html>

@@ -7,14 +7,20 @@ const PAGE_SIZE = 6;
 export function ResultsView(listContainer, paginationContainer, resultsCountEl) {
   let currentPage = 1;
   let filteredProjects = [];
+  let totalProjects = 0;
   let hasActiveFilters = false;
 
   function updateResultsCount() {
     if (!resultsCountEl) return;
-    if (!filteredProjects.length) {
+    if (!filteredProjects.length && !hasActiveFilters) {
+      resultsCountEl.textContent = totalProjects ? `${totalProjects} projects` : "";
+    } else if (!filteredProjects.length) {
       resultsCountEl.textContent = "";
     } else {
-      resultsCountEl.textContent = `${filteredProjects.length} project${filteredProjects.length === 1 ? "" : "s"} found`;
+      const suffix = totalProjects && filteredProjects.length !== totalProjects 
+        ? ` of ${totalProjects}` 
+        : "";
+      resultsCountEl.textContent = `Showing ${filteredProjects.length}${suffix} project${filteredProjects.length === 1 ? "" : "s"}`;
     }
   }
 
@@ -137,6 +143,9 @@ export function ResultsView(listContainer, paginationContainer, resultsCountEl) 
       hasActiveFilters = true;
       updateResultsCount();
       renderPage();
+    },
+    updateTotalCount(count) {
+      totalProjects = count;
     },
     refresh() {
       updateResultsCount();
