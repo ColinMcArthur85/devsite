@@ -1,4 +1,5 @@
 import timesheetImage from "../projects/full_stack/timesheet_tracker/timesheet_preview.png";
+import dnsDiagnosticImage from "../projects/full_stack/dns_diagnostic/dns_diagnostic_preview.png";
 
 export const projects = [
   {
@@ -10,6 +11,17 @@ export const projects = [
     live: "https://timesheet.colinmcarthur.com/select-mode",
     code: "https://github.com/ColinMcArthur85/timesheet-tracker",
     tags: ["Next.js", "Postgres", "Tailwind", "Slack API"],
+    category: "Full Stack",
+  },
+  {
+    id: "dns-diagnostic",
+    title: "DNS & Email Diagnostic Tool",
+    description:
+      "An AI-powered domain diagnostic tool that analyzes DNS records, email deliverability (SPF/DKIM/DMARC), and platform-specific requirements. Features a conversational AI assistant powered by OpenAI GPT-4o-mini that explains results and provides actionable recommendations.",
+    image: dnsDiagnosticImage,
+    live: "https://dns.colinmcarthur.com",
+    code: "https://github.com/ColinMcArthur85/dns-diagnostic",
+    tags: ["Next.js", "Python", "Tailwind", "OpenAI"],
     category: "Full Stack",
   },
   {
