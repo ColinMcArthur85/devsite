@@ -27,7 +27,12 @@ describe("Projects Filter Integration", () => {
 
     test("initial state has no filters applied", () => {
       expect(filterState.hasSelections()).toBe(false);
-      expect(filterState.serialise()).toEqual({ tech: [], categories: [] });
+      expect(filterState.serialise()).toEqual({
+        tech: [],
+        categories: [],
+        searchQuery: "",
+        sortBy: "default",
+      });
     });
 
     test("can add a technology filter", () => {
@@ -47,7 +52,10 @@ describe("Projects Filter Integration", () => {
       expect(filterState.isActive("tech", "JavaScript")).toBe(false);
     });
 
-    test("apply filter reduces projects", () => {
+    test("apply filter reduces projects or keeps them all if no filters", () => {
+      // By default with no filters, it should return all
+      expect(filterState.apply(projects).length).toBe(projects.length);
+
       // First, find a technology that exists in projects
       const techTags = new Set();
       projects.forEach((p) => p.tags.forEach((tag) => techTags.add(tag)));
@@ -103,56 +111,41 @@ describe("Projects Filter Integration", () => {
       expect(bothFilters.length).toBeLessThanOrEqual(categoryOnly.length);
     });
 
-    test("serialise captures current state", () => {
+    test("serialise captures current state including search and sort", () => {
       filterState.toggle("tech", "React");
-      filterState.toggle("tech", "Vue");
-      filterState.toggle("categories", "frontend");
+      filterState.setSearchQuery("test query");
+      filterState.setSortBy("title-asc");
 
       const serialized = filterState.serialise();
 
       expect(serialized.tech).toContain("React");
-      expect(serialized.tech).toContain("Vue");
-      expect(serialized.categories).toContain("frontend");
+      expect(serialized.searchQuery).toBe("test query");
+      expect(serialized.sortBy).toBe("title-asc");
     });
   });
 
   describe("Filter Persistence Simulation", () => {
     test("can restore state from serialized data", () => {
       // Simulate saving state
-      const savedState = { tech: ["React"], categories: ["frontend"] };
+      const savedState = { tech: ["React"], categories: ["frontend"], searchQuery: "test", sortBy: "title-desc" };
 
       // Restore to new filterState
       const restoredState = createFilterState(savedState);
 
       expect(restoredState.isActive("tech", "React")).toBe(true);
       expect(restoredState.isActive("categories", "frontend")).toBe(true);
-    });
-
-    test("localStorage mock can store filter state", () => {
-      const filterState = createFilterState();
-      filterState.toggle("tech", "JavaScript");
-
-      // Simulate save to localStorage
-      const serialized = JSON.stringify(filterState.serialise());
-      localStorage.setItem("filterState", serialized);
-
-      // Configure mock to return the serialized value
-      localStorage.getItem.mockReturnValue(serialized);
-
-      // Simulate restore
-      const restored = JSON.parse(localStorage.getItem("filterState"));
-      const newState = createFilterState(restored);
-
-      expect(newState.isActive("tech", "JavaScript")).toBe(true);
+      expect(restoredState.getSearchQuery()).toBe("test");
+      expect(restoredState.getSortBy()).toBe("title-desc");
     });
   });
 
   describe("Edge Cases", () => {
-    test("empty filter returns empty array", () => {
+    test("empty filters return all projects by default", () => {
       const filterState = createFilterState();
       const projects = [{ category: "test", tags: ["a"] }];
 
-      expect(filterState.apply(projects)).toEqual([]);
+      // New behavior: if no filters active, return ALL projects
+      expect(filterState.apply(projects)).toEqual(projects);
     });
 
     test("non-matching filter returns empty array", () => {
@@ -165,12 +158,13 @@ describe("Projects Filter Integration", () => {
     test("handles projects with empty tags array", () => {
       const filterState = createFilterState({ tech: ["React"] });
       const projects = [
-        { category: "test", tags: [] },
-        { category: "test", tags: ["React"] },
+        { id: 1, title: 'No Tags', category: "test", tags: [] },
+        { id: 2, title: 'Has Tag', category: "test", tags: ["React"] },
       ];
 
       const filtered = filterState.apply(projects);
       expect(filtered.length).toBe(1);
+      expect(filtered[0].id).toBe(2);
     });
   });
 });

@@ -53,6 +53,34 @@
   --color-dark-border-subtle: #334155;
 
   /* ═══════════════════════════════════════════════════════════════════════════
+     LIGHT MODE — Softer, warmer palette (no harsh pure whites!)
+     Off-white backgrounds with subtle warm undertones for comfortable viewing
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  --color-light-primary: #2563eb;
+  --color-light-secondary: #7c3aed;
+  --color-light-accent: #06b6d4;
+
+  /* Text colors — warm charcoal tones (not harsh black) */
+  --color-light-text: #1e293b;
+  --color-light-text-secondary: #475569;
+  --color-light-text-muted: #64748b;
+
+  /* Background colors — cream/warm off-white tones */
+  --color-light-background: #faf9f7;
+  --color-light-background-secondary: #f5f3f0;
+  --color-light-background-tertiary: #efece8;
+  --color-light-background-elevated: #ffffff;
+
+  /* Surface colors for cards (subtle warmth) */
+  --color-light-surface: rgba(255, 255, 255, 0.85);
+  --color-light-surface-hover: rgba(255, 255, 255, 0.95);
+
+  /* Border colors — warm and subtle */
+  --color-light-border: rgba(30, 41, 59, 0.12);
+  --color-light-border-subtle: rgba(30, 41, 59, 0.06);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
      SKILL + BADGE PALETTE
      ═══════════════════════════════════════════════════════════════════════════ */
 

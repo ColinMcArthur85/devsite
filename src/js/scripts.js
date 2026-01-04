@@ -1,6 +1,7 @@
 // Import modules to ensure they register before we run initializers
 import "./modules/scroll-reveal.js";
 import "./modules/terminal-typing.js";
+import { initHeroDots } from "./modules/dot-magnet.js";
 
 (function (global) {
   function runInitialisers() {
@@ -14,6 +15,9 @@ import "./modules/terminal-typing.js";
         console.error(`Failed to initialise module "${module.name || "unknown"}"`, error);
       }
     });
+    
+    // Initialize hero dots magnet effect
+    initHeroDots();
   }
 
   if (document.readyState === "loading") {
