@@ -92,8 +92,22 @@
   }
 
   const ContactFormService = {
-    send(formData) {
-      // In a static build we fake sending the message but return a promise-like API
+    send(formData, action) {
+      if (action && action.trim() !== "" && action !== window.location.href) {
+        return fetch(action, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }).then((response) => {
+          if (!response.ok) throw new Error("Network response was not ok");
+          return response.json();
+        });
+      }
+
+      // Fallback: In a static build we fake sending the message but return a promise-like API
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({ ok: true, data: formData });
@@ -103,30 +117,35 @@
   };
 
   function initContactForm() {
-    const form = document.querySelector(SELECTORS.form);
-    if (!form) return;
+    const forms = document.querySelectorAll(SELECTORS.form);
+    if (!forms.length) return;
 
-    const view = ContactFormView(form);
+    forms.forEach(form => {
+      const view = ContactFormView(form);
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const submitButton = view.getSubmitButton();
-      if (!submitButton) return;
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const submitButton = view.getSubmitButton();
+        if (!submitButton) return;
 
-      const formData = Object.fromEntries(new FormData(form).entries());
-      view.setBusy();
+        const formData = Object.fromEntries(new FormData(form).entries());
+        view.setBusy();
 
-      ContactFormService.send(formData)
-        .then(() => {
-          view.showSuccess("Thanks for reaching out! I'll respond within one business day.");
-          form.reset();
-          setTimeout(() => {
-            view.reset();
-          }, 3200);
-        })
-        .catch(() => {
-          view.showError("We couldn't send your message. Please try again shortly.");
-        });
+        const action = form.getAttribute("action");
+
+        ContactFormService.send(formData, action)
+          .then(() => {
+            view.showSuccess("Thanks for reaching out! I'll respond within one business day.");
+            form.reset();
+            setTimeout(() => {
+              view.reset();
+            }, 3200);
+          })
+          .catch((error) => {
+            console.error("Form submission error:", error);
+            view.showError("We couldn't send your message. Please try again shortly.");
+          });
+      });
     });
   }
 

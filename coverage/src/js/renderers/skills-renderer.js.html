@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>0/21</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/21</span>
+                <span class='fraction'>0/19</span>
             </div>
         
             
@@ -142,13 +142,7 @@
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
 <a name='L79'></a><a href='#L79'>79</a>
-<a name='L80'></a><a href='#L80'>80</a>
-<a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,6 +150,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,9 +174,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -192,16 +184,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -243,8 +231,9 @@ export function <span class="fstat-no" title="function not covered" >renderSkill
   const externalStats = <span class="cstat-no" title="statement not covered" >{</span>
     HTML: 200,
     CSS: 500,
-    JavaScript: 15000, // Next.js + Node logic
-    MySQL: 500, // Postgres/SQL logic
+    JavaScript: 10000, 
+    TypeScript: 5000,
+    MySQL: 500, 
     React: 5000,
   };
 &nbsp;
@@ -261,39 +250,32 @@ export function <span class="fstat-no" title="function not covered" >renderSkill
 <span class="cstat-no" title="statement not covered" >      if (config.isFramework) <span class="cstat-no" title="statement not covered" >return ""; </span></span>// Skip frameworks if they are in a separate section
 &nbsp;
       const count = <span class="cstat-no" title="statement not covered" >mergedSkills[key] || 0;</span>
-      const percent = <span class="cstat-no" title="statement not covered" >count &gt; 0 ? Math.min(100, Math.round((count / 25000) * 100)) : 0;</span> // Increased max base for calc
-      // The original code might have calculated percentage based on total lines.
-      // Let's assume a fixed max or just use the count.
-      // The original HTML had "0%" and "0 lines" initially.
+      const percent = <span class="cstat-no" title="statement not covered" >count &gt; 0 ? Math.min(100, Math.round((count / 25000) * 100)) : 0; </span>
 &nbsp;
       // We need to handle the gradient title for MySQL
-      let titleHtml = <span class="cstat-no" title="statement not covered" >`&lt;h3 class="card-title ${config.class} text-[${config.color}]"&gt;${escapeHtml(config.title)}&lt;/h3&gt;`;</span>
+      let titleHtml = <span class="cstat-no" title="statement not covered" >`&lt;h3 class="card-title ${config.class}" style="color: ${config.color}"&gt;${escapeHtml(config.title)}&lt;/h3&gt;`;</span>
 <span class="cstat-no" title="statement not covered" >      if (config.isGradient) {</span>
 <span class="cstat-no" title="statement not covered" >        titleHtml = `&lt;h3 class="card-title ${config.class}"&gt;</span>
-        &lt;span class="text-[${config.color}]"&gt;My&lt;/span&gt;
-        &lt;span class="text-[${config.colorEnd}]"&gt;SQL&lt;/span&gt;
+        &lt;span style="color: ${config.color}"&gt;My&lt;/span&gt;
+        &lt;span style="color: ${config.colorEnd}"&gt;SQL&lt;/span&gt;
       &lt;/h3&gt;`;
       }
 &nbsp;
-      // Badge
-      let badgeHtml = <span class="cstat-no" title="statement not covered" >"";</span>
-<span class="cstat-no" title="statement not covered" >      if (config.badge) {</span>
-<span class="cstat-no" title="statement not covered" >        badgeHtml = `&lt;span data-badge="${escapeHtml(config.badge)}"&gt;&lt;/span&gt;`;</span>
-      }
-&nbsp;
       // Progress bar gradient
-      // For gradients, we can use style or Tailwind classes if we construct them carefully.
-      // Since colors are variables, style is safer for gradients unless we use arbitrary values like from-[var(--c)]
       const progressStyle = <span class="cstat-no" title="statement not covered" >`background: linear-gradient(to right, ${config.color}, ${config.colorEnd || config.color + "99%"}); width: ${percent}%`;</span>
+&nbsp;
+      // Badge HTML
+      const badgeHtml = <span class="cstat-no" title="statement not covered" >config.badge ? `&lt;span data-badge="${escapeHtml(config.badge)}"&gt;&lt;/span&gt;` : "";</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      return `</span>
       &lt;div class="primary-card" data-skill="${key}"&gt;
-        &lt;div class="card-icon" style="background-color: color-mix(in srgb, ${config.color} 15%, transparent)"&gt;
-          &lt;svg class="boop icon-xl" style="color: ${config.color}" aria-hidden="true" focusable="false"&gt;
+        &lt;div class="card-icon shrink-0" style="background-color: color-mix(in srgb, ${config.color} 15%, transparent)"&gt;
+          &lt;svg ${config.icon === "typescript" ? 'id="typescript"' : ""} class="boop icon-xl" style="color: ${config.color}" aria-hidden="true" focusable="false"&gt;
             &lt;use href="./assets/icons/sprite.svg#${config.icon}"&gt;&lt;/use&gt;
           &lt;/svg&gt;
         &lt;/div&gt;
         ${titleHtml}
+        &lt;p class="card-body text-sm text-neutral-800 dark:text-neutral-200 mt-1 mb-4"&gt;${escapeHtml(config.description || "")}&lt;/p&gt;
 &nbsp;
         &lt;div class="flex items-center gap-2"&gt;
           &lt;div class="w-full relative h-4 bg-neutral-800/30 dark:bg-neutral-200/20 rounded-lg overflow-hidden"&gt;
@@ -325,7 +307,7 @@ export function <span class="fstat-no" title="function not covered" >renderSkill
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-02T02:21:09.442Z
+                at 2026-01-04T05:20:37.037Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -114,7 +114,17 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,55 +175,75 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const skillsConfig = <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const skillsConfig = {
   HTML: {
     title: "HTML5",
     icon: "html5",
     color: "var(--color-html5)",
     class: "font-html5",
+    description: "Semantic markup, accessibility anchors, and structured content that forms the foundation of every web page.",
   },
   CSS: {
     title: "CSS3",
     icon: "css3",
     color: "var(--color-css3)",
     class: "font-css3",
+    description: "Custom properties, responsive layouts, and smooth animations that bring interfaces to life.",
   },
   SASS: {
     title: "SASS",
     icon: "sass-alt",
     color: "var(--color-sass-pink)",
     class: "font-sass",
+    description: "Nested rules, mixins, and variables for scalable stylesheets and maintainable design systems.",
   },
   JavaScript: {
     title: "JavaScript",
     icon: "js",
     color: "var(--color-javascript)",
     class: "font-js",
+    description: "DOM manipulation, async logic, and modular architecture powering interactive experiences.",
+  },
+  TypeScript: {
+    title: "TypeScript",
+    icon: "typescript",
+    color: "#3178c6",
+    class: "font-ts",
+    description: "Type-safe code, interface definitions, and compile-time checks for robust, scalable applications.",
   },
   PHP: {
     title: "PHP",
     icon: "php",
     color: "var(--color-php)",
     class: "font-php",
+    description: "Server-side rendering, API endpoints, and automation scripts for backend workflows.",
     badge: "Coming Soon",
   },
   MySQL: {
-    title: "MySQL", // Special handling for color in title if needed
-    icon: "mysql",
-    color: "var(--color-mysql-blue)", // Gradient start
-    colorEnd: "var(--color-mysql-orange)", // Gradient end
+    title: "MySQL",
+    icon: "database",
+    color: "var(--color-mysql-blue)",
+    colorEnd: "var(--color-mysql-orange)",
     class: "font-mysql",
-    badge: "Coming Soon",
     isGradient: true,
+    description: "Schema design, optimized queries, and data modeling for performant database operations.",
   },
   React: {
-    // In frameworks section in HTML, but listed in skills.json
     title: "React",
     icon: "react",
     color: "var(--color-react-blue)",
     class: "font-react",
-    badge: "Coming Soon",
-    isFramework: true, // Maybe separate section?
+    isFramework: true, // Excluded from Languages section, shown in Frameworks
   },
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -223,7 +253,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-02T02:21:09.388Z
+                at 2026-01-04T05:20:36.979Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -27,6 +27,15 @@ export const skillsConfig = {
     class: "font-js",
     description: "DOM manipulation, async logic, and modular architecture powering interactive experiences.",
   },
+  Python: {
+    title: "Python",
+    icon: "python",
+    color: "#3776ab",
+    colorEnd: "#ffd343",
+    class: "font-python",
+    isGradient: true,
+    description: "Backend logic, diagnostic scripting, and AI-powered data processing for complex problem solving.",
+  },
   TypeScript: {
     title: "TypeScript",
     icon: "typescript",

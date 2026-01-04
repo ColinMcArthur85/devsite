@@ -12,6 +12,7 @@ export function renderSkills() {
     TypeScript: 5000,
     MySQL: 500, 
     React: 5000,
+    Python: 3500,
   };
 
   const mergedSkills = { ...skills };
@@ -29,12 +30,24 @@ export function renderSkills() {
       const count = mergedSkills[key] || 0;
       const percent = count > 0 ? Math.min(100, Math.round((count / 25000) * 100)) : 0; 
 
-      // We need to handle the gradient title for MySQL
+      // We need to handle the gradient title for gradient skills
       let titleHtml = `<h3 class="card-title ${config.class}" style="color: ${config.color}">${escapeHtml(config.title)}</h3>`;
       if (config.isGradient) {
+        let firstPart, lastPart;
+        if (key === "MySQL") {
+          firstPart = "My";
+          lastPart = "SQL";
+        } else if (key === "Python") {
+          firstPart = "Py";
+          lastPart = "thon";
+        } else {
+          firstPart = config.title.slice(0, Math.floor(config.title.length / 2));
+          lastPart = config.title.slice(firstPart.length);
+        }
+
         titleHtml = `<h3 class="card-title ${config.class}">
-        <span style="color: ${config.color}">My</span>
-        <span style="color: ${config.colorEnd}">SQL</span>
+        <span style="color: ${config.color}">${escapeHtml(firstPart)}</span>
+        <span style="color: ${config.colorEnd}">${escapeHtml(lastPart)}</span>
       </h3>`;
       }
 
