@@ -16,7 +16,7 @@ export function renderFeatures() {
         </svg>
       </div>
       <h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white">${escapeHtml(feature.title)}</h3>
-      <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:gray-300">
+      <p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
         ${escapeHtml(feature.description)}
       </p>
     </div>

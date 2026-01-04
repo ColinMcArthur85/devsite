@@ -72,10 +72,11 @@
   }
 
   .usage-pill {
-    @apply relative flex items-center justify-between overflow-hidden rounded-full border border-light-border bg-light-surface px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md transition-transform duration-500 dark:border-white/10 dark:bg-white/10 dark:text-slate-300;
+    @apply relative flex items-center justify-between overflow-hidden rounded-full border border-light-border bg-light-surface px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-slate-600 backdrop-blur-md transition-all duration-500 dark:border-white/10 dark:bg-white/10 dark:text-slate-300;
     transition:
-      transform 0.5s ease,
-      box-shadow 0.6s ease;
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.6s ease,
+      background-color 0.4s ease;
     --fill-width: 0%;
   }
 
@@ -87,7 +88,7 @@
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(129, 140, 248, 0.22));
     opacity: 0;
     transition:
-      width 0.9s cubic-bezier(0.4, 0, 0.2, 1),
+      width 1.2s cubic-bezier(0.4, 0, 0.2, 1),
       opacity 0.6s ease;
   }
 
@@ -106,13 +107,18 @@
 
   .usage-pill:hover,
   .usage-pill:focus-visible {
-    @apply -translate-y-1;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.15);
+    @apply -translate-y-1 scale-[1.02];
+    box-shadow: 
+      0 18px 40px rgba(15, 23, 42, 0.15),
+      0 0 12px rgba(59, 130, 246, 0.1);
   }
 
   .dark .usage-pill:hover,
   .dark .usage-pill:focus-visible {
-    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
+    @apply -translate-y-1 scale-[1.02];
+    box-shadow: 
+      0 20px 45px rgba(15, 23, 42, 0.45),
+      0 0 20px rgba(59, 130, 246, 0.15);
   }
 
   /* Inputs — Inset appearance (recessed into screen) */
