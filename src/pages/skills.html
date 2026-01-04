@@ -63,7 +63,7 @@
               <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 <div class="space-y-1">
                   <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Total lines</p>
-                  <p class="text-2xl font-semibold text-slate-900 dark:text-white total-lines-count">39,354</p>
+                  <p class="text-2xl font-semibold text-slate-900 dark:text-white total-lines-count">54,104</p>
                   <p class="text-[10px] leading-tight text-slate-500 dark:text-slate-400">Live tally from active repos</p>
                 </div>
                 <div class="space-y-1 border-slate-200 dark:border-white/10 sm:border-l sm:pl-6">
@@ -122,7 +122,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">HTML5</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-html5)">HTML5</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Semantic markup, accessibility anchors, structured content</p>
               </div>
             </div>
@@ -142,7 +142,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">CSS3 / Tailwind</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-css3)">CSS3 / Tailwind</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Utility-first theming, custom properties, responsive choreography</p>
               </div>
             </div>
@@ -162,7 +162,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Sass</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-sass-pink)">Sass</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Legacy systems maintenance, mixins, and progressive refactors</p>
               </div>
             </div>
@@ -182,8 +182,30 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">JavaScript</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-javascript)">JavaScript</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Component logic, animation drivers, data visualizations</p>
+              </div>
+            </div>
+            <div class="mt-6 space-y-3">
+              <div class="progress-bar"><div class="progress-bar-fill" style="width: 0%"></div></div>
+              <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                <span class="progress-percent">0%</span>
+                <span class="lines-count">0 lines</span>
+              </div>
+            </div>
+          </article>
+          <article class="primary-card p-8" data-skill="Python">
+            <div class="flex items-center gap-4">
+              <div class="card-icon shrink-0" style="background-color: color-mix(in srgb, #3776ab 15%, transparent)">
+                <svg class="boop icon-xl" style="color: #3776ab" aria-hidden="true" focusable="false">
+                  <use href="../assets/icons/sprite.svg#python"></use>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold">
+                  <span style="color: #3776ab">Py</span><span style="color: #ffd343">thon</span>
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Backend logic, diagnostic scripting, and AI-powered data processing</p>
               </div>
             </div>
             <div class="mt-6 space-y-3">
@@ -202,7 +224,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">TypeScript</h3>
+                <h3 class="text-lg font-semibold" style="color: #3178c6">TypeScript</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Type-safe logic, interface scaffolding, and scalable architecture</p>
               </div>
             </div>
@@ -222,7 +244,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">PHP</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-php)">PHP</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Server rendering, APIs, and automation endpoints</p>
               </div>
             </div>
@@ -243,7 +265,9 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">MySQL</h3>
+                <h3 class="text-lg font-semibold">
+                  <span style="color: var(--color-mysql-blue)">My</span><span style="color: var(--color-mysql-orange)">SQL</span>
+                </h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Schema design, reporting queries, performance tuning</p>
               </div>
             </div>
@@ -263,7 +287,7 @@
                 </svg>
               </div>
               <div>
-                <h3 class="text-lg font-semibold text-slate-900 dark:text-white">React</h3>
+                <h3 class="text-lg font-semibold" style="color: var(--color-react-blue)">React</h3>
                 <p class="text-xs text-slate-500 dark:text-slate-400">Modernizing components with hooks, suspense, and server rendering</p>
               </div>
             </div>
@@ -358,29 +382,8 @@
               </li>
               <li>
                 <span class="logo-slot boop" title="Python logo">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M13.0164 2C10.8193 2 9.03825 3.72453 9.03825 5.85185V8.51852H15.9235V9.25926H5.97814C3.78107 9.25926 2 10.9838 2 13.1111L2 18.8889C2 21.0162 3.78107 22.7407 5.97814 22.7407H8.27322V19.4815C8.27322 17.3542 10.0543 15.6296 12.2514 15.6296H19.5956C21.4547 15.6296 22.9617 14.1704 22.9617 12.3704V5.85185C22.9617 3.72453 21.1807 2 18.9836 2H13.0164ZM12.0984 6.74074C12.8589 6.74074 13.4754 6.14378 13.4754 5.40741C13.4754 4.67103 12.8589 4.07407 12.0984 4.07407C11.3378 4.07407 10.7213 4.67103 10.7213 5.40741C10.7213 6.14378 11.3378 6.74074 12.0984 6.74074Z"
-                      fill="url(#paint0_linear_87_8204)"
-                    />
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M18.9834 30C21.1805 30 22.9616 28.2755 22.9616 26.1482V23.4815L16.0763 23.4815L16.0763 22.7408L26.0217 22.7408C28.2188 22.7408 29.9998 21.0162 29.9998 18.8889V13.1111C29.9998 10.9838 28.2188 9.25928 26.0217 9.25928L23.7266 9.25928V12.5185C23.7266 14.6459 21.9455 16.3704 19.7485 16.3704L12.4042 16.3704C10.5451 16.3704 9.03809 17.8296 9.03809 19.6296L9.03809 26.1482C9.03809 28.2755 10.8192 30 13.0162 30H18.9834ZM19.9015 25.2593C19.1409 25.2593 18.5244 25.8562 18.5244 26.5926C18.5244 27.329 19.1409 27.9259 19.9015 27.9259C20.662 27.9259 21.2785 27.329 21.2785 26.5926C21.2785 25.8562 20.662 25.2593 19.9015 25.2593Z"
-                      fill="url(#paint1_linear_87_8204)"
-                    />
-                    <defs>
-                      <linearGradient id="paint0_linear_87_8204" x1="12.4809" y1="2" x2="12.4809" y2="22.7407" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#327EBD" />
-                        <stop offset="1" stop-color="#1565A7" />
-                      </linearGradient>
-                      <linearGradient id="paint1_linear_87_8204" x1="19.519" y1="9.25928" x2="19.519" y2="30" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#FFDA4B" />
-                        <stop offset="1" stop-color="#F9C600" />
-                      </linearGradient>
-                    </defs>
+                  <svg class="w-full h-full" style="color: #3776ab" aria-hidden="true" focusable="false">
+                    <use href="../assets/icons/sprite.svg#python"></use>
                   </svg>
                 </span>
                 Python &mdash; beginner
@@ -1326,15 +1329,6 @@
                   <use href="../assets/icons/sprite.svg#paper-plane"></use>
                 </svg>
                 Email
-              </a>
-              <a
-                href="https://cal.com"
-                class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
-              >
-                <svg class="icon" aria-hidden="true" focusable="false">
-                  <use href="../assets/icons/sprite.svg#calendar-plus"></use>
-                </svg>
-                Book a slot
               </a>
             </div>
           </div>

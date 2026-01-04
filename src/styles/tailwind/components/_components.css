@@ -6,11 +6,11 @@
 
   /* Layout helpers — generous whitespace for premium feel */
   .section {
-    @apply relative isolate py-32 transition-all duration-500 lg:py-40;
+    @apply relative isolate py-20 transition-all duration-500 lg:py-28;
   }
 
   .section-alt {
-    @apply relative isolate py-32 transition-all duration-500 lg:py-40;
+    @apply relative isolate py-20 transition-all duration-500 lg:py-28;
   }
 
   .section-title {
@@ -238,6 +238,10 @@
 
   .badge--php {
     --badge-variant-color: var(--color-php);
+  }
+  
+  .badge--python {
+    --badge-variant-color: #3776ab;
   }
 
   .badge--mysql {

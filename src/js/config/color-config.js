@@ -7,11 +7,13 @@ export const TAG_COLORS = {
   javascript: "var(--color-javascript)",
   js: "var(--color-javascript)",
   php: "var(--color-php)",
+  python: "var(--color-python, #3776ab)", // Python blue
   sass: "var(--color-sass-pink)",
 
   // Frameworks & Libraries
   "next.js": "var(--color-dark-background)", // Black background for Next.js
   react: "var(--color-react-blue)",
+  openai: "var(--color-openai, #10a37f)", // OpenAI green
   tailwind: "var(--color-tailwind-blue)",
   postgres: "var(--color-primary-blue)",
   mysql: "var(--color-mysql-blue)",

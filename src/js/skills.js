@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     TypeScript: 5000,
     MySQL: 500,
     React: 5000,
+    Python: 3500,
   };
 
   fetch(`${basePath}data/skills.json`)

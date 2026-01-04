@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -100,45 +100,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import features from "../../data/features.json";
 import { escapeHtml } from "../utils/sanitize.js";
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >renderFeatures(</span>) {
-  const container = <span class="cstat-no" title="statement not covered" >document.querySelector("#features .grid");</span>
-<span class="cstat-no" title="statement not covered" >  if (!container) <span class="cstat-no" title="statement not covered" >return;</span></span>
+export function renderFeatures() {
+  const container = document.querySelector("#features .grid");
+  if (!container) return;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  container.innerHTML = features</span>
+  container.innerHTML = features
     .map(
-<span class="fstat-no" title="function not covered" >      (f</span>eature) =&gt; <span class="cstat-no" title="statement not covered" >`</span>
+      (feature) =&gt; `
     &lt;div class="primary-card"&gt;
       &lt;div class="absolute inset-0 bg-linear-to-br from-primary/20 via-transparent to-secondary/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100"&gt;&lt;/div&gt;
       &lt;div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl bg-linear-to-br from-primary to-secondary text-white shadow-lg"&gt;
@@ -147,7 +147,7 @@ export function <span class="fstat-no" title="function not covered" >renderFeatu
         &lt;/svg&gt;
       &lt;/div&gt;
       &lt;h3 class="relative z-10 mt-6 text-xl font-semibold text-gray-900 dark:text-white"&gt;${escapeHtml(feature.title)}&lt;/h3&gt;
-      &lt;p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:gray-300"&gt;
+      &lt;p class="relative z-10 mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-300"&gt;
         ${escapeHtml(feature.description)}
       &lt;/p&gt;
     &lt;/div&gt;
@@ -157,10 +157,10 @@ export function <span class="fstat-no" title="function not covered" >renderFeatu
 }
 &nbsp;
 // Auto-init
-<span class="cstat-no" title="statement not covered" >if (document.readyState === "loading") {</span>
+<span class="missing-if-branch" title="if path not taken" >I</span>if (document.readyState === "loading") {
 <span class="cstat-no" title="statement not covered" >  document.addEventListener("DOMContentLoaded", renderFeatures);</span>
 } else {
-<span class="cstat-no" title="statement not covered" >  renderFeatures();</span>
+  renderFeatures();
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -169,7 +169,7 @@ export function <span class="fstat-no" title="function not covered" >renderFeatu
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-01-02T02:21:09.442Z
+                at 2026-01-04T18:02:41.767Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

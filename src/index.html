@@ -489,7 +489,7 @@
             </div>
           </div>
           <div>
-            <form id="contactForm" action="" class="secondary-card card-shadow flex flex-col gap-6 p-8">
+            <form data-contact-form id="contactForm" action="" class="secondary-card card-shadow flex flex-col gap-6 p-8">
               <div>
                 <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Kickoff form</p>
                 <h3 class="mt-2 text-2xl font-semibold text-slate-900 dark:text-white">What are we building?</h3>
@@ -506,7 +506,17 @@
                 <label for="message" class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Details</label>
                 <textarea name="message" id="message" rows="5" required class="form-input" placeholder="What we doin'?"></textarea>
               </div>
-              <div data-button data-text="Send Message" data-type="submit" data-classes="btn-primary w-full"></div>
+              <p class="form-status" data-contact-status aria-live="polite"></p>
+              <div 
+                data-button 
+                data-text="Send Message" 
+                data-type="submit" 
+                data-classes="btn-primary w-full"
+                data-contact-submit
+                data-busy-label="Sending…"
+                data-success-label="Message sent!"
+                data-error-label="Try again"
+              ></div>
             </form>
           </div>
         </div>
@@ -542,15 +552,6 @@
                 </svg>
                 Email
               </a>
-              <!-- <a
-                href="https://cal.com"
-                class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition-colors duration-300 hover:bg-white/20"
-              >
-                <svg class="icon boop" aria-hidden="true" focusable="false">
-                    <use href="./assets/icons/sprite.svg#calendar-plus"></use>
-                  </svg>
-                Book a slot
-              </a> -->
             </div>
           </div>
           <div class="grid gap-10 sm:grid-cols-2">
@@ -602,6 +603,7 @@
     <script type="module" src="./js/renderers/skills-renderer.js"></script>
     <script type="module" src="./js/modules/scroll-reveal.js"></script>
     <script type="module" src="./js/modules/terminal-typing.js"></script>
+    <script type="module" src="./js/modules/contact-form.js"></script>
     <script type="module" src="./js/scripts.js"></script>
   </body>
 </html>
