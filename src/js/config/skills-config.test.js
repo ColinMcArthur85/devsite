@@ -38,4 +38,12 @@ describe("skillsConfig", () => {
   test("PHP should have the coming soon badge", () => {
     expect(skillsConfig.PHP.badge).toBe("Coming Soon");
   });
+
+  test("Python should have correct gradient properties and description", () => {
+    expect(skillsConfig.Python.isGradient).toBe(true);
+    expect(skillsConfig.Python.color).toBe("#3776ab");
+    expect(skillsConfig.Python.colorEnd).toBe("#ffd343");
+    expect(skillsConfig.Python.title).toBe("Python");
+    expect(skillsConfig.Python.description).toContain("Backend logic");
+  });
 });
