@@ -1,5 +1,4 @@
 // Import modules to ensure they register before we run initializers
-import "./modules/scroll-reveal.js";
 import "./modules/terminal-typing.js";
 import { initHeroDots } from "./modules/dot-magnet.js";
 import { initAvatarTilt } from "./modules/avatar-tilt.js";

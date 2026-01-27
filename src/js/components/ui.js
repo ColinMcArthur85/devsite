@@ -1,14 +1,7 @@
+import { slugify } from "../utils/slugify.js";
+
 const RESERVED_BUTTON_DATA = new Set(["button", "text", "href", "classes", "type", "html"]);
 const RESERVED_BADGE_DATA = new Set(["badge", "text", "classes", "variant", "appearance"]);
-
-function slugify(value = "") {
-  return value
-    .toString()
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-}
 
 export function createButton({ text = "", href = "", classes = "", type = "button", onClick = null, html = "" }) {
   const element = href ? document.createElement("a") : document.createElement("button");

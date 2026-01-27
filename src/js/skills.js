@@ -1,15 +1,7 @@
+import { externalStats } from "./config/external-stats.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const basePath = window.location.pathname.includes("/pages/") ? "../" : "./";
-
-  const externalStats = {
-    HTML: 200,
-    CSS: 500,
-    JavaScript: 10000,
-    TypeScript: 5000,
-    MySQL: 500,
-    React: 5000,
-    Python: 3500,
-  };
 
   fetch(`${basePath}data/skills.json`)
     .then((res) => res.json())

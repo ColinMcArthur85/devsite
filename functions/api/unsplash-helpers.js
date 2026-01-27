@@ -127,15 +127,26 @@ function isAllowedOrigin(origin, environment) {
   // Production allowed origins
   const productionOrigins = ["https://colinmcarthur.dev", "https://www.colinmcarthur.dev"];
 
-  // Development allowed origins
-  const developmentOrigins = ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173", "http://127.0.0.1:3000"];
+  // Development/Preview allowed origins
+  const developmentOrigins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "http://localhost:8788",
+    "http://127.0.0.1:8788",
+  ];
 
   if (environment === "production") {
     return productionOrigins.includes(origin);
   }
 
-  // In development, allow both dev and prod origins
-  return [...developmentOrigins, ...productionOrigins].includes(origin);
+  // Allow localhost, production origins, and any Cloudflare Pages preview URLs
+  return (
+    developmentOrigins.includes(origin) ||
+    productionOrigins.includes(origin) ||
+    origin.endsWith(".pages.dev")
+  );
 }
 
 /**
