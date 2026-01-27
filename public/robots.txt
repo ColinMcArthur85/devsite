@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /__tests__/
+Sitemap: https://colinmcarthur85.github.io/devsite/sitemap.xml

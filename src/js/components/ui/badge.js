@@ -1,18 +1,7 @@
 // UI Badge component (ESM)
 // Mirrors behavior of the legacy IIFE-based UIComponents.createBadge
 
-/**
- * @param {string} [value]
- * @returns {string}
- */
-export function slugify(value = "") {
-  return value
-    .toString()
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)+/g, "");
-}
+import { slugify } from "../../utils/slugify.js";
 
 /**
  * @typedef {Object} BadgeOptions

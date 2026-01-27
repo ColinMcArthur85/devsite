@@ -1,20 +1,10 @@
 import skills from "../../data/skills.json";
 import { skillsConfig } from "../config/skills-config.js";
+import { externalStats } from "../config/external-stats.js";
 import { createBadge } from "../components/ui.js";
 import { escapeHtml } from "../utils/sanitize.js";
 
 export function renderSkills() {
-  // Manual stats for external projects (e.g. Timesheet Tracker)
-  const externalStats = {
-    HTML: 200,
-    CSS: 500,
-    JavaScript: 10000, 
-    TypeScript: 5000,
-    MySQL: 500, 
-    React: 5000,
-    Python: 3500,
-  };
-
   const mergedSkills = { ...skills };
   Object.keys(externalStats).forEach((key) => {
     mergedSkills[key] = (mergedSkills[key] || 0) + externalStats[key];
