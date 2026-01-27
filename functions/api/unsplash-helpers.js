@@ -122,8 +122,7 @@ function sanitizeErrorMessage(message) {
  * @returns {boolean} Whether the origin is allowed
  */
 function isAllowedOrigin(origin, environment) {
-  // If no origin, it's likely same-origin or direct browser access
-  if (!origin) return true;
+  if (!origin) return false;
 
   // Production allowed origins
   const productionOrigins = ["https://colinmcarthur.dev", "https://www.colinmcarthur.dev"];
