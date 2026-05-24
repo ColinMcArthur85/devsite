@@ -7,17 +7,11 @@ describe("skillsConfig", () => {
       expect(skill).toHaveProperty("icon");
       expect(skill).toHaveProperty("color");
       expect(skill).toHaveProperty("class");
-    });
-  });
-
-  test("should have descriptions for languages", () => {
-    // Only languages (non-frameworks) must have descriptions in our current design
-    Object.entries(skillsConfig).forEach(([key, skill]) => {
-      if (!skill.isFramework) {
-        expect(skill).toHaveProperty("description");
-        expect(typeof skill.description).toBe("string");
-        expect(skill.description.length).toBeGreaterThan(0);
-      }
+      expect(skill).toHaveProperty("description");
+      expect(skill).toHaveProperty("completedMilestones");
+      expect(skill).toHaveProperty("nextMilestones");
+      expect(Array.isArray(skill.completedMilestones)).toBe(true);
+      expect(Array.isArray(skill.nextMilestones)).toBe(true);
     });
   });
 
@@ -31,12 +25,9 @@ describe("skillsConfig", () => {
     expect(skillsConfig.MySQL).toHaveProperty("colorEnd");
   });
 
-  test("React should be marked as framework", () => {
-    expect(skillsConfig.React.isFramework).toBe(true);
-  });
-
-  test("PHP should have the coming soon badge", () => {
-    expect(skillsConfig.PHP.badge).toBe("Coming Soon");
+  test("PHP should have completed milestones showing active backend experience", () => {
+    expect(skillsConfig.PHP.completedMilestones.length).toBeGreaterThan(0);
+    expect(skillsConfig.PHP.completedMilestones).toContain("MVC Architecture: Routing requests to Controllers");
   });
 
   test("Python should have correct gradient properties and description", () => {
@@ -45,5 +36,11 @@ describe("skillsConfig", () => {
     expect(skillsConfig.Python.colorEnd).toBe("#ffd343");
     expect(skillsConfig.Python.title).toBe("Python");
     expect(skillsConfig.Python.description).toContain("Backend logic");
+  });
+
+  test("should define a highly premium AI Orchestration card", () => {
+    expect(skillsConfig.AIOrchestration).toBeDefined();
+    expect(skillsConfig.AIOrchestration.title).toBe("AI Orchestration");
+    expect(skillsConfig.AIOrchestration.completedMilestones).toContain("Directing AI agents through structured BDD/TDD steps");
   });
 });

@@ -3,6 +3,17 @@ import dnsDiagnosticImage from "../projects/full_stack/dns_diagnostic/dns_diagno
 
 export const projects = [
   {
+    id: "php-mvc-visualizer",
+    title: "Interactive PHP MVC Visualizer",
+    description:
+      "A cinematic, interactive showcase that visually traces an incoming HTTP GET request through a custom Router, Security Middleware, Controller, Model, and prepared SQL statement query executions in real-time. Proves full-lifecycle backend MVC architecture understanding.",
+    image: "/projects/api/php_mvc_visualizer/mvc_preview.png",
+    live: "/pages/showcase.html",
+    code: "https://github.com/ColinMcArthur85/devsite/tree/main/src/js/modules/mvc-visualizer.js",
+    tags: ["PHP", "MySQL", "Architecture", "Vanilla JS"],
+    category: "Full Stack",
+  },
+  {
     id: "timesheet-tracker",
     title: "Timesheet Tracker",
     description:
