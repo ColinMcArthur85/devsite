@@ -1,35 +1,34 @@
 import { renderSkills } from "./skills-renderer";
 import { skillsConfig } from "../config/skills-config";
 
-jest.mock("../../data/skills.json", () => ({
-  HTML: 1000,
-  CSS: 2000,
-  JavaScript: 1500,
-  Python: 500,
-}));
-
 describe("renderSkills", () => {
-  let container;
+  let skillsContainer;
+  let frameworksContainer;
 
   beforeEach(() => {
     document.body.innerHTML = `
       <section id="skills">
         <div class="grid"></div>
       </section>
+      <section id="frameworks">
+        <div class="grid"></div>
+      </section>
     `;
-    container = document.querySelector("#skills .grid");
+    skillsContainer = document.querySelector("#skills .grid");
+    frameworksContainer = document.querySelector("#frameworks .grid");
   });
 
-  test("should render skill cards into the container", () => {
+  test("should render skill cards into the skills container", () => {
     renderSkills();
-    expect(container.innerHTML).toContain('data-skill="HTML"');
-    expect(container.innerHTML).toContain('data-skill="Python"');
-    expect(container.innerHTML).toContain('data-skill="JavaScript"');
+    expect(skillsContainer.innerHTML).toContain('data-skill="HTML"');
+    expect(skillsContainer.innerHTML).toContain('data-skill="Python"');
+    expect(skillsContainer.innerHTML).toContain('data-skill="JavaScript"');
+    expect(skillsContainer.innerHTML).toContain('data-skill="AIOrchestration"');
   });
 
   test("should handle gradient titles correctly for MySQL", () => {
     renderSkills();
-    const mysqlCard = container.querySelector('[data-skill="MySQL"]');
+    const mysqlCard = skillsContainer.querySelector('[data-skill="MySQL"]');
     expect(mysqlCard).toBeTruthy();
     const title = mysqlCard.querySelector(".card-title");
     expect(title.innerHTML).toContain('<span style="color: var(--color-mysql-blue)">My</span>');
@@ -38,25 +37,28 @@ describe("renderSkills", () => {
 
   test("should handle gradient titles correctly for Python", () => {
     renderSkills();
-    const pythonCard = container.querySelector('[data-skill="Python"]');
+    const pythonCard = skillsContainer.querySelector('[data-skill="Python"]');
     expect(pythonCard).toBeTruthy();
     const title = pythonCard.querySelector(".card-title");
     expect(title.innerHTML).toContain('<span style="color: #3776ab">Py</span>');
     expect(title.innerHTML).toContain('<span style="color: #ffd343">thon</span>');
   });
 
-  test("should calculate percentages correctly", () => {
+  test("should render checklists for competencies instead of line progress bars", () => {
     renderSkills();
-    // Python count = 500 (mock) + 3500 (external) = 4000
-    // Percentage = round((4000 / 25000) * 100) = 16%
-    const pythonCard = container.querySelector('[data-skill="Python"]');
-    const percentLabel = pythonCard.querySelector(".progress-percent");
-    expect(percentLabel.textContent).toBe("16%");
+    const htmlCard = skillsContainer.querySelector('[data-skill="HTML"]');
+    expect(htmlCard).toBeTruthy();
+    
+    // Verify that checkpoint list exists and lists completed items
+    const list = htmlCard.querySelector("ul");
+    expect(list).toBeTruthy();
+    expect(list.innerHTML).toContain("Semantic elements structuring");
   });
 
-  test("should skip frameworks", () => {
+  test("should render React and Tailwind dynamic cards inside frameworks container", () => {
     renderSkills();
-    expect(container.innerHTML).not.toContain('data-skill="React"');
+    expect(frameworksContainer.innerHTML).toContain('data-skill="React"');
+    expect(frameworksContainer.innerHTML).toContain('data-skill="Tailwind"');
   });
 
   test("should do nothing if container is missing", () => {
