@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Interactive Card Builder",
+    "icon": "sliders",
+    "description": "Calculators, sliders and AI-generated interactive blocks for customer pages, built from spec to release.",
+    "tags": ["PHP", "JS", "AI"]
+  },
+  {
+    "title": "A2P 10DLC Compliance Gate",
+    "icon": "comments",
+    "description": "A VERIFIED-only SMS send gate across every texting path, plus 503 carrier registrations completed.",
+    "tags": ["Twilio", "Compliance"]
+  },
+  {
+    "title": "AI Onboarding Drafts",
+    "icon": "envelope-open-text",
+    "description": "AI reads new customers' setup answers and pre-writes a personal onboarding email in Freshdesk.",
+    "tags": ["LLM", "Freshdesk API", "Retention"]
+  },
+  {
+    "title": "Multi-Agent Support Team",
+    "icon": "robot",
+    "description": "Named AI agents that investigate tickets, gather evidence and draft replies for human review.",
+    "tags": ["Agents", "Claude Code"]
+  },
+  {
+    "title": "Platform MCP Server",
+    "icon": "diagram-project",
+    "description": "Lets AI assistants work inside the platform: contacts, campaigns, pages, store, bookings.",
+    "tags": ["MCP", "API"]
+  },
+  {
+    "title": "Billing Resilience",
+    "icon": "server",
+    "description": "Past-due plan-change hardening, webhook guards and Stripe-disconnect alerts.",
+    "tags": ["Stripe", "Webhooks"]
+  },
+  {
+    "title": "Spam and PII Protection",
+    "icon": "check",
+    "description": "Bot-signup defences on public endpoints and PII scrubbing in error telemetry.",
+    "tags": ["Security"]
+  }
+]

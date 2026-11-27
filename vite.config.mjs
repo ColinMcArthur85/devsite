@@ -15,6 +15,7 @@ export default defineConfig({
         projects: resolve(__dirname, "src/pages/projects.html"),
         about: resolve(__dirname, "src/pages/about.html"),
         contact: resolve(__dirname, "src/pages/contact.html"),
+        resume: resolve(__dirname, "src/pages/resume.html"),
         skills: resolve(__dirname, "src/pages/skills.html"),
         "projects/api/image_search/index": resolve(__dirname, "src/projects/api/image_search/index.html"),
         showcase: resolve(__dirname, "src/pages/showcase.html"),
