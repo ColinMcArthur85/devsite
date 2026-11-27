@@ -143,7 +143,7 @@
           })
           .catch((error) => {
             console.error("Form submission error:", error);
-            view.showError("We couldn't send your message. Please try again shortly.");
+            view.showError("Couldn't send your message. Please email colinsba@gmail.com instead.");
           });
       });
     });
