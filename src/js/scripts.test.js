@@ -50,4 +50,28 @@ describe("Main Scripts Entry Point", () => {
     
     expect(mockModule.init).toHaveBeenCalled();
   });
+
+  test("initialises modules that register after startup has run", async () => {
+    window.SiteFeatureModules = [];
+    await import("./scripts.js");
+
+    const lateModule = { name: "late", init: jest.fn() };
+    window.SiteFeatureModules.push(lateModule);
+
+    expect(lateModule.init).toHaveBeenCalledTimes(1);
+    expect(window.SiteFeatureModules).toContain(lateModule);
+  });
+
+  test("a failing module does not stop later ones", async () => {
+    window.SiteFeatureModules = [];
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+    await import("./scripts.js");
+
+    const bad = { name: "bad", init: () => { throw new Error("boom"); } };
+    const good = { name: "good", init: jest.fn() };
+    window.SiteFeatureModules.push(bad, good);
+
+    expect(good.init).toHaveBeenCalled();
+    spy.mockRestore();
+  });
 });
