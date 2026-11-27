@@ -143,7 +143,7 @@
           })
           .catch((error) => {
             console.error("Form submission error:", error);
-            view.showError("Couldn't send your message. Please email colinsba@gmail.com instead.");
+            view.showError("Couldn't send your message. Please email hello@colinmcarthur.com instead.");
           });
       });
     });
