@@ -50,7 +50,8 @@ describe("isSameOrigin", () => {
 describe("buildEmail", () => {
   test("uses defaults and sets reply_to to the visitor", () => {
     const e = buildEmail({ name: "Ada", email: "ada@example.com", message: "Hi" });
-    expect(e.to).toEqual(["colinsba@gmail.com"]);
+    expect(e.to).toEqual(["hello@colinmcarthur.com"]);
+    expect(e.from).toContain("@colinmcarthur.com");
     expect(e.reply_to).toBe("ada@example.com");
     expect(e.text).toContain("Hi");
     expect(e).not.toHaveProperty("html");

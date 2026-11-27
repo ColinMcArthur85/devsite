@@ -68,8 +68,8 @@ function isSameOrigin(originHeader, requestUrl) {
  */
 function buildEmail({ name, email, message }, env = {}) {
   return {
-    from: env.CONTACT_FROM || "Website contact form <onboarding@resend.dev>",
-    to: [env.CONTACT_TO || "colinsba@gmail.com"],
+    from: env.CONTACT_FROM || "Website contact form <form@colinmcarthur.com>",
+    to: [env.CONTACT_TO || "hello@colinmcarthur.com"],
     reply_to: email,
     subject: `Website message from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\n\n${message}\n`,

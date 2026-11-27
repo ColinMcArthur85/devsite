@@ -6,9 +6,9 @@
  *
  * Env vars (Cloudflare Pages > Settings > Variables, or .dev.vars locally):
  *   RESEND_API_KEY  required
- *   CONTACT_TO      optional, defaults to colinsba@gmail.com
- *   CONTACT_FROM    optional, defaults to onboarding@resend.dev (works only
- *                   for the Resend account owner's address until a domain is verified)
+ *   CONTACT_TO      optional, defaults to hello@colinmcarthur.com
+ *   CONTACT_FROM    optional, defaults to form@colinmcarthur.com
+ *                   (colinmcarthur.com is verified in Resend)
  */
 
 const helpers = require("./contact-helpers");
